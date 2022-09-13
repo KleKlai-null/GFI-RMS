@@ -33,6 +33,22 @@
   </head>
   <body  class=" border-top-wide border-primary d-flex flex-column">
     <div class="page page-center">
+
+      @env('local', 'staging')
+        <div class="container-tight py-4">
+          <div class="text-center mb-4">
+            <div class="alert alert-warning">
+                @env('local')
+                  Local Environment
+                @endenv
+                @env('staging')
+                  Staging Environment
+                @endenv
+            </div>
+          </div>
+        </div>
+      @endenv
+
       {{ $slot }}
     </div>
     <!-- Libs JS -->

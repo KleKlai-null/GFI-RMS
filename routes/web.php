@@ -50,7 +50,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('test', function () {
-    // dd(auth()->user()->getPermissionsViaRoles());
+    dd(auth()->user()->getPermissionsViaRoles());
 });
 
 Route::get('testua', function (Request $request) {
