@@ -218,6 +218,18 @@
                             aria-label="Search in website">
                     </div>
                 </div> --}}
+                @env('local', 'staging')
+                    <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+                        <div class="text-warning">
+                            @env('local')
+                            Local Environment
+                            @endenv
+                            @env('staging')
+                            Staging Environment
+                            @endenv
+                        </div>
+                    </div>
+                @endenv
             </div>
         </div>
     </div>

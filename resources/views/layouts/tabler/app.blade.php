@@ -226,6 +226,9 @@
             </div>
         </header>
         @include('layouts.tabler.navigation')
+
+        
+
         <div class="page-wrapper">
             {{ $slot }}
             @include('layouts.tabler.footer')
