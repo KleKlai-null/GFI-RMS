@@ -15,7 +15,7 @@
         <div class="container-xl">
             <div class="row row-cards">
 
-                <a href="{{ url('log-viewer') }}" target="_blank" class="btn btn-green">System Log</a>
+                <a href="{{ url('server/system-log') }}" target="_blank" class="btn btn-green">System Log</a>
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
