@@ -38,7 +38,7 @@ return [
 
     'middleware' => [
         'web',
-        'permission:view telescope'
+        'permission:view system log'
     ],
 
     /*
