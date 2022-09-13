@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Validator;
 
@@ -92,6 +93,8 @@ class Create extends Component
 
         } catch (Exception $exception) {
 
+            Log::error($exception);
+            
             session()->flash('message', 'Something went wrong behind the scene. Please contact your administrator.');
 
             DB::rollBack();

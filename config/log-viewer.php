@@ -10,7 +10,7 @@ return [
     |
     */
 
-    'route_path' => 'log-viewer',
+    'route_path' => 'server/system-log',
 
     /*
     |--------------------------------------------------------------------------
@@ -36,7 +36,10 @@ return [
     |
     */
 
-    'middleware' => ['web', 'auth'],
+    'middleware' => [
+        'web',
+        'permission:view telescope'
+    ],
 
     /*
     |--------------------------------------------------------------------------

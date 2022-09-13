@@ -46,8 +46,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('test', function () {
-
-    abort(419);
+    // dd(auth()->user()->getPermissionsViaRoles());
 });
 
 Route::get('testua', function (Request $request) {

@@ -153,7 +153,7 @@
                             </a>
                         </li>
                     @endcanany
-                    @can('view log')
+                    @can('view activity log')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('activity.log') }}">
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">

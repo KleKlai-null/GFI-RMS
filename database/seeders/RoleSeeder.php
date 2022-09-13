@@ -241,7 +241,10 @@ class RoleSeeder extends Seeder
                 'name'  => 'delete employee'
             ],
             [
-                'name'  => "view log"
+                'name'  => "view activity log"
+            ],
+            [
+                'name'  => "view system log"
             ],
             [
                 'name'  => 'disable user',
@@ -252,6 +255,9 @@ class RoleSeeder extends Seeder
             [
                 'name'  => 'change permission',
             ],
+            [
+                'name'  => 'view telescope'
+            ],
         ]; 
 
         foreach ($user_management_permission as $permission)
@@ -261,6 +267,7 @@ class RoleSeeder extends Seeder
 
         $c_level->givePermissionTo(Permission::all());
 
+        // Add create rs permission to all roles
         $rs = Permission::where('name', 'create rs')->first();
         $rs->syncRoles(['mi clerk', 'mro clerk', 'dm clerk' , 'fg clerk', 'fa clerk', 'ma clerk', 'mr clerk', 'sc clerk', 'administrator']);
     }

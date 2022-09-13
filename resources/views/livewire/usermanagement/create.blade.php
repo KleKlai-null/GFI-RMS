@@ -82,7 +82,7 @@
 
                                             <label class="form-check mb-2">
                                                 <input class="form-check-input @error('roles') is-invalid @enderror"
-                                                    wire:model="roles" value="mi_clerk" type="checkbox"
+                                                    wire:model="roles" value="mi clerk" type="checkbox"
                                                     {{ in_array('administrator', $roles) ? 'disabled' : '' }}>
                                                 <span class="form-check-label">
                                                     MI (Merchandise)
@@ -93,7 +93,7 @@
                                             </label>
                                             <label class="form-check mb-2">
                                                 <input class="form-check-input @error('roles') is-invalid @enderror"
-                                                    wire:model="roles" value="mro_clerk" type="checkbox"
+                                                    wire:model="roles" value="mro clerk" type="checkbox"
                                                     {{ in_array('administrator', $roles) ? 'disabled' : '' }}>
                                                 <span class="form-check-label">
                                                     MRO (Maintence, Repairs, Operations)
@@ -104,7 +104,7 @@
                                             </label>
                                             <label class="form-check mb-2">
                                                 <input class="form-check-input @error('roles') is-invalid @enderror"
-                                                    wire:model="roles" value="dm_clerk" type="checkbox"
+                                                    wire:model="roles" value="dm clerk" type="checkbox"
                                                     {{ in_array('administrator', $roles) ? 'disabled' : '' }}>
                                                 <span class="form-check-label">
                                                     DM (Direct Material)
@@ -115,7 +115,7 @@
                                             </label>
                                             <label class="form-check mb-2">
                                                 <input class="form-check-input @error('roles') is-invalid @enderror"
-                                                    wire:model="roles" value="fg_clerk" type="checkbox"
+                                                    wire:model="roles" value="fg clerk" type="checkbox"
                                                     {{ in_array('administrator', $roles) ? 'disabled' : '' }}>
                                                 <span class="form-check-label">
                                                     FG (Finished Goods)
@@ -126,7 +126,7 @@
                                             </label>
                                             <label class="form-check mb-2">
                                                 <input class="form-check-input @error('roles') is-invalid @enderror"
-                                                    wire:model="roles" value="fa_clerk" type="checkbox"
+                                                    wire:model="roles" value="fa clerk" type="checkbox"
                                                     {{ in_array('administrator', $roles) ? 'disabled' : '' }}>
                                                 <span class="form-check-label">
                                                     FA (Fixed Asset Item)
@@ -137,7 +137,7 @@
                                             </label>
                                             <label class="form-check mb-2">
                                                 <input class="form-check-input @error('roles') is-invalid @enderror"
-                                                    wire:model="roles" value="ma_clerk" type="checkbox"
+                                                    wire:model="roles" value="ma clerk" type="checkbox"
                                                     {{ in_array('administrator', $roles) ? 'disabled' : '' }}>
                                                 <span class="form-check-label">
                                                     MA (Memorandum)
@@ -148,7 +148,7 @@
                                             </label>
                                             <label class="form-check mb-2">
                                                 <input class="form-check-input @error('roles') is-invalid @enderror"
-                                                    wire:model="roles" value="mr_clerk" type="checkbox"
+                                                    wire:model="roles" value="mr clerk" type="checkbox"
                                                     {{ in_array('administrator', $roles) ? 'disabled' : '' }}>
                                                 <span class="form-check-label">
                                                     MR (Memorandum)
