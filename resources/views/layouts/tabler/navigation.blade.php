@@ -80,6 +80,7 @@
                                     @endcanany
                                     <a href="javascript:memorandum()" class="dropdown-item">
                                         Memorandum
+                                        <span class="badge badge-sm bg-red text-uppercase ms-2">Undermaintenance</span>
                                     </a>
                                     @canany(['create sc', 'view sc', 'delete sc', 'archive sc'])
                                         <a href="{{ route('sc') }}" class="dropdown-item">
@@ -176,7 +177,7 @@
                         </li>
                     @endcan
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('help') }}">
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-lifebuoy"
                                     width="24" height="24" viewBox="0 0 24 24" stroke-width="2"

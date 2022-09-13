@@ -1,6 +1,6 @@
 <div>
     <input type="search" class="form-control d-inline-block w-9 me-3"
-                                wire:model="search" placeholder="Search anything..." />
+                                wire:model="search" placeholder="Search event" />
     <table class="table table-vcenter card-table">
         <thead>
             <tr>

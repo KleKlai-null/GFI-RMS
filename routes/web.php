@@ -43,6 +43,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('departments', App\Http\Livewire\Form\Component\Departments\Index::class)->name('departments');
     Route::get('employees', App\Http\Livewire\Form\Component\Employee\Index::class)->name('employees');
 
+    Route::get('help', function () {
+        return abort(503);
+    })->name('help');
+
 });
 
 Route::get('test', function () {

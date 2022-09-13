@@ -189,7 +189,7 @@
             </div>
 
             <div class="empty">
-                <p class="empty-subtitle text-muted text-center">{{ $quote[0]['q'] . ' - ' . $quote[0]['a'] }}</p>
+                <p class="empty-subtitle text-muted text-center">{{ (isset($quote)) ? $quote[0]['q'] . ' - ' . $quote[0]['a'] : '' }}</p>
             </div>
 
         </div>

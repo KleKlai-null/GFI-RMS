@@ -21,7 +21,7 @@
                         <span class="d-none d-sm-inline">
                             <input type="search"
                                 class="form-control d-inline-block w-9 me-3 {{ empty($datas) ? 'd-none' : '' }}"
-                                wire:model="search" placeholder="Search anything..." />
+                                wire:model="search" placeholder="Search document series..." />
                         </span>
                         <x-form-index-header new="{{ route('mi.create') }}" />
                     </div>

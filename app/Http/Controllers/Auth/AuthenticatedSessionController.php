@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
 
         if(app()->isProduction())
         {
-            if(Auth::user()->is_required_setup){
+            if(empty(auth()->user()->last_password_change_at) && auth()->user()->is_required_setup){
                 return redirect()->route('profile.setup');
             }
         }
