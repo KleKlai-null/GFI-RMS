@@ -59,7 +59,6 @@ class Create extends Component
             'description.*'         => 'required',
             'qty.*'                 => 'required|numeric',
             'uom.*'                 => 'required',
-            'remarks.*'             => 'nullable',
             'noted_by'              => 'required',
             'prepared_by'           => 'required',
             'approved_by'           => 'required',
@@ -114,11 +113,15 @@ class Create extends Component
                     'item_description'      => $this->description[$key],
                     'qty'                   => $this->qty[$key],
                     'uom'                   => $this->uom[$key],
-                    'remarks'               => $this->remarks[$key]
+                    'remarks'               => $this->remarks[$key] ?? ''
                 ]);
             }
 
             DB::commit();
+
+            $this->reset(); // Reset all properties
+
+            return redirect()->route('mi.show', $data);
 
         } catch (Exception $exception) {
 
@@ -131,9 +134,5 @@ class Create extends Component
 
             Log::error($throwable);
         }
-
-        $this->reset(); // Reset all properties
-
-        return redirect()->route('mi.show', $data);
     }
 }

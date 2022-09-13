@@ -107,7 +107,7 @@ class Create extends Component
                     'item_description'      => $this->description[$key],
                     'qty'                   => $this->qty[$key],
                     'uom'                   => $this->uom[$key],
-                    'reason'                => $this->reason[$key]
+                    'reason'                => $this->remarks[$key] ?? ''
                 ]);
             }
             
