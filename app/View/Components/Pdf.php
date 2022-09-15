@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class PDFLayout extends Component
+class Pdf extends Component
 {
     public $title, $data;
     public $has_serial = false; // Check if the form item is serial or uom (unit of measure)
