@@ -21,7 +21,7 @@
                                 <td class="text-muted">{!! $item->item_description !!}</td>
                                 <td class="text-muted">{!! $item->qty !!}</td>
                                 <td class="text-muted">{!! ($type == 'uom') ? $item->uom : $item->serial_no !!}</td>
-                                <td>{!! $item->remarks !!}</td>
+                                <td>{{ $item->remarks }}</td>
                             </tr>
                         @empty
                         @endforelse

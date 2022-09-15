@@ -68,7 +68,7 @@
 
                     <x-signatory-authority :data="$data" />
 
-                    <x-form-item-information :items="$data->items" type="uom" />
+                    <x-form-item-information :items="$data->items" type="uom"/>
                 </div>
             </div>
 

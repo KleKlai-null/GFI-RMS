@@ -77,6 +77,10 @@ class Create extends Component
 
             DB::commit();
 
+            $this->reset(); // Reset all properties
+
+            return redirect()->route('sc.show', $data);
+
         } catch (Exception $exception) {
 
             Log::error($exception);
@@ -85,9 +89,5 @@ class Create extends Component
 
             Log::error($throwable);
         }
-
-        $this->reset(); // Reset all properties
-
-        return redirect()->route('sc.show', $data);
     }
 }

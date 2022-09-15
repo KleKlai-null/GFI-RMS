@@ -3,6 +3,7 @@
 namespace App\Observers\Form;
 
 use App\Models\Form\ServiceCall;
+use App\Services\NotificationService;
 
 class ServiceCallObserver
 {
@@ -12,6 +13,8 @@ class ServiceCallObserver
     {
         cache()->forget('servicecall-data');
         cache()->forget('activitylog-data');
+
+        NotificationService::notifyAdministrator("servicecall/show/".$serviceCall->id, $serviceCall->document_series_no, 'Created service call record');
 
         activity()
         ->performedOn($serviceCall)
@@ -23,7 +26,7 @@ class ServiceCallObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
         ])
-        ->log('successfully created memorandum record');
+        ->log('successfully created service call record');
     }
 
     public function retrieved(ServiceCall $serviceCall)
@@ -60,7 +63,7 @@ class ServiceCallObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($serviceCall->document_series_no . ' has been deleted');
+        ->log($serviceCall->document_series_no . ' service call has been deleted');
     }
 
     /**
@@ -81,7 +84,7 @@ class ServiceCallObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log('successfuly restored' . $serviceCall->document_series_no);
+        ->log('successfuly restored service call' . $serviceCall->document_series_no);
     }
 
     /**
@@ -102,6 +105,6 @@ class ServiceCallObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($serviceCall->document_series_no . ' permanently deleted');
+        ->log($serviceCall->document_series_no . ' service call permanently deleted');
     }
 }

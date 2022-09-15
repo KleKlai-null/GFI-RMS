@@ -22,7 +22,7 @@ class DisableAccount extends Component
     public function proceed()
     {
         $this->data->update([
-            'status'    => false
+            'status'    => ($this->data->status) ? false : true
         ]);
 
         activity()

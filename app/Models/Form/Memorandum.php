@@ -30,7 +30,7 @@ class Memorandum extends Model
         Memorandum::creating(function($model) {
             $model->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'MR');
             $model->user_id = auth()->user()->id;
-            $model->user_name = auth()->user()->name;
+            $model->user_name = auth()->user()->username;
         });
     }
 

@@ -6,7 +6,7 @@
                 <div class="d-flex align-items-center">
                     <span class="avatar avatar-xs me-2 avatar-rounded"
                         style="background-image: url({{ $user->avatarUrl() }})"></span>
-                    {!! $user->name !!}
+                    {!! $user->fullName() !!}
                 </div>
             </div>
         </div>
@@ -18,13 +18,15 @@
             <div class="datagrid-title">Last Update</div>
             <div class="datagrid-content">{{ $updated->format('F d, Y h:i:s A') }}</div>
         </div>
-        <div class="datagrid-item">
-            <div class="datagrid-title">Status</div>
-            <div class="datagrid-content">
-                <span class="status status-{{ $status == 'Open' ? 'green' : 'red' }}">
-                    {{ $status }}
-                </span>
+        @isset($status)
+            <div class="datagrid-item">
+                <div class="datagrid-title">Status</div>
+                <div class="datagrid-content">
+                    <span class="status status-{{ $status == 'Open' ? 'green' : 'red' }}">
+                        {{ $status }}
+                    </span>
+                </div>
             </div>
-        </div>
+        @endisset
     </div>
 </div>

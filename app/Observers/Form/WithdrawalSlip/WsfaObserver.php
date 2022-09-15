@@ -3,6 +3,7 @@
 namespace App\Observers\Form\WithdrawalSlip;
 
 use App\Models\Form\WithdrawalSlip\Wsfa;
+use App\Services\NotificationService;
 
 class WsfaObserver
 {
@@ -12,6 +13,8 @@ class WsfaObserver
     {
         cache()->forget('wsfa-data');
         cache()->forget('activitylog-data');
+
+        NotificationService::notifyAdministrator("fixedasset/show/".$wsfa->id, $wsfa->document_series_no, 'Created fixed asset record');
 
         activity()
         ->performedOn($wsfa)
@@ -60,7 +63,7 @@ class WsfaObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($wsfa->document_series_no . ' has been deleted');
+        ->log($wsfa->document_series_no . ' fixed asset has been deleted');
     }
 
     /**
@@ -81,7 +84,7 @@ class WsfaObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log('successfuly restored' . $wsfa->document_series_no);
+        ->log('successfuly restored fixed asset ' . $wsfa->document_series_no);
     }
 
     /**
@@ -102,6 +105,6 @@ class WsfaObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($wsfa->document_series_no . ' permanently deleted');
+        ->log($wsfa->document_series_no . ' fixed asset permanently deleted');
     }
 }

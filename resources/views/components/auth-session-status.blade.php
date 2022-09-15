@@ -1,7 +1,13 @@
-@props(['status'])
+<div>
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
-@if ($status)
-    <div {{ $attributes->merge(['class' => 'font-medium text-sm text-green-600']) }}>
-        {{ $status }}
-    </div>
-@endif
+    @if (session()->has('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+</div>

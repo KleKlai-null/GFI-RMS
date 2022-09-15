@@ -3,6 +3,7 @@
 namespace App\Observers\Form\WithdrawalSlip;
 
 use App\Models\Form\WithdrawalSlip\Wsma;
+use App\Services\NotificationService;
 
 class WsmaObserver
 {
@@ -12,6 +13,8 @@ class WsmaObserver
     {
         cache()->forget('wsma-data');
         cache()->forget('activitylog-data');
+
+        NotificationService::notifyAdministrator("minorasset/show/".$wsma->id, $wsma->document_series_no, 'Created minor asset record');
 
         activity()
         ->performedOn($wsma)
@@ -60,7 +63,7 @@ class WsmaObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($wsma->document_series_no . ' has been deleted');
+        ->log($wsma->document_series_no . ' minor asset has been deleted');
     }
 
     /**
@@ -81,7 +84,7 @@ class WsmaObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log('successfuly restored' . $wsma->document_series_no);
+        ->log('successfuly restored minor asset ' . $wsma->document_series_no);
     }
 
     /**
@@ -102,6 +105,6 @@ class WsmaObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($wsma->document_series_no . ' permanently deleted');
+        ->log($wsma->document_series_no . ' minor asset permanently deleted');
     }
 }

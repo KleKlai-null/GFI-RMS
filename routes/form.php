@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+/**
+ * Be careful on changing show route on every form it might break the Notification 
+ * 
+ * If any case you need to change the show route please check the observer first
+ */
+
 Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['permission:create mi|view mi'])->group(function () {
@@ -37,7 +43,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('fixedasset/create', App\Http\Livewire\Form\FixedAsset\Create::class)->name('fa.create');
         Route::get('fixedasset/show/{data}', App\Http\Livewire\Form\FixedAsset\Show::class)->name('fa.show');
     });
-    Route::middleware(['permission:create sc|view sc'])->group(function () {
+    Route::middleware(['permission:create ma|view ma'])->group(function () {
         // -------------------------------------- MA ----------------------------------------------------//
         Route::get('minorasset', App\Http\Livewire\Form\MinorAsset\Index::class)->name('ma');
         Route::get('minorasset/create', App\Http\Livewire\Form\MinorAsset\Create::class)->name('ma.create');
@@ -53,6 +59,7 @@ Route::middleware(['auth'])->group(function () {
         // -------------------------------------- RS ----------------------------------------------------//
         Route::get('returnitem', App\Http\Livewire\Form\Return\Index::class)->name('rs');
         Route::get('returnitem/create/{withdrawal_slip_no?}', App\Http\Livewire\Form\Return\Create::class)->name('rs.create');
+        Route::get('returnitem/show/{data}', App\Http\Livewire\Form\Return\Show::class)->name('rs.show');
     });
 
 });

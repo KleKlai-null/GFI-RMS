@@ -3,6 +3,7 @@
 namespace App\Observers\Form\WithdrawalSlip;
 
 use App\Models\Form\WithdrawalSlip\Wsdm;
+use App\Services\NotificationService;
 
 class WsdmObserver
 {
@@ -12,6 +13,8 @@ class WsdmObserver
     {
         cache()->forget('wsdm-data');
         cache()->forget('activitylog-data');
+
+        NotificationService::notifyAdministrator("directmaterial/show/".$wsdm->id, $wsdm->document_series_no, 'Created direct material record');
 
         activity()
         ->performedOn($wsdm)
@@ -60,7 +63,7 @@ class WsdmObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($wsdm->document_series_no . ' has been deleted');
+        ->log($wsdm->document_series_no . ' direct material has been deleted');
     }
 
     /**
@@ -81,7 +84,7 @@ class WsdmObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log('successfuly restored' . $wsdm->document_series_no);
+        ->log('successfuly restored direct material ' . $wsdm->document_series_no);
     }
 
     /**
@@ -102,6 +105,6 @@ class WsdmObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($wsdm->document_series_no . ' permanently deleted');
+        ->log($wsdm->document_series_no . ' direct material permanently deleted');
     }
 }

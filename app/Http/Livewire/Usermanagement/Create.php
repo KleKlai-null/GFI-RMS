@@ -13,7 +13,7 @@ use Validator;
 
 class Create extends Component
 {
-    public $name, $username, $email;
+    public $first_name, $last_name, $username, $email;
     public $roles = [];
     public $require_setup = true;
     public $generated_password;
@@ -30,11 +30,12 @@ class Create extends Component
         });
 
         return [
-            'name'              => 'required|min:6',
-            'username'          => ['required', 'max:12', 'unique:users,username', 'without_spaces'],
-            'email'             => ['required', 'string', 'email', 'max:50', 'unique:users'],
-            'roles'             => 'required',
-            'require_setup'     => 'nullable'
+            'first_name'                => 'required',
+            'last_name'                => 'required',
+            'username'                  => ['required', 'max:12', 'unique:users,username', 'without_spaces'],
+            'email'                     => ['required', 'string', 'email', 'max:50', 'unique:users'],
+            'roles'                     => 'required',
+            'require_setup'             => 'nullable'
         ];
     }
 
@@ -65,14 +66,15 @@ class Create extends Component
     {
         $this->validate();
 
-        $this->generated_password = Str::upper(Str::random(8));
+        $this->generated_password = (app()->isProduction()) ? Str::upper(Str::random(8)) : 'bxtr1605';
 
         try {
 
             DB::beginTransaction();
 
             $user = User::create([
-                'name'              => $this->name,
+                'first_name'        => $this->first_name,
+                'last_name'         => $this->last_name,
                 'username'          => $this->username,
                 'email'             => $this->email,
                 'password'          => Hash::make($this->generated_password),

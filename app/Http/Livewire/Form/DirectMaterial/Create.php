@@ -114,6 +114,10 @@ class Create extends Component
 
             DB::commit();
 
+            $this->reset(); // Reset all properties
+
+            return redirect()->route('dm.show', $data);
+
         } catch (Exception $exception) {
 
             DB::rollback();
@@ -125,9 +129,5 @@ class Create extends Component
 
             Log::error($throwable);
         }
-
-        $this->reset(); // Reset all properties
-
-        return redirect()->route('dm.show', $data);
     }
 }

@@ -23,16 +23,31 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group mb-3 row">
-                                    <label class="col-3 col-form-label required">Full name</label>
+                                    <label class="col-3 col-form-label required">Name (First, Last)</label>
+                                    
                                     <div class="col">
-                                        <input type="text" name="name"
-                                            class="form-control @error('name') is-invalid @enderror"
-                                            wire:model="name" value="{{ old('name') }}"
-                                            aria-describedby="nameHelp" placeholder="Juan Dela Cruz"
-                                            autocomplete="off" required>
-                                        @error('name')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
+                                        <div class="row g-2">
+                                            <div class="col-6">
+                                                <input type="text"
+                                                    class="form-control @error('first_name') is-invalid @enderror"
+                                                    wire:model="first_name" value="{{ old('first_name') }}"
+                                                    aria-describedby="nameHelp" placeholder="Juan"
+                                                    autocomplete="off" required>
+                                                @error('first_name')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                            <div class="col-6">
+                                                <input type="text"
+                                                    class="form-control @error('last_name') is-invalid @enderror"
+                                                    wire:model="last_name" value="{{ old('last_name') }}"
+                                                    aria-describedby="nameHelp" placeholder="Dela Cruz"
+                                                    autocomplete="off" required>
+                                                @error('last_name')
+                                                    <small class="text-danger">{{ $message }}</small>
+                                                @enderror
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group mb-3 row">

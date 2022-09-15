@@ -3,6 +3,7 @@
 namespace App\Observers\Form\WithdrawalSlip;
 
 use App\Models\Form\WithdrawalSlip\Wsmi;
+use App\Services\NotificationService;
 use Illuminate\Http\Client\Request;
 
 class WsmiObserver
@@ -13,6 +14,8 @@ class WsmiObserver
     {
         cache()->forget('wsmi-data');
         cache()->forget('activitylog-data');
+
+        NotificationService::notifyAdministrator("merchandise/show/".$wsmi->id, $wsmi->document_series_no, 'Created merchandise record');
 
         activity()
         ->performedOn($wsmi)
@@ -61,7 +64,7 @@ class WsmiObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($wsmi->document_series_no . ' has been deleted');
+        ->log($wsmi->document_series_no . ' merchandise has been deleted');
     }
 
     /**
@@ -82,7 +85,7 @@ class WsmiObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log('successfuly restored ' . $wsmi->document_series_no);
+        ->log('successfuly restored merchandise ' . $wsmi->document_series_no);
     }
 
     /**
@@ -103,7 +106,7 @@ class WsmiObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($wsmi->document_series_no . ' permanently deleted');
+        ->log($wsmi->document_series_no . ' merchandise permanently deleted');
     }
 
 }

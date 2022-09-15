@@ -31,12 +31,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'username',
         'email',
         'password',
         'is_required_setup',
-        'last_password_change_at'
+        'last_password_change_at',
+        'setup_skip',
+        'status',
     ];
 
     /**
@@ -55,12 +58,18 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at'         => 'datetime',
+        'last_password_change_at'   => 'datetime',
     ];
 
     public function avatarUrl()
     {
         return 'https://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email)));
+    }
+
+    public function fullName()
+    {
+        return ucwords($this->first_name. ' ' . $this->last_name);
     }
 
     public function memorandums() : HasMany

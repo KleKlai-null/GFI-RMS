@@ -3,6 +3,7 @@
 namespace App\Observers\Form\WithdrawalSlip;
 
 use App\Models\Form\WithdrawalSlip\Wsmro;
+use App\Services\NotificationService;
 
 class WsmroObserver
 {
@@ -12,6 +13,8 @@ class WsmroObserver
     {
         cache()->forget('wsmro-data');
         cache()->forget('activitylog-data');
+
+        NotificationService::notifyAdministrator("maintenance/show/".$wsmro->id, $wsmro->document_series_no, 'Created maintenance, repairs, operations record');
 
         activity()
         ->performedOn($wsmro)
@@ -60,7 +63,7 @@ class WsmroObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($wsmro->document_series_no . ' has been deleted');
+        ->log($wsmro->document_series_no . ' maintenance, repairs, operations has been deleted');
     }
 
     /**
@@ -81,7 +84,7 @@ class WsmroObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log('successfuly restored' . $wsmro->document_series_no);
+        ->log('successfuly restored maintenance, repairs, operations ' . $wsmro->document_series_no);
     }
 
     /**
@@ -102,6 +105,6 @@ class WsmroObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($wsmro->document_series_no . ' permanently deleted');
+        ->log($wsmro->document_series_no . ' maintenance, repairs, operations permanently deleted');
     }
 }

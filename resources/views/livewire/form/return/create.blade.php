@@ -45,7 +45,7 @@
                                     <div class="col-4">
                                         <label class="form-label required mb-2">Withdrawal slip no</label>
                                         <div>
-                                            <input type="text" class="form-control @error('withdrawal_slip_no') is-invalid @enderror" autocomplete="off"
+                                            <input type="text" class="form-control @error('withdrawal_slip_no') is-invalid @enderror" autocomplete="off" 
                                                 wire:model="withdrawal_slip_no" oninput="this.value = this.value.toUpperCase()">
                                         </div>
                                         @error('withdrawal_slip_no')

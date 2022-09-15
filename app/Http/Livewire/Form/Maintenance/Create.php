@@ -112,6 +112,10 @@ class Create extends Component
 
             DB::commit();
 
+            $this->reset(); // Reset all properties
+
+            return redirect()->route('mro.show', $data);
+
         } catch (Exception $exception) {
 
             DB::rollback();
@@ -122,10 +126,5 @@ class Create extends Component
 
             Log::error($throwable);
         }
-
-        $this->inputs = [];
-        $this->reset(); // Reset all properties
-
-        return redirect()->route('mro.show', $data);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Observers\Form\ReturnSlip;
 
 use App\Models\Form\ReturnSlip\ReturnSlip;
+use App\Services\NotificationService;
 
 class ReturnSlipObserver
 {
@@ -10,6 +11,8 @@ class ReturnSlipObserver
 
     public function created(ReturnSlip $returnSlip)
     {
+        NotificationService::notifyAdministrator("returnitem/show/".$returnSlip->id, $returnSlip->document_series_no, 'Created return slip record');
+
         activity()
         ->performedOn($returnSlip)
         ->causedBy(auth()->user())
@@ -20,7 +23,7 @@ class ReturnSlipObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
         ])
-        ->log('successfully created merchandise record');
+        ->log('successfully created return slip record');
     }
 
     public function retrieved(ReturnSlip $returnSlip)
@@ -57,7 +60,7 @@ class ReturnSlipObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($returnSlip->document_series_no . ' has been deleted');
+        ->log($returnSlip->document_series_no . ' return slip has been deleted');
     }
 
     /**
@@ -78,7 +81,7 @@ class ReturnSlipObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log('successfuly restored' . $returnSlip->document_series_no);
+        ->log('successfuly restored return slip ' . $returnSlip->document_series_no);
     }
 
     /**
@@ -99,6 +102,6 @@ class ReturnSlipObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($returnSlip->document_series_no . ' permanently deleted');
+        ->log($returnSlip->document_series_no . ' return slip permanently deleted');
     }
 }

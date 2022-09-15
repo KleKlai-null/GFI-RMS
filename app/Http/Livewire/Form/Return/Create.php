@@ -83,12 +83,15 @@ class Create extends Component
     public function store()
     {
         $this->validate();
+        
+        $this->addError('withdrawal_slip_no', 'Test');
+
         try {
 
             DB::beginTransaction();
 
             $data = $this->model::create([
-                'withdrawal_form'       => $this->identify_form_by_withdrawal_slip_no($this->withdrawal_slip_no),
+                'withdrawal_form'       => $this->identify_form_by_withdrawal_slip_no($this->withdrawal_slip_no) ?? 'Unknown',
                 'department'            => $this->department,
                 'mr_no'                 => $this->memorandum_no,
                 'withdrawal_slip_no'    => $this->withdrawal_slip_no,
@@ -107,11 +110,15 @@ class Create extends Component
                     'item_description'      => $this->description[$key],
                     'qty'                   => $this->qty[$key],
                     'uom'                   => $this->uom[$key],
-                    'reason'                => $this->remarks[$key] ?? ''
+                    'reason'                => $this->reason[$key] ?? ''
                 ]);
             }
             
             DB::commit();
+
+            $this->reset(); // Reset all properties
+
+            return redirect()->route('rs.show', $data);
 
         } catch (Exception $exception) {
 
@@ -125,42 +132,46 @@ class Create extends Component
 
         }
 
-        return redirect()->route('rs');
     }
 
     public function identify_form_by_withdrawal_slip_no($document_series_no)
     {
-        $splice = Str::of($document_series_no)->explode('-');
-        $unique = Str::lower($splice[1]);
-
-        switch($unique) {
-            case "mi":
-                return 'Merchandise';
-                break;
-            case "mro":
-                return 'Maintenance, Repairs, Operations';
-                break;
-            case "dm":
-                return 'Direct Material';
-                break;
-            case "fg":
-                return 'Finished Goods';
-                break;
-            case "fa":
-                return 'Fixed Asset';
-                break;
-            case "ma":
-                return 'Minor Asset';
-                break;
-            case "sc":
-                return 'Service Call';
-                break;
-            case "mr":
-                return 'Memorandum';
-                break;
-            default:
-                return 'Unknown';
+        try {
+            $splice = Str::of($document_series_no)->explode('-');
+            $unique = Str::lower($splice[1]);
+    
+            switch($unique) {
+                case "mi":
+                    return 'Merchandise';
+                    break;
+                case "mro":
+                    return 'Maintenance, Repairs, Operations';
+                    break;
+                case "dm":
+                    return 'Direct Material';
+                    break;
+                case "fg":
+                    return 'Finished Goods';
+                    break;
+                case "fa":
+                    return 'Fixed Asset';
+                    break;
+                case "ma":
+                    return 'Minor Asset';
+                    break;
+                case "sc":
+                    return 'Service Call';
+                    break;
+                case "mr":
+                    return 'Memorandum';
+                    break;
+                default:
+                    return 'Unknown';
+            }
+        } catch (Exception $exception) {
+            Log::error($exception);
+        } catch (Throwable $throwable) {
+            Log::error($throwable);
         }
     }
-    
 }

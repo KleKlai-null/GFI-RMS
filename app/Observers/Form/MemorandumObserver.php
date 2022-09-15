@@ -3,6 +3,7 @@
 namespace App\Observers\Form;
 
 use App\Models\Form\Memorandum;
+use App\Services\NotificationService;
 
 class MemorandumObserver
 {
@@ -12,6 +13,9 @@ class MemorandumObserver
     {
         cache()->forget('memorandum-data');
         cache()->forget('activitylog-data');
+
+        // No Route yet
+        // NotificationService::notifyAdministrator("memorandum/show/".$memorandum->id, $memorandum->document_series_no, 'Created memorandum record');
 
         activity()
         ->performedOn($memorandum)
@@ -60,7 +64,7 @@ class MemorandumObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($memorandum->document_series_no . ' has been deleted');
+        ->log($memorandum->document_series_no . ' memorandum has been deleted');
     }
 
     /**
@@ -81,7 +85,7 @@ class MemorandumObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log('successfuly restored' . $memorandum->document_series_no);
+        ->log('successfuly restored memorandum' . $memorandum->document_series_no);
     }
 
     /**
@@ -102,6 +106,6 @@ class MemorandumObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($memorandum->document_series_no . ' permanently deleted');
+        ->log($memorandum->document_series_no . ' memorandum permanently deleted');
     }
 }

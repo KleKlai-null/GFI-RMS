@@ -116,6 +116,10 @@ class Create extends Component
             }
 
             DB::commit();
+            
+            $this->reset(); // Reset all properties
+
+            return redirect()->route('fg.show', $data);
 
         } catch (Exception $exception) {
 
@@ -128,9 +132,5 @@ class Create extends Component
 
             Log::error($throwable);
         }
-
-        $this->reset(); // Reset all properties
-
-        return redirect()->route('fg.show', $data);
     }
 }

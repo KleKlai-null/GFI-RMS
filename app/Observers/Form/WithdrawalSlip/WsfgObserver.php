@@ -3,6 +3,7 @@
 namespace App\Observers\Form\WithdrawalSlip;
 
 use App\Models\Form\WithdrawalSlip\Wsfg;
+use App\Services\NotificationService;
 
 class WsfgObserver
 {
@@ -13,6 +14,8 @@ class WsfgObserver
     {
         cache()->forget('wsfg-data');
         cache()->forget('activitylog-data');
+
+        NotificationService::notifyAdministrator("finishedgoods/show/".$wsfg->id, $wsfg->document_series_no, 'Created finished goods record');
 
         activity()
         ->performedOn($wsfg)
@@ -61,7 +64,7 @@ class WsfgObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($wsfg->document_series_no . ' has been deleted');
+        ->log($wsfg->document_series_no . ' finished goods has been deleted');
     }
 
     /**
@@ -82,7 +85,7 @@ class WsfgObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log('successfuly restored' . $wsfg->document_series_no);
+        ->log('successfuly restored finished goods ' . $wsfg->document_series_no);
     }
 
     /**
@@ -103,6 +106,6 @@ class WsfgObserver
             'Check_url'              => url()->current(),
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-        ->log($wsfg->document_series_no . ' permanently deleted');
+        ->log($wsfg->document_series_no . ' finished goods permanently deleted');
     }
 }

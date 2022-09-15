@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\NotificationController;
 use App\Models\Form\ReturnSlip\ReturnSlip;
 use App\Models\Form\ServiceCall;
 use App\Models\Form\WithdrawalSlip\Wsmi;
@@ -31,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user/show/{data}', App\Http\Livewire\Usermanagement\Show::class)->name('user.show');
     Route::get('user/create', App\Http\Livewire\Usermanagement\Create::class)->name('user.create');
     Route::get('user/disable-account/{data}', App\Http\Livewire\Usermanagement\DisableAccount::class)->name('user.disable-account');
-    Route::view('user/role', 'user-management.role')->name('user.role');
+    Route::get('user/role/{data}', App\Http\Livewire\Usermanagement\Roles::class)->name('user.role');
     Route::get('user/activity/{data}', App\Http\Livewire\Usermanagement\Activity::class)->name('users.activty');
     
     Route::get('profile/setup', App\Http\Livewire\Profile\Setup::class)->name('profile.setup');
@@ -42,6 +43,8 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('departments', App\Http\Livewire\Form\Component\Departments\Index::class)->name('departments');
     Route::get('employees', App\Http\Livewire\Form\Component\Employee\Index::class)->name('employees');
+
+    Route::get('notifications', [NotificationController::class, 'index'])->name('notification.index');
 
     Route::get('help', function () {
         return abort(503);

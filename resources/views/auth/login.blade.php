@@ -13,11 +13,7 @@
                 <!-- Validation Errors -->
                 <x-auth-validation-errors class="text-center text-danger" :errors="$errors" />
 
-                @if (session()->has('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
+                <x-auth-session-status />
 
                 <div class="mb-3">
                     <label class="form-label">Email/Username</label>

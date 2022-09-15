@@ -90,7 +90,7 @@
                                                                     <div class="dropdown-menu dropdown-menu-end"
                                                                         style="">
                                                                         <a class="dropdown-item"
-                                                                            href="{{ route('mi.show', $data) }}">
+                                                                            href="{{ route('rs.show', $data) }}">
                                                                             <svg xmlns="http://www.w3.org/2000/svg"
                                                                                 class="icon me-2 icon-tabler icon-tabler-file-description"
                                                                                 width="24" height="24"
@@ -109,48 +109,6 @@
                                                                                 <path d="M9 13h6"></path>
                                                                             </svg>
                                                                             Details
-                                                                        </a>
-                                                                        <button class="dropdown-item" type="button"
-                                                                            wire:click="archive_id({{ $data->id }})">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                class="icon me-2 icon-tabler icon-tabler-archive"
-                                                                                width="24" height="24"
-                                                                                viewBox="0 0 24 24" stroke-width="2"
-                                                                                stroke="currentColor" fill="none"
-                                                                                stroke-linecap="round"
-                                                                                stroke-linejoin="round">
-                                                                                <path stroke="none" d="M0 0h24v24H0z"
-                                                                                    fill="none"></path>
-                                                                                <rect x="3" y="4"
-                                                                                    width="18" height="4"
-                                                                                    rx="2"></rect>
-                                                                                <path
-                                                                                    d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10">
-                                                                                </path>
-                                                                                <line x1="10" y1="12"
-                                                                                    x2="14" y2="12">
-                                                                                </line>
-                                                                            </svg>
-                                                                            Archive
-                                                                        </button>
-                                                                        <a class="dropdown-item" href="#">
-                                                                            <svg xmlns="http://www.w3.org/2000/svg"
-                                                                                class="icon me-2 icon-tabler icon-tabler-receipt-refund"
-                                                                                width="24" height="24"
-                                                                                viewBox="0 0 24 24" stroke-width="2"
-                                                                                stroke="currentColor" fill="none"
-                                                                                stroke-linecap="round"
-                                                                                stroke-linejoin="round">
-                                                                                <path stroke="none" d="M0 0h24v24H0z"
-                                                                                    fill="none"></path>
-                                                                                <path
-                                                                                    d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2">
-                                                                                </path>
-                                                                                <path
-                                                                                    d="M15 14v-2a2 2 0 0 0 -2 -2h-4l2 -2m0 4l-2 -2">
-                                                                                </path>
-                                                                            </svg>
-                                                                            New return item
                                                                         </a>
                                                                         <button class="dropdown-item" type="button"
                                                                             wire:click="delete({{ $data->id }})">
