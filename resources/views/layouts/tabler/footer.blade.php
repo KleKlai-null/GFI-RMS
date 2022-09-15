@@ -20,7 +20,7 @@
                     </li>
                     <li class="list-inline-item">
                         <a href="javascript:void();/changelog" class="link-secondary" rel="noopener">
-                            v1.0.0
+                            v1.0.2
                         </a>
                     </li>
                 </ul>
