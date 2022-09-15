@@ -3,7 +3,7 @@
         <div class="card" style="width: 18rem;">
             <div class="card-header">
                 <h3 class="card-title">Notifications</h3>
-                @if(!empty($notifications))
+                @if($notifications->count() != 0)
                     <div class="card-actions">
                         <a href="#" class="btn btn-link text-dark" wire:click.prevent="mark_all_as_read">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-checkup-list" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

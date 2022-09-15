@@ -42,27 +42,7 @@
                                     <h3 class="card-title">Account</h3>
                                 </div>
                                 <div class="card-body">
-                                    <form>
-                                        <div class="form-group mb-3 row">
-                                            <label class="col-3 col-form-label required">Full name</label>
-                                            <div class="col">
-                                                <input type="text" class="form-control" aria-describedby="emailHelp"
-                                                    placeholder="Enter email" value="{{ auth()->user()->name }}">
-                                            </div>
-                                        </div>
-                                        <div class="form-group mb-3 row">
-                                            <label class="col-3 col-form-label required">Email address</label>
-                                            <div class="col">
-                                                <input type="email" class="form-control" aria-describedby="emailHelp"
-                                                    placeholder="Enter email" value="{{ auth()->user()->email }}">
-                                                <small class="form-hint">We'll never share your email with anyone
-                                                    else.</small>
-                                            </div>
-                                        </div>
-                                        <div class="form-footer">
-                                            <button type="submit" class="btn btn-primary">Save</button>
-                                        </div>
-                                    </form>
+                                    <livewire:profile.update-account />
                                 </div>
                             </div>
                             <div class="card" x-show="tab === 'security'">
