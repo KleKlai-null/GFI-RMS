@@ -1,4 +1,4 @@
-<x-pdf-layout title="Direct Material" :data="$data">
+<x-pdf title="Direct Material" :data="$data">
     <table id="meta">
         <tr>
             <td class="borderless">
@@ -59,4 +59,4 @@
             <span class="text-muted">{{ $data->document_series_no }}</span>
         </div>
     </div>
-</x-pdf-layout>
+</x-pdf>

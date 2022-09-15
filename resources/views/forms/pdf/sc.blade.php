@@ -1,4 +1,4 @@
-<x-pdf-layout title="Service Call" :data="$data">
+<x-pdf title="Service Call" :data="$data">
     <div class="divTable" style="margin-top: 15px; ">
         <div class="divTableBody">
             <div class="divTableRow">
@@ -75,4 +75,4 @@
             <span class="text-muted">{{ $data->document_series_no }}</span>
         </div>
     </div>
-</x-pdf-layout>
+</x-pdf>
