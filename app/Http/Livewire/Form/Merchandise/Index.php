@@ -4,9 +4,6 @@ namespace App\Http\Livewire\Form\Merchandise;
 
 use App\Http\Livewire\Form\Trait\Generic;
 use App\Http\Livewire\Form\Trait\WithSorting;
-use App\Models\Department;
-use App\Models\Form\WithdrawalSlip\Wsmi;
-use Carbon\Carbon;
 use Livewire\Component;
 
 class Index extends Component

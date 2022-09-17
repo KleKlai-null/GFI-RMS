@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Form\Maintenance;
+namespace App\Http\Livewire\Form\Memorandum;
 
 use App\Http\Livewire\Form\Trait\Generic;
 use App\Http\Livewire\Form\Trait\WithSorting;
@@ -11,21 +11,21 @@ class Index extends Component
     use WithSorting, Generic;
 
     public $search = '';
-    public $model = 'App\Models\Form\WithdrawalSlip\Wsmro';
+    public $model = 'App\Models\Form\Memorandum';
 
     public function mount()
     {
         $this->get_statistic();
     }
-    
+
     public function render()
     {
         $data = $this->search($this->model);
-        
-        return view('livewire.form.maintenance.index', [
-            'title'         => 'Maintenance, Repairs and Operations',
+
+        return view('livewire.form.memorandum.index', [
+            'title'         => 'Memorandum',
             'datas'         => $data,
             'statistic'     => $this->statistics
         ])->layout('layouts.tabler.app');
-    }
+    } 
 }

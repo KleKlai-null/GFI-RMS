@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('checked_by');   
             $table->string('released_by');
             $table->mediumText('remarks')->nullable();
+            $table->enum('status', ['Open', 'Closed', 'Archive'])->default('Open');
             $table->softDeletes();
             $table->timestamps();
         });

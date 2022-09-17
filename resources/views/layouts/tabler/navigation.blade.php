@@ -78,10 +78,11 @@
                                             Minor Asset
                                         </a>
                                     @endcanany
-                                    <a href="javascript:memorandum()" class="dropdown-item">
+                                    @canany(['create mr', 'view mr', 'delete mr', 'archive mr'])
+                                    <a href="{{ route('mr') }}" class="dropdown-item">
                                         Memorandum
-                                        <span class="badge badge-sm bg-red text-uppercase ms-2">Undermaintenance</span>
                                     </a>
+                                    @endcanany
                                     @canany(['create sc', 'view sc', 'delete sc', 'archive sc'])
                                         <a href="{{ route('sc') }}" class="dropdown-item">
                                             Service Call

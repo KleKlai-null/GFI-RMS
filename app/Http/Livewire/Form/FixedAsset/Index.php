@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Form\FixedAsset;
 
 use App\Http\Livewire\Form\Trait\Generic;
 use App\Http\Livewire\Form\Trait\WithSorting;
-use Carbon\Carbon;
 use Livewire\Component;
 
 class Index extends Component

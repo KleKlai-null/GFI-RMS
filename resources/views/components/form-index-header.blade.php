@@ -1,6 +1,9 @@
+@props([
+    'display_rs' => (isset($disablereturnslip)) ? false : true,
+    'new'      => $new
+])
+
 <div>
-
-
     <span class="d-none d-sm-inline">
         <a href="{{ $new }}" class="btn btn-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler-playlist-add" width="24" height="24"
@@ -16,22 +19,24 @@
             New
         </a>
     </span>
-    @can('create rs')
-        @if(!Request::is('returnitem'))
-            <span class="d-none d-sm-inline">
-                <a href="{{ route('rs.create') }}" class="btn btn-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-receipt-refund" width="24"
-                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2"></path>
-                        <path d="M15 14v-2a2 2 0 0 0 -2 -2h-4l2 -2m0 4l-2 -2"></path>
-                    </svg>
-                    Return Item
-                </a>
-            </span>
-        @endif
-    @endcan
+    @if($display_rs)
+        @can('create rs')
+            @if(!Request::is('returnitem'))
+                <span class="d-none d-sm-inline">
+                    <a href="{{ route('rs.create') }}" class="btn btn-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-receipt-refund" width="24"
+                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2"></path>
+                            <path d="M15 14v-2a2 2 0 0 0 -2 -2h-4l2 -2m0 4l-2 -2"></path>
+                        </svg>
+                        Return Item
+                    </a>
+                </span>
+            @endif
+        @endcan
+    @endif
     @isset($import)
         <button type="button" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
             data-bs-target="#import-data">

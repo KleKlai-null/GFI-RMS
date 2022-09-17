@@ -49,6 +49,12 @@ Route::middleware(['auth'])->group(function () {
         Route::get('minorasset/create', App\Http\Livewire\Form\MinorAsset\Create::class)->name('ma.create');
         Route::get('minorasset/show/{data}', App\Http\Livewire\Form\MinorAsset\Show::class)->name('ma.show');
     });
+    Route::middleware(['permission:create mr|view mr'])->group(function () {
+        // -------------------------------------- MR ----------------------------------------------------//
+        Route::get('memorandum', App\Http\Livewire\Form\Memorandum\Index::class)->name('mr');
+        Route::get('memorandum/create', App\Http\Livewire\Form\Memorandum\Create::class)->name('mr.create');
+        Route::get('memorandum/show/{data}', App\Http\Livewire\Form\Memorandum\Show::class)->name('mr.show');
+    });
     Route::middleware(['permission:create sc|view sc'])->group(function () {
         // -------------------------------------- SC ----------------------------------------------------//
         Route::get('servicecall', App\Http\Livewire\Form\ServiceCall\Index::class)->name('sc');
