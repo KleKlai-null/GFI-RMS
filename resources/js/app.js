@@ -1,4 +1,5 @@
 import './bootstrap';
+import './tabler.min';
 
 import Alpine from 'alpinejs';
 

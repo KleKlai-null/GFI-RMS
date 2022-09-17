@@ -8,6 +8,7 @@ use App\Models\Form\ServiceCall;
 use App\Models\Form\WithdrawalSlip\Wsmi;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Activitylog\Models\Activity;
 
 /*
@@ -50,10 +51,6 @@ Route::middleware(['auth'])->group(function () {
         return abort(503);
     })->name('help');
 
-});
-
-Route::get('test', function () {
-    dd(auth()->user()->getPermissionsViaRoles());
 });
 
 Route::get('testua', function (Request $request) {

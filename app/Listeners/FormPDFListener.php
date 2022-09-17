@@ -69,15 +69,10 @@ class FormPDFListener implements ShouldQueue
         $data = $event;
 
         try {
-            Log::info('PDF entry 1');
-
             $qrcode = base64_encode(QrCode::format('svg')->size(110)->errorCorrection('H')->generate(config('app.url').'/verify/key='.$event->document_series_no));
-
-            Log::info('PDF entry 2');
-
             $pdf = Pdf::loadView('forms.pdf.'.$type, compact('qrcode', 'data'))->setPaper('portrait');
             $content = $pdf->download()->getOriginalContent();
-            Storage::disk('local')->put('bak/pdf/'.$event->document_series_no.'-'.now()->format('His').'.pdf',$content) ;
+            Storage::disk('local')->put('bak/pdf/'.$event->document_series_no.'-'.now()->format('His').'.pdf',$content);
         
             Log::info('PDF successfully generated and downloaded');
 

@@ -22,15 +22,9 @@
             --tblr-font-sans-serif: Inter, -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif !important;
         }
     </style>
-    <script defer src="{{ asset('asset/js/alpinejs-mask-3.10.3.js') }}"></script>
-    <script defer src="{{ asset('asset/js/alpinejs-3.10.3.js') }}"></script>
-    <!-- CSS files -->
-    <link href="{{ asset('asset/custom/dist/css/tabler.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('asset/custom/dist/css/tabler-flags.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('asset/custom/dist/css/tabler-payments.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('asset/custom/dist/css/tabler-vendors.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('asset/custom/dist/css/demo.min.css') }}" rel="stylesheet" />
     @livewireStyles
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body>
@@ -123,10 +117,6 @@
             @include('layouts.tabler.footer')
         </div>
     </div>
-    <!-- Libs JS -->
-    <!-- Tabler Core -->
-    <script src="{{ asset('asset/custom/dist/js/tabler.min.js') }}" defer></script>
-    <script src="{{ asset('asset/custom/dist/js/demo.min.js') }}" defer></script>
     @livewireScripts
     <script>
         Livewire.onPageExpired((response, message) => {})

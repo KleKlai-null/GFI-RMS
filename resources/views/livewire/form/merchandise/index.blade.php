@@ -5,6 +5,7 @@
             You are now offline.
         </div>
         <div class="page-header d-print-none">
+            <x-account-risk-reminder/>   
             <div class="row g-2 align-items-center">
                 <div class="col">
                     <!-- Page pre-title -->
