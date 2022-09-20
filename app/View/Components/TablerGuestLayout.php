@@ -6,14 +6,11 @@ use Illuminate\View\Component;
 
 class TablerGuestLayout extends Component
 {
-    /**
-     * Create a new component instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $bg_white;
+
+    public function __construct($bgwhite = null)
     {
-        //
+        $this->bg_white = $bgwhite;
     }
 
     /**

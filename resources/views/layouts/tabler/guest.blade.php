@@ -29,12 +29,12 @@
     <link href="{{ asset('asset/custom/dist/css/tabler-payments.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('asset/custom/dist/css/tabler-vendors.min.css') }}" rel="stylesheet"/>
     <link href="{{ asset('asset/custom/dist/css/demo.min.css') }}" rel="stylesheet"/>
-    {{-- @livewireStyles --}}
+    @livewireStyles
   </head>
-  <body  class=" border-top-wide border-primary d-flex flex-column">
+  <body  class=" border-top-wide border-primary d-flex flex-column {{ $bg_white ?? ''}}">
     <div class="page page-center">
 
-      @env('local', 'staging')
+      {{-- @env('local', 'staging')
         <div class="container-tight py-4">
           <div class="text-center mb-4">
             <div class="alert alert-warning">
@@ -47,15 +47,19 @@
             </div>
           </div>
         </div>
-      @endenv
+      @endenv --}}
 
       {{ $slot }}
     </div>
     <!-- Libs JS -->
     <!-- Tabler Core -->
+    <script src="{{ asset('asset/images/lord-icon/lord-icon-dependency.js') }}"></script>
     <script src="{{ asset('asset/custom/dist/js/tabler.min.js') }}" defer></script>
     <script src="{{ asset('asset/custom/dist/js/demo.min.js') }}" defer></script>
-    @livewireScripts
 
+    @livewireScripts
+    <script src="{{ asset('asset/js/alpinejs-3.10.3.js') }}"></script>
+
+    @yield('script')
   </body>
 </html>

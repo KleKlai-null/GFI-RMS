@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\VerifyDocument;
 use App\Models\Form\ReturnSlip\ReturnSlip;
 use App\Models\Form\ServiceCall;
 use App\Models\Form\WithdrawalSlip\Wsmi;
@@ -50,8 +51,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('help', function () {
         return abort(503);
     })->name('help');
-
 });
+
+Route::get('verify/{data}', [VerifyDocument::class, 'verify_document'])->name('verify.document');
+Route::get('verify-employee/{data}', App\Http\Livewire\Verify\Employee\Index::class)->name('verify.employee');
+Route::get('approval-document/{employee}/{document}', App\Http\Livewire\Form\Approval\Create::class)->name('approval.document.create');
 
 Route::get('testua', function (Request $request) {
     // dd($request->server('HTTP_USER_AGENT'));
