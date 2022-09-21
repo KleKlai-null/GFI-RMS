@@ -23,7 +23,7 @@
                             <input type="search" class="form-control d-inline-block w-9 me-3 {{ empty($datas) ? 'd-none' : '' }}"
                                 wire:model="search" placeholder="Search document series..." />
                         </span>
-                        <x-form-index-header new="{{ route('fg.create') }}"/>
+                        <x-form-index-header new="{{ route('fg.create') }}" permission="create fg"/>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                                                                      </svg>
                                                                     Details
                                                                   </a>
-                                                                  <button class="dropdown-item" type="button" wire:click="archive_id({{ $data->id }})">
+                                                                  <button class="dropdown-item" type="button" wire:click="archive({{ $data->id }})">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                                         <rect x="3" y="4" width="18" height="4" rx="2"></rect>
@@ -143,7 +143,7 @@
                                             @empty
                                                 <tr>
                                                     <td colspan="7">
-                                                        <x-form-index-search-empty route="{{ route('fg.create') }}" buttonText="Add finished goods record" />
+                                                        <x-form-index-search-empty route="{{ route('fg.create') }}" buttonText="Add finished goods record" permission="create fg"/>
                                                     </td>
                                                 </tr>
                                             @endforelse

@@ -24,7 +24,7 @@
                                 class="form-control d-inline-block w-9 me-3 {{ empty($datas) ? 'd-none' : '' }}"
                                 wire:model="search" placeholder="Search document series..." />
                         </span>
-                        <x-form-index-header new="{{ route('mr.create') }}" disablereturnslip="true" />
+                        <x-form-index-header new="{{ route('mr.create') }}" disablereturnslip="true" permission="create mr"/>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                                                 <tr>
                                                     <a href="google.com">
                                                         <td class="sort-series">{{ $data->document_series_no }}</td>
-                                                        <td class="sort-city">{{ ucwords($data->customer_name) }}</td>
+                                                        <td class="sort-city">{{ ucwords($data->name_of_employee) }}</td>
                                                         <td class="sort-score">{{ $data->prepared_by }}</td>
                                                         <td class="sort-date" data-date="1628071164">
                                                             {{ $data->approved_by }}
@@ -181,8 +181,8 @@
                                             @empty
                                                 <tr>
                                                     <td colspan="7">
-                                                        <x-form-index-search-empty route="{{ route('mi.create') }}"
-                                                            buttonText="Add merchandise record" />
+                                                        <x-form-index-search-empty route="{{ route('mr.create') }}"
+                                                            buttonText="Add merchandise record" permission="create mr"/>
                                                     </td>
                                                 </tr>
                                             @endforelse

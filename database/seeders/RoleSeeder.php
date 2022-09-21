@@ -258,6 +258,9 @@ class RoleSeeder extends Seeder
             [
                 'name'  => 'view telescope'
             ],
+            [
+                'name'  => 'view dashboard'
+            ],
         ]; 
 
         foreach ($user_management_permission as $permission)
@@ -266,6 +269,45 @@ class RoleSeeder extends Seeder
         }
 
         $c_level->givePermissionTo(Permission::all());
+
+        $auditor = Role::create(['name' => 'auditor']);
+        $auditor_permission = [
+            [
+                'name'  => 'view rs'
+            ],
+            [
+                'name'  => 'view mi'
+            ],
+            [
+                'name'  => 'view mro'
+            ],
+            [
+                'name'  => 'view dm'
+            ],
+            [
+                'name'  => 'view fg'
+            ],
+            [
+                'name'  => 'view fa'
+            ],
+            [
+                'name'  => 'view ma'
+            ],
+            [
+                'name'  => 'view mr'
+            ],
+            [
+                'name'  => 'view sc'
+            ],
+            [
+                'name'  => 'view dashboard'
+            ]
+        ];
+
+        foreach ($auditor_permission as $permission)
+        {
+            $auditor->givePermissionTo($permission);
+        }
 
         // Add create rs permission to all roles
         $rs = Permission::where('name', 'create rs')->first();

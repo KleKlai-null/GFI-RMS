@@ -119,10 +119,10 @@
     </div>
     @livewireScripts
     <script src="{{ asset('asset/images/lord-icon/lord-icon-dependency.js') }}"></script>
-    
     <script>
         Livewire.onPageExpired((response, message) => {})
     </script>
+    @yield('script')
 </body>
 
 </html>

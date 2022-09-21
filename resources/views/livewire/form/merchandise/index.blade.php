@@ -24,7 +24,7 @@
                                 class="form-control d-inline-block w-9 me-3 {{ empty($datas) ? 'd-none' : '' }}"
                                 wire:model="search" placeholder="Search document series..." />
                         </span>
-                        <x-form-index-header new="{{ route('mi.create') }}" />
+                        <x-form-index-header new="{{ route('mi.create') }}" permission="create mi"/>
                     </div>
                 </div>
             </div>
@@ -204,7 +204,7 @@
                                                 <tr>
                                                     <td colspan="7">
                                                         <x-form-index-search-empty route="{{ route('mi.create') }}"
-                                                            buttonText="Add merchandise record" />
+                                                            buttonText="Add merchandise record" permission="create mi" />
                                                     </td>
                                                 </tr>
                                             @endforelse

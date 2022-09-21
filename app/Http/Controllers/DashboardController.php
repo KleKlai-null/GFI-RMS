@@ -19,7 +19,7 @@ class DashboardController extends Controller
         $user = auth()->user();
 
         //Check first the role of user
-        if($user->hasAnyRole('administrator')){
+        if($user->hasPermissionTo('view dashboard')){
             return view('dashboard', compact('quote'));
         }
 

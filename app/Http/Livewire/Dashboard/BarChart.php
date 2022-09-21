@@ -4,12 +4,10 @@ namespace App\Http\Livewire\Dashboard;
 
 use Livewire\Component;
 
-class Table extends Component
+class BarChart extends Component
 {
-    public $search;
-    
     public function render()
     {
-        return view('livewire.dashboard.table');
+        return view('livewire.dashboard.bar-chart');
     }
 }
