@@ -9,14 +9,18 @@ class DashboardController extends Controller
 
     public function index() 
     {
-        $response = Http::get('https://zenquotes.io/api/random');
-        $quote= $response->json();
+        // $response = Http::get('https://zenquotes.io/api/random');
+        // $quote= $response->json();
     
-        // $quote = [];
+        $quote = [];
 
         $user = auth()->user();
 
-        $formstatistic = FormStatistic::select('id', 'total', 'open', 'closed', 'archived')->orderBy('id', 'asc')->get();
+        $formstatistic = cache()->remember('dashboard_form_statistic', 60*60*24, function() {
+            return FormStatistic::select('id', 'total', 'open', 'closed', 'archived')->orderBy('id', 'asc')->get();
+        });
+
+        // $formstatistic = FormStatistic::select('id', 'total', 'open', 'closed', 'archived')->orderBy('id', 'asc')->get();
 
         $total = [];
         $open = [];

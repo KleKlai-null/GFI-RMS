@@ -9,6 +9,8 @@ class DashboardService
 
     public static function update_form_statistic($model, $form)
     {
+        cache()->forget('dashboard_form_statistic');
+
         // Recount current status
         $total = $model::count();
         $open = $model::where('status', 'Open')->count();
