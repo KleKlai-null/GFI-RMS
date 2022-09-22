@@ -81,6 +81,8 @@ class FormPDFListener implements ShouldQueue
             // Set filename 
             $file_name = 'bak/pdf/'.$event->document_series_no.'-'.now()->format('His').'.pdf';
 
+            Log::info($event);
+            
             DocumentService::set_document_file_name($event->document_series_no, $file_name);
 
             // Put to local dist 
