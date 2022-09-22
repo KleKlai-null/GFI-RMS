@@ -260,7 +260,7 @@ class RoleSeeder extends Seeder
             ],
             [
                 'name'  => 'view dashboard'
-            ],
+            ]
         ]; 
 
         foreach ($user_management_permission as $permission)

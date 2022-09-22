@@ -173,6 +173,17 @@
                                                 </span>
                                             </label>
                                             <label class="form-check mb-2">
+                                                <input class="form-check-input @error('roles') is-invalid @enderror"
+                                                    wire:model="roles" value="auditor" type="checkbox"
+                                                    {{ in_array('administrator', $roles) ? 'disabled' : '' }}>
+                                                <span class="form-check-label">
+                                                    Auditor
+                                                </span>
+                                                <span class="form-check-description">
+                                                    Can view all form dashboard and summary
+                                                </span>
+                                            </label>
+                                            <label class="form-check mb-2">
                                                 @error('roles')
                                                     <span class="form-check-description text-danger">Please select one
                                                         or more role for the

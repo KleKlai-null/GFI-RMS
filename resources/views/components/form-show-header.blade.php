@@ -1,27 +1,36 @@
+@props([
+    'approval'                  => $approval,
+    'permission_to_create'      => $permission ?? '',
+    'departments'               => $departments,
+    'redirect'                  => $redirect
+])
+
 <div>
     <div class="col-12 col-md-auto ms-auto d-print-none">
         <div class="btn-list">
-            @if ($approval)
-                <span class="d-none d-sm-inline">
-                    <a class="btn btn-white" data-bs-toggle="offcanvas" href="#offcanvasStart" role="button"
-                        aria-controls="offcanvasStart">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report" width="24"
-                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697"></path>
-                            <path d="M18 14v4h4"></path>
-                            <path d="M18 11v-4a2 2 0 0 0 -2 -2h-2"></path>
-                            <rect x="8" y="3" width="6" height="4" rx="2">
-                            </rect>
-                            <circle cx="18" cy="18" r="4"></circle>
-                            <path d="M8 11h4"></path>
-                            <path d="M8 15h3"></path>
-                        </svg>
-                        New approval department
-                    </a>
-                </span>
-            @endif
+            @can($permission_to_create)
+                @if ($approval)
+                    <span class="d-none d-sm-inline">
+                        <a class="btn btn-white" data-bs-toggle="offcanvas" href="#offcanvasStart" role="button"
+                            aria-controls="offcanvasStart">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report" width="24"
+                                height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697"></path>
+                                <path d="M18 14v4h4"></path>
+                                <path d="M18 11v-4a2 2 0 0 0 -2 -2h-2"></path>
+                                <rect x="8" y="3" width="6" height="4" rx="2">
+                                </rect>
+                                <circle cx="18" cy="18" r="4"></circle>
+                                <path d="M8 11h4"></path>
+                                <path d="M8 15h3"></path>
+                            </svg>
+                            New approval department
+                        </a>
+                    </span>
+                @endif
+            @endcan
             <div class="btn-list btn-primary flex-nowrap">
                 <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle align-text-top" data-bs-toggle="dropdown"
@@ -29,7 +38,7 @@
                         Actions
                     </button>
                     <div class="dropdown-menu dropdown-menu-end" style="">
-                        @if ($archive)
+                        {{-- @if ($archive)
                             <a class="dropdown-item" href="#">
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="icon me-2 icon-tabler icon-tabler-archive" width="24" height="24"
@@ -43,7 +52,7 @@
                                 </svg>
                                 Archive
                             </a>
-                        @endif
+                        @endif --}}
                         <button class="dropdown-item" type="button" onclick="javascript:window.print();">
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"

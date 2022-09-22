@@ -15,6 +15,7 @@
                             :archive="Str::lower($data->status) != 'archive'" 
                             :departments="$listDepartments"
                             :redirect="$redirect"
+                            permission="create mi"
                             />
                     </div>
                 </div>
