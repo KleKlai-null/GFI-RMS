@@ -83,9 +83,9 @@ class FormPDFListener implements ShouldQueue
             // Put to local dist 
             Storage::disk('local')->put($file_name, $content);
         
-            Log::info($data);
+            Log::info($event);
             // Update model column name
-            $data->update([
+            $event->update([
                 'pdf_file_name' => $file_name
             ]);
 
