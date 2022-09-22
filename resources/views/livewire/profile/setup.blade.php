@@ -12,7 +12,7 @@
                     <h1 class="mt-5">Welcome to Gensan Feedmill, Inc.</h1>
                     <p class="text-muted">Let's finish setting up your account</p>
                 </div>
-                <div class="hr-text hr-text-center hr-text-spaceless">your data</div>
+                {{-- <div class="hr-text hr-text-center hr-text-spaceless">your data</div> --}}
                 <div class="card-body">
                     <div class="mb-3">
                         <label class="form-label">New Password</label>
