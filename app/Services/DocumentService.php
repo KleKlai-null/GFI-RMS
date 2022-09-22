@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Models\Form\Approval;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Form\ReturnSlip\ReturnSlip;
 use App\Models\Form\WithdrawalSlip\Wsdm;
@@ -14,11 +13,10 @@ use App\Models\Form\WithdrawalSlip\Wsmi;
 use App\Models\Form\WithdrawalSlip\Wsmro;
 use App\Models\Form\Memorandum;
 use App\Models\Form\ServiceCall;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Support\Facades\Log;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Storage;
+use Throwable;
 
 class DocumentService
 {
@@ -288,6 +286,29 @@ class DocumentService
 
             // Update form statistic
             DashboardService::update_form_statistic($model_path, $short_name);
+        }
+    }
+
+    public static function get_document_pdf($model)
+    {
+        try {
+
+            activity()
+            ->performedOn($model)
+            ->causedBy(auth()->user()->id)
+            ->event('Download')
+            ->withProperties([
+                'http_method'            => 'POST',
+                'document_series_number' => $model->document_series_no,
+                'Check_url'              => url()->current(),
+                'User Agent'             => $_SERVER['HTTP_USER_AGENT']
+            ])
+            ->log('successfully download '.$model->pdf_file_name);
+
+            return Storage::disk('local')->download($model->pdf_file_name);
+
+        } catch (Exception $exception) {
+            Log::error($exception);
         }
     }
 

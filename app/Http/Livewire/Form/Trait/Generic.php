@@ -1,6 +1,8 @@
 <?php 
 
 namespace App\Http\Livewire\Form\Trait;
+
+use App\Services\DocumentService;
 use Carbon\Carbon;
 
 trait Generic
@@ -21,7 +23,7 @@ trait Generic
     {
         if(auth()->user()->hasRole('administrator'))
         {
-            return $model::search('document_series_no', '%'.$this->search.'%')->where('status', $this->status)->orderBy('id', 'desc')->paginate(5);
+            return $model::with('approval')->search('document_series_no', '%'.$this->search.'%')->where('status', $this->status)->orderBy('id', 'desc')->paginate(5);
         }
 
         return $model::search('document_series_no', '%'.$this->search.'%')->where('status', $this->status)->where('user_id', auth()->user()->id)->orderBy('id', 'desc')->paginate(5);

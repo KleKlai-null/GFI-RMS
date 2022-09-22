@@ -34,6 +34,7 @@ return new class extends Migration
             $table->string('released_by');
             $table->mediumText('remarks')->nullable();
             $table->enum('status', ['Open', 'Closed', 'Archived'])->default('Open');
+            $table->string('pdf_file_name')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

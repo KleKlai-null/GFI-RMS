@@ -15,6 +15,7 @@
                             :departments="$listDepartments"
                             :redirect="$redirect"
                             permission="create fa"
+                            :data="$data"
                             />
                     </div>
                 </div>

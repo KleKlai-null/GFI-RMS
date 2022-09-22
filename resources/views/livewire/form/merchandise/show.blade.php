@@ -16,6 +16,7 @@
                             :departments="$listDepartments"
                             :redirect="$redirect"
                             permission="create mi"
+                            :data="$data"
                             />
                     </div>
                 </div>

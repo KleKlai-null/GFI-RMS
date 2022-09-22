@@ -39,4 +39,9 @@ trait WithShowGeneric
 
         return redirect()->route($redirect, $this->data);
     }
+
+    public function download_pdf()
+    {
+        return DocumentService::get_document_pdf($this->data);
+    }
 }

@@ -14,6 +14,7 @@
                             :archive="Str::lower($data->status) != 'archive'" 
                             :departments="$listDepartments"
                             :redirect="$redirect"
+                            :data="$data"
                             />
                     </div>
                 </div>
