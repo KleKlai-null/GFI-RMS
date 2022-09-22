@@ -291,6 +291,8 @@ class DocumentService
 
     public static function set_document_file_name($document_series_no, $file_name)
     {
+        Log::info('Updating column for form');
+
         $data = self::getDocument($document_series_no);
 
         // Update model column name
