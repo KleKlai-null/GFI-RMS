@@ -61,8 +61,6 @@
                     </div>
                 @endif
             @endproduction
-
-            {{-- <livewire:dashboard.bar-chart /> --}}
             <div class="col-12 mb-3">
                 <div class="card">
                   <div class="card-body">
@@ -211,71 +209,6 @@
     <script>
         // @formatter:off
         document.addEventListener("DOMContentLoaded", function () {
-            window.ApexCharts && (new ApexCharts(document.getElementById('chart-tasks-overview'), {
-                chart: {
-                    type: "bar",
-                    fontFamily: 'inherit',
-                    height: 220,
-                    parentHeightOffset: 0,
-                    toolbar: {
-                        show: false,
-                    },
-                    animations: {
-                        enabled: false
-                    },
-                },
-                plotOptions: {
-                    bar: {
-                        columnWidth: '100%',
-                    }
-                },
-                dataLabels: {
-                    enabled: false,
-                },
-                fill: {
-                    opacity: 1,
-                },
-                series: [{
-                    name: "Created",
-                    data: [44, 32, 48, 72, 60, 16, 44, 32, 78]
-                }],
-                grid: {
-                    padding: {
-                        top: -20,
-                        right: 0,
-                        left: -4,
-                        bottom: -4
-                    },
-                    strokeDashArray: 4,
-                },
-                xaxis: {
-                    labels: {
-                        padding: 0,
-                    },
-                    tooltip: {
-                        enabled: false
-                    },
-                    axisBorder: {
-                        show: false,
-                    },
-                    categories: ['MI', 'MRO', 'DM', 'FG', 'FA', 'MA', 'MR', 'SC', 'RS'],
-                },
-                yaxis: {
-                    labels: {
-                        padding: 4
-                    },
-                },
-                colors: [tabler.getColor("primary")],
-                legend: {
-                    show: false,
-                },
-            })).render();
-        });
-        // @formatter:on
-    </script>
-    <script>
-        // @formatter:off
-        document.addEventListener("DOMContentLoaded", function () {
             window.ApexCharts && (new ApexCharts(document.getElementById('chart-completion-tasks-9'), {
                 chart: {
                     type: "bar",
@@ -303,16 +236,16 @@
                 },
                 series: [{
                     name: "Total",
-                    data: [155, 65, 465, 265, 225, 325, 80]
+                    data: {!! json_encode($total) !!}
                 },{
                     name: "Open",
-                    data: [113, 42, 65, 54, 76, 65, 35]
+                    data: {!! json_encode($open) !!}
                 },{
                     name: "Closed",
-                    data: [113, 42, 65, 54, 76, 65, 35]
+                    data: {!! json_encode($closed) !!}
                 },{
                     name: "Archived",
-                    data: [113, 42, 65, 54, 76, 65, 35]
+                    data: {!! json_encode($archived) !!}
                 }],
                 grid: {
                     padding: {

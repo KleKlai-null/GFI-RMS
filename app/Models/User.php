@@ -72,6 +72,11 @@ class User extends Authenticatable
         return ucwords($this->first_name. ' ' . $this->last_name);
     }
 
+    public function firstRole()
+    {
+        return ucwords(auth()->user()->getRoleNames()->first());
+    }
+
     public function memorandums() : HasMany
     {
         return $this->hasMany(Memorandum::class);

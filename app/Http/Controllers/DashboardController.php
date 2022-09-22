@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Form\FormStatistic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
@@ -18,9 +19,23 @@ class DashboardController extends Controller
 
         $user = auth()->user();
 
+        $formstatistic = FormStatistic::select('id', 'total', 'open', 'closed', 'archived')->orderBy('id', 'asc')->get();
+
+        $total = [];
+        $open = [];
+        $closed = [];
+        $archived = [];
+
+        foreach($formstatistic as $stat) {
+            $total[] = $stat->total;
+            $open[] = $stat->open;
+            $closed[] = $stat->closed;
+            $archived[] = $stat->archived;
+        }
+
         //Check first the role of user
         if($user->hasPermissionTo('view dashboard')){
-            return view('dashboard', compact('quote'));
+            return view('dashboard', compact('quote', 'total', 'open', 'closed', 'archived'));
         }
 
         // Check if the user has permission to

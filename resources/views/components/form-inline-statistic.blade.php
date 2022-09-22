@@ -109,7 +109,7 @@
                 </div>
                 <div class="col">
                     <div class="font-weight-medium">
-                        {{ $statistic['archive'] }} Archive
+                        {{ $statistic['archive'] }} Archived
                     </div>
                     <div class="text-muted">
                         {{ $statistic['archive_today'] }} today

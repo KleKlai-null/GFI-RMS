@@ -89,7 +89,7 @@
                                 style="background-image: url({{ auth()->user()->avatarUrl() }})"></span>
                             <div class="d-none d-xl-block ps-2">
                                 <div>{{ auth()->user()->fullName() }}</div>
-                                <div class="mt-1 small text-muted">Chief Operation Manager</div>
+                                <div class="mt-1 small text-muted">{{ auth()->user()->firstRole() }}</div>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
