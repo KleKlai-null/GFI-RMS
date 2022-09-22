@@ -80,11 +80,7 @@ class FormPDFListener implements ShouldQueue
             $content = $pdf->download()->getOriginalContent();
             
             // Set filename 
-            $file_name = 'bak/pdf/'.$event->document_series_no.'-'.now()->format('His').'.pdf';
-
-            Wsmi::first()->update([
-                'pdf_file_name' => $file_name
-            ]);
+            $file_name = 'bak/pdf/'.$event->document_series_no.'.pdf';
 
             // Put to local dist 
             Storage::disk('local')->put($file_name, $content);
@@ -96,7 +92,5 @@ class FormPDFListener implements ShouldQueue
         } catch (Throwable $throwable) {
             Log::error($throwable);
         }
-
-        return true;
     }
 }

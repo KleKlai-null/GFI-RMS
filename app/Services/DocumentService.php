@@ -289,18 +289,6 @@ class DocumentService
         }
     }
 
-    public static function set_document_file_name($document_series_no, $file_name)
-    {
-        Log::info('Updating column for form');
-
-        $data = self::getDocument($document_series_no);
-
-        // Update model column name
-        $data->update([
-            'pdf_file_name' => $file_name
-        ]);
-    }
-
     public static function get_document_pdf($model)
     {
         try {

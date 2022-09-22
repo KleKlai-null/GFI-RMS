@@ -53,14 +53,6 @@ Route::middleware(['auth'])->group(function () {
     })->name('help');
 });
 
-Route::get('test', function () {
-
-    $data = Wsmi::first();
-    $data->update([
-        'pdf_file_name' => "bak/pdf/GFI-test-2022-22131.pdf"
-    ]);
-});
-
 Route::get('verify/key={data}', [VerifyDocument::class, 'verify_document'])->name('verify.document');
 
 // Begin handover process
