@@ -305,7 +305,7 @@ class DocumentService
             ])
             ->log('successfully download '.$model->document_series_no);
 
-            return Storage::disk('local')->download('bak/pdf/'.$model->document_series_no);
+            return Storage::disk('local')->download('bak/pdf/'.$model->document_series_no.'.pdf');
 
         } catch (Exception $exception) {
             Log::error($exception);
