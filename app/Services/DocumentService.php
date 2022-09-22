@@ -303,9 +303,9 @@ class DocumentService
                 'Check_url'              => url()->current(),
                 'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
-            ->log('successfully download '.$model->pdf_file_name);
+            ->log('successfully download '.$model->document_series_no);
 
-            return Storage::disk('local')->download($model->pdf_file_name);
+            return Storage::disk('local')->download('bak/pdf/'.$model->document_series_no);
 
         } catch (Exception $exception) {
             Log::error($exception);
