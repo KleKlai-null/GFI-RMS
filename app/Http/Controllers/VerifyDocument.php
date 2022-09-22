@@ -12,6 +12,7 @@ use App\Models\Form\WithdrawalSlip\Wsfg;
 use App\Models\Form\WithdrawalSlip\Wsma;
 use App\Models\Form\WithdrawalSlip\Wsmi;
 use App\Models\Form\WithdrawalSlip\Wsmro;
+use App\Services\DocumentService;
 use Exception;
 use Illuminate\Support\Str;
 
@@ -26,81 +27,104 @@ class VerifyDocument extends Controller
             $unique = Str::lower($splice[1]);
 
             $authentic = true;
+            $button_enable = true;
 
             switch ($unique) {
                 case "mi":
-                    $data = Wsmi::DocumentSeries($document_series_no)->select('document_series_no', 'created_at')->first();
+                    $data = Wsmi::DocumentSeries($document_series_no)->select('document_series_no', 'status', 'created_at')->first();
                     
                     if(!$data) {
                         return abort(500);
                     }
 
-                    return view('verify.index', compact('data', 'authentic'));
+                    $allow_entries = DocumentService::approval_allow_entries($data->document_series_no);
+
+                    return view('verify.index', compact('data', 'authentic', 'button_enable', 'allow_entries'));
                 case "mro":
-                    $data = Wsmro::with('items')->DocumentSeries($document_series_no)->first();
+                    $data = Wsmro::DocumentSeries($document_series_no)->select('document_series_no', 'status', 'created_at')->first();
 
                     if(!$data) {
                         return abort(500);
                     }
 
-                    return view('verify.index', compact('data', 'authentic'));
+                    $allow_entries = DocumentService::approval_allow_entries($data->document_series_no);
+
+                    return view('verify.index', compact('data', 'authentic', 'button_enable', 'allow_entries'));
                 case "dm":
-                    $data = Wsdm::with('items')->DocumentSeries($document_series_no)->first();
+                    $data = Wsdm::DocumentSeries($document_series_no)->select('document_series_no', 'status', 'created_at')->first();
 
                     if(!$data) {
                         return abort(500);
                     }
 
-                    return view('verify.index', compact('data', 'authentic'));
+                    $allow_entries = DocumentService::approval_allow_entries($data->document_series_no);
+
+                    return view('verify.index', compact('data', 'authentic', 'button_enable', 'allow_entries'));
                 case "fg":
-                    $data = Wsfg::with('items')->DocumentSeries($document_series_no)->first();
+                    $data = Wsfg::DocumentSeries($document_series_no)->select('document_series_no', 'status', 'created_at')->first();
 
                     if(!$data) {
                         return abort(500);
                     }
 
-                    return view('verify.index', compact('data', 'authentic'));
+                    $allow_entries = DocumentService::approval_allow_entries($data->document_series_no);
+
+                    return view('verify.index', compact('data', 'authentic', 'button_enable', 'allow_entries'));
                 case "fa":
-                    $data = Wsfa::with('items')->DocumentSeries($document_series_no)->first();
+                    $data = Wsfa::DocumentSeries($document_series_no)->select('document_series_no', 'status', 'created_at')->first();
 
                     if(!$data) {
                         return abort(500);
                     }
 
-                    return view('verify.index', compact('data', 'authentic'));
+                    $allow_entries = DocumentService::approval_allow_entries($data->document_series_no);
+
+                    return view('verify.index', compact('data', 'authentic', 'button_enable', 'allow_entries'));
                 case "ma":
-                    $data = Wsma::with('items')->DocumentSeries($document_series_no)->first();
+                    $data = Wsma::DocumentSeries($document_series_no)->select('document_series_no', 'status', 'created_at')->first();
 
                     if(!$data) {
                         return abort(500);
                     }
 
-                    return view('verify.index', compact('data', 'authentic'));
+                    $allow_entries = DocumentService::approval_allow_entries($data->document_series_no);
+
+                    return view('verify.index', compact('data', 'authentic', 'button_enable', 'allow_entries'));
                 case "sc":
-                    $data = ServiceCall::DocumentSeries($document_series_no)->first();
+                    $data = ServiceCall::DocumentSeries($document_series_no)->select('document_series_no', 'status', 'created_at')->first();
 
                     if(!$data) {
                         return abort(500);
                     }
 
-                    return view('verify.index', compact('data', 'authentic'));
+                    $allow_entries = false;
+                    $button_enable = false;
+
+                    return view('verify.index', compact('data', 'authentic', 'button_enable', 'allow_entries'));
                 case "mr":
-                    $data = Memorandum::DocumentSeries($document_series_no)->first();
+                    $data = Memorandum::DocumentSeries($document_series_no)->select('document_series_no', 'status', 'created_at')->first();
 
                     if(!$data) {
                         return abort(500);
                     }
 
-                    return view('verify.index', compact('data', 'authentic'));
+                    $allow_entries = false;
+                    $button_enable = false;
+
+                    return view('verify.index', compact('data', 'authentic', 'button_enable', 'allow_entries'));
                 case "rs":
-                    $data = ReturnSlip::with('items')->DocumentSeries($document_series_no)->first();
-
+                    $data = ReturnSlip::DocumentSeries($document_series_no)->select('document_series_no', 'created_at')->first();
+  
                     if(!$data) {
                         return abort(500);
                     }
+
+                    $allow_entries = false;
+                    $button_enable = false;
                     
-                    return view('verify.index', compact('data', 'authentic'));
+                    return view('verify.index', compact('data', 'authentic', 'button_enable', 'allow_entries'));
                 default:
+                
                     $authentic = false;
                     return view('verify.index', compact('data', 'authentic'));
             }

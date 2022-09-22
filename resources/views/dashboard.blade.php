@@ -132,9 +132,9 @@
                 </div>
             @endif
 
-            {{-- <div class="empty">
-                <p class="empty-subtitle text-muted text-center">{{ (isset($quote)) ? $quote[0]['q'] . ' - ' . $quote[0]['a'] : '' }}</p>
-            </div> --}}
+            <div class="empty">
+                <p class="empty-subtitle text-muted text-center">{{ (isset($quote[0])) ? $quote[0]['q'] . ' - ' . $quote[0]['a'] : '' }}</p>
+            </div>
 
         </div>
     </div>

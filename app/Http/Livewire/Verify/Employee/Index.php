@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Verify\Employee;
 
 use App\Models\Employee;
-use Exception;
 use Livewire\Component;
 
 class Index extends Component
@@ -13,7 +12,7 @@ class Index extends Component
     protected $listeners = ['getQRResult'];
 
     public function mount($data) 
-    {
+    {   
         $this->document_series_no = $data;
     }
 

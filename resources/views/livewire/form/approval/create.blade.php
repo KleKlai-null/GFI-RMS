@@ -37,7 +37,7 @@
                                 step: 1,
                             }" x-cloak>
 
-                                <div class="border-0" x-show.transition.in="step === 1">
+                                <div class="border-0" x-show.transition.in="step === 1" >
                                     <div class="card-body">
                                     <div class="mb-3">
                                         <div class="form-label">Who is the person handed this form?</div>
@@ -59,6 +59,9 @@
                                                     </svg>
                                                 </a>
                                             </div>
+                                            @error('sender')
+                                                <p class="text-danger">{{ $message }}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="mt-2 float-right">
@@ -77,16 +80,19 @@
                                     </div>
                                 </div>
 
-                                <div class="border-0" x-show.transition.in="step === 2">
+                                <div class="border-0" x-show.transition.in="step === 2" x-transition:enter.scale.80>
                                     <div class="card-body">
                                     <div class="mb-3">
                                         <div class="form-label">Let us know your current department</div>
                                         <select class="form-select @error('selectedDepartment') is-invalid @enderror" wire:model="selectedDepartment">
-                                            <option selected>Select</option>
+                                            <option value="" selected>Select</option>
                                             @foreach ($departments as $department)
                                                 <option value="{{ $department->department }}">{{ $department->department }}</option>
                                             @endforeach
                                         </select>
+                                        @error('selectedDepartment')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="mt-2 float-right">
                                         <div class="btn-group">
@@ -123,35 +129,35 @@
                                             Review and Confirm
                                         </button>
                                     </h3>
-                                    <div class="card-body" x-data="{confirm: false}">
-                                        @if(empty($sender))
-                                            <p class="text-danger">From field is empty</p>
-                                        @endif
-
-                                        <div class="form-group row">
-                                            <label class="col-3 col-form-label">From</label>
-                                            <div class="col">
-                                                <div class="form-control-plaintext">{{ $sender }}</div>
+                                    @if(empty($sender) || empty($selectedDepartment))
+                                        <p class="text-danger">It seems you did not answer our questions. Press the return icon and check your response.</p>
+                                    @else
+                                        <div class="card-body" x-data="{confirm: false}">
+                                            <div class="form-group row">
+                                                <label class="col-3 col-form-label">From</label>
+                                                <div class="col">
+                                                    <div class="form-control-plaintext">{{ $sender ?? 'Dont be afraid tell us where did you get this form' }}</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-3 col-form-label">Receiving Department</label>
+                                                <div class="col">
+                                                    <div class="form-control-plaintext">{{ $selectedDepartment }}</div>
+                                                </div>
+                                            </div>
+                                            <label class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" x-model="confirm">
+                                                <span class="form-check-description">
+                                                    I confirm that the above information is true and accurate.
+                                                </span>
+                                            </label>
+                                            <div class="mt-2 float-right">
+                                                <button class="btn btn-success w-100 mt-3" x-bind:disabled="!confirm" wire:click="save">
+                                                    Confirm
+                                                </button>
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-3 col-form-label">Receiving Department</label>
-                                            <div class="col">
-                                                <div class="form-control-plaintext">{{ $selectedDepartment }}</div>
-                                            </div>
-                                        </div>
-                                        <label class="form-check mb-2">
-                                            <input class="form-check-input" type="checkbox" x-model="confirm">
-                                            <span class="form-check-description">
-                                                I confirm that the above information is true and accurate.
-                                            </span>
-                                        </label>
-                                    <div class="mt-2 float-right">
-                                        <button class="btn btn-success w-100 mt-3" x-bind:disabled="!confirm" wire:click="save">
-                                            Confirm
-                                        </button>
-                                    </div>
-                                    </div>
+                                    @endif
                                 </div>
 
                         </div>

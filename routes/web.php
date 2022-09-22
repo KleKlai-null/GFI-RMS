@@ -54,6 +54,8 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('verify/key={data}', [VerifyDocument::class, 'verify_document'])->name('verify.document');
+
+// Begin handover process
 Route::get('verify-employee/{data}', App\Http\Livewire\Verify\Employee\Index::class)->name('verify.employee');
 Route::get('approval-document/{employee}/{document}', App\Http\Livewire\Form\Approval\Create::class)->name('approval.document.create');
 

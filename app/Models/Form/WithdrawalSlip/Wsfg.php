@@ -9,8 +9,11 @@ use App\Services\DocumentService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
+use App\Models\Form\Approval;
 
 class Wsfg extends Model
 {
@@ -37,9 +40,14 @@ class Wsfg extends Model
         });
     }
 
-    public function items()
+    public function items() : HasMany
     {
         return $this->hasMany(FgItem::class);
+    }
+
+    public function approval() : MorphMany
+    {
+        return $this->morphMany(Approval::class, 'approvable');
     }
 
     public function user() : BelongsTo

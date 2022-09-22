@@ -19,9 +19,17 @@
                                 <h4>Date of Issue</h4>
                                 <p>{{ $data->created_at->format('F d, Y') }}</p>
                             </div>
-                            <a href="{{ route('verify.employee', $data->document_series_no) }}" class="btn btn-ghost-primary active w-50">
-                                Action
-                            </a>
+                            @if($button_enable)
+                                @if($allow_entries == 1)
+                                    <a href="{{ route('verify.employee', $data->document_series_no) }}" class="btn btn-ghost-primary active w-50">
+                                        Action
+                                    </a>
+                                @else
+                                    <a class="btn btn-ghost-primary active w-50" href="#" data-bs-toggle="modal" data-bs-target="#modal-simple">
+                                        Action
+                                    </a>
+                                @endif
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -56,6 +64,25 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    @endif
+
+    @if(!empty($allow_entries) && $allow_entries != 1)
+        <div class="modal modal-blur fade" id="modal-simple" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Notice</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{ $allow_entries }}
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
             </div>
         </div>
     @endif

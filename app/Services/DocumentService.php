@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Form\Approval;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Form\ReturnSlip\ReturnSlip;
@@ -15,6 +16,7 @@ use App\Models\Form\Memorandum;
 use App\Models\Form\ServiceCall;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
+use Illuminate\Support\Facades\Log;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Storage;
 
@@ -32,6 +34,7 @@ class DocumentService
         return $second_series_no;
     }
 
+    // Get document count
     public static function getCount($documentCode)
     {
         $unique = Str::lower($documentCode);
@@ -88,6 +91,7 @@ class DocumentService
         }
     }
 
+    // Get document full details
     public static function getDocument($data)
     {
         $splice = Str::of($data)->explode('-');
@@ -171,5 +175,120 @@ class DocumentService
                 return 'No Result Found';
         }
     }
+
+    // Create model short name
+    public static function getDocumentShortName($document_series_no)
+    {
+        try {
+            $splice = Str::of($document_series_no)->explode('-');
+            return Str::lower($splice[1]);
+            
+        } catch (Exception $exception) {
+            Log::error($exception);
+        }
+    }
+
+    // Generate Link for the document
+    public static function getDocumentUrnShow($short_name)
+    {
+        switch (Str::lower($short_name)) {
+            case "mi":
+                return 'merchandise/show/';
+            case "mro":
+                return 'maintenance/show/';
+            case "dm":
+                return 'directmaterial/show/';
+            case "fg":
+                return 'finishedgoods/show/';
+            case "fa":
+                return 'fixedasset/show/';
+            case "ma":
+                return 'minorasset/show/';
+            case "sc":
+                return 'servicecall/show/';
+            case "mr":
+                return 'memorandum/show/';
+            case "rs":
+                return 'returnitem/show/';
+            default:
+                Log::warning('Cannot find Document URN for ' . $short_name);
+                return 'No Result Found';
+        }
+    }
     
+    // Check if the document series no has any approval department exists
+    public static function has_approval($document_series_no)
+    {
+        $approval = Approval::DocumentSeries($document_series_no)->exists();
+
+        if($approval) {
+            return true;
+        }
+        return false;
+    }
+
+    // Check if approval department is still pending for entries.
+    public static function approval_allow_entries($document_series_no)
+    {
+
+        // Check first the document series status
+        $document = self::getDocument($document_series_no);
+        
+        // If document is empty or not found
+        if(empty($document))
+        {
+            return abort(404);
+        }
+
+        if(in_array(strtolower($document->status), ['closed', 'archived'])) {
+            return "Document $document_series_no status is already closed or archived.";
+        }
+
+        $approval = self::has_approval($document_series_no);
+
+        if(!$approval) {
+            return "Document $document_series_no doesn't have any approval department.";
+        }
+
+        // Check if document series approval has any department need to fullfill
+        $approval_count = Approval::DocumentSeries($document_series_no)->where('handed_person', null)->count();
+
+        if($approval_count == 0) {
+            return "All department has been fullfilled.";
+        }
+
+        return true;
+    }
+
+    // Check if approval department has been fullfill
+
+    public static function check_approval_department_fullfillment($document_series_no)
+    {
+        // Check if document series approval has any department need to fullfill
+        $approval_count = Approval::DocumentSeries($document_series_no)->where('handed_person', null)->count();
+
+        if($approval_count == 0) {
+
+            $model = DocumentService::getDocument($document_series_no);
+
+            $model->update([
+                'status' => 'Closed' 
+            ]);
+
+            //Get Document Short Name
+            $short_name = self::getDocumentShortName($document_series_no);
+
+            // Generate Link
+
+            // Fire notification to alert administrators that the form has been closed
+            NotificationService::notifyAdministrator(self::getDocumentUrnShow($short_name).$model->id, $model->document_series_no, 'Document has been closed.');
+
+            // Get Document Model Path
+            $model_path = self::getModelPath($short_name);
+
+            // Update form statistic
+            DashboardService::update_form_statistic($model_path, $short_name);
+        }
+    }
+
 }

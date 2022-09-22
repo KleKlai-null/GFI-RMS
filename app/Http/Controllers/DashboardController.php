@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 use App\Models\Form\FormStatistic;
+use Illuminate\Support\Facades\Http;
 
 class DashboardController extends Controller
 {
 
     public function index() 
     {
-        // $response = Http::get('https://zenquotes.io/api/random');
-        // $quote= $response->json();
+        $response = Http::get('https://zenquotes.io/api/random');
+        $quote= $response->json();
     
-        $quote = [];
+        // $quote = [];
 
         $user = auth()->user();
 

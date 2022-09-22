@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Form\Approval;
 
 use App\Models\Employee;
 use App\Models\Form\Approval;
+use App\Services\DocumentService;
 use Livewire\Component;
 
 class Create extends Component
@@ -16,8 +17,19 @@ class Create extends Component
 
     public function mount(Employee $employee, $document)
     {
+        $is_allow = DocumentService::approval_allow_entries($document);
+
+        if($is_allow != 1){
+            return abort(503, $is_allow);
+        }
+
         $this->employee = $employee;
         $this->document = $document;
+    }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
     }
 
     public function render()
@@ -37,6 +49,14 @@ class Create extends Component
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'sender.required'               => "Don't be afraid tell us where you get this form",
+            'selectedDepartment.required'   => "Oh come on! We just only need your department."
+        ];
+    }
+
     public function save()
     {
         $this->validate();
@@ -50,6 +70,8 @@ class Create extends Component
             'receive_person'    => $this->employee->fullName(),
             'department'        => $this->selectedDepartment
         ]);
+
+        DocumentService::check_approval_department_fullfillment($this->document);
 
         session()->flash('approvalsubmissionSuccess', 'Submission Received!');
     }
