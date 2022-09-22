@@ -4,6 +4,7 @@ namespace App\Listeners;
 
 use App\Events\Form\MIPDF;
 use App\Events\PDF as Form;
+use App\Services\DocumentService;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Log;
@@ -80,14 +81,10 @@ class FormPDFListener implements ShouldQueue
             // Set filename 
             $file_name = 'bak/pdf/'.$event->document_series_no.'-'.now()->format('His').'.pdf';
 
+            DocumentService::set_document_file_name($event->document_series_no, $file_name);
+
             // Put to local dist 
             Storage::disk('local')->put($file_name, $content);
-        
-            Log::info($event);
-            // Update model column name
-            $event->update([
-                'pdf_file_name' => $file_name
-            ]);
 
             Log::info('PDF successfully generated and downloaded');
 
