@@ -9,10 +9,10 @@ class DashboardController extends Controller
 
     public function index() 
     {
-        // $response = Http::get('https://zenquotes.io/api/random');
-        // $quote= $response->json();
+        $response = Http::get('https://zenquotes.io/api/random');
+        $quote= $response->json();
     
-        $quote = [];
+        // $quote = [];
 
         $user = auth()->user();
 

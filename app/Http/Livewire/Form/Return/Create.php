@@ -83,8 +83,6 @@ class Create extends Component
     public function store()
     {
         $this->validate();
-        
-        $this->addError('withdrawal_slip_no', 'Test');
 
         try {
 
