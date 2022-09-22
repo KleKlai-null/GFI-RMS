@@ -2,7 +2,9 @@
 
 namespace App\Observers\Form\WithdrawalSlip;
 
+use App\Models\Form\FormStatistic;
 use App\Models\Form\WithdrawalSlip\Wsma;
+use App\Services\DashboardService;
 use App\Services\NotificationService;
 
 class WsmaObserver
@@ -13,8 +15,6 @@ class WsmaObserver
     {
         cache()->forget('wsma-data');
         cache()->forget('activitylog-data');
-
-        NotificationService::notifyAdministrator("minorasset/show/".$wsma->id, $wsma->document_series_no, 'Created minor asset record');
 
         activity()
         ->performedOn($wsma)
@@ -27,6 +27,11 @@ class WsmaObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
         ])
         ->log('successfully created minor asset record');
+
+        NotificationService::notifyAdministrator("minorasset/show/".$wsma->id, $wsma->document_series_no, 'Created minor asset record');
+
+        // Record statistic
+        DashboardService::update_form_statistic('App\Models\Form\WithdrawalSlip\Wsma', 'ma');
     }
 
     public function retrieved(Wsma $wsma)
@@ -106,5 +111,10 @@ class WsmaObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
         ->log($wsma->document_series_no . ' minor asset permanently deleted');
+    }
+
+    public function updateStatistic()
+    {
+        DashboardService::update_form_statistic('App\Models\Form\WithdrawalSlip\Wsma', 'ma');
     }
 }

@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('approved_by');
             $table->string('checked_by');
             $table->string('released_by');
-            $table->enum('status', ['Open', 'Closed', 'Archive'])->default('Open');
+            $table->enum('status', ['Open', 'Closed', 'Archived'])->default('Open');
             $table->mediumText('remarks')->nullable();
             $table->softDeletes();
             $table->timestamps();

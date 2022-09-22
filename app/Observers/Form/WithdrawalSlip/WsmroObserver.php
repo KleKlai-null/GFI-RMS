@@ -2,7 +2,9 @@
 
 namespace App\Observers\Form\WithdrawalSlip;
 
+use App\Models\Form\FormStatistic;
 use App\Models\Form\WithdrawalSlip\Wsmro;
+use App\Services\DashboardService;
 use App\Services\NotificationService;
 
 class WsmroObserver
@@ -13,8 +15,6 @@ class WsmroObserver
     {
         cache()->forget('wsmro-data');
         cache()->forget('activitylog-data');
-
-        NotificationService::notifyAdministrator("maintenance/show/".$wsmro->id, $wsmro->document_series_no, 'Created maintenance, repairs, operations record');
 
         activity()
         ->performedOn($wsmro)
@@ -27,6 +27,11 @@ class WsmroObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
         ])
         ->log('successfully created maintenance, repairs, operations record');
+
+        NotificationService::notifyAdministrator("maintenance/show/".$wsmro->id, $wsmro->document_series_no, 'Created maintenance, repairs, operations record');
+
+        // Record statistic
+        DashboardService::update_form_statistic('App\Models\Form\WithdrawalSlip\Wsmro', 'mro');
     }
 
     public function retrieved(Wsmro $wsmro)
@@ -106,5 +111,10 @@ class WsmroObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
         ->log($wsmro->document_series_no . ' maintenance, repairs, operations permanently deleted');
+    }
+
+    public function updateStatistic()
+    {
+        DashboardService::update_form_statistic('App\Models\Form\WithdrawalSlip\Wsmro', 'mro');
     }
 }

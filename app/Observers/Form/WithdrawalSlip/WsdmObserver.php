@@ -2,7 +2,9 @@
 
 namespace App\Observers\Form\WithdrawalSlip;
 
+use App\Models\Form\FormStatistic;
 use App\Models\Form\WithdrawalSlip\Wsdm;
+use App\Services\DashboardService;
 use App\Services\NotificationService;
 
 class WsdmObserver
@@ -27,6 +29,9 @@ class WsdmObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
         ])
         ->log('successfully created direct material record');
+
+        // Record statistic
+        DashboardService::update_form_statistic('App\Models\Form\WithdrawalSlip\Wsdm', 'dm');
     }
 
     public function retrieved(Wsdm $wsdm)
@@ -106,5 +111,10 @@ class WsdmObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
         ->log($wsdm->document_series_no . ' direct material permanently deleted');
+    }
+
+    public function updateStatistic()
+    {
+        DashboardService::update_form_statistic('App\Models\Form\WithdrawalSlip\Wsdm', 'dm');
     }
 }

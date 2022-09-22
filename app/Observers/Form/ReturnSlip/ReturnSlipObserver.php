@@ -2,6 +2,7 @@
 
 namespace App\Observers\Form\ReturnSlip;
 
+use App\Models\Form\FormStatistic;
 use App\Models\Form\ReturnSlip\ReturnSlip;
 use App\Services\NotificationService;
 
@@ -24,6 +25,9 @@ class ReturnSlipObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
         ])
         ->log('successfully created return slip record');
+
+        // Record statistic
+        FormStatistic::where('form', 'rs')->first()->increment('total');
     }
 
     public function retrieved(ReturnSlip $returnSlip)

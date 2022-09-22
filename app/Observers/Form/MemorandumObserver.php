@@ -2,7 +2,9 @@
 
 namespace App\Observers\Form;
 
+use App\Models\Form\FormStatistic;
 use App\Models\Form\Memorandum;
+use App\Services\DashboardService;
 use App\Services\NotificationService;
 
 class MemorandumObserver
@@ -13,9 +15,6 @@ class MemorandumObserver
     {
         cache()->forget('memorandum-data');
         cache()->forget('activitylog-data');
-
-        // No Route yet
-        // NotificationService::notifyAdministrator("memorandum/show/".$memorandum->id, $memorandum->document_series_no, 'Created memorandum record');
 
         activity()
         ->performedOn($memorandum)
@@ -28,6 +27,12 @@ class MemorandumObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
         ])
         ->log('successfully created memorandum record');
+
+        // No Route yet
+        NotificationService::notifyAdministrator("memorandum/show/".$memorandum->id, $memorandum->document_series_no, 'Created memorandum record');
+
+        // Record statistic
+        DashboardService::update_form_statistic('App\Models\Form\Memorandum', 'mr');
     }
 
     public function retrieved(Memorandum $memorandum)
@@ -107,5 +112,10 @@ class MemorandumObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
         ->log($memorandum->document_series_no . ' memorandum permanently deleted');
+    }
+
+    public function updateStatistic()
+    {
+        DashboardService::update_form_statistic('App\Models\Form\Memorandum', 'mr');
     }
 }

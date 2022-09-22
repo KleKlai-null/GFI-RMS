@@ -2,9 +2,10 @@
 
 namespace App\Observers\Form\WithdrawalSlip;
 
+use App\Models\Form\FormStatistic;
 use App\Models\Form\WithdrawalSlip\Wsmi;
+use App\Services\DashboardService;
 use App\Services\NotificationService;
-use Illuminate\Http\Client\Request;
 
 class WsmiObserver
 {
@@ -14,8 +15,6 @@ class WsmiObserver
     {
         cache()->forget('wsmi-data');
         cache()->forget('activitylog-data');
-
-        NotificationService::notifyAdministrator("merchandise/show/".$wsmi->id, $wsmi->document_series_no, 'Created merchandise record');
 
         activity()
         ->performedOn($wsmi)
@@ -28,6 +27,12 @@ class WsmiObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
         ])
         ->log('successfully created merchandise record');
+
+        // Fire notification to alert administrators that user created a form
+        NotificationService::notifyAdministrator("merchandise/show/".$wsmi->id, $wsmi->document_series_no, 'Created merchandise record');
+
+        // Record statistic
+        DashboardService::update_form_statistic('App\Models\Form\WithdrawalSlip\Wsmi', 'mi');
     }
 
     public function retrieved(Wsmi $wsmi)
@@ -109,4 +114,8 @@ class WsmiObserver
         ->log($wsmi->document_series_no . ' merchandise permanently deleted');
     }
 
+    public function updateStatistic()
+    {
+        DashboardService::update_form_statistic('App\Models\Form\WithdrawalSlip\Wsmi', 'mi');
+    }
 }

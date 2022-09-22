@@ -20,6 +20,8 @@ class Wsfa extends Model
         'id', 'created_at', 'updated_at'
     ];
 
+    protected $observables = ['updateStatistic'];
+
     protected $dispatchesEvents = [
         'created'   => FA::class
     ];
@@ -69,5 +71,15 @@ class Wsfa extends Model
         } else {
             return $query->where($column, 'like', '%'.$search.'%');
         }
+    }
+
+    /**
+     * Set @this status to archive
+     */
+
+    public function archive()
+    { 
+        $this->update(['status' => 'Archived']);
+        $this->fireModelEvent('updateStatistic', false);
     }
 }

@@ -16,4 +16,16 @@ class FormStatistic extends Model
         'closed',
         'archived'
     ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'total'             => 'integer',
+        'open'              => 'integer',
+        'closed'            => 'integer',
+        'archived'          => 'integer',
+    ];
 }

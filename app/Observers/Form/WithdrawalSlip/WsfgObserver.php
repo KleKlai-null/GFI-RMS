@@ -2,7 +2,9 @@
 
 namespace App\Observers\Form\WithdrawalSlip;
 
+use App\Models\Form\FormStatistic;
 use App\Models\Form\WithdrawalSlip\Wsfg;
+use App\Services\DashboardService;
 use App\Services\NotificationService;
 
 class WsfgObserver
@@ -15,8 +17,6 @@ class WsfgObserver
         cache()->forget('wsfg-data');
         cache()->forget('activitylog-data');
 
-        NotificationService::notifyAdministrator("finishedgoods/show/".$wsfg->id, $wsfg->document_series_no, 'Created finished goods record');
-
         activity()
         ->performedOn($wsfg)
         ->causedBy(auth()->user())
@@ -28,6 +28,11 @@ class WsfgObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
         ])
         ->log('successfully created finished goods record');
+
+        NotificationService::notifyAdministrator("finishedgoods/show/".$wsfg->id, $wsfg->document_series_no, 'Created finished goods record');
+
+        // Record statistic
+        DashboardService::update_form_statistic('App\Models\Form\WithdrawalSlip\Wsfg', 'fg');
     }
 
     public function retrieved(Wsfg $wsfg)
@@ -107,5 +112,10 @@ class WsfgObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
         ->log($wsfg->document_series_no . ' finished goods permanently deleted');
+    }
+
+    public function updateStatistic()
+    {
+        DashboardService::update_form_statistic('App\Models\Form\WithdrawalSlip\Wsfg', 'fg');
     }
 }

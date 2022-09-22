@@ -23,6 +23,8 @@ class Wsmi extends Model
         'id', 'created_at', 'updated_at'
     ];
 
+    protected $observables = ['updateStatistic'];
+
     protected $dispatchesEvents = [
         'created'   => MI::class
     ];
@@ -82,4 +84,15 @@ class Wsmi extends Model
             return $query->where($column, 'like', '%'.$search.'%');
         }
     }
+
+    /**
+     * Set @this status to archive
+     */
+
+    public function archive()
+    { 
+        $this->update(['status' => 'Archived']);
+        $this->fireModelEvent('updateStatistic', false);
+    }
+
 }

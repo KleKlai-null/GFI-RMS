@@ -16,75 +16,75 @@ class FormStatisticSeeder extends Seeder
     public function run()
     {
         FormStatistic::create([
-            'form'      => 'MI',
-            'total'     => 50,
-            'open'      => 40,
-            'closed'    => 0,
-            'archived'  => 10,
-        ]);
-
-        FormStatistic::create([
-            'form'      => 'MRO',
-            'total'     => 100,
-            'open'      => 40,
+            'form'      => 'mi',
+            'total'     => 0,
+            'open'      => 0,
             'closed'    => 0,
             'archived'  => 0,
         ]);
 
         FormStatistic::create([
-            'form'      => 'DM',
-            'total'     => 150,
-            'open'      => 40,
-            'closed'    => 5,
-            'archived'  => 5,
-        ]);
-
-        FormStatistic::create([
-            'form'      => 'FG',
-            'total'     => 200,
-            'open'      => 40,
-            'closed'    => 5,
+            'form'      => 'mro',
+            'total'     => 0,
+            'open'      => 0,
+            'closed'    => 0,
             'archived'  => 0,
         ]);
 
         FormStatistic::create([
-            'form'      => 'FA',
-            'total'     => 50,
-            'open'      => 40,
-            'closed'    => 5,
-            'archived'  => 5,
+            'form'      => 'dm',
+            'total'     => 0,
+            'open'      => 0,
+            'closed'    => 0,
+            'archived'  => 0,
         ]);
 
         FormStatistic::create([
-            'form'      => 'MA',
-            'total'     => 40,
-            'open'      => 40,
-            'closed'    => 5,
-            'archived'  => 5,
+            'form'      => 'fg',
+            'total'     => 0,
+            'open'      => 0,
+            'closed'    => 0,
+            'archived'  => 0,
         ]);
 
         FormStatistic::create([
-            'form'      => 'MR',
-            'total'     => 50,
-            'open'      => 40,
-            'closed'    => 5,
-            'archived'  => 5,
+            'form'      => 'fa',
+            'total'     => 0,
+            'open'      => 0,
+            'closed'    => 0,
+            'archived'  => 0,
         ]);
 
         FormStatistic::create([
-            'form'      => 'SC',
-            'total'     => 40,
-            'open'      => 40,
-            'closed'    => 5,
-            'archived'  => 5,
+            'form'      => 'ma',
+            'total'     => 0,
+            'open'      => 0,
+            'closed'    => 0,
+            'archived'  => 0,
         ]);
 
         FormStatistic::create([
-            'form'      => 'RS',
-            'total'     => 50,
-            'open'      => 40,
-            'closed'    => 5,
-            'archived'  => 5,
+            'form'      => 'mr',
+            'total'     => 0,
+            'open'      => 0,
+            'closed'    => 0,
+            'archived'  => 0,
+        ]);
+
+        FormStatistic::create([
+            'form'      => 'sc',
+            'total'     => 0,
+            'open'      => 0,
+            'closed'    => 0,
+            'archived'  => 0,
+        ]);
+
+        FormStatistic::create([
+            'form'      => 'rs',
+            'total'     => 0,
+            'open'      => 0,
+            'closed'    => 0,
+            'archived'  => 0,
         ]);
     }
 }

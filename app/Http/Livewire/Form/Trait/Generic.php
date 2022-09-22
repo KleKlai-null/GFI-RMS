@@ -30,10 +30,10 @@ trait Generic
         $this->open_today                 = $this->model::where('status', 'Open')->whereDate('created_at', Carbon::today())->count();
         $this->open                       = $this->model::where('status', 'Open')->count();
         $this->open_today                 = $this->model::where('status', 'Open')->whereDate('created_at', Carbon::today())->count();
-        $this->close                      = $this->model::where('status', 'Close')->count();
-        $this->close_today                = $this->model::where('status', 'Close')->whereDate('created_at', Carbon::today())->count();
-        $this->archive                    = $this->model::where('status', 'Archive')->count();
-        $this->archive_today              = $this->model::where('status', 'Archive')->whereDate('created_at', Carbon::today())->count();
+        $this->close                      = $this->model::where('status', 'Closed')->count();
+        $this->close_today                = $this->model::where('status', 'Closed')->whereDate('created_at', Carbon::today())->count();
+        $this->archive                    = $this->model::where('status', 'Archived')->count();
+        $this->archive_today              = $this->model::where('status', 'Archived')->whereDate('created_at', Carbon::today())->count();
 
         $this->statistics = [
             'total'         => $this->total,
@@ -56,10 +56,8 @@ trait Generic
     public function archive($id)
     {
         $model = $this->model::find($id);
-        $model->update([
-            'status' => 'Archive'
-        ]);
-
+        $model->archive();
+        
         $this->emit('recordArchive');
     }
 

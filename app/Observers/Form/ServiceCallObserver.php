@@ -2,7 +2,9 @@
 
 namespace App\Observers\Form;
 
+use App\Models\Form\FormStatistic;
 use App\Models\Form\ServiceCall;
+use App\Services\DashboardService;
 use App\Services\NotificationService;
 
 class ServiceCallObserver
@@ -13,8 +15,6 @@ class ServiceCallObserver
     {
         cache()->forget('servicecall-data');
         cache()->forget('activitylog-data');
-
-        NotificationService::notifyAdministrator("servicecall/show/".$serviceCall->id, $serviceCall->document_series_no, 'Created service call record');
 
         activity()
         ->performedOn($serviceCall)
@@ -27,6 +27,12 @@ class ServiceCallObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
         ])
         ->log('successfully created service call record');
+
+        NotificationService::notifyAdministrator("servicecall/show/".$serviceCall->id, $serviceCall->document_series_no, 'Created service call record');
+
+        // Record statistic
+        DashboardService::update_form_statistic('App\Models\Form\ServiceCall', 'sc');
+
     }
 
     public function retrieved(ServiceCall $serviceCall)
@@ -106,5 +112,10 @@ class ServiceCallObserver
             'User Agent'             => $_SERVER['HTTP_USER_AGENT']
             ])
         ->log($serviceCall->document_series_no . ' service call permanently deleted');
+    }
+
+    public function updateStatistic()
+    {
+        DashboardService::update_form_statistic('App\Models\Form\ServiceCall', 'sc');
     }
 }

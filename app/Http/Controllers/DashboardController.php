@@ -1,11 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Form\FormStatistic;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
 
 class DashboardController extends Controller
 {
