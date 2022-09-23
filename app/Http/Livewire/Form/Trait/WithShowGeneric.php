@@ -43,6 +43,6 @@ trait WithShowGeneric
 
     public function download_pdf()
     {
-        return Storage::disk('public')->download('bak/'.$this->data->document_series_no.'.pdf');
+        return Storage::disk('public')->download('pdf/'.$this->data->document_series_no.'.pdf');
     }
 }
