@@ -43,6 +43,6 @@ trait WithShowGeneric
 
     public function download_pdf()
     {
-        return Storage::disk('local')->download('bak/pdf/'.$this->data->document_series_no.'.pdf');
+        return Storage::disk('local')->download('bak/pdf/GFI-MI-2022-00005.pdf');
     }
 }
