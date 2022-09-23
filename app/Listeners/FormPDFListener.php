@@ -80,7 +80,7 @@ class FormPDFListener implements ShouldQueue
             $content = $pdf->download()->getOriginalContent();
             
             // Set filename 
-            $file_name = 'bak/pdf/'.$event->document_series_no.'.pdf';
+            $file_name = 'bak/pdf/'.$event->document_series_no.'-'.now()->format('His').'.pdf';
 
             // Put to local dist 
             Storage::disk('local')->put($file_name, $content);

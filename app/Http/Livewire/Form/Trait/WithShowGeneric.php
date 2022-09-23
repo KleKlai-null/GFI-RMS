@@ -5,6 +5,7 @@ use Illuminate\Support\Str;
 use App\Models\Department;
 use App\Models\Form\Approval;
 use App\Services\DocumentService;
+use Illuminate\Support\Facades\Storage;
 
 trait WithShowGeneric 
 {
@@ -42,6 +43,6 @@ trait WithShowGeneric
 
     public function download_pdf()
     {
-        return DocumentService::get_document_pdf($this->data);
+        return Storage::disk('local')->download('bak/pdf/'.$this->data->document_series_no.'.pdf');
     }
 }
