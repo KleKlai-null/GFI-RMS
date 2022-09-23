@@ -83,7 +83,7 @@ class FormPDFListener implements ShouldQueue
             $file_name = 'pdf/'.$event->document_series_no.'.pdf';
 
             // Put to local dist 
-            Storage::disk('public')->put($file_name, $content);  
+            Storage::disk('local')->put($file_name, $content);  
 
             Log::info('PDF successfully generated and downloaded');
 
