@@ -21,7 +21,6 @@ class FormPDFListener implements ShouldQueue
     public function mi(Form\MI $event)
     {
         $filename = $event->data->document_series_no . '.pdf';
-
         $this->exportPDF($event->data, 'mi', $filename);
     }
 
@@ -80,7 +79,7 @@ class FormPDFListener implements ShouldQueue
 
         $data = $event;
 
-        // try {
+        try {
 
             // Create QR hash
             $qrcode = base64_encode(QrCode::format('svg')->size(110)->errorCorrection('H')->generate(config('app.url').'/verify/key='.$event->document_series_no));
@@ -89,20 +88,17 @@ class FormPDFListener implements ShouldQueue
             $pdf = Pdf::loadView('forms.pdf.'.$type, compact('qrcode', 'data'))->setPaper('portrait');
             $content = $pdf->download()->getOriginalContent();
             
-            // Set filename 
-            // $file_name = 'pdf/'.$event->document_series_no.'.pdf';
-
             // Put to local disk
             Storage::disk('local')->put('pdf/'.$filename, $content);  
 
             $event->addMediaFromDisk('pdf/'.$filename, 'local')->preservingOriginal()->toMediaCollection('pdf');
 
-            Log::info('PDF successfully generated and downloaded');
+            Log::info($event->document_series_no . ' pdf successfully generated.');
 
-        // } catch (Exception $exception) {
-        //     Log::error($exception);
-        // } catch (Throwable $throwable) {
-        //     Log::error($throwable);
-        // }
+        } catch (Exception $exception) {
+            Log::error($exception);
+        } catch (Throwable $throwable) {
+            Log::error($throwable);
+        }
     }
 }

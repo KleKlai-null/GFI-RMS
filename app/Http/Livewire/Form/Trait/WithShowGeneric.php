@@ -28,7 +28,7 @@ trait WithShowGeneric
         $splice = Str::of($redirect)->explode('.');
         $path = DocumentService::getModelPath($splice[0]);
 
-        sleep(1);
+        sleep(2);
 
         foreach ($this->registerdepartments as $key => $department) {
             Approval::create([ 
@@ -42,8 +42,8 @@ trait WithShowGeneric
         return redirect()->route($redirect, $this->data);
     }
 
-    public function download_pdf($type)
+    public function download_pdf()
     {
-        //
+        return response()->download($this->data->getFirstMedia('pdf')->getPath());
     }
 }

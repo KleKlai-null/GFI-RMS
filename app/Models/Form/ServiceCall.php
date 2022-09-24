@@ -10,10 +10,12 @@ use App\Services\DocumentService;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class ServiceCall extends Model
+class ServiceCall extends Model implements HasMedia
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, InteractsWithMedia;
 
     protected $guarded = [
         'id', 'created_at', 'updated_at'

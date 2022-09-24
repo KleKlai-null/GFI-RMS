@@ -3,7 +3,8 @@
     'permission_to_create'      => $permission ?? '',
     'departments'               => $departments,
     'redirect'                  => $redirect,
-    'document_series_no'        => $data
+    'data'                      => $data,
+    'archive'                   => $archive
 ])
 
 <div>
@@ -32,54 +33,18 @@
                     </span>
                 @endif
             @endcan
-            <div class="btn-list btn-primary flex-nowrap">
-                <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle align-text-top" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Actions
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end" style="">
-                        {{-- @if ($archive)
-                            <a class="dropdown-item" href="#">
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="icon me-2 icon-tabler icon-tabler-archive" width="24" height="24"
-                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <rect x="3" y="4" width="18" height="4" rx="2">
-                                    </rect>
-                                    <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10"></path>
-                                    <line x1="10" y1="12" x2="14" y2="12"></line>
-                                </svg>
-                                Archive
-                            </a>
-                        @endif --}}
-                        <button class="dropdown-item" type="button" wire:click="download_pdf('mi')">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-file-text" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-                                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
-                                <line x1="9" y1="9" x2="10" y2="9"></line>
-                                <line x1="9" y1="13" x2="15" y2="13"></line>
-                                <line x1="9" y1="17" x2="15" y2="17"></line>
-                             </svg>
-                            Download PDF
-                        </button>
-                        <button class="dropdown-item" type="button" onclick="javascript:window.print();">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path
-                                    d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
-                                <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
-                                <rect x="7" y="13" width="10" height="8" rx="2" />
-                            </svg>
-                            Print
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <span class="d-none d-sm-inline">
+                <button class="btn btn-white" type="button" wire:click="download_pdf()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-file-download" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                        <path d="M12 17v-6"></path>
+                        <path d="M9.5 14.5l2.5 2.5l2.5 -2.5"></path>
+                     </svg>
+                    Download PDF
+                </button>
+            </span>
         </div>
     </div>
 

@@ -14,10 +14,12 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 use App\Models\Form\Approval;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Wsmro extends Model
+class Wsmro extends Model implements HasMedia
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, InteractsWithMedia;
 
     protected $guarded = [
         'id', 'created_at', 'updated_at'

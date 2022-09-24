@@ -12,10 +12,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class ReturnSlip extends Model
+class ReturnSlip extends Model  implements HasMedia
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, InteractsWithMedia;
 
     protected $guarded = [
         'id', 'created_at', 'updated_at'
