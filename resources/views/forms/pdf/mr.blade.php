@@ -226,56 +226,51 @@
         <div class="divTable" style="width: 50%; margin-top: 30px">
             <div class="divTableBody">
                 <div class="divTableRow">
-                    <div class="divTableCell">Date:</div>
+                    <div class="divTableCell"><strong>Date:</strong></div>
                     <div class="divTableCell">{{ $data->created_at->format('F d, Y') }}</div>
                 </div>
                 <div class="divTableRow">
-                    <div class="divTableCell">ID No.</div>
+                    <div class="divTableCell"><strong>ID No.</strong></div>
                     <div class="divTableCell">{{ $data->id_no }}</div>
                 </div>
                 <div class="divTableRow">
-                    <div class="divTableCell">Name of Employee</div>
+                    <div class="divTableCell"><strong>Name of Employee</strong></div>
                     <div class="divTableCell">{{ $data->name_of_employee }}</div>
                 </div>
                 <div class="divTableRow">
-                    <div class="divTableCell">Department</div>
+                    <div class="divTableCell"><strong>Department</strong></div>
                     <div class="divTableCell">{{ $data->department }}</div>
                 </div>
                 <div class="divTableRow">
-                    <div class="divTableCell">Section</div>
+                    <div class="divTableCell"><strong>Section</strong></div>
                     <div class="divTableCell">{{ $data->section }}</div>
                 </div>
+
                 <h3 style="padding: 10px 10px 10px 0px;">ASSET</h3>
+
                 <div class="divTableRow">
-                    <div class="divTableCell">Code</div>
+                    <div class="divTableCell"><strong>Code</strong></div>
                     <div class="divTableCell">{{ $data->asset_code }}</div>
                 </div>
                 <div class="divTableRow">
-                    <div class="divTableCell">Type</div>
+                    <div class="divTableCell"><strong>Type</strong></div>
                     <div class="divTableCell">{{ $data->asset_type }}</div>
                 </div>
                 <div class="divTableRow">
-                    <div class="divTableCell">Description</div>
+                    <div class="divTableCell"><strong>Description</strong></div>
                     <div class="divTableCell">{{ $data->asset_description }}</div>
                 </div>
                 <div class="divTableRow">
-                    <div class="divTableCell">Serial No.</div>
+                    <div class="divTableCell"><strong>Serial No.</strong></div>
                     <div class="divTableCell">{{ $data->asset_serial_no }}</div>
                 </div>
                 <div class="divTableRow">
-                    <div class="divTableCell">Value</div>
+                    <div class="divTableCell"><strong>Value</strong></div>
                     <div class="divTableCell">{{ $data->asset_value }}</div>
                 </div>
             </div>
         </div>
-        <div>
-            <div id="logo">
-                <img src="data:image/png;base64, {!! $qrcode !!}">
-                <br />
-                <span class="text-muted">{{ $data->document_series_no }}</span>
-            </div>
-        </div>
-
+        
         <table id="signature">
             <thead>
                 <tr>
@@ -306,6 +301,14 @@
                 </tr>
             </tbody>
         </table>
+
+        <div>
+            <div id="logo">
+                <img src="data:image/png;base64, {!! $qrcode !!}">
+                <br />
+                <span class="text-muted">{{ $data->document_series_no }}</span>
+            </div>
+        </div>
     </div>
 </body>
 

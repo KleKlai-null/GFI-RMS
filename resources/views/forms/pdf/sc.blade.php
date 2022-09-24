@@ -291,14 +291,6 @@
                 </div>
             </div>
         </div>
-    
-        <div>
-            <div id="logo">
-                <img src="data:image/png;base64, {!! $qrcode !!}">
-                <br />
-                <span class="text-muted">{{ $data->document_series_no }}</span>
-            </div>
-        </div>
 
         <table id="signature">
             <thead>
@@ -330,6 +322,14 @@
                 </tr>
             </tbody>
         </table>
+
+        <div>
+            <div id="logo">
+                <img src="data:image/png;base64, {!! $qrcode !!}">
+                <br />
+                <span class="text-muted">{{ $data->document_series_no }}</span>
+            </div>
+        </div>
     </div>
 </body>
 
