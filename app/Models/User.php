@@ -77,16 +77,6 @@ class User extends Authenticatable
         return ucwords(auth()->user()->getRoleNames()->first());
     }
 
-    // Modify short of database notification
-    public function unreadNotificationsByType()
-    {
-        // Return sorted notifications
-        return $this -> morphMany(DatabaseNotification::class, "notifiable")
-                    -> whereNull("read_at")
-                    -> orderBy("type", "asc")
-                    -> orderBy("created_at", "desc");
-    }
-
     public function memorandums() : HasMany
     {
         return $this->hasMany(Memorandum::class);
