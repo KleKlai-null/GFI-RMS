@@ -91,9 +91,21 @@
                                             </td>
                                         </tr>
                                     @empty
-                                        <tr>
-                                            <td colspan="4">Insufficient Data</td>
-                                        </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            <div class="container-xl d-flex flex-column justify-content-center">
+                                                <div class="empty">
+                                                    <div class="empty-img"><img
+                                                            src="{{ asset('asset/images/Tasks.svg') }}" height="128"
+                                                            alt="">
+                                                    </div>
+                                                    <p class="empty-subtitle text-muted">
+                                                        Let's start adding your departments.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     @endforelse
                                 </tbody>
                             </table>
