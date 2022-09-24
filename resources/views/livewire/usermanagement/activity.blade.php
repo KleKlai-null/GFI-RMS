@@ -43,7 +43,7 @@
                                             </div>
                                             <p class="empty-title">Hmm.. there's no activity to report yet.</p>
                                             <p class="empty-subtitle text-muted">
-                                                {{ $data->name }} did not make any action.
+                                                {{ $data->fullName() }} did not make any action.
                                             </p>
                                         </div>
                                     </div>
