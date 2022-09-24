@@ -17,7 +17,7 @@
                                     Actions
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-end" style="">
-                                    <button class="dropdown-item" type="button" onclick="javascript:window.print();">
+                                    <button class="dropdown-item" type="button" onclick="javascript:void();">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-a-b-2" width="24"
                                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -31,6 +31,7 @@
                                             <path d="M8 7h-4"></path>
                                         </svg>
                                         Reset password
+                                        <span class="badge badge-sm bg-danger text-uppercase ms-2">Unavailable</span>
                                     </button>
                                     <a class="dropdown-item" href="{{ route('user.disable-account', $data) }}">
                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +44,7 @@
                                             </path>
                                             <path d="M3 3l18 18"></path>
                                         </svg>
-                                        {{ ($data->status) ? "Disable account" : 'Enable account' }}
+                                        {{ ($data->status) ? "Enable account" : 'Disable account' }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('user.role', $data) }}">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-a-b-2" width="24"
@@ -59,6 +60,7 @@
                                             <path d="M8 7h-4"></path>
                                         </svg>
                                         Change role
+                                        <span class="badge badge-sm bg-danger text-uppercase ms-2">Unavailable</span>
                                     </a>
                                 </div>
                             </div>
