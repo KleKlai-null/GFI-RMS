@@ -88,10 +88,10 @@ class UserSeeder extends Seeder
             ],
         ];
 
-        // foreach($users as $key => $user) {
-        //     $newUser = User::create($user);
-        //     $newUser->assignRole($roles[$key]['name']);
-        // }
+        foreach($users as $key => $user) {
+            $newUser = User::create($user);
+            $newUser->assignRole($roles[$key]['name']);
+        }
 
         $admin = User::create([
             'first_name' => 'Admin',
