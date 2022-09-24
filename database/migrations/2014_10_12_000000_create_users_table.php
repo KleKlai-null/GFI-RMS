@@ -24,7 +24,7 @@ return new class extends Migration
             $table->boolean('is_required_setup')->default(true);
             $table->integer('setup_skip')->default(0);
             $table->timestamp('last_password_change_at')->nullable();
-            $table->boolean('status')->default(true);
+            $table->boolean('status')->default(false);
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
