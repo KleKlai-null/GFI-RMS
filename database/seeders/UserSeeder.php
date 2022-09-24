@@ -25,6 +25,7 @@ class UserSeeder extends Seeder
             [
                 'first_name' => 'Mi',
                 'last_name' => 'User',
+                'username' => 'miuser',
                 'email' => 'mi@gensanfeedmill.com',
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -33,6 +34,7 @@ class UserSeeder extends Seeder
             [
                 'first_name' => 'Mro',
                 'last_name' => 'User',
+                'username' => 'mrouser',
                 'email' => 'mro@gensanfeedmill.com',
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -41,6 +43,7 @@ class UserSeeder extends Seeder
             [
                 'first_name' => 'Dm',
                 'last_name' => 'User',
+                'username' => 'dmuser',
                 'email' => 'dm@gensanfeedmill.com',
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -49,6 +52,7 @@ class UserSeeder extends Seeder
             [
                 'first_name' => 'Fg',
                 'last_name' => 'User',
+                'username' => 'fguser',
                 'email' => 'fg@gensanfeedmill.com',
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -57,6 +61,7 @@ class UserSeeder extends Seeder
             [
                 'first_name' => 'Fa',
                 'last_name' => 'User',
+                'username' => 'fauser',
                 'email' => 'fa@gensanfeedmill.com',
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -65,6 +70,7 @@ class UserSeeder extends Seeder
             [
                 'first_name' => 'Ma',
                 'last_name' => 'User',
+                'username' => 'mauser',
                 'email' => 'ma@gensanfeedmill.com',
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -73,6 +79,7 @@ class UserSeeder extends Seeder
             [
                 'first_name' => 'Mr',
                 'last_name' => 'User',
+                'username' => 'mruser',
                 'email' => 'mr@gensanfeedmill.com',
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -81,6 +88,7 @@ class UserSeeder extends Seeder
             [
                 'first_name' => 'Sc',
                 'last_name' => 'User',
+                'username' => 'scuser',
                 'email' => 'sc@gensanfeedmill.com',
                 'email_verified_at' => now(),
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -93,16 +101,16 @@ class UserSeeder extends Seeder
             $newUser->assignRole($roles[$key]['name']);
         }
 
-        $admin = User::create([
-            'first_name' => 'Admin',
-            'last_name' => 'User',
-            'username' => 'adminuser',
-            'email' => 'admin@gensanfeedmill.com',
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
-        ]);
+        // $admin = User::create([
+        //     'first_name' => 'Admin',
+        //     'last_name' => 'User',
+        //     'username' => 'adminuser',
+        //     'email' => 'admin@gensanfeedmill.com',
+        //     'email_verified_at' => now(),
+        //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        //     'remember_token' => Str::random(10),
+        // ]);
 
-        $admin->syncRoles('administrator');
+        // $admin->syncRoles('administrator');
     }
 }
