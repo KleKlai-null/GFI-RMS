@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Form\Approval;
 use App\Models\Employee;
 use App\Models\Form\Approval;
 use App\Services\DocumentService;
+use App\Services\NotificationService;
 use Livewire\Component;
 
 class Create extends Component
@@ -70,6 +71,8 @@ class Create extends Component
             'receive_person'    => $this->employee->fullName(),
             'department'        => $this->selectedDepartment
         ]);
+
+        NotificationService::notifyAdministrator('#', $this->document, 'Document has been handed to '. $this->selectedDepartment);
 
         DocumentService::check_approval_department_fullfillment($this->document);
 
