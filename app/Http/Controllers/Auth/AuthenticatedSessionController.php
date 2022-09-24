@@ -36,15 +36,15 @@ class AuthenticatedSessionController extends Controller
         {
             //Check if user is not suspended
             if(auth()->user()->status) {
-                if(empty(auth()->user()->last_password_change_at) && auth()->user()->is_required_setup){
-                    return redirect()->route('profile.setup');
-                }
+                session()->flash('error','Your account is suspended.');
+                auth()->logout();
+                return redirect()->route('login');
             }
-            session()->flash('error','Your account is suspended.');
 
-            auth()->logout();
+            if(empty(auth()->user()->last_password_change_at) && auth()->user()->is_required_setup){
+                return redirect()->route('profile.setup');
+            }
             
-            return redirect()->route('login');
         }
 
         return redirect()->intended(RouteServiceProvider::HOME);
