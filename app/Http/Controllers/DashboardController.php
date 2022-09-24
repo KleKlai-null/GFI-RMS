@@ -45,17 +45,19 @@ class DashboardController extends Controller
         } else if($user->hasPermissionTo('view mro')){
             return redirect()->route('mro');
         } else if($user->hasPermissionTo('view dm')){
-            return redirect()->route('mro');
+            return redirect()->route('dm');
         } else if($user->hasPermissionTo('view fg')){
-            return redirect()->route('mro');
+            return redirect()->route('fg');
         } else if($user->hasPermissionTo('view fa')){
-            return redirect()->route('mro');
+            return redirect()->route('fa');
         } else if($user->hasPermissionTo('view ma')){
-            return redirect()->route('mro');
+            return redirect()->route('ma');
         } else if($user->hasPermissionTo('view sc')){
-            return redirect()->route('mro');
+            return redirect()->route('sc');
         } else if($user->hasPermissionTo('view rs')){
-            return redirect()->route('mro');
+            return redirect()->route('rs');
+        } else if($user->hasPermissionTo('view mr')){
+            return redirect()->route('mr');
         } else {
             return abort(503);
         }
