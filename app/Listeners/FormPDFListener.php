@@ -81,6 +81,8 @@ class FormPDFListener implements ShouldQueue
 
         try {
 
+            ini_set('max_execution_time', 300);
+
             // Create QR hash
             $qrcode = base64_encode(QrCode::format('svg')->size(110)->errorCorrection('H')->generate(config('app.url').'/verify/key='.$event->document_series_no));
 
