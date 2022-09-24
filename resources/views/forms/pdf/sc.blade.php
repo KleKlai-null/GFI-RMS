@@ -75,7 +75,6 @@
             text-align: right;
             float: right;
             position: relative;
-            margin-top: -15px;
             max-width: 570px;
             max-height: 130px;
         }
