@@ -20,7 +20,6 @@ class Index extends Component
 
     public function render()
     {
-
         $data = $this->search($this->model);
         
         return view('livewire.form.service-call.index', [
