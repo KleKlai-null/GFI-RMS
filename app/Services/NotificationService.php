@@ -10,9 +10,14 @@ class NotificationService
 
     public static function notifyAdministrator($link, $form_document_series, $message) 
     {
+        $user = 'System';
+
+        if(auth()->user()) {
+            $user = auth()->user()->fullName();
+        }
         
         $detail = [
-            'user'                      => auth()->user()->fullName() ?? 'System',
+            'user'                      => $user,
             'message'                   => $message,
             'link'                      => $link,
             'form_document_series'      => $form_document_series,
