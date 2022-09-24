@@ -28,7 +28,7 @@ class AppNotifications extends Component
 
     public function get_notification()
     {
-        $this->notifications = auth()->user()->unreadNotifications->take(4);
+        $this->notifications = auth()->user()->unreadNotifications->sortBy('created_at')->take(4);
     }
 
     public function mark_read($id)
