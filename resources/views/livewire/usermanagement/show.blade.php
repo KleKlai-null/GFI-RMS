@@ -46,7 +46,8 @@
                                         </svg>
                                         {{ ($data->status) ? "Enable account" : 'Disable account' }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('user.role', $data) }}">
+                                    {{-- <a class="dropdown-item" href="{{ route('user.role', $data) }}"> --}}
+                                    <a class="dropdown-item" href="#">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-a-b-2" width="24"
                                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
