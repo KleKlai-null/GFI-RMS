@@ -47,7 +47,7 @@
                                     style="background-image: url({{ $user->avatarUrl() }})"></span>
                                 {{-- <span class="avatar avatar-xl mb-3 avatar-rounded">{{ $user->name }}</span> --}}
                                 <h3 class="m-0 mb-1"><a href="#">{{ $user->fullName() }}</a></h3>
-                                <div class="text-muted">{{ ($user->status) ? 'Active' : 'Disabled' }}</div>
+                                <div class="text-muted">{{ ($user->status) ? 'Disabled' : 'Active' }}</div>
                                 <div class="mt-3">
                                     @if (!empty($user->getRoleNames()))
                                         @foreach ($user->getRoleNames() as $role)
