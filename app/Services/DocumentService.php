@@ -289,27 +289,4 @@ class DocumentService
         }
     }
 
-    public static function get_document_pdf($model)
-    {
-        try {
-
-            activity()
-            ->performedOn($model)
-            ->causedBy(auth()->user()->id)
-            ->event('Download')
-            ->withProperties([
-                'http_method'            => 'POST',
-                'document_series_number' => $model->document_series_no,
-                'Check_url'              => url()->current(),
-                'User Agent'             => $_SERVER['HTTP_USER_AGENT']
-            ])
-            ->log('successfully download '.$model->document_series_no);
-
-            return Storage::disk('local')->download('bak/pdf/'.$model->document_series_no.'.pdf');
-
-        } catch (Exception $exception) {
-            Log::error($exception);
-        }
-    }
-
 }

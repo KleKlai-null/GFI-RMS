@@ -12,7 +12,7 @@ class NotificationService
     {
         
         $detail = [
-            'user'                      => auth()->user()->fullName(),
+            'user'                      => auth()->user()->fullName() ?? 'System',
             'message'                   => $message,
             'link'                      => $link,
             'form_document_series'      => $form_document_series,
