@@ -5,7 +5,8 @@ use Illuminate\Support\Str;
 use App\Models\Department;
 use App\Models\Form\Approval;
 use App\Services\DocumentService;
-use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 trait WithShowGeneric 
 {
@@ -41,7 +42,7 @@ trait WithShowGeneric
         return redirect()->route($redirect, $this->data);
     }
 
-    public function download_pdf()
+    public function download_pdf($type)
     {
         //
     }

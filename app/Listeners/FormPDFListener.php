@@ -20,57 +20,67 @@ class FormPDFListener implements ShouldQueue
 
     public function mi(Form\MI $event)
     {
-        $this->exportPDF($event->data, 'mi');
+        $filename = $event->data->document_series_no . '.pdf';
+
+        $this->exportPDF($event->data, 'mi', $filename);
     }
 
     public function mro(Form\MRO $event)
     {
-        $this->exportPDF($event->data, 'mro');
+        $filename = $event->data->document_series_no . '.pdf';
+        $this->exportPDF($event->data, 'mro', $filename);
     }
 
     public function dm(Form\DM $event)
     {
-        $this->exportPDF($event->data, 'dm');
+        $filename = $event->data->document_series_no . '.pdf';
+        $this->exportPDF($event->data, 'dm', $filename);
     }
 
     public function fg(Form\FG $event)
     {
-        $this->exportPDF($event->data, 'fg');
+        $filename = $event->data->document_series_no . '.pdf';
+        $this->exportPDF($event->data, 'fg', $filename);
     }
 
     public function fa(Form\FA $event)
     {
-        $this->exportPDF($event->data, 'fa');
+        $filename = $event->data->document_series_no . '.pdf';
+        $this->exportPDF($event->data, 'fa', $filename);
     }
 
     public function ma(Form\MA $event)
     {
-        $this->exportPDF($event->data, 'ma');
+        $filename = $event->data->document_series_no . '.pdf';
+        $this->exportPDF($event->data, 'ma', $filename);
     }
 
     public function mr(Form\MR $event)
     {
-        $this->exportPDF($event->data, 'mr');
+        $filename = $event->data->document_series_no . '.pdf';
+        $this->exportPDF($event->data, 'mr', $filename);
     }
 
     public function sc(Form\SC $event)
     {
-        $this->exportPDF($event->data, 'sc');
+        $filename = $event->data->document_series_no . '.pdf';
+        $this->exportPDF($event->data, 'sc', $filename);
     }
 
     public function rs(Form\RS $event)
     {
-        $this->exportPDF($event->data, 'rs');
+        $filename = $event->data->document_series_no . '.pdf';
+        $this->exportPDF($event->data, 'rs', $filename);
     }
     
 
-    public function exportPDF($event, $type)
+    public function exportPDF($event, $type, $filename)
     {
         Log::info($event->document_series_no . ' has been created');
 
         $data = $event;
 
-        try {
+        // try {
 
             // Create QR hash
             $qrcode = base64_encode(QrCode::format('svg')->size(110)->errorCorrection('H')->generate(config('app.url').'/verify/key='.$event->document_series_no));
@@ -80,17 +90,19 @@ class FormPDFListener implements ShouldQueue
             $content = $pdf->download()->getOriginalContent();
             
             // Set filename 
-            $file_name = 'pdf/'.$event->document_series_no.'.pdf';
+            // $file_name = 'pdf/'.$event->document_series_no.'.pdf';
 
-            // Put to local dist 
-            Storage::disk('local')->put($file_name, $content);  
+            // Put to local disk
+            Storage::disk('local')->put('pdf/'.$filename, $content);  
+
+            $event->addMediaFromDisk('pdf/'.$filename, 'local')->preservingOriginal()->toMediaCollection('pdf');
 
             Log::info('PDF successfully generated and downloaded');
 
-        } catch (Exception $exception) {
-            Log::error($exception);
-        } catch (Throwable $throwable) {
-            Log::error($throwable);
-        }
+        // } catch (Exception $exception) {
+        //     Log::error($exception);
+        // } catch (Throwable $throwable) {
+        //     Log::error($throwable);
+        // }
     }
 }

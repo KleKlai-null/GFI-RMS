@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Form\FormStatistic;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class FormStatisticSeeder extends Seeder
 {
@@ -15,6 +16,10 @@ class FormStatisticSeeder extends Seeder
      */
     public function run()
     {
+
+        // Clear cache
+        Artisan::call('cache:clear');
+
         FormStatistic::create([
             'form'      => 'mi',
             'total'     => 0,
