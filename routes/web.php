@@ -3,6 +3,7 @@
 use App\Http\Controllers\ActivityLogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\Usermanagement\RoleController;
 use App\Http\Controllers\VerifyDocument;
 use App\Models\Form\ReturnSlip\ReturnSlip;
 use App\Models\Form\ServiceCall;
@@ -34,7 +35,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user/show/{data}', App\Http\Livewire\Usermanagement\Show::class)->name('user.show');
     Route::get('user/create', App\Http\Livewire\Usermanagement\Create::class)->name('user.create');
     Route::get('user/disable-account/{data}', App\Http\Livewire\Usermanagement\DisableAccount::class)->name('user.disable-account');
-    Route::get('user/role/{data}', App\Http\Livewire\Usermanagement\Roles::class)->name('user.role');
+    Route::get('user/role/{user}', [RoleController::class, 'edit'])->name('user.role');
+    Route::put('user/role/{user}', [RoleController::class, 'update'])->name('user.role.update');
     Route::get('user/activity/{data}', App\Http\Livewire\Usermanagement\Activity::class)->name('users.activty');
     
     Route::get('profile/setup', App\Http\Livewire\Profile\Setup::class)->name('profile.setup');

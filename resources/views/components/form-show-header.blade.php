@@ -87,7 +87,7 @@
                     </button>
                 </div>
                 <div wire:loading wire:target="save_department" class="text-center">
-                    Processing Data...
+                    Processing Request...
                 </div>
             </div>
         </div>

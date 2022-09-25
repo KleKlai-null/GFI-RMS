@@ -8,6 +8,11 @@
                         Profile
                     </h2>
                 </div>
+                @if (session()->has('success'))
+                    <div class="alert alert-success" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <div class="col-12 col-md-auto ms-auto d-print-none">
                     <div class="btn-list">
                         <div class="btn-list btn-primary flex-nowrap">
@@ -46,8 +51,8 @@
                                         </svg>
                                         {{ ($data->status) ? "Enable account" : 'Disable account' }}
                                     </a>
-                                    {{-- <a class="dropdown-item" href="{{ route('user.role', $data) }}"> --}}
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{ route('user.role', $data) }}">
+                                    {{-- <a class="dropdown-item" href="#"> --}}
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-a-b-2" width="24"
                                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -61,7 +66,6 @@
                                             <path d="M8 7h-4"></path>
                                         </svg>
                                         Change role
-                                        <span class="badge badge-sm bg-danger text-uppercase ms-2">Unavailable</span>
                                     </a>
                                 </div>
                             </div>

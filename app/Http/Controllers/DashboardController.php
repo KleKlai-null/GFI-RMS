@@ -12,7 +12,7 @@ class DashboardController extends Controller
         $response = Http::get('https://zenquotes.io/api/random');
         $quote= $response->json();
     
-        // $quote = [];
+        $quote = [];
 
         $user = auth()->user();
 

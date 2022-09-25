@@ -62,6 +62,11 @@ class User extends Authenticatable
         'last_password_change_at'   => 'datetime',
     ];
 
+    protected $with =[
+        'permissions',
+        'roles'
+    ];
+
     public function avatarUrl()
     {
         return 'https://www.gravatar.com/avatar/'.md5(strtolower(trim($this->email)));
