@@ -37,6 +37,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user/disable-account/{data}', App\Http\Livewire\Usermanagement\DisableAccount::class)->name('user.disable-account');
     Route::get('user/role/{user}', [RoleController::class, 'edit'])->name('user.role');
     Route::put('user/role/{user}', [RoleController::class, 'update'])->name('user.role.update');
+    Route::get('user/permission/{user}', [RoleController::class, 'edit_permissions'])->name('user.permission');
+    Route::put('user/permission/{user}', [RoleController::class, 'update_permissions'])->name('user.permission.update');
+
     Route::get('user/activity/{data}', App\Http\Livewire\Usermanagement\Activity::class)->name('users.activty');
     
     Route::get('profile/setup', App\Http\Livewire\Profile\Setup::class)->name('profile.setup');

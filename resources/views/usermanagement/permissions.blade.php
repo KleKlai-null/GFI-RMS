@@ -5,24 +5,10 @@
             <div class="row g-2 align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        User role
+                        User permissions
                     </h2>
-                    <small class="text-muted">Changing user role might have serious effect on application security. Proceed with caution.</small>
+                    <small class="text-muted">You are about to override permission for {{ $user->fullName() }}. Proceed with caution.</small>
 
-                </div>
-                <div class="col-12 col-md-auto ms-auto d-print-none">
-                    <div class="btn-list">
-                      <span class="d-none d-sm-inline">
-                        <a href="{{ route('user.permission', $user) }}" class="btn btn-outline-warning">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-alert-triangle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M12 9v2m0 4v.01"></path>
-                                <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75"></path>
-                             </svg>
-                          Override Permission
-                        </a>
-                      </span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -33,7 +19,7 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('user.role.update', $user) }}" method="post">
+                            <form action="{{ route('user.permission.update', $user) }}" method="post">
                                 @csrf
                                 @method('PUT')
 
@@ -42,17 +28,16 @@
                                         
                                         <div class="col">
                                             <div>
-                                                @foreach ($roles as $role)
+                                                @foreach ($permissions as $permission)
                                                     <label class="form-check">
-                                                        {{-- type="checkbox" {{ (in_array($role->name, $data->roles->pluck('name')->toArray())) ? 'checked' : '' }} --}}
                                                         <input 
-                                                        value="{{ $role->name }}"
+                                                        value="{{ $permission->name }}"
                                                         name="role[]"
                                                         class="form-check-input" 
                                                         type="checkbox"
-                                                        {{ (in_array($role->name, $user->roles->pluck('name')->toArray())) ? 'checked' : '' }}
+                                                        {{ (in_array($permission->name, $user->getAllPermissions()->pluck('name')->toArray())) ? 'checked' : '' }}
                                                         >
-                                                        <span class="form-check-label">{{ ucwords($role->name) }}</span>
+                                                        <span class="form-check-label">{{ ucwords($permission->name) }}</span>
                                                     </label>
                                                 @endforeach
                                             </div>
