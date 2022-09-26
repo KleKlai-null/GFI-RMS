@@ -13,7 +13,7 @@
                                                 <img src="{{ asset('asset/images/Account Disable Warning.svg') }}" alt="account_disable" height="300px">
                                             </div>
                                             <div class="text-truncate mt-2">
-                                                You're about to disable user account. Go ahead?
+                                                You're about to {{ ($data->status) ? 'enable' : 'suspend' }} user account. Go ahead?
                                             </div>
 
                                             <div class="mt-3">

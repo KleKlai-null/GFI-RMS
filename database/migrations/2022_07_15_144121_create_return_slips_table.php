@@ -28,7 +28,6 @@ return new class extends Migration
             $table->string('checked_by');
             $table->string('noted_by');
             $table->enum('status', ['Open', 'Closed', 'Archived'])->default('Open');
-            $table->string('pdf_file_name')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

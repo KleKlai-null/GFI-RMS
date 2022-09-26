@@ -284,7 +284,6 @@
                             <div wire:loading wire:target="store">
                                 Processing Data...
                             </div>
-
                         </div>
                     </div>
                 </div>

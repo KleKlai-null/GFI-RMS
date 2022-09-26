@@ -8,6 +8,12 @@
                         Profile
                     </h2>
                 </div>
+
+                @if (session()->has('new_password'))
+                    <div class="alert alert-success" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 5000)">
+                        {{ session('new_password') }}
+                    </div>
+                @endif
                 @if (session()->has('success'))
                     <div class="alert alert-success" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
                         {{ session('success') }}
@@ -15,14 +21,10 @@
                 @endif
                 <div class="col-12 col-md-auto ms-auto d-print-none">
                     <div class="btn-list">
-                        <div class="btn-list btn-primary flex-nowrap">
-                            <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle align-text-top" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Actions
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-end" style="">
-                                    <button class="dropdown-item" type="button" onclick="javascript:void();">
+                        <span class="d-none d-sm-inline">
+                            <div  x-data="{ open: false }">
+                                <div x-show="!open" >
+                                    <a class="btn btn-warning" @click="open = ! open">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-a-b-2" width="24"
                                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                                             fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -36,8 +38,27 @@
                                             <path d="M8 7h-4"></path>
                                         </svg>
                                         Reset password
-                                        <span class="badge badge-sm bg-danger text-uppercase ms-2">Unavailable</span>
+                                    </a>
+                                </div>
+                                <div x-show="open" >
+                                    <button class="btn btn-warning" type="button" x-show="open" wire:click="reset_password()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-alert-triangle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M12 9v2m0 4v.01"></path>
+                                            <path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75"></path>
+                                        </svg>
+                                        Confirm reset password
                                     </button>
+                                </div>
+                            </div>
+                          </span>
+                        <div class="btn-list btn-primary flex-nowrap">
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle align-text-top" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Actions
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end" style="">
                                     <a class="dropdown-item" href="{{ route('user.disable-account', $data) }}">
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             class="icon icon-tabler me-2 icon-tabler-circle-off" width="24" height="24"
@@ -95,35 +116,7 @@
                                             <circle cx="12" cy="7" r="4"></circle>
                                             <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                                         </svg>
-                                        Name: <strong>{{ $data->name }}</strong>
-                                    </div>
-                                    <div class="mb-2">
-                                        <!-- Download SVG icon from http://tabler-icons.io/i/book -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 text-muted"
-                                            width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                            stroke="currentColor" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                            <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                                            <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                                            <line x1="3" y1="6" x2="3" y2="19" />
-                                            <line x1="12" y1="6" x2="12" y2="19" />
-                                            <line x1="21" y1="6" x2="21" y2="19" />
-                                        </svg>
-                                        Went to: <strong>Notre Dame of Dadiangas University</strong>
-                                    </div>
-                                    <div class="mb-2">
-                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 text-muted"
-                                            width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                            stroke="currentColor" fill="none" stroke-linecap="round"
-                                            stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                            <polyline points="5 12 3 12 12 3 21 12 19 12" />
-                                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-                                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-                                        </svg>
-                                        Lives in: <strong>South Cotabato, Philippines</strong>
+                                        Full Name: <strong>{{ $data->fullName() }}</strong>
                                     </div>
                                     <div class="mb-2">
                                         <!-- Download SVG icon from http://tabler-icons.io/i/clock -->
@@ -135,7 +128,7 @@
                                             <circle cx="12" cy="12" r="9" />
                                             <polyline points="12 7 12 12 15 15" />
                                         </svg>
-                                        Time zone: <strong>Asia/Manila</strong>
+                                        Commissioned: <strong>{{ $data->created_at->format('F d, Y') }}</strong>
                                     </div>
                                     <div class="card-title">User info</div>
                                     <div class="mb-2">
@@ -172,8 +165,18 @@
                                         </svg>
                                         Last password update: <strong>{{ $data->last_password_change_at?->diffForHumans() ?? '' }}</strong>
                                     </div>
+                                    <div class="mb-2">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/book -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-alert-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="12" cy="12" r="9"></circle>
+                                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                                        </svg>
+                                        Account Status: <strong>{{ ($data->status) ? 'Suspended' : 'Active' }}</strong>
+                                    </div>
 
-                                    <div class="card-title">Last Login</div>
+                                    {{-- <div class="card-title">Last Login</div>
                                     <dl class="row">
                                         <dt class="col-5">Date:</dt>
                                         <dd class="col-7">2020-01-05 16:42:29 UTC</dd>
@@ -186,7 +189,7 @@
                                         <dd class="col-7">Windows 10 64-bit</dd>
                                         <dt class="col-5">Browser:</dt>
                                         <dd class="col-7">Chrome</dd>
-                                    </dl>
+                                    </dl> --}}
                                 </div>
                             </div>
                         </div>

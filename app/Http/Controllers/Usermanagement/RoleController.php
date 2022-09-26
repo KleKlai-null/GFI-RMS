@@ -25,7 +25,7 @@ class RoleController extends Controller
     public function update(Request $request, User $user)
     {
         $user->syncRoles($request->role);
-
+        
         session()->flash('success', $user->fullName() .' role has been updated successfully.');
 
         return redirect()->route('user.show', $user);
