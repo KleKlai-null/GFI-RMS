@@ -52,7 +52,6 @@
                                                 <th>Department</th>
                                                 <th>Memorandum No.</th>
                                                 <th>Prepared by</th>
-                                                <th>Status</th>
                                                 <th class="w-1"></th>
                                             </tr>
                                         </thead>
@@ -65,22 +64,6 @@
                                                         <td class="sort-city">{{ $data->department }}</td>
                                                         <td class="sort-score">{{ $data->mr_no }}</td>
                                                         <td class="sort-quantity">{{ $data->released_by }}</td>
-                                                        <td class="sort-progress" data-progress="30">
-                                                            <div class="row align-items-center">
-                                                                <div class="col-12 col-lg-auto">30%</div>
-                                                                <div class="col">
-                                                                    <div class="progress" style="width: 5rem">
-                                                                        <div class="progress-bar" style="width: 30%"
-                                                                            role="progressbar" aria-valuenow="30"
-                                                                            aria-valuemin="0" aria-valuemax="100"
-                                                                            aria-label="30% Complete">
-                                                                            <span class="visually-hidden">30%
-                                                                                Complete</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
                                                         <td>
                                                             <div class="btn-list btn-ghost-primary flex-nowrap">
                                                                 <div class="dropdown">

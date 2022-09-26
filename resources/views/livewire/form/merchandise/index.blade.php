@@ -59,8 +59,7 @@
                                                 </th>
                                                 <th><button class="table-sort" data-sort="sort-quantity">Released
                                                         by</button></th>
-                                                <th><button class="table-sort" data-sort="sort-progress">Current Department</button>
-                                                </th>
+                                                <th>Current Department</th>
                                                 <th class="w-1"></th>
                                             </tr>
                                         </thead>
