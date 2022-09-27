@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('form_statistics', function (Blueprint $table) {
             $table->id();
-            $table->string('form');
+            $table->string('form')->unique();
             $table->integer('total')->default(0);
             $table->integer('open')->default(0);
             $table->integer('closed')->default(0);
