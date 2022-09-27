@@ -40,47 +40,47 @@ class DocumentService
         switch ($unique) {
             case "mi":
 
-                $data = Wsmi::count();
+                $data = Wsmi::withTrashed()->count();
 
                 return $data;
                 break;
             case "mro":
-                $data = Wsmro::count();
+                $data = Wsmro::withTrashed()->count();
 
                 return $data;
                 break;
             case "dm":
-                $data = Wsdm::count();
+                $data = Wsdm::withTrashed()->count();
 
                 return $data;
                 break;
             case "fg":
-                $data = Wsfg::count();
+                $data = Wsfg::withTrashed()->count();
 
                 return $data;
                 break;
             case "fa":
-                $data = Wsfa::count();
+                $data = Wsfa::withTrashed()->count();
 
                 return $data;
                 break;
             case "ma":
-                $data = Wsma::count();
+                $data = Wsma::withTrashed()->count();
 
                 return $data;
                 break;
             case "sc":
-                $data = ServiceCall::count();
+                $data = ServiceCall::withTrashed()->count();
 
                 return $data;
                 break;
             case "mr":
-                $data = Memorandum::count();
+                $data = Memorandum::withTrashed()->count();
 
                 return $data;
                 break;
             case "rs":
-                $data = ReturnSlip::count();
+                $data = ReturnSlip::withTrashed()->count();
 
                 return $data;
                 break;
