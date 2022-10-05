@@ -72,8 +72,12 @@ Route::get('testua', function (Request $request) {
     // exec('ping -n 1 127.0.0.1', $output, $status);
     // dd($output);
 
-    $res = Http::connectTimeout(6)->get('http://api.classify.com.ph/api/departments');
-    dd($res->json());
+    $response = Http::acceptJson()
+    ->timeout(30)
+    ->retry(10, 5000)
+    ->get('https://api.classify.com.ph/api/departments')
+    ->throw();
+    dd($response);
 });
 
 require __DIR__.'/auth.php';
