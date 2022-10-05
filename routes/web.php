@@ -39,7 +39,6 @@ Route::middleware(['auth'])->group(function () {
     Route::put('user/role/{user}', [RoleController::class, 'update'])->name('user.role.update');
     Route::get('user/permission/{user}', [RoleController::class, 'edit_permissions'])->name('user.permission');
     Route::put('user/permission/{user}', [RoleController::class, 'update_permissions'])->name('user.permission.update');
-
     Route::get('user/activity/{data}', App\Http\Livewire\Usermanagement\Activity::class)->name('users.activty');
     
     Route::get('profile/setup', App\Http\Livewire\Profile\Setup::class)->name('profile.setup');
@@ -52,7 +51,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('employees', App\Http\Livewire\Form\Component\Employee\Index::class)->name('employees');
 
     Route::get('notifications', [NotificationController::class, 'index'])->name('notification.index');
-
     Route::get('help', function () {
         return abort(503);
     })->name('help');
@@ -64,13 +62,18 @@ Route::get('verify/key={data}', [VerifyDocument::class, 'verify_document'])->nam
 Route::get('verify-employee/{data}', App\Http\Livewire\Verify\Employee\Index::class)->name('verify.employee');
 Route::get('approval-document/{employee}/{document}', App\Http\Livewire\Form\Approval\Create::class)->name('approval.document.create');
 
+use Illuminate\Support\Facades\Http;
+
 Route::get('testua', function (Request $request) {
     // dd($request->server('HTTP_USER_AGENT'));
     // dd(app()->isProduction());
     // dd(exec('getmac'));
     // dd(\Request::ip());
-    exec('ping -n 1 127.0.0.1', $output, $status);
-    dd($output);
+    // exec('ping -n 1 127.0.0.1', $output, $status);
+    // dd($output);
+
+    $res = Http::get('http://api.classify.com.ph/api/departments');
+    dd($res->json());
 });
 
 require __DIR__.'/auth.php';
