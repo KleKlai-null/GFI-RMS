@@ -1,6 +1,6 @@
 <div>
 
-    <div class="hr-text">Signatory Authority</div>
+    <div class="hr-text">Authorized Signatories</div>
 
     <div class="datagrid">
         <div class="datagrid-item">

@@ -11,8 +11,8 @@ use Throwable;
 class Create extends Component
 {
     public $code, $description, $qty, $uom, $remarks;
-    public $purpose, $customer_name, $order_no, $product_name;
-    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by;
+    public $customer_name, $production_order_no, $product_name;
+    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by, $received_by;
     public $updateMode = false;
     public $inputs = [];
 
@@ -48,9 +48,8 @@ class Create extends Component
     public function rules() 
     {
         return [
-            'purpose'               => 'required',
             'customer_name'         => 'required',
-            'order_no'              => 'required',
+            'production_order_no'   => 'required',
             'product_name'          => 'required',
             'code.*'                => 'required',
             'description.*'         => 'required',
@@ -62,6 +61,7 @@ class Create extends Component
             'approved_by'           => 'required',
             'checked_by'            => 'nullable',
             'released_by'           => 'nullable',
+            'received_by'           => 'required',
         ];
     }
 
@@ -90,15 +90,15 @@ class Create extends Component
             DB::beginTransaction();
 
             $data = $this->model::create([
-                'purpose'               => $this->purpose,
                 'customer_name'         => $this->customer_name,
-                'order_no'              => $this->order_no,
+                'order_no'              => $this->production_order_no,
                 'product_name'          => $this->product_name,
                 'noted_by'              => $this->noted_by,
                 'prepared_by'           => $this->prepared_by,
                 'approved_by'           => $this->approved_by,
                 'checked_by'            => $this->checked_by,
                 'released_by'           => $this->released_by,
+                'received_by'           => $this->received_by
             ]);
 
             foreach ($this->code as $key => $item) {

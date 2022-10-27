@@ -14,7 +14,7 @@ class Create extends Component
     public $document_series_no;
 
     public $id_no, $name_of_employee, $department, $section, $asset_code, $asset_type, $asset_description, $asset_serial_no, $asset_value;
-    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by;
+    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by, $received_by;
     public $updateMode = false;
 
     protected $model = 'App\Models\Form\Memorandum';
@@ -27,7 +27,7 @@ class Create extends Component
     public function render()
     {
         return view('livewire.form.memorandum.create', [
-            'title' => 'Memorandum'
+            'title' => 'Memorandum Receipt'
         ])->layout('layouts.tabler.app');
     }
 
@@ -49,6 +49,7 @@ class Create extends Component
             'approved_by'               => 'required',
             'checked_by'                => 'required',
             'released_by'               => 'required',
+            'received_by'               => 'required',
         ];
     }
 

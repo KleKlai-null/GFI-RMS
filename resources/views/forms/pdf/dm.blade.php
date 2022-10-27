@@ -226,16 +226,6 @@
         <table id="meta">
             <tr>
                 <td class="borderless">
-                    <h6>Purpose</h6>
-                </td>
-                <td class="borderless">
-                    <div>
-                        <p class="sub">{{ $data->purpose }}</p>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="borderless">
                     <h6>Customer Name</h6>
                 </td>
                 <td class="borderless">

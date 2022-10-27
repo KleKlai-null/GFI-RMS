@@ -66,6 +66,7 @@ class Create extends Component
             'checked_by'            => 'required',
             'released_by'           => 'required',
             'received_by'           => 'required',
+            'received_by'               => 'required',
         ];
     }
 
@@ -98,6 +99,7 @@ class Create extends Component
                 'approved_by'           => $this->approved_by,
                 'checked_by'            => $this->checked_by,
                 'released_by'           => $this->released_by,
+                'received_by'           => $this->received_by,
                 'received_by'           => $this->received_by
             ]);
 

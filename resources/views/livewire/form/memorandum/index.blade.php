@@ -164,7 +164,7 @@
                                                 <tr>
                                                     <td colspan="7">
                                                         <x-form-index-search-empty route="{{ route('mr.create') }}"
-                                                            buttonText="Add merchandise record" permission="create mr"/>
+                                                            buttonText="Add memorandum record" permission="create mr"/>
                                                     </td>
                                                 </tr>
                                             @endforelse
@@ -183,7 +183,7 @@
                                         <p class="empty-title">Insufficient Data</p>
                                         <p class="empty-subtitle text-muted">
                                             It looks like you don't have any record yet. Let's create your first
-                                            merchandise record
+                                            memorandum record
                                         </p>
                                         <div class="empty-action">
                                             <a href="{{ route('mi.create') }}" class="btn btn-primary">
@@ -198,7 +198,7 @@
                                                     <line x1="5" y1="12" x2="19"
                                                         y2="12" />
                                                 </svg>
-                                                Add merchandise record
+                                                Add memorandum record
                                             </a>
                                         </div>
                                     </div>

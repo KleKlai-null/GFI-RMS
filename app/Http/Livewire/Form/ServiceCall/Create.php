@@ -15,7 +15,7 @@ class Create extends Component
 
     public $customer_name, $contact_person, $phone_no, $item_no, $description, $mfr_serial_no, $serial_no;
     public $subject, $origin, $problem_type, $assigned_to, $priority, $call_type, $technician, $remarks, $resolution;
-    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by;
+    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by, $received_by;
     public $updateMode = false;
 
     protected $model = 'App\Models\Form\ServiceCall';
@@ -57,6 +57,7 @@ class Create extends Component
             'approved_by'               => 'required',
             'checked_by'                => 'nullable',
             'released_by'               => 'nullable',
+            'received_by'               => 'required',
         ];
     }
 

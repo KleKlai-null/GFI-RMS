@@ -21,19 +21,6 @@
                             <div class="mb-3">
                                 <div class="row g-2">
                                     <div class="col-12">
-                                        <label class="form-label required">Purpose</label>
-                                        <div>
-                                            <textarea class="form-control @error('purpose') is-invalid @enderror" data-bs-toggle="autosize" placeholder="Type the purpose" wire:model="purpose" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 56px;"></textarea>
-                                        </div>
-                                        @error('purpose')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="row g-2">
-                                    <div class="col-4">
                                         <label class="form-label required">Customer name</label>
                                         <div>
                                             <input type="text"
@@ -44,19 +31,22 @@
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
-                                    
-                                    <div class="col-4">
-                                        <label class="form-label required">Order no.</label>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="row g-2">                                   
+                                    <div class="col-6">
+                                        <label class="form-label required">Production order no.</label>
                                         <div>
                                             <input type="text"
-                                                class="form-control @error('order_no') is-invalid @enderror"
-                                                wire:model="order_no">
+                                                class="form-control @error('production_order_no') is-invalid @enderror"
+                                                wire:model="production_order_no">
                                         </div>
-                                        @error('order_no')
+                                        @error('production_order_no')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-6">
                                         <label class="form-label required">Product name</label>
                                         <div>
                                             <input type="text"
@@ -176,21 +166,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="hr-text">Signatory Authority</div>
+                            <div class="hr-text">Authorized Signatories</div>
                             <div class="mb-3">
                                 <div class="row g-2">
-                                    <div class="col-2">
-                                        <label
-                                            class="form-label required @error('noted_by') text-danger @enderror">Noted
-                                            by</label>
-                                        <div>
-                                            <input type="text" class="form-control form-control-flush"
-                                                wire:model="noted_by" placeholder="Name of the person" required>
-                                        </div>
-                                        @error('noted_by')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
                                     <div class="col-3">
                                         <label
                                             class="form-label required @error('prepared_by') text-danger @enderror">Prepared
@@ -205,18 +183,6 @@
                                     </div>
                                     <div class="col-3">
                                         <label
-                                            class="form-label required @error('approved_by') text-danger @enderror">Approved
-                                            by</label>
-                                        <div>
-                                            <input type="text" class="form-control form-control-flush"
-                                                wire:model="approved_by" placeholder="Name of the person" required>
-                                        </div>
-                                        @error('approved_by')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                    <div class="col-2">
-                                        <label
                                             class="form-label required @error('checked_by') text-danger @enderror">Checked
                                             by</label>
                                         <div>
@@ -227,15 +193,52 @@
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-3">
                                         <label
-                                            class="form-label required @error('released_by') text-danger @enderror">Released
+                                            class="form-label required @error('noted_by') text-danger @enderror">Noted
                                             by</label>
                                         <div>
                                             <input type="text" class="form-control form-control-flush"
+                                                wire:model="noted_by" placeholder="Name of the person" required>
+                                        </div>
+                                        @error('noted_by')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    
+                                    <div class="col-3">
+                                        <label
+                                            class="form-label required @error('approved_by') text-danger @enderror">Approved
+                                            by</label>
+                                        <div>
+                                            <input type="text" class="form-control form-control-flush"
+                                                wire:model="approved_by" placeholder="Name of the person" required>
+                                        </div>
+                                        @error('approved_by')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="row g-2 text-center">
+                                    <div class="col-6">
+                                        <label class="form-label required @error('released_by') text-danger @enderror">Released by</label>
+                                        <div>
+                                            <input type="text" class="form-control form-control-flush text-center"
                                                 wire:model="released_by" placeholder="Name of the person" required>
                                         </div>
                                         @error('released_by')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label required @error('received_by') text-danger @enderror">Received by</label>
+                                        <div>
+                                            <input type="text" class="form-control form-control-flush text-center"
+                                                wire:model="received_by" placeholder="Name of the person" required>
+                                        </div>
+                                        @error('received_by')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>

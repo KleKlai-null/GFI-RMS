@@ -26,7 +26,7 @@
                                 </div>
                             </div>
 
-                            <div class="hr-text">Customer Details</div>
+                            <div class="hr-text">Employee Details</div>
 
                             <div class="form-group mb-1 row">
                                 <label class="col-2 col-form-label required @error('id_no') text-danger @enderror">Id no</label>
@@ -131,7 +131,7 @@
                                 </div>
                             </div>
 
-                            <div class="hr-text">Signatory Authority</div>
+                            <div class="hr-text">Authorized Signatories</div>
                             <div class="mb-3">
                                 <div class="row g-2">
                                     <div class="col-2">

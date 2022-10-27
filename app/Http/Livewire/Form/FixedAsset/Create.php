@@ -12,7 +12,7 @@ class Create extends Component
 {
     public $code, $description, $qty, $serial_no, $remarks;
     public $department, $memorandum_no;
-    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by;
+    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by, $received_by;
     public $updateMode = false;
     public $inputs = [];
 
@@ -60,6 +60,7 @@ class Create extends Component
             'approved_by'           => 'required',
             'checked_by'            => 'nullable',
             'released_by'           => 'nullable',
+            'received_by'           => 'required',
         ];
     }
 
@@ -95,6 +96,7 @@ class Create extends Component
                 'approved_by'           => $this->approved_by,
                 'checked_by'            => $this->checked_by,
                 'released_by'           => $this->released_by,
+                'received_by'           => $this->received_by
             ]);
 
             foreach ($this->code as $key => $item) {

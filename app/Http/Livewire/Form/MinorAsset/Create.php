@@ -11,8 +11,8 @@ use Throwable;
 class Create extends Component
 {
     public $code, $description, $qty, $serial_no, $remarks;
-    public $department, $memorandum_no;
-    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by;
+    public $department, $memorandum_receipt_no;
+    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by, $received_by;
     public $updateMode = false;
     public $inputs = [];
 
@@ -49,7 +49,7 @@ class Create extends Component
     {
         return [
             'department'            => 'required',
-            'memorandum_no'         => 'required',
+            'memorandum_receipt_no' => 'required',
             'code.*'                => 'required',
             'description.*'         => 'required',
             'qty.*'                 => 'required|numeric',
@@ -60,6 +60,7 @@ class Create extends Component
             'approved_by'           => 'required',
             'checked_by'            => 'nullable',
             'released_by'           => 'nullable',
+            'received_by'               => 'required',
         ];
     }
 
@@ -89,12 +90,13 @@ class Create extends Component
 
             $data = $this->model::create([
                 'department'            => $this->department,
-                'mr_no'                 => $this->memorandum_no,
+                'mr_no'                 => $this->memorandum_receipt_no,
                 'noted_by'              => $this->noted_by,
                 'prepared_by'           => $this->prepared_by,
                 'approved_by'           => $this->approved_by,
                 'checked_by'            => $this->checked_by,
                 'released_by'           => $this->released_by,
+                'received_by'           => $this->received_by
             ]);
 
             foreach ($this->code as $key => $item) {

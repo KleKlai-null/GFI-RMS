@@ -34,11 +34,14 @@ return new class extends Migration
             $table->string('technician')->nullable();
             $table->mediumText('remarks')->nullable();
             $table->mediumText('resolution')->nullable();
-            $table->string('noted_by');
+            
             $table->string('prepared_by');
+            $table->string('checked_by');
+            $table->string('noted_by');
             $table->string('approved_by');
-            $table->string('checked_by');   
             $table->string('released_by');
+            $table->string('received by');
+            
             $table->enum('status', ['Open', 'Closed', 'Archived'])->default('Open');
             $table->softDeletes();
             $table->timestamps();

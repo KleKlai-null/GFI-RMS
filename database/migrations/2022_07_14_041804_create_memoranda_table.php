@@ -27,11 +27,14 @@ return new class extends Migration
             $table->string('asset_description');
             $table->string('asset_serial_no');
             $table->string('asset_value');
-            $table->string('noted_by');
+
             $table->string('prepared_by');
+            $table->string('checked_by');
+            $table->string('noted_by');
             $table->string('approved_by');
-            $table->string('checked_by');   
             $table->string('released_by');
+            $table->string('received by');
+            
             $table->mediumText('remarks')->nullable();
             $table->enum('status', ['Open', 'Closed', 'Archived'])->default('Open');
             $table->softDeletes();
