@@ -131,22 +131,12 @@
                                 </div>
                             </div>
 
+                            <div class="hr-text">ACKNOWLEDGEMENT STATEMENT</div>
+                            <p class="m-3 text-justify">This is to acknowledge that I am accountable of the above stated item(s). By signing and dating this document, I full understood that I will pay or replace the same item(s) in case of loss or damage due to my negligence or recklessness. I am aware that the listed item(s) is/are owned and a property of the above stated company (Business Unit), which in the event of my resgination, separation, or transfer, I will voluntarily turnover it to the company.</p>
                             <div class="hr-text">Authorized Signatories</div>
                             <div class="mb-3">
                                 <div class="row g-2">
                                     <div class="col-2">
-                                        <label
-                                            class="form-label required @error('noted_by') text-danger @enderror">Noted
-                                            by</label>
-                                        <div>
-                                            <input type="text" class="form-control form-control-flush"
-                                                wire:model="noted_by" placeholder="Name of the person" required>
-                                        </div>
-                                        @error('noted_by')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                    <div class="col-3">
                                         <label
                                             class="form-label required @error('prepared_by') text-danger @enderror">Prepared
                                             by</label>
@@ -155,18 +145,6 @@
                                                 wire:model="prepared_by" placeholder="Name of the person" required>
                                         </div>
                                         @error('prepared_by')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                    <div class="col-3">
-                                        <label
-                                            class="form-label required @error('approved_by') text-danger @enderror">Approved
-                                            by</label>
-                                        <div>
-                                            <input type="text" class="form-control form-control-flush"
-                                                wire:model="approved_by" placeholder="Name of the person" required>
-                                        </div>
-                                        @error('approved_by')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -184,6 +162,30 @@
                                     </div>
                                     <div class="col-2">
                                         <label
+                                            class="form-label required @error('noted_by') text-danger @enderror">Noted
+                                            by</label>
+                                        <div>
+                                            <input type="text" class="form-control form-control-flush"
+                                                wire:model="noted_by" placeholder="Name of the person" required>
+                                        </div>
+                                        @error('noted_by')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="col-2">
+                                        <label
+                                            class="form-label required @error('approved_by') text-danger @enderror">Approved
+                                            by</label>
+                                        <div>
+                                            <input type="text" class="form-control form-control-flush"
+                                                wire:model="approved_by" placeholder="Name of the person" required>
+                                        </div>
+                                        @error('approved_by')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="col-2">
+                                        <label
                                             class="form-label required @error('released_by') text-danger @enderror">Released
                                             by</label>
                                         <div>
@@ -191,6 +193,18 @@
                                                 wire:model="released_by" placeholder="Name of the person" required>
                                         </div>
                                         @error('released_by')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="col-2">
+                                        <label
+                                            class="form-label required @error('received_by') text-danger @enderror">Received
+                                            by</label>
+                                        <div>
+                                            <input type="text" class="form-control form-control-flush"
+                                                wire:model="received_by" placeholder="Name of the person" required>
+                                        </div>
+                                        @error('received_by')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>

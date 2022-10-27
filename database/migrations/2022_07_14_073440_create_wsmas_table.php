@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('noted_by');
             $table->string('approved_by');
             $table->string('released_by');
-            $table->string('received by');
+            $table->string('received_by');
             $table->enum('status', ['Open', 'Closed', 'Archived'])->default('Open');
             $table->mediumText('remarks')->nullable();
             $table->string('current_department')->nullable();

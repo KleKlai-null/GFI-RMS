@@ -105,24 +105,32 @@
                         <div class="mb-3">
                             <div class="row g-2">
                                 <div class="col-2">
-                                    <label class="form-label">Noted by</label>
-                                    <div class="form-control-plaintext">{{ $data->noted_by }}</div>
-                                </div>
-                                <div class="col-3">
                                     <label class="form-label">Prepared by</label>
                                     <div class="form-control-plaintext">{{ $data->prepared_by }}</div>
-                                </div>
-                                <div class="col-3">
-                                    <label class="form-label">Approved by</label>
-                                    <div class="form-control-plaintext">{{ $data->approved_by }}</div>
                                 </div>
                                 <div class="col-2">
                                     <label class="form-label">Checked by</label>
                                     <div class="form-control-plaintext">{{ $data->checked_by }}</div>
                                 </div>
                                 <div class="col-2">
+                                    <label class="form-label">Noted by</label>
+                                    <div class="form-control-plaintext">{{ $data->noted_by }}</div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Approved by</label>
+                                    <div class="form-control-plaintext">{{ $data->approved_by }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="row g-2">
+                                <div class="col-2">
                                     <label class="form-label">Released by</label>
                                     <div class="form-control-plaintext">{{ $data->released_by }}</div>
+                                </div>
+                                <div class="col-2">
+                                    <label class="form-label">Received by</label>
+                                    <div class="form-control-plaintext">{{ $data->received_by }}</div>
                                 </div>
                             </div>
                         </div>
