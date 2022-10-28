@@ -23,20 +23,20 @@ return new class extends Migration
             $table->string('sub_profit_center')->nullable();
             $table->string('cost_center');
 
-            $table->string('prepared_by');
-            $table->string('prepared_by_position');
-            $table->string('checked_by');
-            $table->string('checked_by_position');
-            $table->string('noted_by');
-            $table->string('noted_by_position');
-            $table->string('approved_by');
-            $table->string('approved_by_position');
-            $table->string('requested_by');
-            $table->string('requested_by_position');
-            $table->string('released_by');
-            $table->string('released_by_position');
-            $table->string('received_by');
-            $table->string('received_by_position');
+            $table->string('prepared_by')->nullable();
+            $table->string('prepared_by_position')->nullable();
+            $table->string('checked_by')->nullable();
+            $table->string('checked_by_position')->nullable();
+            $table->string('noted_by')->nullable();
+            $table->string('noted_by_position')->nullable();
+            $table->string('approved_by')->nullable();
+            $table->string('approved_by_position')->nullable();
+            $table->string('requested_by')->nullable();
+            $table->string('requested_by_position')->nullable();
+            $table->string('released_by')->nullable();
+            $table->string('released_by_position')->nullable();
+            $table->string('received_by')->nullable();
+            $table->string('received_by_position')->nullable();
 
             $table->enum('status', ['Open', 'Closed', 'Archived'])->default('Open');
             $table->mediumText('remarks')->nullable();
