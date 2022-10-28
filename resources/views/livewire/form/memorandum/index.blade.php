@@ -24,7 +24,7 @@
                                 class="form-control d-inline-block w-9 me-3 {{ empty($datas) ? 'd-none' : '' }}"
                                 wire:model="search" placeholder="Search document series..." />
                         </span>
-                        <x-form-index-header new="{{ route('mr.create') }}" disablereturnslip="true" permission="create mr"/>
+                        <x-form-index-header new="{{ route('mr.create') }}" disablecreditmemo="true" permission="create mr"/>
                     </div>
                 </div>
             </div>

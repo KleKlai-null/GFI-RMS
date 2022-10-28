@@ -102,6 +102,7 @@
                             </div>
 
                             <x-signatory-authority :data="$data" />
+                            
                         {{-- <div class="hr-text">Signatory Authority</div>
                         <div class="mb-3">
                             <div class="row g-2">

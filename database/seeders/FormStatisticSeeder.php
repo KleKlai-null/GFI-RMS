@@ -83,13 +83,5 @@ class FormStatisticSeeder extends Seeder
             'closed'    => 0,
             'archived'  => 0,
         ]);
-
-        FormStatistic::create([
-            'form'      => 'rs',
-            'total'     => 0,
-            'open'      => 0,
-            'closed'    => 0,
-            'archived'  => 0,
-        ]);
     }
 }

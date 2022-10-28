@@ -1,7 +1,8 @@
 @props([
-    'display_rs'                => (isset($disablereturnslip)) ? false : true,
+    'display_cm'                => (isset($disablecreditmemo)) ? false : true,
     'permission_to_create'      => $permission,
-    'new'                       => $new
+    'new'                       => $new,
+    'credit_memo_route'         => (isset($creditMemo)) ? $creditMemo : '',
 ])
 
 <div>
@@ -22,11 +23,11 @@
             </a>
         </span>
     @endcan
-    {{-- @if($display_rs)
-        @can('create rs')
+    @if($display_cm)
+        @can('create cm')
             @if(!Request::is('returnitem'))
                 <span class="d-none d-sm-inline">
-                    <a href="{{ route('rs.create') }}" class="btn btn-white">
+                    <a href="{{ $credit_memo_route }}" class="btn btn-white">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-receipt-refund" width="24"
                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                             stroke-linecap="round" stroke-linejoin="round">
@@ -34,12 +35,12 @@
                             <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2"></path>
                             <path d="M15 14v-2a2 2 0 0 0 -2 -2h-4l2 -2m0 4l-2 -2"></path>
                         </svg>
-                        Return Item
+                        Credit memo
                     </a>
                 </span>
             @endif
         @endcan
-    @endif --}}
+    @endif
     @isset($import)
         <button type="button" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
             data-bs-target="#import-data">

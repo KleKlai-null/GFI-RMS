@@ -73,9 +73,6 @@
                                         @can('create sc')
                                             <a class="dropdown-item" href="{{ route('sc.create') }}">{{ __('form-name.sc') }}</a>
                                         @endcan
-                                        @can('create rs')
-                                            <a class="dropdown-item" href="{{ route('rs.create') }}">{{ __('form-name.rs') }}</a>
-                                        @endcan
                                     </div>
                                 </div>
                             @endcan
@@ -163,7 +160,7 @@
                     axisBorder: {
                         show: false,
                     },
-                    categories: ['MI', 'MRO', 'DM', 'FG', 'FA', 'MA', 'MR', 'SC', 'RS'],
+                    categories: ['MI', 'MRO', 'DM', 'FG', 'FA', 'MA', 'MR', 'SC'],
                 },
                 yaxis: {
                     labels: {

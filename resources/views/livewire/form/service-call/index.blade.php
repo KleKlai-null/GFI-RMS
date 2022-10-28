@@ -23,7 +23,7 @@
                             <input type="search" class="form-control d-inline-block w-9 me-3 {{ empty($datas) ? 'd-none' : '' }}"
                                 wire:model="search" placeholder="Search document series..." />
                         </span>
-                        <x-form-index-header new="{{ route('sc.create') }}" disablereturnslip="true" permission="create sc"/>
+                        <x-form-index-header new="{{ route('sc.create') }}" disablecreditmemo="true" permission="create sc"/>
                     </div>
                 </div>
             </div>

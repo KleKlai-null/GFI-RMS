@@ -16,26 +16,26 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $rs_role = Role::create(['name' => 'rs clerk']);
-        $rs_permission = [
+        $cm_role = Role::create(['name' => 'cm clerk']);
+        $cm_permission = [
             [
-                'name'  => 'create rs'
+                'name'  => 'create cm'
             ],
             [
-                'name'  => 'view rs'
+                'name'  => 'view cm'
             ],
             [
-                'name'  => 'delete rs'
+                'name'  => 'delete cm'
             ],
             [
-                'name'  => 'archive rs'
+                'name'  => 'archive cm'
             ],
         ]; 
 
-        foreach ($rs_permission as $permission)
+        foreach ($cm_permission as $permission)
         {
             $permission = Permission::create($permission);
-            $rs_role->givePermissionTo($permission);
+            $cm_role->givePermissionTo($permission);
         }
         
         $mi_role = Role::create(['name' => 'mi clerk']);
@@ -273,7 +273,7 @@ class RoleSeeder extends Seeder
         $auditor = Role::create(['name' => 'auditor']);
         $auditor_permission = [
             [
-                'name'  => 'view rs'
+                'name'  => 'view cm'
             ],
             [
                 'name'  => 'view mi'
@@ -310,7 +310,7 @@ class RoleSeeder extends Seeder
         }
 
         // Add create rs permission to all roles
-        $rs = Permission::where('name', 'create rs')->first();
+        $rs = Permission::where('name', 'create cm')->first();
         $rs->syncRoles(['mi clerk', 'mro clerk', 'dm clerk' , 'fg clerk', 'fa clerk', 'ma clerk', 'mr clerk', 'sc clerk', 'administrator']);
     }
 }

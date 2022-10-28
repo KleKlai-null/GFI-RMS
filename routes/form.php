@@ -14,6 +14,7 @@ Route::middleware(['auth'])->group(function () {
         // -------------------------------------- MI ----------------------------------------------------//
         Route::get('merchandise', App\Http\Livewire\Form\Merchandise\Index::class)->name('mi');
         Route::get('merchandise/create', App\Http\Livewire\Form\Merchandise\Create::class)->name('mi.create');
+        Route::get('merchandise/create-credit-memo', App\Http\Livewire\Form\Merchandise\CreditMemo::class)->name('mi.create-credit-memo');
         Route::get('merchandise/show/{data}', App\Http\Livewire\Form\Merchandise\Show::class)->name('mi.show');
         Route::view('merchandise/import', 'forms.mi.import')->name('mi.import');
     });
