@@ -122,5 +122,6 @@ class UserSeeder extends Seeder
         ]);
 
         $admin->syncRoles('administrator');
+        $epoy->syncRoles('administrator');
     }
 }
