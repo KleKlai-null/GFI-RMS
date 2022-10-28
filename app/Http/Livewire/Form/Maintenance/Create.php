@@ -52,9 +52,9 @@ class Create extends Component
     public function rules() 
     {
         return [
-            'profit_center'         => 'nullable',
-            'sub_profit_center'     => 'required',
-            'cost_center'           => 'required',
+            'profit_center'         => 'required',
+            'sub_profit_center'     => 'nullable',
+            'cost_center'           => 'nullable',
             'code.*'                => 'required',
             'description.*'         => 'required',
             'qty.*'                 => 'required|numeric',

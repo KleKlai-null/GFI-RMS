@@ -36,7 +36,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-4">
-                                        <label class="form-label required">Sub profit center</label>
+                                        <label class="form-label">Sub profit center</label>
                                         <div>
                                             <input type="text"
                                                 class="form-control @error('sub_profit_center') is-invalid @enderror"
@@ -47,7 +47,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-4">
-                                        <label class="form-label required">Cost center</label>
+                                        <label class="form-label">Cost center</label>
                                         <div>
                                             <input type="text"
                                                 class="form-control @error('cost_center') is-invalid @enderror"
