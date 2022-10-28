@@ -54,7 +54,7 @@ class DashboardController extends Controller
             return redirect()->route('ma');
         } else if($user->hasPermissionTo('view sc')){
             return redirect()->route('sc');
-        } else if($user->hasPermissionTo('view rs')){
+        } else if($user->hasPermissionTo('view cm')){
             return redirect()->route('rs');
         } else if($user->hasPermissionTo('view mr')){
             return redirect()->route('mr');
