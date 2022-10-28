@@ -19,13 +19,17 @@
                         <div class="card-body">
 
                             <div class="mb-3">
+                                <label class="form-label">Document Series No.</label>
+                                <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="document_series_no">
+                            </div>
+                            <div class="mb-3">
                                 <div class="row g-2">
                                     <div class="col-6">
                                         <label class="form-label required">Department</label>
                                         <div>
                                             <input type="text"
                                                 class="form-control @error('department') is-invalid @enderror"
-                                                wire:model="department">
+                                                wire:model="department" onkeyup="this.value = this.value.toUpperCase();">
                                         </div>
                                         @error('department')
                                             <small class="text-danger">{{ $message }}</small>
@@ -37,7 +41,7 @@
                                         <div>
                                             <input type="text"
                                                 class="form-control @error('memorandum_receipt_no') is-invalid @enderror"
-                                                wire:model="memorandum_receipt_no">
+                                                wire:model="memorandum_receipt_no" onkeyup="this.value = this.value.toUpperCase();">
                                         </div>
                                         @error('memorandum_receipt_no')
                                             <small class="text-danger">{{ $message }}</small>
@@ -152,84 +156,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="hr-text">Authorized Signatories</div>
-                            <div class="mb-3">
-                                <div class="row g-2">
-                                    <div class="col-3">
-                                        <label
-                                            class="form-label required @error('prepared_by') text-danger @enderror">Prepared
-                                            by</label>
-                                        <div>
-                                            <input type="text" class="form-control form-control-flush"
-                                                wire:model="prepared_by" placeholder="Name of the person" required>
-                                        </div>
-                                        @error('prepared_by')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                    <div class="col-3">
-                                        <label
-                                            class="form-label required @error('checked_by') text-danger @enderror">Checked
-                                            by</label>
-                                        <div>
-                                            <input type="text" class="form-control form-control-flush"
-                                                wire:model="checked_by" placeholder="Name of the person" required>
-                                        </div>
-                                        @error('checked_by')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                    <div class="col-3">
-                                        <label
-                                            class="form-label required @error('noted_by') text-danger @enderror">Noted
-                                            by</label>
-                                        <div>
-                                            <input type="text" class="form-control form-control-flush"
-                                                wire:model="noted_by" placeholder="Name of the person" required>
-                                        </div>
-                                        @error('noted_by')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                    
-                                    <div class="col-3">
-                                        <label
-                                            class="form-label required @error('approved_by') text-danger @enderror">Approved
-                                            by</label>
-                                        <div>
-                                            <input type="text" class="form-control form-control-flush"
-                                                wire:model="approved_by" placeholder="Name of the person" required>
-                                        </div>
-                                        @error('approved_by')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <div class="row g-2 text-center">
-                                    <div class="col-6">
-                                        <label class="form-label required @error('released_by') text-danger @enderror">Released by</label>
-                                        <div>
-                                            <input type="text" class="form-control form-control-flush text-center"
-                                                wire:model="released_by" placeholder="Name of the person" required>
-                                        </div>
-                                        @error('released_by')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="form-label required @error('received_by') text-danger @enderror">Received by</label>
-                                        <div>
-                                            <input type="text" class="form-control form-control-flush text-center"
-                                                wire:model="received_by" placeholder="Name of the person" required>
-                                        </div>
-                                        @error('received_by')
-                                            <small class="text-danger">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
+                            
+                            <x-form-create-authorized-signatories/>
+
                             <div class="form-footer">
                                 <button type="button"
                                     onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"

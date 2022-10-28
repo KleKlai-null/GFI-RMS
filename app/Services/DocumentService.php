@@ -21,13 +21,18 @@ use Throwable;
 class DocumentService
 {
 
-    public static function GenerateSeriesNo($company, $documentCode)
+    public static function GenerateSeriesNo($company, $documentCode, $credit_memo = false)
     {
         $count =  DocumentService::getCount($documentCode);
-        $series = sprintf("%05d", $count + 1);
+        $series = sprintf("%010d", $count + 1);
 
         $first_series_no = strtoupper($company . '-' . $documentCode);
-        $second_series_no = $first_series_no . '-' . now()->format('Y') . '-' . $series;
+
+        if($credit_memo) {
+            $second_series_no = $first_series_no . '-' . 'CM'. '-' . $series;
+        } else {
+            $second_series_no = $first_series_no . '-' . $series;
+        }
 
         return $second_series_no;
     }

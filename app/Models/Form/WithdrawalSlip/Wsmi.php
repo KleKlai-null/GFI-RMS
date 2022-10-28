@@ -36,7 +36,6 @@ class Wsmi extends Model implements HasMedia
         parent::boot();
 
         Wsmi::creating(function($model) {
-            $model->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'MI');
             $model->user_id = auth()->user()->id;
             $model->user_name = auth()->user()->username;
         });

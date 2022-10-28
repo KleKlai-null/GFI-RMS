@@ -22,7 +22,7 @@
             </a>
         </span>
     @endcan
-    @if($display_rs)
+    {{-- @if($display_rs)
         @can('create rs')
             @if(!Request::is('returnitem'))
                 <span class="d-none d-sm-inline">
@@ -39,7 +39,7 @@
                 </span>
             @endif
         @endcan
-    @endif
+    @endif --}}
     @isset($import)
         <button type="button" class="btn btn-primary d-none d-sm-inline-block" data-bs-toggle="modal"
             data-bs-target="#import-data">

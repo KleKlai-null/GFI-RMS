@@ -28,12 +28,20 @@ return new class extends Migration
             $table->string('asset_serial_no');
             $table->string('asset_value');
 
-            $table->string('prepared_by');
-            $table->string('checked_by');
-            $table->string('noted_by');
-            $table->string('approved_by');
-            $table->string('released_by');
-            $table->string('received_by');
+            $table->string('prepared_by')->nullable();
+            $table->string('prepared_by_position')->nullable();
+            $table->string('checked_by')->nullable();
+            $table->string('checked_by_position')->nullable();
+            $table->string('noted_by')->nullable();
+            $table->string('noted_by_position')->nullable();
+            $table->string('approved_by')->nullable();
+            $table->string('approved_by_position')->nullable();
+            $table->string('requested_by')->nullable();
+            $table->string('requested_by_position')->nullable();
+            $table->string('released_by')->nullable();
+            $table->string('released_by_position')->nullable();
+            $table->string('received_by')->nullable();
+            $table->string('received_by_position')->nullable();
             
             $table->mediumText('remarks')->nullable();
             $table->enum('status', ['Open', 'Closed', 'Archived'])->default('Open');

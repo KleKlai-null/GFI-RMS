@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Form\FixedAsset;
 
+use App\Services\DocumentService;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -10,9 +11,11 @@ use Throwable;
 
 class Create extends Component
 {
+    public $document_series_no;
     public $code, $description, $qty, $serial_no, $remarks;
     public $department, $memorandum_no;
-    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by, $received_by;
+    public $noted_by, $prepared_by, $approved_by, $checked_by, $requested_by, $released_by, $received_by;
+    public $noted_by_position, $prepared_by_position, $approved_by_position, $checked_by_position, $requested_by_position, $released_by_position, $received_by_position;
     public $updateMode = false;
     public $inputs = [];
 
@@ -31,6 +34,7 @@ class Create extends Component
     public function mount()
     {
         array_push($this->inputs, 1);
+        $this->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'FA');
     }
 
     public function add($i)
@@ -55,12 +59,21 @@ class Create extends Component
             'qty.*'                 => 'required|numeric',
             'serial_no.*'           => 'required',
             'remarks.*'             => 'nullable',
-            'noted_by'              => 'required',
-            'prepared_by'           => 'required',
-            'approved_by'           => 'required',
+            
+            'prepared_by'           => 'nullable',
+            'prepared_by_position'  => 'nullable',
             'checked_by'            => 'nullable',
+            'checked_by_position'   => 'nullable',
+            'noted_by'              => 'nullable',
+            'noted_by_position'     => 'nullable',
+            'approved_by'           => 'nullable',
+            'approved_by_position'  => 'nullable',
+            'requested_by'          => 'nullable',
+            'requested_by_position' => 'nullable',
             'released_by'           => 'nullable',
-            'received_by'           => 'required',
+            'released_by_position'  => 'nullable',
+            'received_by'           => 'nullable',
+            'received_by_position'  => 'nullable',
         ];
     }
 
@@ -89,14 +102,24 @@ class Create extends Component
             DB::beginTransaction();
 
             $data = $this->model::create([
+                'document_series_no'    => $this->document_series_no,
                 'department'            => $this->department,
                 'mr_no'                 => $this->memorandum_no,
-                'noted_by'              => $this->noted_by,
+                
                 'prepared_by'           => $this->prepared_by,
-                'approved_by'           => $this->approved_by,
+                'prepared_by_position'  => $this->prepared_by_position,
                 'checked_by'            => $this->checked_by,
+                'checked_by_position'   => $this->checked_by_position,
+                'noted_by'              => $this->noted_by,
+                'noted_by_position'     => $this->noted_by_position,
+                'approved_by'           => $this->approved_by,
+                'approved_by_position'  => $this->approved_by_position,
+                'requested_by'          => $this->requested_by,
+                'requested_by_position' => $this->requested_by_position,
                 'released_by'           => $this->released_by,
-                'received_by'           => $this->received_by
+                'released_by_position'  => $this->released_by_position,
+                'received_by'           => $this->received_by,
+                'received_by_position'  => $this->received_by_position,
             ]);
 
             foreach ($this->code as $key => $item) {

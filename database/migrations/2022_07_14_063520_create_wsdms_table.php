@@ -18,16 +18,25 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('user_name');
             $table->string('document_series_no')->unique();
+            $table->string('cm_document_series_no')->unique()->nullable();
             $table->string('customer_name');
             $table->string('order_no');
             $table->string('product_name');
             
             $table->string('prepared_by');
+            $table->string('prepared_by_position');
             $table->string('checked_by');
+            $table->string('checked_by_position');
             $table->string('noted_by');
+            $table->string('noted_by_position');
             $table->string('approved_by');
+            $table->string('approved_by_position');
+            $table->string('requested_by');
+            $table->string('requested_by_position');
             $table->string('released_by');
+            $table->string('released_by_position');
             $table->string('received_by');
+            $table->string('received_by_position');
 
             $table->enum('status', ['Open', 'Closed', 'Archived'])->default('Open');
             $table->mediumText('remarks')->nullable();

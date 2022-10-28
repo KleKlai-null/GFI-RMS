@@ -36,11 +36,19 @@ return new class extends Migration
             $table->mediumText('resolution')->nullable();
             
             $table->string('prepared_by');
+            $table->string('prepared_by_position');
             $table->string('checked_by');
+            $table->string('checked_by_position');
             $table->string('noted_by');
+            $table->string('noted_by_position');
             $table->string('approved_by');
+            $table->string('approved_by_position');
+            $table->string('requested_by');
+            $table->string('requested_by_position');
             $table->string('released_by');
+            $table->string('released_by_position');
             $table->string('received_by');
+            $table->string('received_by_position');
             
             $table->enum('status', ['Open', 'Closed', 'Archived'])->default('Open');
             $table->softDeletes();

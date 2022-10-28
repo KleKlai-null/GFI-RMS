@@ -211,7 +211,9 @@
                                 </div>
                             </div>
 
-                            <div class="hr-text">Authorized Signatories</div>
+                            <x-form-create-authorized-signatories/>
+
+                            {{-- <div class="hr-text">Authorized Signatories</div>
                             <div class="mb-3">
                                 <div class="row g-2">
                                     <div class="col-3">
@@ -288,7 +290,8 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
+
                             <div class="form-footer">
                                 <button type="button"
                                     onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"

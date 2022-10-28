@@ -18,7 +18,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-
+                            
                             <div class="form-group mb-1 row">
                                 <label class="col-2 col-form-label">Document Series No.</label>
                                 <div class="col">
@@ -133,7 +133,10 @@
 
                             <div class="hr-text">ACKNOWLEDGEMENT STATEMENT</div>
                             <p class="m-3 text-justify">This is to acknowledge that I am accountable of the above stated item(s). By signing and dating this document, I full understood that I will pay or replace the same item(s) in case of loss or damage due to my negligence or recklessness. I am aware that the listed item(s) is/are owned and a property of the above stated company (Business Unit), which in the event of my resgination, separation, or transfer, I will voluntarily turnover it to the company.</p>
-                            <div class="hr-text">Authorized Signatories</div>
+                            
+                            <x-form-create-authorized-signatories/>
+                            
+                            {{-- <div class="hr-text">Authorized Signatories</div>
                             <div class="mb-3">
                                 <div class="row g-2">
                                     <div class="col-2">
@@ -209,7 +212,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-footer">
                                 <button type="button"
                                     onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"

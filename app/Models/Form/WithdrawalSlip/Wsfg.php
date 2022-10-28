@@ -36,7 +36,6 @@ class Wsfg extends Model implements HasMedia
         parent::boot();
 
         Wsfg::creating(function($model) {
-            $model->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'FG');
             $model->user_id = auth()->user()->id;
             $model->user_name = auth()->user()->username;
         });

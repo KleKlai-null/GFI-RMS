@@ -36,7 +36,6 @@ class Wsmro extends Model implements HasMedia
         parent::boot();
 
         Wsmro::creating(function($model) {
-            $model->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'MRO');
             $model->user_id = auth()->user()->id;
             $model->user_name = auth()->user()->username;
         });

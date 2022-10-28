@@ -153,7 +153,7 @@
                                                                                         d="M15 14v-2a2 2 0 0 0 -2 -2h-4l2 -2m0 4l-2 -2">
                                                                                     </path>
                                                                                 </svg>
-                                                                                New return item
+                                                                                New credit memo
                                                                             </a>
                                                                         @endcan
                                                                         @can('delete mi')

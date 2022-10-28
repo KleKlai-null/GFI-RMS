@@ -14,7 +14,8 @@ class Create extends Component
     public $document_series_no;
 
     public $id_no, $name_of_employee, $department, $section, $asset_code, $asset_type, $asset_description, $asset_serial_no, $asset_value;
-    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by, $received_by;
+    public $noted_by, $prepared_by, $approved_by, $checked_by, $requested_by, $released_by, $received_by;
+    public $noted_by_position, $prepared_by_position, $approved_by_position, $checked_by_position, $requested_by_position, $released_by_position, $received_by_position;
     public $updateMode = false;
 
     protected $model = 'App\Models\Form\Memorandum';
@@ -44,12 +45,20 @@ class Create extends Component
             'asset_serial_no'           => 'required',
             'asset_value'               => 'required',
 
-            'noted_by'                  => 'required',
-            'prepared_by'               => 'required',
-            'approved_by'               => 'required',
-            'checked_by'                => 'required',
-            'released_by'               => 'required',
-            'received_by'               => 'required',
+            'prepared_by'           => 'nullable',
+            'prepared_by_position'  => 'nullable',
+            'checked_by'            => 'nullable',
+            'checked_by_position'   => 'nullable',
+            'noted_by'              => 'nullable',
+            'noted_by_position'     => 'nullable',
+            'approved_by'           => 'nullable',
+            'approved_by_position'  => 'nullable',
+            'requested_by'          => 'nullable',
+            'requested_by_position' => 'nullable',
+            'released_by'           => 'nullable',
+            'released_by_position'  => 'nullable',
+            'received_by'           => 'nullable',
+            'received_by_position'  => 'nullable',
         ];
     }
 

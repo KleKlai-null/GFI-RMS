@@ -153,7 +153,9 @@
                             </div>
                         </div>
 
-                        <div class="hr-text">Signatory Authority</div>
+                        <x-signatory-authority :data="$data" />
+
+                        {{-- <div class="hr-text">Signatory Authority</div>
                         <div class="mb-3">
                             <div class="row g-2">
                                 <div class="col-2">
@@ -177,7 +179,7 @@
                                     <div class="form-control-plaintext">{{ $data->released_by }}</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                 </div>
             </div>

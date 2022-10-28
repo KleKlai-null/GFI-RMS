@@ -15,7 +15,8 @@ class Create extends Component
 
     public $customer_name, $contact_person, $phone_no, $item_no, $description, $mfr_serial_no, $serial_no;
     public $subject, $origin, $problem_type, $assigned_to, $priority, $call_type, $technician, $remarks, $resolution;
-    public $noted_by, $prepared_by, $approved_by, $checked_by, $released_by, $received_by;
+    public $noted_by, $prepared_by, $approved_by, $checked_by, $requested_by, $released_by, $received_by;
+    public $noted_by_position, $prepared_by_position, $approved_by_position, $checked_by_position, $requested_by_position, $released_by_position, $received_by_position;
     public $updateMode = false;
 
     protected $model = 'App\Models\Form\ServiceCall';
@@ -52,12 +53,20 @@ class Create extends Component
             'remarks'                   => 'nullable',
             'resolution'                => 'nullable',
 
-            'noted_by'                  => 'required',
-            'prepared_by'               => 'required',
-            'approved_by'               => 'required',
-            'checked_by'                => 'nullable',
-            'released_by'               => 'nullable',
-            'received_by'               => 'required',
+            'prepared_by'           => 'nullable',
+            'prepared_by_position'  => 'nullable',
+            'checked_by'            => 'nullable',
+            'checked_by_position'   => 'nullable',
+            'noted_by'              => 'nullable',
+            'noted_by_position'     => 'nullable',
+            'approved_by'           => 'nullable',
+            'approved_by_position'  => 'nullable',
+            'requested_by'          => 'nullable',
+            'requested_by_position' => 'nullable',
+            'released_by'           => 'nullable',
+            'released_by_position'  => 'nullable',
+            'received_by'           => 'nullable',
+            'received_by_position'  => 'nullable',
         ];
     }
 

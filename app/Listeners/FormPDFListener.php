@@ -75,32 +75,33 @@ class FormPDFListener implements ShouldQueue
 
     public function exportPDF($event, $type, $filename)
     {
-        Log::info($event->document_series_no . ' has been created');
+        // Log::info($event->document_series_no . ' has been created');
+        Log::info('PDF has been disabled for ' . $event->document_series_no);
 
-        $data = $event;
+        // $data = $event;
 
-        try {
+        // try {
 
-            ini_set('max_execution_time', 300);
+        //     ini_set('max_execution_time', 300);
 
-            // Create QR hash
-            $qrcode = base64_encode(QrCode::format('svg')->size(110)->errorCorrection('H')->generate(config('app.url').'/verify/key='.$event->document_series_no));
+        //     // Create QR hash
+        //     $qrcode = base64_encode(QrCode::format('svg')->size(110)->errorCorrection('H')->generate(config('app.url').'/verify/key='.$event->document_series_no));
 
-            // Visit form pdf to generate
-            $pdf = Pdf::loadView('forms.pdf.'.$type, compact('qrcode', 'data'))->setPaper('portrait');
-            $content = $pdf->download()->getOriginalContent();
+        //     // Visit form pdf to generate
+        //     $pdf = Pdf::loadView('forms.pdf.'.$type, compact('qrcode', 'data'))->setPaper('portrait');
+        //     $content = $pdf->download()->getOriginalContent();
             
-            // Put to local disk
-            Storage::disk('local')->put('pdf/'.$filename, $content);  
+        //     // Put to local disk
+        //     Storage::disk('local')->put('pdf/'.$filename, $content);  
 
-            $event->addMediaFromDisk('pdf/'.$filename, 'local')->preservingOriginal()->toMediaCollection('pdf');
+        //     $event->addMediaFromDisk('pdf/'.$filename, 'local')->preservingOriginal()->toMediaCollection('pdf');
 
-            Log::info($event->document_series_no . ' pdf successfully generated.');
+        //     Log::info($event->document_series_no . ' pdf successfully generated.');
 
-        } catch (Exception $exception) {
-            Log::error($exception);
-        } catch (Throwable $throwable) {
-            Log::error($throwable);
-        }
+        // } catch (Exception $exception) {
+        //     Log::error($exception);
+        // } catch (Throwable $throwable) {
+        //     Log::error($throwable);
+        // }
     }
 }

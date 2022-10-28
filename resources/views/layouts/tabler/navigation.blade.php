@@ -90,11 +90,6 @@
                                             Service Call
                                         </a>
                                     @endcanany
-                                    @canany(['create rs', 'view rs', 'delete rs', 'archive rs'])
-                                        <a href="{{ route('rs') }}" class="dropdown-item">
-                                            Return Slip
-                                        </a>
-                                    @endcanany
                                 </div>
                             </div>
                         </div>
@@ -179,27 +174,6 @@
                             </a>
                         </li>
                     @endcan
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('help') }}">
-                            <span class="nav-link-icon d-md-none d-lg-inline-block">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-lifebuoy"
-                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                    stroke="currentColor" fill="none" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <circle cx="12" cy="12" r="4"></circle>
-                                    <circle cx="12" cy="12" r="9"></circle>
-                                    <line x1="15" y1="15" x2="18.35" y2="18.35"></line>
-                                    <line x1="9" y1="15" x2="5.65" y2="18.35"></line>
-                                    <line x1="5.65" y1="5.65" x2="9" y2="9"></line>
-                                    <line x1="18.35" y1="5.65" x2="15" y2="9"></line>
-                                </svg>
-                            </span>
-                            <span class="nav-link-title">
-                                Help
-                            </span>
-                        </a>
-                    </li>
                 </ul>
                 <!--
 
