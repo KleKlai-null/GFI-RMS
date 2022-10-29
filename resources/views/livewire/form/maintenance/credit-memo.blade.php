@@ -19,10 +19,24 @@
                     <div class="card mt-2">
                         <div class="card-body">
                           <h3 class="card-title text-center">HEADER INFORMATION</h3>
-                            <div class="mb-3">
-                                <label class="form-label">Document Series No.</label>
-                                <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="document_series_no">
+                          <div class="mb-3">
+                            <div class="row g-2">
+                                <div class="col-4">
+                                    <label class="form-label">Document Series Number</label>
+                                    <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="document_series_no">
+                                    @error('document_series_no')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                                <div class="col-4">
+                                    <label class="form-label">Withdrawal Document Series Number</label>
+                                    <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="withdrawal_document_series_no">
+                                    @error('withdrawal_document_series_no')
+                                        <small class="text-danger">{{ $message }}</small>
+                                    @enderror
+                                </div>
                             </div>
+                        </div>
                             <div class="mb-3">
                                 <div class="row g-2">
                                     <div class="col-4">

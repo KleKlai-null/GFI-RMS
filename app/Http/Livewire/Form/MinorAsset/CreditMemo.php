@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Form\DirectMaterial;
+namespace App\Http\Livewire\Form\MinorAsset;
 
 use App\Services\DocumentService;
 use Exception;
@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Throwable;
 
-class Create extends Component
+class CreditMemo extends Component
 {
-    public $document_series_no;
-    public $code, $description, $qty, $uom, $remarks;
-    public $customer_name, $production_order_no, $product_name;
+    public $document_series_no, $withdrawal_document_series_no;
+    public $code, $description, $qty, $serial_no, $remarks;
+    public $department, $memorandum_receipt_no;
     public $noted_by, $prepared_by, $approved_by, $checked_by, $requested_by, $released_by, $received_by;
     public $noted_by_position, $prepared_by_position, $approved_by_position, $checked_by_position, $requested_by_position, $released_by_position, $received_by_position;
     public $updateMode = false;
@@ -21,20 +21,20 @@ class Create extends Component
 
     public $i = 1;
 
-    protected $model = 'App\Models\Form\WithdrawalSlip\Wsdm';
-    protected $item_model = 'App\Models\Form\Item\DmItem';
+    protected $model = 'App\Models\Form\WithdrawalSlip\Wsma';
+    protected $item_model = 'App\Models\Form\Item\MaItem';
 
     public function render()
     {
-        return view('livewire.form.direct-material.create', [
-            'title' => 'Direct Material'
+        return view('livewire.form.minor-asset.credit-memo', [
+            'title' => 'Minor Asset'
         ])->layout('layouts.tabler.app');
     }
 
     public function mount()
     {
         array_push($this->inputs, 1);
-        $this->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'DM');
+        $this->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'MA', true);
     }
 
     public function add($i)
@@ -52,13 +52,12 @@ class Create extends Component
     public function rules() 
     {
         return [
-            'customer_name'         => 'required',
-            'production_order_no'   => 'nullable',
-            'product_name'          => 'nullable',
+            'department'            => 'required',
+            'memorandum_receipt_no' => 'required',
             'code.*'                => 'required',
             'description.*'         => 'required',
             'qty.*'                 => 'required|numeric',
-            'uom.*'                 => 'required',
+            'serial_no.*'           => 'required',
             'remarks.*'             => 'nullable',
             
             'prepared_by'           => 'nullable',
@@ -85,7 +84,7 @@ class Create extends Component
             'description.*.required'     => "Description cannot be blank",
             'qty.*.required'             => "Please input qty",
             'qty.*.numeric'              => "The value must be numbers",
-            'uom.*.required'             => "Uom cannot be blank",
+            'serial_no.*.required'       => "Serial no cannot be blank",
         ];
     }
 
@@ -103,10 +102,10 @@ class Create extends Component
             DB::beginTransaction();
 
             $data = $this->model::create([
-                'document_series_no'    => $this->document_series_no,
-                'customer_name'         => $this->customer_name,
-                'order_no'              => $this->production_order_no,
-                'product_name'          => $this->product_name,
+                'document_series_no'    => $this->withdrawal_document_series_no,
+                'cm_document_series_no' => $this->document_series_no,
+                'department'            => $this->department,
+                'mr_no'                 => $this->memorandum_receipt_no,
                 
                 'prepared_by'           => $this->prepared_by,
                 'prepared_by_position'  => $this->prepared_by_position,
@@ -126,11 +125,11 @@ class Create extends Component
 
             foreach ($this->code as $key => $item) {
                 $this->item_model::create([
-                    'wsdm_id'               => $data->id,
+                    'wsma_id'               => $data->id,
                     'item_code'             => $this->code[$key],
                     'item_description'      => $this->description[$key],
                     'qty'                   => $this->qty[$key],
-                    'uom'                   => $this->uom[$key],
+                    'serial_no'             => $this->serial_no[$key],
                     'remarks'               => $this->remarks[$key] ?? ''
                 ]);
             }
@@ -139,7 +138,7 @@ class Create extends Component
 
             $this->reset(); // Reset all properties
 
-            return redirect()->route('dm.show', $data);
+            return redirect()->route('ma.show', $data);
 
         } catch (Exception $exception) {
 

@@ -14,7 +14,7 @@ use Throwable;
 
 class CreditMemo extends Component
 {
-    public $document_series_no;
+    public $document_series_no, $withdrawal_document_series_no;
     public $code, $description, $qty, $uom, $remarks;
     public $customer_name, $pallet_no, $warehouse_location, $warehouse, $profit_center, $sub_profit_center, $sales_order_no;
     public $noted_by, $prepared_by, $approved_by, $checked_by, $requested_by, $released_by, $received_by;
@@ -55,13 +55,14 @@ class CreditMemo extends Component
     public function rules() 
     {
         return [
+            'withdrawal_document_series_no' => 'nullable',
             'customer_name'         => 'nullable',
-            'pallet_no'             => 'required',
-            'warehouse_location'    => 'required',
-            'warehouse'             => 'required',
+            'pallet_no'             => 'nullable',
+            'warehouse_location'    => 'nullable',
+            'warehouse'             => 'nullable',
             'profit_center'         => 'nullable',
             'sub_profit_center'     => 'nullable',
-            'sales_order_no'        => 'required',
+            'sales_order_no'        => 'nullable',
             'code.*'                => 'required',
             'description.*'         => 'required',
             'qty.*'                 => 'required|numeric',
@@ -109,6 +110,7 @@ class CreditMemo extends Component
             DB::beginTransaction();
 
             $data = $this->model::create([
+                'document_series_no'    => $this->withdrawal_document_series_no,
                 'cm_document_series_no' => $this->document_series_no,
                 'customer_name'         => $this->customer_name,
                 'pallet_no'             => $this->pallet_no,

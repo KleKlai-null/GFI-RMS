@@ -56,12 +56,12 @@ class Create extends Component
     {
         return [
             'customer_name'         => 'nullable',
-            'pallet_no'             => 'required',
-            'warehouse_location'    => 'required',
-            'warehouse'             => 'required',
+            'pallet_no'             => 'nullable',
+            'warehouse_location'    => 'nullable',
+            'warehouse'             => 'nullable',
             'profit_center'         => 'nullable',
             'sub_profit_center'     => 'nullable',
-            'sales_order_no'        => 'required',
+            'sales_order_no'        => 'nullable',
             'code.*'                => 'required',
             'description.*'         => 'required',
             'qty.*'                 => 'required|numeric',

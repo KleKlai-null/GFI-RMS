@@ -16,27 +16,89 @@
             <div class="row row-cards">
                 <div class="col-12">
 
-                    <!-- Validation Errors -->
-                    <x-auth-validation-errors class="text-center text-danger" :errors="$errors" />
-
                     <div class="card mt-2">
                         <div class="card-body">
                             <h3 class="card-title text-center">HEADER INFORMATION</h3>
+
                             <div class="mb-3">
-                                <label class="form-label">Document Series No.</label>
-                                <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="document_series_no">
+                                <div class="row g-2">
+                                    <div class="col-4">
+                                        <label class="form-label">Document Series Number</label>
+                                        <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="document_series_no">
+                                        @error('document_series_no')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label">Withdrawal Document Series Number</label>
+                                        <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="withdrawal_document_series_no">
+                                        @error('withdrawal_document_series_no')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
                             
                             <div class="mb-3">
-                                <div class="row g-2">                                    
+                                <div class="row g-2">
                                     <div class="col-4">
-                                        <label class="form-label">Memorandum receipt</label>
+                                        <label class="form-label required">Customer Name</label>
                                         <div>
                                             <input type="text"
-                                                class="form-control @error('memorandum_no') is-invalid @enderror"
-                                                wire:model="memorandum_no" onkeyup="this.value = this.value.toUpperCase();">
+                                                class="form-control @error('customer_name') is-invalid @enderror"
+                                                wire:model="customer_name" onkeyup="this.value = this.value.toUpperCase();">
                                         </div>
-                                        @error('memorandum_no')
+                                        @error('customer_name')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    
+                                    <div class="col-4">
+                                        <label class="form-label">Batch Number</label>
+                                        <div>
+                                            <input type="text"
+                                                class="form-control @error('batch_no') is-invalid @enderror"
+                                                wire:model="batch_no" onkeyup="this.value = this.value.toUpperCase();">
+                                        </div>
+                                        @error('batch_no')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label">Pallet Number</label>
+                                        <div>
+                                            <input type="text"
+                                                class="form-control @error('pallet_no') is-invalid @enderror"
+                                                wire:model="pallet_no" onkeyup="this.value = this.value.toUpperCase();">
+                                        </div>
+                                        @error('pallet_no')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <label class="form-label">Location</label>
+                                        <div>
+                                            <input type="text"
+                                                class="form-control @error('location') is-invalid @enderror"
+                                                wire:model="location" onkeyup="this.value = this.value.toUpperCase();">
+                                        </div>
+                                        @error('location')
+                                            <small class="text-danger">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    
+                                    <div class="col-6">
+                                        <label class="form-label">Sales Order Number</label>
+                                        <div>
+                                            <input type="text"
+                                                class="form-control @error('sales_order_no') is-invalid @enderror"
+                                                wire:model="sales_order_no" onkeyup="this.value = this.value.toUpperCase();">
+                                        </div>
+                                        @error('sales_order_no')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -54,16 +116,15 @@
                                     <div class="col-1">
                                         <label class="form-label">Code</label>
                                     </div>
-                                    <div class="col-2">
-                                        <label class="form-label">Serial no.</label>
-                                    </div>
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         <label class="form-label">Description</label>
                                     </div>
                                     <div class="col-1">
                                         <label class="form-label">Qty</label>
                                     </div>
-                                    
+                                    <div class="col-1">
+                                        <label class="form-label">Uom</label>
+                                    </div>
                                     <div class="col-3">
                                         <label class="form-label">Remarks</label>
                                     </div>
@@ -78,15 +139,7 @@
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="col-2">
-                                            <input type="text"
-                                                class="form-control @error('serial_no.' . $value) is-invalid @enderror"
-                                                placeholder="Serial no" wire:model="serial_no.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
-                                            @error('serial_no.' . $value)
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                        <div class="col-4">
+                                        <div class="col-5">
                                             <input type="text"
                                                 class="form-control @error('description.' . $value) is-invalid @enderror"
                                                 placeholder="Description of the product/item"
@@ -98,8 +151,16 @@
                                         <div class="col-1">
                                             <input type="number" step="0.0001"
                                                 class="form-control @error('qty.' . $value) is-invalid @enderror"
-                                                placeholder="Qty" wire:model="qty.{{ $value }}">
+                                                placeholder="Qty" wire:model="qty.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
                                             @error('qty.' . $value)
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-1">
+                                            <input type="text"
+                                                class="form-control @error('uom.' . $value) is-invalid @enderror"
+                                                placeholder="Uom" wire:model="uom.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
+                                            @error('uom.' . $value)
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>

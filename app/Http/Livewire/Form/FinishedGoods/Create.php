@@ -53,10 +53,10 @@ class Create extends Component
     {
         return [
             'customer_name'         => 'required',
-            'batch_no'              => 'required',
-            'pallet_no'             => 'required',
-            'location'              => 'required',
-            'sales_order_no'        => 'required',
+            'batch_no'              => 'nullable',
+            'pallet_no'             => 'nullable',
+            'location'              => 'nullable',
+            'sales_order_no'        => 'nullable',
             'code.*'                => 'required',
             'description.*'         => 'required',
             'qty.*'                 => 'required|numeric',

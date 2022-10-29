@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Throwable;
 
-class Create extends Component
+class CreditMemo extends Component
 {
-    public $document_series_no;
+    public $document_series_no, $withdrawal_document_series_no;
     public $code, $description, $qty, $uom, $remarks;
     public $customer_name, $production_order_no, $product_name;
     public $noted_by, $prepared_by, $approved_by, $checked_by, $requested_by, $released_by, $received_by;
@@ -26,15 +26,15 @@ class Create extends Component
 
     public function render()
     {
-        return view('livewire.form.direct-material.create', [
-            'title' => 'Direct Material'
+        return view('livewire.form.direct-material.credit-memo', [
+            'title' => 'Direct Material Credit Memo'
         ])->layout('layouts.tabler.app');
     }
 
     public function mount()
     {
         array_push($this->inputs, 1);
-        $this->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'DM');
+        $this->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'DM', true);
     }
 
     public function add($i)
@@ -103,7 +103,8 @@ class Create extends Component
             DB::beginTransaction();
 
             $data = $this->model::create([
-                'document_series_no'    => $this->document_series_no,
+                'document_series_no'    => $this->withdrawal_document_series_no,
+                'cm_document_series_no' => $this->document_series_no,
                 'customer_name'         => $this->customer_name,
                 'order_no'              => $this->production_order_no,
                 'product_name'          => $this->product_name,

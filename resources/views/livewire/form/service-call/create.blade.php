@@ -32,7 +32,7 @@
                                 <label class="col-2 col-form-label required @error('customer_name') text-danger @enderror">Customer name</label>
                                 <div class="col">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter customer name (e.g Juan Dela Cruz)"
-                                    wire:model="customer_name">
+                                    wire:model="customer_name" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('customer_name')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -43,7 +43,7 @@
                                 <label class="col-2 col-form-label required @error('contact_person') text-danger @enderror">Contact person</label>
                                 <div class="col">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter person name"
-                                    wire:model="contact_person">
+                                    wire:model="contact_person" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('contact_person')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -54,7 +54,7 @@
                                 <label class="col-2 col-form-label required @error('phone_no') text-danger @enderror">Phone no.</label>
                                 <div class="col">
                                     <input type="text" name="input-mask" class="form-control form-control-flush mt-1" data-mask="+63 000-000-0000" data-mask-visible="true" placeholder="+63 000-000-0000" autocomplete="off"
-                                    wire:model="phone_no">
+                                    wire:model="phone_no" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('phone_no')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -67,7 +67,7 @@
                                 <label class="col-2 col-form-label required @error('item_no') text-danger @enderror">Item no</label>
                                 <div class="col">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter item no"
-                                    wire:model="item_no">
+                                    wire:model="item_no" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('item_no')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -78,7 +78,7 @@
                                 <label class="col-2 col-form-label required @error('description') text-danger @enderror">Description</label>
                                 <div class="col">
                                     <textarea class="form-control form-control-flush mt-1" data-bs-toggle="autosize" placeholder="Enter item description" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 56px;"
-                                    wire:model="description"></textarea>
+                                    wire:model="description" onkeyup="this.value = this.value.toUpperCase();"></textarea>
                                     @error('description')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="col-2">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter MFR"
-                                        wire:model="mfr_serial_no">
+                                        wire:model="mfr_serial_no" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('mfr_serial_no')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -101,7 +101,7 @@
                                 </div>
                                 <div class="col-4">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter serial no"
-                                        wire:model="serial_no">
+                                        wire:model="serial_no" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('serial_no')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -114,7 +114,7 @@
                                 <label class="col-2 col-form-label required @error('subject') text-danger @enderror">Subject</label>
                                 <div class="col">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter subject"
-                                    wire:model="subject">
+                                    wire:model="subject" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('subject')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -127,7 +127,7 @@
                                 </div>
                                 <div class="col-2">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter Origin"
-                                        wire:model="origin">
+                                        wire:model="origin" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('origin')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -137,7 +137,7 @@
                                 </div>
                                 <div class="col-2">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter problem type"
-                                        wire:model="problem_type">
+                                        wire:model="problem_type" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('problem_type')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -147,7 +147,7 @@
                                 </div>
                                 <div class="col-2">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Assigned person"
-                                        wire:model="assigned_to">
+                                        wire:model="assigned_to" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('assigned_to')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -160,7 +160,7 @@
                                 </div>
                                 <div class="col-2">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="High, Medium, Low"
-                                        wire:model="priority">
+                                        wire:model="priority" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('priority')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -170,7 +170,7 @@
                                 </div>
                                 <div class="col-2">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter call type"
-                                        wire:model="call_type">
+                                        wire:model="call_type" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('call_type')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -180,7 +180,7 @@
                                 </div>
                                 <div class="col-2">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Technician name"
-                                        wire:model="technician">
+                                        wire:model="technician" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('technician')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -193,7 +193,7 @@
                                 <label class="col-2 col-form-label @error('remarks') text-danger @enderror">Remarks</label>
                                 <div class="col">
                                     <textarea class="form-control form-control-flush mt-1" data-bs-toggle="autosize" placeholder="Enter service call remarks or leave it blank" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 56px;"
-                                    wire:model="remarks"></textarea>
+                                    wire:model="remarks" onkeyup="this.value = this.value.toUpperCase();"></textarea>
                                     @error('remarks')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -204,7 +204,7 @@
                                 <label class="col-2 col-form-label @error('resolution') text-danger @enderror">Resolution</label>
                                 <div class="col">
                                     <textarea class="form-control form-control-flush mt-1" data-bs-toggle="autosize" placeholder="Enter service call resolution or leave it blank" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 56px;"
-                                    wire:model="resolution"></textarea>
+                                    wire:model="resolution" onkeyup="this.value = this.value.toUpperCase();"></textarea>
                                     @error('resolution')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror

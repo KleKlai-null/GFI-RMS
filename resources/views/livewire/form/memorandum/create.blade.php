@@ -32,7 +32,7 @@
                                 <label class="col-2 col-form-label required @error('id_no') text-danger @enderror">Id no</label>
                                 <div class="col">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter employee id no"
-                                    wire:model="id_no">
+                                    wire:model="id_no" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('id_no')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -43,7 +43,7 @@
                                 <label class="col-2 col-form-label required @error('name_of_employee') text-danger @enderror">Name of employee</label>
                                 <div class="col">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter employee full name"
-                                    wire:model="name_of_employee">
+                                    wire:model="name_of_employee" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('name_of_employee')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -54,7 +54,7 @@
                                 <label class="col-2 col-form-label required @error('department') text-danger @enderror">Department</label>
                                 <div class="col">
                                     <input type="text" name="input-mask" class="form-control form-control-flush mt-1" placeholder="Enter department" autocomplete="off"
-                                    wire:model="department">
+                                    wire:model="department" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('department')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -65,7 +65,7 @@
                                 <label class="col-2 col-form-label required @error('section') text-danger @enderror">Section</label>
                                 <div class="col">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter section"
-                                    wire:model="section">
+                                    wire:model="section" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('section')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="col-2">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter code"
-                                    wire:model="asset_code">
+                                    wire:model="asset_code" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('asset_code')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="col-2">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter serial no"
-                                        wire:model="asset_serial_no">
+                                        wire:model="asset_serial_no" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('asset_serial_no')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -113,7 +113,7 @@
                                 </div>
                                 <div class="col-4">
                                     <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Enter value"
-                                        wire:model="asset_value">
+                                        wire:model="asset_value" onkeyup="this.value = this.value.toUpperCase();">
                                     @error('asset_value')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -124,7 +124,7 @@
                                 <label class="col-2 col-form-label required @error('asset_description') text-danger @enderror">Description</label>
                                 <div class="col">
                                     <textarea class="form-control form-control-flush mt-1" data-bs-toggle="autosize" placeholder="Enter item description" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 56px;"
-                                    wire:model="asset_description"></textarea>
+                                    wire:model="asset_description" onkeyup="this.value = this.value.toUpperCase();"></textarea>
                                     @error('asset_description')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror

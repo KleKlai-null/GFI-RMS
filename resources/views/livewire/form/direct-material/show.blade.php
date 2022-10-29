@@ -28,21 +28,17 @@
             <div class="card mb-3">
                 <div class="card-header">
                     <h3 class="card-title">Base info</h3>
+                    <div class="card-actions">
+                        <span class="status status-{{ $data->status == 'Open' ? 'green' : 'red' }}">
+                            {{ $data->status }}
+                        </span>
+                    </div>
                 </div>
                 <div class="card-body">
-
-                    <x-form-user-details :user="$data->user" :created="$data->created_at" :updated="$data->updated_at" :status="$data->status" />
 
                     <div class="hr-text">Form Information</div>
 
                     <div class="datagrid">
-                        <div class="datagrid-item">
-                            <div class="datagrid-title">Purpose</div>
-                            <div class="datagrid-content">{!! $data->purpose !!}</div>
-                        </div>
-                    </div>
-
-                    <div class="datagrid mt-4">
                         <div class="datagrid-item">
                             <div class="datagrid-title">Customer name</div>
                             <div class="datagrid-content">{!! $data->customer_name !!}</div>
@@ -57,8 +53,11 @@
                         </div>
                     </div>
 
-                    <x-signatory-authority :data="$data" />
                     <x-form-item-information :items="$data->items" type="uom"/>
+
+                    <x-signatory-authority :data="$data" />
+
+                    <x-form-user-details :user="$data->user" :created="$data->created_at" :updated="$data->updated_at" :status="$data->status" />
                 </div>
             </div>
 

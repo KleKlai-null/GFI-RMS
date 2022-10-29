@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('user_name');
             $table->string('customer_name');
-            $table->string('document_series_no')->unique();
+            $table->string('document_series_no')->nullable();
             $table->string('cm_document_series_no')->unique()->nullable();
             $table->string('pallet_no')->nullable();
             $table->string('warehouse')->nullable();

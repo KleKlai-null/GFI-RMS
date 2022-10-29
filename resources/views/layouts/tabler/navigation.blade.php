@@ -51,39 +51,111 @@
                             <div class="dropdown-menu-columns">
                                 <div class="dropdown-menu-column">
                                     @canany(['create mi', 'view mi', 'delete mi', 'archive mi'])
-                                        <a href="{{ route('mi') }}" class="dropdown-item">
+                                    <div class="dropend">
+                                        <a class="dropdown-item dropdown-toggle show" href="#sidebar-cards"
+                                            data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button"
+                                            aria-expanded="true">
                                             Merchandise
                                         </a>
+                                        <div class="dropdown-menu show" data-bs-popper="static">
+                                            <a href="{{ route('mi') }}" class="dropdown-item">
+                                                List
+                                            </a>
+                                            <a href="{{ route('mi.create-credit-memo') }}" class="dropdown-item">
+                                                Credit Memo
+                                            </a>
+                                        </div>
+                                    </div>
                                     @endcanany
                                     @canany(['create mro', 'view mro', 'delete mro', 'archive mro'])
-                                        <a href="{{ route('mro') }}" class="dropdown-item">
-                                            Maintence, Repairs, Operations
-                                        </a>
+                                        <div class="dropend">
+                                            <a class="dropdown-item dropdown-toggle show" href="#sidebar-cards"
+                                                data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button"
+                                                aria-expanded="true">
+                                                Maintence, Repairs, Operations
+                                            </a>
+                                            <div class="dropdown-menu show" data-bs-popper="static">
+                                                <a href="{{ route('mro') }}" class="dropdown-item">
+                                                    List
+                                                </a>
+                                                <a href="{{ route('mro.create-credit-memo') }}" class="dropdown-item">
+                                                    Credit Memo
+                                                </a>
+                                            </div>
+                                        </div>
                                     @endcanany
                                     @canany(['create dm', 'view dm', 'delete dm', 'archive dm'])
-                                        <a href="{{ route('dm') }}" class="dropdown-item">
-                                            Direct Material
-                                        </a>
+                                        <div class="dropend">
+                                            <a class="dropdown-item dropdown-toggle show" href="#sidebar-cards"
+                                                data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button"
+                                                aria-expanded="true">
+                                                Direct Material
+                                            </a>
+                                            <div class="dropdown-menu show" data-bs-popper="static">
+                                                <a href="{{ route('dm') }}" class="dropdown-item">
+                                                    List
+                                                </a>
+                                                <a href="{{ route('dm.create-credit-memo') }}" class="dropdown-item">
+                                                    Credit Memo
+                                                </a>
+                                            </div>
+                                        </div>
                                     @endcanany
                                     @canany(['create fg', 'view fg', 'delete fg', 'archive fg'])
-                                        <a href="{{ route('fg') }}" class="dropdown-item">
-                                            Finished Goods
-                                        </a>
+                                        <div class="dropend">
+                                            <a class="dropdown-item dropdown-toggle show" href="#sidebar-cards"
+                                                data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button"
+                                                aria-expanded="true">
+                                                Finished Goods
+                                            </a>
+                                            <div class="dropdown-menu show" data-bs-popper="static">
+                                                <a href="{{ route('fg') }}" class="dropdown-item">
+                                                    List
+                                                </a>
+                                                <a href="{{ route('fg.create-credit-memo') }}" class="dropdown-item">
+                                                    Credit Memo
+                                                </a>
+                                            </div>
+                                        </div>
                                     @endcanany
                                     @canany(['create fa', 'view fa', 'delete fa', 'archive fa'])
-                                        <a href="{{ route('fa') }}" class="dropdown-item">
-                                            Fixed Asset
-                                        </a>
+                                        <div class="dropend">
+                                            <a class="dropdown-item dropdown-toggle show" href="#sidebar-cards"
+                                                data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button"
+                                                aria-expanded="true">
+                                                Fixed Asset
+                                            </a>
+                                            <div class="dropdown-menu show" data-bs-popper="static">
+                                                <a href="{{ route('fa') }}" class="dropdown-item">
+                                                    List
+                                                </a>
+                                                <a href="{{ route('fa.create-credit-memo') }}" class="dropdown-item">
+                                                    Credit Memo
+                                                </a>
+                                            </div>
+                                        </div>
                                     @endcanany
                                     @canany(['create ma', 'view ma', 'delete ma', 'archive ma'])
-                                        <a href="{{ route('ma') }}" class="dropdown-item">
-                                            Minor Asset
-                                        </a>
+                                        <div class="dropend">
+                                            <a class="dropdown-item dropdown-toggle show" href="#sidebar-cards"
+                                                data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button"
+                                                aria-expanded="true">
+                                                Minor Asset
+                                            </a>
+                                            <div class="dropdown-menu show" data-bs-popper="static">
+                                                <a href="{{ route('ma') }}" class="dropdown-item">
+                                                    List
+                                                </a>
+                                                <a href="{{ route('ma.create-credit-memo') }}" class="dropdown-item">
+                                                    Credit Memo
+                                                </a>
+                                            </div>
+                                        </div>
                                     @endcanany
                                     @canany(['create mr', 'view mr', 'delete mr', 'archive mr'])
-                                    <a href="{{ route('mr') }}" class="dropdown-item">
-                                        Memorandum
-                                    </a>
+                                        <a href="{{ route('mr') }}" class="dropdown-item">
+                                            Memorandum
+                                        </a>
                                     @endcanany
                                     @canany(['create sc', 'view sc', 'delete sc', 'archive sc'])
                                         <a href="{{ route('sc') }}" class="dropdown-item">
@@ -102,7 +174,8 @@
                                     <!-- Download SVG icon from http://tabler-icons.io/i/package -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database"
                                         width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
-                                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        stroke="currentColor" fill="none" stroke-linecap="round"
+                                        stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <ellipse cx="12" cy="6" rx="8" ry="3"></ellipse>
                                         <path d="M4 6v6a8 3 0 0 0 16 0v-6"></path>
@@ -196,16 +269,16 @@
                     </div>
                 </div> --}}
                 @env('local', 'staging')
-                    <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
-                        <div class="text-warning">
-                            @env('local')
-                            Local Environment
-                            @endenv
-                            @env('staging')
-                            Staging Environment
-                            @endenv
-                        </div>
+                <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+                    <div class="text-warning">
+                        @env('local')
+                        Local Environment
+                        @endenv
+                        @env('staging')
+                        Staging Environment
+                        @endenv
                     </div>
+                </div>
                 @endenv
             </div>
         </div>

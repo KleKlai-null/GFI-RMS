@@ -13,7 +13,7 @@ class Create extends Component
 {
     public $document_series_no;
     public $code, $description, $qty, $serial_no, $remarks;
-    public $department, $memorandum_no;
+    public $memorandum_no;
     public $noted_by, $prepared_by, $approved_by, $checked_by, $requested_by, $released_by, $received_by;
     public $noted_by_position, $prepared_by_position, $approved_by_position, $checked_by_position, $requested_by_position, $released_by_position, $received_by_position;
     public $updateMode = false;
@@ -52,7 +52,6 @@ class Create extends Component
     public function rules() 
     {
         return [
-            'department'            => 'required',
             'memorandum_no'         => 'required',
             'code.*'                => 'required',
             'description.*'         => 'required',
@@ -103,7 +102,6 @@ class Create extends Component
 
             $data = $this->model::create([
                 'document_series_no'    => $this->document_series_no,
-                'department'            => $this->department,
                 'mr_no'                 => $this->memorandum_no,
                 
                 'prepared_by'           => $this->prepared_by,

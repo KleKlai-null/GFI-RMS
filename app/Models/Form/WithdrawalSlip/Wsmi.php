@@ -80,9 +80,9 @@ class Wsmi extends Model implements HasMedia
     public function scopeSearch($query, $column, $search)
     {
         if(DB::connection()->getDriverName() == 'pgsql'){
-            return $query->where($column, 'ilike', '%'.$search.'%');
+            return $query->where($column, 'ilike', '%'.$search.'%')->where('cm_document_series_no', null);
         } else {
-            return $query->where($column, 'like', '%'.$search.'%');
+            return $query->where($column, 'like', '%'.$search.'%')->where('cm_document_series_no', null);
         }
     }
 
