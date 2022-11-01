@@ -82,6 +82,15 @@ class Wsmro extends Model implements HasMedia
         }
     }
 
+    public function scopeSearchWithCM($query, $column, $search)
+    {
+        if(DB::connection()->getDriverName() == 'pgsql'){
+            return $query->where($column, 'ilike', '%'.$search.'%');
+        } else {
+            return $query->where($column, 'like', '%'.$search.'%');
+        }
+    }
+
     /**
      * Set @this status to archive
      */

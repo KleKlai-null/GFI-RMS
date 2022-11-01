@@ -312,5 +312,11 @@ class RoleSeeder extends Seeder
         // Add create rs permission to all roles
         $rs = Permission::where('name', 'create cm')->first();
         $rs->syncRoles(['mi clerk', 'mro clerk', 'dm clerk' , 'fg clerk', 'fa clerk', 'ma clerk', 'mr clerk', 'sc clerk', 'administrator']);
+
+        $corporate_accountant = Role::create(['name' => 'Corporate Accountant']);
+        $corporate_accountant->givePermissionTo(Permission::all());
+        $corporate_accountant->revokePermissionTo([
+            'delete cm', 'delete mi', 'delete mro', 'delete dm', 'delete fg', 'delete fa', 'delete ma', 'delete mr', 'delete sc', 'delete user', 'change permission'
+        ]);
     }
 }

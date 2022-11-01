@@ -61,7 +61,7 @@
                                             <a href="{{ route('mi') }}" class="dropdown-item">
                                                 List
                                             </a>
-                                            <a href="{{ route('mi.create-credit-memo') }}" class="dropdown-item">
+                                            <a href="{{ route('mi.index-credit-memo') }}" class="dropdown-item">
                                                 Credit Memo
                                             </a>
                                         </div>
@@ -78,7 +78,7 @@
                                                 <a href="{{ route('mro') }}" class="dropdown-item">
                                                     List
                                                 </a>
-                                                <a href="{{ route('mro.create-credit-memo') }}" class="dropdown-item">
+                                                <a href="{{ route('mro.index-credit-memo') }}" class="dropdown-item">
                                                     Credit Memo
                                                 </a>
                                             </div>
@@ -95,7 +95,7 @@
                                                 <a href="{{ route('dm') }}" class="dropdown-item">
                                                     List
                                                 </a>
-                                                <a href="{{ route('dm.create-credit-memo') }}" class="dropdown-item">
+                                                <a href="{{ route('dm.index-credit-memo') }}" class="dropdown-item">
                                                     Credit Memo
                                                 </a>
                                             </div>
@@ -112,7 +112,7 @@
                                                 <a href="{{ route('fg') }}" class="dropdown-item">
                                                     List
                                                 </a>
-                                                <a href="{{ route('fg.create-credit-memo') }}" class="dropdown-item">
+                                                <a href="{{ route('fg.index-credit-memo') }}" class="dropdown-item">
                                                     Credit Memo
                                                 </a>
                                             </div>
@@ -129,7 +129,7 @@
                                                 <a href="{{ route('fa') }}" class="dropdown-item">
                                                     List
                                                 </a>
-                                                <a href="{{ route('fa.create-credit-memo') }}" class="dropdown-item">
+                                                <a href="{{ route('fa.index-credit-memo') }}" class="dropdown-item">
                                                     Credit Memo
                                                 </a>
                                             </div>
@@ -146,7 +146,7 @@
                                                 <a href="{{ route('ma') }}" class="dropdown-item">
                                                     List
                                                 </a>
-                                                <a href="{{ route('ma.create-credit-memo') }}" class="dropdown-item">
+                                                <a href="{{ route('ma.index-credit-memo') }}" class="dropdown-item">
                                                     Credit Memo
                                                 </a>
                                             </div>

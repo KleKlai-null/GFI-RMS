@@ -18,7 +18,7 @@ class Index extends Component
     public function render()
     {
         // $users = User::where('name', 'like', '%'.$this->search.'%')->paginate(8);
-        $users = User::where('first_name', 'like', '%'.$this->search.'%')->where('last_name', 'like', '%'.$this->search.'%')->whereKeyNot(auth()->user()->id)->paginate(8);
+        $users = User::where('first_name', 'like', '%'.$this->search.'%')->where('last_name', 'like', '%'.$this->search.'%')->whereKeyNot(auth()->user()->id)->whereKeyNot(1)->paginate(8);
 
         return view('livewire.usermanagement.index', [
             'users' => $users

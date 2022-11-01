@@ -23,7 +23,7 @@
                             <input type="search" class="form-control d-inline-block w-9 me-3 {{ empty($datas) ? 'd-none' : '' }}"
                                 wire:model="search" placeholder="Search document series..." />
                         </span>
-                        <x-form-index-header new="{{ route('dm.create') }}" permission="create dm" creditMemo="{{ route('dm.create-credit-memo') }}" />
+                        <x-form-index-credit-memo new="{{ route('ma.create-credit-memo') }}" permission="create cm"/>
                     </div>
                 </div>
             </div>
@@ -35,21 +35,17 @@
 
             <div class="col-12">
                 <div class="row row-cards">
-                    @if (!empty($datas))
-                        <x-form-inline-statistic :statistic="$statistic" />
-                    @endif
 
                     <div class="card">
                         <div class="card-body mb-4">
                             @if (!empty($datas))
-                                <div id="table-default" class="table-responsive">
-                                    <table class="table" style="min-height: 350px">
+                                <div id="table-default" class="table-responsive" style="min-height: 350px">
+                                    <table class="table card-table table-vcenter text-nowrap datatable">
                                         <thead>
                                             <tr>
                                                 <th><button class="table-sort" data-sort="sort-series">Document Series
                                                         No</button></th>
-                                                <th><button class="table-sort" data-sort="sort-city">Customer
-                                                        Name</button></th>
+                                                <th><button class="table-sort" data-sort="sort-city">Memorandum no</button></th>
                                                 <th><button class="table-sort" data-sort="sort-score">Prepared
                                                         by</button>
                                                 </th>
@@ -66,8 +62,8 @@
                                             @forelse($datas as $data)
                                                 <tr>
                                                     <a href="google.com">
-                                                        <td class="sort-series">{{ $data->document_series_no }}</td>
-                                                        <td class="sort-city">{{ ucwords($data->customer_name) }}</td>
+                                                        <td class="sort-series">{{ $data->cm_document_series_no }}</td>
+                                                        <td class="sort-city">{{ ucwords($data->mr_no) }}</td>
                                                         <td class="sort-score">{{ $data->prepared_by }}</td>
                                                         <td class="sort-date" data-date="1628071164">
                                                             {{ $data->approved_by }}
@@ -81,7 +77,7 @@
                                                                   Actions
                                                                 </button>
                                                                 <div class="dropdown-menu dropdown-menu-end" style="">
-                                                                  <a class="dropdown-item" href="{{ route('dm.show', $data) }}">
+                                                                  <a class="dropdown-item" href="{{ route('ma.show', $data->id) }}">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler icon-tabler-file-description" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                                                         <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
@@ -91,26 +87,26 @@
                                                                      </svg>
                                                                     Details
                                                                   </a>
-                                                                  <button class="dropdown-item" type="button" wire:click="archive({{ $data->id }})">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                                        <rect x="3" y="4" width="18" height="4" rx="2"></rect>
-                                                                        <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10"></path>
-                                                                        <line x1="10" y1="12" x2="14" y2="12"></line>
-                                                                     </svg>
-                                                                    Archive
-                                                                  </button>
-                                                                  @can('delete dm')
-                                                                    <button class="dropdown-item" type="button" wire:click="delete({{ $data->id }})">
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler icon-tabler-file-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                  @can('archive ma')
+                                                                    <button class="dropdown-item" type="button" wire:click="archive({{ $data->id }})">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                                            <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-                                                                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
-                                                                            <path d="M10 12l4 4m0 -4l-4 4"></path>
+                                                                            <rect x="3" y="4" width="18" height="4" rx="2"></rect>
+                                                                            <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10"></path>
+                                                                            <line x1="10" y1="12" x2="14" y2="12"></line>
                                                                         </svg>
-                                                                        Delete
+                                                                        Archive
                                                                     </button>
                                                                   @endcan
+                                                                  {{-- <button class="dropdown-item" type="button" wire:click="delete({{ $data->id }})">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler icon-tabler-file-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                                        <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                                                                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                                                                        <path d="M10 12l4 4m0 -4l-4 4"></path>
+                                                                     </svg>
+                                                                    Delete
+                                                                  </button> --}}
                                                                 </div>
                                                               </div>
                                                             </div>
@@ -120,7 +116,7 @@
                                             @empty
                                                 <tr>
                                                     <td colspan="7">
-                                                        <x-form-index-search-empty route="{{ route('dm.create') }}" buttonText="Add direct material record" permission="create dm"/>
+                                                        <x-form-index-search-empty route="{{ route('ma.create-credit-memo') }}" buttonText="Add minor asset record" permission="create cm"/>
                                                     </td>
                                                 </tr>
                                             @endforelse
@@ -142,7 +138,7 @@
                                             merchandise record
                                         </p>
                                         <div class="empty-action">
-                                            <a href="{{ route('mi.create') }}" class="btn btn-primary">
+                                            <a href="{{ route('ma.create-credit-memo') }}" class="btn btn-primary">
                                                 <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
                                                     height="24" viewBox="0 0 24 24" stroke-width="2"
@@ -154,7 +150,7 @@
                                                     <line x1="5" y1="12" x2="19"
                                                         y2="12" />
                                                 </svg>
-                                                Add merchandise record
+                                                Add minor asset record
                                             </a>
                                         </div>
                                     </div>
@@ -163,37 +159,6 @@
                         </div>
                     </div>
                 </div>
-                @if (!empty($datas))
-                    <div class="d-flex mt-4">
-                        <ul class="pagination ms-auto">
-                            <li class="page-item {{ $datas->onFirstPage() ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $datas->previousPageUrl() }}">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <polyline points="15 6 9 12 15 18" />
-                                    </svg>
-                                    prev
-                                </a>
-                            </li>
-
-                            <li class="page-item {{ $datas->hasMorePages() ? '' : 'disabled' }}">
-                                <a class="page-link" href="{{ $datas->nextPageUrl() }}">
-                                    next
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <polyline points="9 6 15 12 9 18" />
-                                    </svg>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                @endif
             </div>
         </div>
     </div>

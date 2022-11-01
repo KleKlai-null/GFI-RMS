@@ -122,6 +122,6 @@ class UserSeeder extends Seeder
         ]);
 
         $admin->syncRoles('administrator');
-        $epoy->syncRoles('administrator');
+        $epoy->syncRoles('Corporate Accountant');
     }
 }
