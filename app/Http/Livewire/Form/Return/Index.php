@@ -4,10 +4,11 @@ namespace App\Http\Livewire\Form\Return;
 
 use Livewire\Component;
 use App\Http\Livewire\Form\Trait\WithSorting;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
-    use WithSorting;
+    use WithSorting, WithPagination;
 
     public $search = '';
     public $model = 'App\Models\Form\ReturnSlip\ReturnSlip';

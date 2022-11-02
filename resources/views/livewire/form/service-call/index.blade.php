@@ -169,31 +169,7 @@
                 @if (!empty($datas))
                     <div class="d-flex mt-4">
                         <ul class="pagination ms-auto">
-                            <li class="page-item {{ $datas->onFirstPage() ? 'disabled' : '' }}">
-                                <a class="page-link" href="{{ $datas->previousPageUrl() }}">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <polyline points="15 6 9 12 15 18" />
-                                    </svg>
-                                    prev
-                                </a>
-                            </li>
-
-                            <li class="page-item {{ $datas->hasMorePages() ? '' : 'disabled' }}">
-                                <a class="page-link" href="{{ $datas->nextPageUrl() }}">
-                                    next
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <polyline points="9 6 15 12 9 18" />
-                                    </svg>
-                                </a>
-                            </li>
+                            {{ $datas->withQueryString()->links()}}
                         </ul>
                     </div>
                 @endif

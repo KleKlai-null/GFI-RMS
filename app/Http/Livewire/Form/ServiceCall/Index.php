@@ -4,11 +4,12 @@ namespace App\Http\Livewire\Form\ServiceCall;
 
 use App\Http\Livewire\Form\Trait\Generic;
 use App\Http\Livewire\Form\Trait\WithSorting;
+use Livewire\WithPagination;
 use Livewire\Component;
 
 class Index extends Component
 {
-    use WithSorting, Generic;
+    use WithSorting, Generic, WithPagination;
 
     public $search = '';
     public $model = 'App\Models\Form\ServiceCall';
