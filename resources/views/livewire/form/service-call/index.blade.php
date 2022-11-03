@@ -88,32 +88,28 @@
                                                                      </svg>
                                                                     Details
                                                                   </a>
-                                                                  <button class="dropdown-item" type="button" wire:click="archive({{ $data->id }})">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                                        <rect x="3" y="4" width="18" height="4" rx="2"></rect>
-                                                                        <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10"></path>
-                                                                        <line x1="10" y1="12" x2="14" y2="12"></line>
-                                                                     </svg>
-                                                                    Archive
-                                                                  </button>
-                                                                  <a class="dropdown-item" href="{{ route('rs.create', $data->document_series_no) }}">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler icon-tabler-receipt-refund" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                                        <path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16l-3 -2l-2 2l-2 -2l-2 2l-2 -2l-3 2"></path>
-                                                                        <path d="M15 14v-2a2 2 0 0 0 -2 -2h-4l2 -2m0 4l-2 -2"></path>
-                                                                     </svg>
-                                                                    New return item
-                                                                  </a>
-                                                                  <button class="dropdown-item" type="button" wire:click="delete({{ $data->id }})">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler icon-tabler-file-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                                        <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-                                                                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
-                                                                        <path d="M10 12l4 4m0 -4l-4 4"></path>
-                                                                     </svg>
-                                                                    Delete
-                                                                  </button>
+                                                                  @can('archive sc')
+                                                                    <button class="dropdown-item" type="button" wire:click="archive({{ $data->id }})">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                                            <rect x="3" y="4" width="18" height="4" rx="2"></rect>
+                                                                            <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10"></path>
+                                                                            <line x1="10" y1="12" x2="14" y2="12"></line>
+                                                                        </svg>
+                                                                        Archive
+                                                                    </button>
+                                                                  @endcan
+                                                                  @can('delete sc')
+                                                                    <button class="dropdown-item" type="button" wire:click="delete({{ $data->id }})">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler icon-tabler-file-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                                            <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                                                                            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                                                                            <path d="M10 12l4 4m0 -4l-4 4"></path>
+                                                                        </svg>
+                                                                        Delete
+                                                                    </button>
+                                                                  @endcan
                                                                 </div>
                                                               </div>
                                                             </div>

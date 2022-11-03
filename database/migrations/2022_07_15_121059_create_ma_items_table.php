@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('item_code');
             $table->string('item_description');
             $table->decimal('qty', 13, 4);
+            $table->string('uom');
             $table->string('serial_no');
             $table->longText('remarks')->nullable();
             $table->timestamps();

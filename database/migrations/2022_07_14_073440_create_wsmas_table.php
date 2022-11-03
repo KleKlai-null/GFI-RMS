@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('user_name');
             $table->string('document_series_no')->nullable();
             $table->string('cm_document_series_no')->unique()->nullable();
-            $table->string('department');
             $table->string('mr_no');
             
             $table->string('prepared_by')->nullable();

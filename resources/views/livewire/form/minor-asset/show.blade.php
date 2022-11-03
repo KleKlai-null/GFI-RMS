@@ -40,11 +40,7 @@
 
                     <div class="datagrid">
                         <div class="datagrid-item">
-                            <div class="datagrid-title">Department</div>
-                            <div class="datagrid-content">{!! $data->department !!}</div>
-                        </div>
-                        <div class="datagrid-item">
-                            <div class="datagrid-title">Memorandum No</div>
+                            <div class="datagrid-title">Memorandum No.</div>
                             <div class="datagrid-content">{!! $data->mr_no !!}</div>
                         </div>
                     </div>
