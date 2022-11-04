@@ -42,6 +42,9 @@ return new class extends Migration
             $table->string('released_by_position')->nullable();
             $table->string('received_by')->nullable();
             $table->string('received_by_position')->nullable();
+
+            $table->string('accountable_person')->nullable();
+            $table->string('accountable_person_position')->nullable();
             
             $table->mediumText('remarks')->nullable();
             $table->enum('status', ['Open', 'Closed', 'Archived'])->default('Open');

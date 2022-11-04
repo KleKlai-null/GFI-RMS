@@ -46,7 +46,7 @@ class CreditMemo extends Component
 
     public function remove($i)
     {
-        unset($this->inputs[$i]);
+        unset($this->inputs[$i],$this->code[$i+1],$this->description[$i+1],$this->qty[$i+1],$this->uom[$i+1],$this->remarks[$i+1]);
     }
 
     public function rules() 

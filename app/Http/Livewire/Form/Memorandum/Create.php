@@ -16,6 +16,7 @@ class Create extends Component
     public $id_no, $name_of_employee, $department, $section, $asset_code, $asset_type, $asset_description, $asset_serial_no, $asset_value;
     public $noted_by, $prepared_by, $approved_by, $checked_by, $requested_by, $released_by, $received_by;
     public $noted_by_position, $prepared_by_position, $approved_by_position, $checked_by_position, $requested_by_position, $released_by_position, $received_by_position;
+    public $accountable_person, $accountable_person_position;
     public $updateMode = false;
 
     protected $model = 'App\Models\Form\Memorandum';
@@ -59,6 +60,10 @@ class Create extends Component
             'released_by_position'  => 'nullable',
             'received_by'           => 'nullable',
             'received_by_position'  => 'nullable',
+
+            'accountable_person'            => 'nullable',
+            'accountable_person_position'   => 'nullable',
+
         ];
     }
 

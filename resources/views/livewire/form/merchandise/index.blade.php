@@ -134,9 +134,9 @@
                                                                             </button>
                                                                         @endcan
 
-                                                                        @can('create rs')
+                                                                        @can('create cm')
                                                                             <a class="dropdown-item"
-                                                                                href="{{ route('rs.create', $data->document_series_no) }}">
+                                                                                href="{{ route('mi.create-credit-memo', $data->document_series_no) }}">
                                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                                     class="icon me-2 icon-tabler icon-tabler-receipt-refund"
                                                                                     width="24" height="24"
