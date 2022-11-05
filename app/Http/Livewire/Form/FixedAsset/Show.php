@@ -24,4 +24,9 @@ class Show extends Component
     {
         return view('livewire.form.fixed-asset.show')->layout('layouts.tabler.app');
     }
+
+    public function regenerate_pdf()
+    {
+        event(new MI($this->data));
+    }
 }
