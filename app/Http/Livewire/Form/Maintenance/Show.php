@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Form\Maintenance;
 
+use App\Events\PDF\MRO;
 use App\Http\Livewire\Form\Trait\WithShowGeneric;
 use App\Models\Form\WithdrawalSlip\Wsmro as Model;
 use Livewire\Component;
@@ -27,6 +28,6 @@ class Show extends Component
 
     public function regenerate_pdf()
     {
-        event(new MI($this->data));
+        event(new MRO($this->data));
     }
 }

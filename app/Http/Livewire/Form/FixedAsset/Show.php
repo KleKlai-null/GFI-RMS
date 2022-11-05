@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Form\FixedAsset;
 
+use App\Events\PDF\FA;
 use App\Http\Livewire\Form\Trait\WithShowGeneric;
 use App\Models\Form\WithdrawalSlip\Wsfa as Model;
 use Livewire\Component;
@@ -27,6 +28,6 @@ class Show extends Component
 
     public function regenerate_pdf()
     {
-        event(new MI($this->data));
+        event(new FA($this->data));
     }
 }
