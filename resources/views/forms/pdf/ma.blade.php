@@ -226,17 +226,7 @@
         <table id="meta">
             <tr>
                 <td class="borderless">
-                    <h6>Department</h6>
-                </td>
-                <td class="borderless">
-                    <div>
-                        <p class="sub">{{ $data->department }}</p>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="borderless">
-                    <h6>Memorandum No.</h6>
+                    <h6>Memorandum Number</h6>
                 </td>
                 <td class="borderless">
                     <div>
@@ -270,9 +260,10 @@
             <thead>
                 <tr>
                     <th>Item Code</th>
+                    <th>Serial Number</th>
                     <th>Item Description</th>
                     <th>Qty</th>
-                    <th>Serial No</th>
+                    <th>UOM</th>
                     <th>Remakrs</th>
                 </tr>
             </thead>
@@ -280,9 +271,10 @@
                 @foreach ($data->items as $item)
                     <tr>
                         <td>{{ $item->item_code }}</td>
+                        <td class="text-muted">{{ $item->serial_no }}</td>
                         <td style="word-wrap: break-word; max-width: 150px;">{{ $item->item_description }}</td>
                         <td>{{ $item->qty }}</td>
-                        <td class="text-muted">{{ $item->serial_no }}</td>
+                        <td>{{ $item->uom }}</td>
                         <td>{{ $item->remarks }}</td>
                     </tr>
                 @endforeach
@@ -294,29 +286,33 @@
             <thead>
                 <tr>
                     <th>Prepared by</th>
+                    <th>Checked by</th>
+                    <th>Noted by</th>
                     <th>Approved by</th>
-                    <th>Released by</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ $data->prepared_by }}</td>
-                    <td>{{ $data->approved_by }}</td>
-                    <td>{{ $data->released_by }}</td>
+                    <td>{{ $data->prepared_by }} <br/> <p class="sub">{{ $data->prepared_by_position }}</p></td>
+                    <td>{{ $data->checked_by }} <br/> <p class="sub">{{ $data->checked_by_position }}</p></td>
+                    <td>{{ $data->noted_by }} <br/> <p class="sub">{{ $data->noted_by_position }}</p></td>
+                    <td>{{ $data->approved_by }} <br/> <p class="sub">{{ $data->approved_by_position }}</p></td>
                 </tr>
             </tbody>
         </table>
         <table id="signature">
             <thead>
                 <tr>
-                    <th>Noted by</th>
-                    <th>Checked by</th>
+                    <th>Requested by</th>
+                    <th>Released by</th>
+                    <th>Received by</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ $data->noted_by }}</td>
-                    <td>{{ $data->checked_by }}</td>
+                    <td>{{ $data->requested_by }} <br/> <p class="sub">{{ $data->requested_by_position }}</p></td>
+                    <td>{{ $data->released_by }} <br/> <p class="sub">{{ $data->released_by_position }}</p></td>
+                    <td>{{ $data->received_by }} <br/> <p class="sub">{{ $data->received_by_position }}</p></td>
                 </tr>
             </tbody>
         </table>

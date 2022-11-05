@@ -274,29 +274,33 @@
             <thead>
                 <tr>
                     <th>Prepared by</th>
+                    <th>Checked by</th>
+                    <th>Noted by</th>
                     <th>Approved by</th>
-                    <th>Released by</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ $data->prepared_by }}</td>
-                    <td>{{ $data->approved_by }}</td>
-                    <td>{{ $data->released_by }}</td>
+                    <td>{{ $data->prepared_by }} <br/> <p class="sub">{{ $data->prepared_by_position }}</p></td>
+                    <td>{{ $data->checked_by }} <br/> <p class="sub">{{ $data->checked_by_position }}</p></td>
+                    <td>{{ $data->noted_by }} <br/> <p class="sub">{{ $data->noted_by_position }}</p></td>
+                    <td>{{ $data->approved_by }} <br/> <p class="sub">{{ $data->approved_by_position }}</p></td>
                 </tr>
             </tbody>
         </table>
         <table id="signature">
             <thead>
                 <tr>
-                    <th>Noted by</th>
-                    <th>Checked by</th>
+                    <th>Requested by</th>
+                    <th>Released by</th>
+                    <th>Received by</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ $data->noted_by }}</td>
-                    <td>{{ $data->checked_by }}</td>
+                    <td>{{ $data->requested_by }} <br/> <p class="sub">{{ $data->requested_by_position }}</p></td>
+                    <td>{{ $data->released_by }} <br/> <p class="sub">{{ $data->released_by_position }}</p></td>
+                    <td>{{ $data->received_by }} <br/> <p class="sub">{{ $data->received_by_position }}</p></td>
                 </tr>
             </tbody>
         </table>
@@ -312,146 +316,3 @@
 </body>
 
 </html>
-
-
-{{-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-</head>
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    body {
-        font: 14px/1.4 Georgia, serif;
-    }
-
-    #page-wrap {
-        width: 680px;
-        margin: 0 auto;
-    }
-
-    #header {
-        height: 70px;
-        width: 100%;
-        margin: 20px 0;
-        text-align: center;
-        color: white;
-        font: bold 15px Arial, Sans-Serif;
-        text-decoration: uppercase;
-        letter-spacing: 15px;
-        padding: 8px 0px;
-    }
-
-    #title {
-        height: 15px;
-        width: 100%;
-        margin: 20px 0;
-        text-align: center;
-        color: #000000;
-        font: bold 25px Times New Roman, Times, serif;
-        text-decoration: uppercase;
-        padding: 8px 0px 15px 0px;
-    }
-
-    #logo {
-        text-align: right;
-        float: right;
-        position: relative;
-        margin-top: -15px;
-        max-width: 570px;
-        max-height: 130px;
-    }
-
-    #footer {
-        margin-top: 0px;
-        width: 230px;
-        float: right;
-    }
-
-    .grid-container {
-        display: grid;
-        grid-template: 150px / auto auto auto;
-        grid-gap: 10px;
-        padding: 10px;
-    }
-
-    .grid-container>div {
-        text-align: center;
-    }
-
-    .contentText {
-        text-align: center;
-        margin-top: -20px;
-        font-size: 15px;
-    }
-
-    /* DivTable.com */
-    .divTable {
-        display: table;
-        width: 100%;
-    }
-
-    .divTableRow {
-        display: table-row;
-    }
-
-    .divTableHeading {
-        background-color: #EEE;
-        display: table-header-group;
-    }
-
-    .divTableCell,
-    .divTableHead {
-        border: 1px solid transparent;
-        display: table-cell;
-    }
-
-    .divTableHeading {
-        background-color: #EEE;
-        display: table-header-group;
-        font-weight: bold;
-    }
-
-    .divTableFoot {
-        background-color: #EEE;
-        display: table-footer-group;
-        font-weight: bold;
-    }
-
-    .divTableBody {
-        display: table-row-group;
-    }
-
-    .text-muted {
-        font-size: 12px;
-    }
-</style>
-
-<body>
-
-    <div id="page-wrap">
-
-        <h1 id="header">
-            <img src="asset/images/gfi_logo.jpg" width="300" class="header">
-        </h1>
-
-
-        <h1 id="title">
-            MEMORANDUM
-        </h1>
-        <hr>
-
-        
-    </div>
-</body>
-
-</html> --}}

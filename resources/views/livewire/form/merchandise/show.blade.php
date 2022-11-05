@@ -45,7 +45,7 @@
                             <div class="datagrid-content">{!! $data->customer_name !!}</div>
                         </div>
                         <div class="datagrid-item">
-                            <div class="datagrid-title">Pallet No.</div>
+                            <div class="datagrid-title">Pallet Number</div>
                             <div class="datagrid-content">{!! $data->pallet_no !!}</div>
                         </div>
                         <div class="datagrid-item">
@@ -65,7 +65,7 @@
                             <div class="datagrid-content">{!! $data->sub_profit_center !!}</div>
                         </div>
                         <div class="datagrid-item">
-                            <div class="datagrid-title">Sales Order No.</div>
+                            <div class="datagrid-title">Sales Order Number</div>
                             <div class="datagrid-content">{!! $data->sales_order_number !!}</div>
                         </div>
                     </div>
