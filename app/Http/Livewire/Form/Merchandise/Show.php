@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Form\Merchandise;
 
+use App\Events\PDF\MI;
 use App\Http\Livewire\Form\Trait\WithShowGeneric;
 use App\Models\Department;
 use App\Models\Form\Approval;
@@ -25,6 +26,11 @@ class Show extends Component
     public function render()
     {
         return view('livewire.form.merchandise.show')->layout('layouts.tabler.app');
+    }
+
+    public function regenerate_pdf()
+    {
+        event(new MI($this->data));
     }
 
 }
