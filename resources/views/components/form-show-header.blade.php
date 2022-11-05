@@ -45,7 +45,8 @@
                     Download PDF
                 </button>
             </span>
-            <span class="d-none d-sm-inline">
+            {{-- use only this regenerate pdf if there is to regenerate pdf and dont forget to clear the spatie media library relationship --}}
+            {{-- <span class="d-none d-sm-inline">
                 <button class="btn btn-white" type="button" wire:click="regenerate_pdf()">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-file-download" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -56,7 +57,7 @@
                      </svg>
                     Regenerate PDF
                 </button>
-            </span>
+            </span> --}}
         </div>
     </div>
 
