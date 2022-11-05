@@ -44,6 +44,8 @@ trait WithShowGeneric
 
     public function download_pdf()
     {
+        event('eloquent.created: App\Models\Form\WithdrawalSlip\Wsmro', $this->data);
+
         return response()->download($this->data->getFirstMedia('pdf')->getPath());
     }
 }
