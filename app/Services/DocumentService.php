@@ -37,6 +37,18 @@ class DocumentService
         return $second_series_no;
     }
 
+    public static function GenerateSeriesNoForCM($company, $documentCode, $credit_memo = false)
+    {
+        $count =  DocumentService::getCountCM($documentCode);
+        $series = sprintf("%010d", $count + 1);
+
+        $first_series_no = strtoupper($company . '-' . $documentCode);
+
+        $second_series_no = $first_series_no . '-' . 'CM'. '-' . $series;
+
+        return $second_series_no;
+    }
+
     // Get document count
     public static function getCount($documentCode)
     {
@@ -71,6 +83,63 @@ class DocumentService
                 break;
             case "ma":
                 $data = Wsma::withTrashed()->count();
+
+                return $data;
+                break;
+            case "sc":
+                $data = ServiceCall::withTrashed()->count();
+
+                return $data;
+                break;
+            case "mr":
+                $data = Memorandum::withTrashed()->count();
+
+                return $data;
+                break;
+            case "rs":
+                $data = ReturnSlip::withTrashed()->count();
+
+                return $data;
+                break;
+            default:
+                return 'test';
+        }
+    }
+
+    // Get document count
+    public static function getCountCM($documentCode)
+    {
+        $unique = Str::lower($documentCode);
+
+        switch ($unique) {
+            case "mi":
+
+                $data = Wsmi::whereNotNull('cm_document_series_no')->withTrashed()->count();
+
+                return $data;
+                break;
+            case "mro":
+                $data = Wsmro::whereNotNull('cm_document_series_no')->withTrashed()->count();
+
+                return $data;
+                break;
+            case "dm":
+                $data = Wsdm::whereNotNull('cm_document_series_no')->withTrashed()->count();
+
+                return $data;
+                break;
+            case "fg":
+                $data = Wsfg::whereNotNull('cm_document_series_no')->withTrashed()->count();
+
+                return $data;
+                break;
+            case "fa":
+                $data = Wsfa::whereNotNull('cm_document_series_no')->withTrashed()->count();
+
+                return $data;
+                break;
+            case "ma":
+                $data = Wsma::whereNotNull('cm_document_series_no')->withTrashed()->count();
 
                 return $data;
                 break;

@@ -33,14 +33,14 @@
                         <div class="hr-text">EMPLOYEE DETAILS</div>
 
                             <div class="form-group mb-1 row">
-                                <label class="col-2 col-form-label">Id no</label>
+                                <label class="col-2 col-form-label">ID Number</label>
                                 <div class="col">
                                     <input type="text" class="form-control form-control-flush mt-1" value="{{ $data->id_no }}">
                                 </div>
                             </div>
 
                             <div class="form-group mb-1 row">
-                                <label class="col-2 col-form-label">Name of employee</label>
+                                <label class="col-2 col-form-label">Name of Employee</label>
                                 <div class="col">
                                     <input type="text" class="form-control form-control-flush mt-1" value="{{ $data->name_of_employee }}"/>
                                 </div>
@@ -79,7 +79,7 @@
 
                             <div class="row g-2">
                                 <div class="col-2">
-                                    <label class="col-12 col-form-label">Serial no.</label>
+                                    <label class="col-12 col-form-label">Serial Number</label>
                                 </div>
                                 <div class="col-2">
                                     <input type="text" class="form-control form-control-flush mt-1" value="{{ $data->asset_serial_no }}"/>

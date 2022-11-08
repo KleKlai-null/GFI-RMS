@@ -25,7 +25,7 @@
                           
                           <div class="mb-3">
                             <label class="form-label">Document Series Number</label>
-                            <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="document_series_no">
+                            <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="document_series_no" readonly>
                         </div>
                         <div class="mb-3">
                             <div class="row g-2">

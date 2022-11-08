@@ -34,7 +34,7 @@ class CreditMemo extends Component
     public function mount()
     {
         array_push($this->inputs, 1);
-        $this->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'MRO', true);
+        $this->document_series_no = DocumentService::GenerateSeriesNoForCM('GFI', 'MRO', true);
     }
 
     public function add($i)

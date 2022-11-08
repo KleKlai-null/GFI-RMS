@@ -24,7 +24,7 @@
                             <h3 class="card-title text-center">HEADER INFORMATION</h3>
                             <div class="mb-3">
                                 <label class="form-label">Document Series No.</label>
-                                <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="document_series_no">
+                                <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="document_series_no" readonly>
                             </div>
                             
                             <div class="mb-3">

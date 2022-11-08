@@ -26,7 +26,7 @@
                                 <div class="row g-2">
                                     <div class="col-4">
                                         <label class="form-label">Document Series Number</label>
-                                        <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="document_series_no">
+                                        <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="document_series_no" readonly>
                                         @error('document_series_no')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
