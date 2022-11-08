@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>PDF</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -81,8 +82,7 @@
       #signature {
         clear: both;
         width: 100%;
-        margin-top: 25px;
-        margin-bottom: -15px;
+        margin-top: 30px;
         border: 5px solid transparent;
         text-align: center;
       }
@@ -210,10 +210,6 @@
         text-align: center;
         margin-bottom: 40px;
       }
-
-      #textCenter1 {
-        text-align: center;
-      }
     </style>
   </head>
 
@@ -225,55 +221,66 @@
           width="170"
         />
       </h1>
-      <h3 id="textCenter">Memorandum Receipt</h3>
+      <h3 id="textCenter">Finished Goods Credit Memo</h3>
+
       <table id="meta">
         <tr>
           <td class="borderless">
-            <h6>Date:</h6>
+            <h6>Customer Name</h6>
+          </td>
+          <td class="borderless">
+            <div>
+              <p class="sub">{{ $data->batch_no }}</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="borderless">
+            <h6>Batch No.</h6>
+          </td>
+          <td class="borderless">
+            <div>
+              <p class="sub">{{ $data->batch_no }}</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="borderless">
+            <h6>Pallet Number</h6>
+          </td>
+          <td class="borderless">
+            <div>
+              <p class="sub">{{ $data->pallet_no }}</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="borderless">
+            <h6>Location/Address</h6>
+          </td>
+          <td class="borderless">
+            <div>
+              <p class="sub">{{ $data->location }}</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="borderless">
+            <h6>Sales Order Number</h6>
+          </td>
+          <td class="borderless">
+            <div>
+              <p class="sub">{{ $data->batch_no }}</p>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="borderless">
+            <h6>Date</h6>
           </td>
           <td class="borderless">
             <div>
               <p class="sub">{{ $data->created_at->format('F d, Y') }}</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="borderless">
-            <h6>ID No.</h6>
-          </td>
-          <td class="borderless">
-            <div>
-              <p class="sub">{{ $data->id_no }}</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="borderless">
-            <h6>Name of Employee</h6>
-          </td>
-          <td class="borderless">
-            <div>
-              <p class="sub">{{ $data->name_of_employee }}</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="borderless">
-            <h6>Department</h6>
-          </td>
-          <td class="borderless">
-            <div>
-              <p class="sub">{{ $data->department }}</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="borderless">
-            <h6>Section</h6>
-          </td>
-          <td class="borderless">
-            <div>
-              <p class="sub">{{ $data->section }}</p>
             </div>
           </td>
         </tr>
@@ -283,90 +290,43 @@
         <div id="logo">
           <img src="data:image/png;base64, {!! $qrcode !!}" />
           <br />
-          <span class="text-muted">{{ $data->document_series_no }}</span>
+          <span class="text-muted">{{ $data->cm_document_series_no }}</span>
         </div>
       </div>
 
       <div style="clear: both"></div>
-      <br />
-      <h5 id="textCenter1">Asset</h5>
-      <br />
-      <table id="meta">
-        <tr>
-          <td class="borderless">
-            <h6>Code</h6>
-          </td>
-          <td class="borderless">
-            <div>
-              <p class="sub">{{$data->asset_code}}</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="borderless">
-            <h6>Serial Number</h6>
-          </td>
-          <td class="borderless">
-            <div>
-              <p class="sub">{{ $data->asset_serial_no }}</p>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="borderless">
-            <h6>Description</h6>
-          </td>
-          <td class="borderless">
-            <div>
-              <p class="sub">{{ $data->asset_description }}</p>
-            </div>
-          </td>
-        </tr>
-      </table>
 
-      <table id="meta">
-        <tr>
-          <td class="borderless"><h6>Type</h6></td>
-          <td class="borderless">
-            <div><p class="sub">{{ $data->asset_type }}</p></div>
-          </td>
-        </tr>
-        <tr>
-          <td class="borderless"><h6>Value</h6></td>
-          <td class="borderless">
-            <div><p class="sub">{{ $data->asset_value }}</p></div>
-          </td>
-        </tr>
-      </table>
-
-      <div style="clear: both"></div>
-      <br />
-      <h5 id="textCenter1">ACKNOWLEGMENT STATEMENT</h5>
-      <p class="sub">
-        This is to acknowledge that I am accountable of the above stated
-        item(s). By signing and dating this document, I full understood that I
-        will pay or replace the same item(s) in case of loss or damage due to my
-        negligence or recklessness. I am aware that the listed item(s) is/are
-        owned and a property of the above stated company (Business Unit), which
-        in the event of my resgination, separation, or transfer, I will
-        voluntarily turnover it to the company.
-      </p>
-      <table id="signature">
-        <tbody>
+      <table id="items">
+        <thead>
           <tr>
-            <td>
-              <p class="sub">{{ $data->accountable_person }} <br /></p>
-              <p class="sub">{{ $data->accountable_person_position }}</p>
-            </td>
+            <th>Item Code</th>
+            <th>Item Description</th>
+            <th>Qty</th>
+            <th>UOM</th>
+            <th>Remakrs</th>
           </tr>
+        </thead>
+        <tbody class="item-row">
+          @foreach ($data->items as $item)
+          <tr>
+            <td>{{ $item->item_code }}</td>
+            <td style="word-wrap: break-word; max-width: 150px">
+              {{ $item->item_description }}
+            </td>
+            <td>{{ $item->qty }}</td>
+            <td class="text-muted">{{ $item->uom }}</td>
+            <td>{{ $item->remarks }}</td>
+          </tr>
+          @endforeach
         </tbody>
       </table>
+
       <table id="signature">
         <thead>
           <tr>
             <th>Prepared by</th>
             <th>Checked by</th>
-            <th>Noted by</th> 
+            <th>Noted by</th>
             <th>Approved by</th>
           </tr>
         </thead>
