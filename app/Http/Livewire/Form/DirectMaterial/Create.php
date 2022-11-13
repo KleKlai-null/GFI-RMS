@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Form\DirectMaterial;
 
+use App\Events\PDF\DM;
 use App\Services\DocumentService;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Throwable;
+use Event;
 
 class Create extends Component
 {
@@ -136,6 +138,8 @@ class Create extends Component
             }
 
             DB::commit();
+
+            Event::dispatch(new DM($data));
 
             $this->reset(); // Reset all properties
 

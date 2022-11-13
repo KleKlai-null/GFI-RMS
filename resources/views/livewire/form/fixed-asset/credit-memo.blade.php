@@ -68,7 +68,7 @@
                                     <div class="col-1">
                                         <label class="form-label">Code</label>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-1">
                                         <label class="form-label">Serial no.</label>
                                     </div>
                                     <div class="col-4">
@@ -77,7 +77,9 @@
                                     <div class="col-1">
                                         <label class="form-label">Qty</label>
                                     </div>
-                                    
+                                    <div class="col-1">
+                                        <label class="form-label">UOM</label>
+                                    </div>
                                     <div class="col-3">
                                         <label class="form-label">Remarks</label>
                                     </div>
@@ -92,7 +94,7 @@
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="col-2">
+                                        <div class="col-1">
                                             <input type="text"
                                                 class="form-control @error('serial_no.' . $value) is-invalid @enderror"
                                                 placeholder="Serial no" wire:model="serial_no.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
@@ -114,6 +116,14 @@
                                                 class="form-control @error('qty.' . $value) is-invalid @enderror"
                                                 placeholder="Qty" wire:model="qty.{{ $value }}">
                                             @error('qty.' . $value)
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-1">
+                                            <input type="text"
+                                                class="form-control @error('uom.' . $value) is-invalid @enderror"
+                                                placeholder="Uom" wire:model="uom.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
+                                            @error('uom.' . $value)
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>

@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Form\FinishedGoods;
 
+use App\Events\PDF\FGCreditMemo;
 use App\Services\DocumentService;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Throwable;
+use Event;
 
 class CreditMemo extends Component
 {
@@ -141,6 +143,8 @@ class CreditMemo extends Component
             }
 
             DB::commit();
+
+            Event::dispatch(new FGCreditMemo($data));
             
             $this->reset(); // Reset all properties
 

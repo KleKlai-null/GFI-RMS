@@ -3,14 +3,19 @@
 namespace App\Providers;
 
 use App\Events\PDF\DM;
+use App\Events\PDF\DMCreditMemo;
 use App\Events\PDF\FA;
+use App\Events\PDF\FACreditMemo;
 use App\Events\PDF\FG;
+use App\Events\PDF\FGCreditMemo;
 use App\Events\PDF\MA;
+use App\Events\PDF\MACreditMemo;
 use App\Events\PDF\MI;
-use App\Events\PDF\MR;
+use App\Events\PDF\MICreditMemo;
 use App\Events\PDF\MRO;
-use App\Events\PDF\RS;
 use App\Events\PDF\SC;
+use App\Events\PDF\MR;
+use App\Listeners\FormCreditMemoListener;
 use App\Listeners\FormPDFListener;
 use App\Models\Department;
 use App\Models\Form\Memorandum;
@@ -37,7 +42,6 @@ use App\Observers\UserObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -88,9 +92,24 @@ class EventServiceProvider extends ServiceProvider
         SC::class => [
             FormPDFListener::class.'@sc',
         ],
-        RS::class => [
-            FormPDFListener::class.'@rs',
-        ]
+        MICreditMemo::class => [
+            FormCreditMemoListener::class.'@mi',
+        ],
+        MROCreditMemo::class => [
+            FormCreditMemoListener::class.'@mro',
+        ],
+        DMCreditMemo::class => [
+            FormCreditMemoListener::class.'@dm',
+        ],
+        FGCreditMemo::class => [
+            FormCreditMemoListener::class.'@fg',
+        ],
+        FACreditMemo::class => [
+            FormCreditMemoListener::class.'@fa',
+        ],
+        MACreditMemo::class => [
+            FormCreditMemoListener::class.'@ma',
+        ],
     ];
 
     /**

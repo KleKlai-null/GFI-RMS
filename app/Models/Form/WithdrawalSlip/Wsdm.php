@@ -27,9 +27,9 @@ class Wsdm extends Model implements HasMedia
 
     protected $observables = ['updateStatistic'];
 
-    protected $dispatchesEvents = [
-        'created'   => DM::class
-    ];
+    // protected $dispatchesEvents = [
+    //     'created'   => DM::class
+    // ];
 
     protected static function boot()
     {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Form\Merchandise;
 
+use App\Events\PDF\MI;
 use App\Models\User;
 use App\Notifications\FormCreated;
 use App\Services\DocumentService;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Throwable;
+use Event;
 
 class Create extends Component
 {
@@ -146,6 +148,8 @@ class Create extends Component
             }
 
             DB::commit();
+
+            Event::dispatch(new MI($data));
 
             $this->reset(); // Reset all properties
 

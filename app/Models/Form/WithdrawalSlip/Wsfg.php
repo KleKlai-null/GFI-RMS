@@ -27,9 +27,9 @@ class Wsfg extends Model implements HasMedia
 
     protected $observables = ['updateStatistic'];
 
-    protected $dispatchesEvents = [
-        'created'   => FG::class
-    ];
+    // protected $dispatchesEvents = [
+    //     'created'   => FG::class
+    // ];
 
     protected static function boot()
     {

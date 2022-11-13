@@ -27,9 +27,9 @@ class Wsfa extends Model implements HasMedia
 
     protected $observables = ['updateStatistic'];
 
-    protected $dispatchesEvents = [
-        'created'   => FA::class
-    ];
+    // protected $dispatchesEvents = [
+    //     'created'   => FA::class
+    // ];
 
     protected static function boot()
     {

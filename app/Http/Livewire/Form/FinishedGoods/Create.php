@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Form\FinishedGoods;
 
+use App\Events\PDF\FG;
 use App\Services\DocumentService;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Throwable;
+use Event;
 
 class Create extends Component
 {
@@ -140,6 +142,8 @@ class Create extends Component
             }
 
             DB::commit();
+
+            Event::dispatch(new FG($data));
             
             $this->reset(); // Reset all properties
 

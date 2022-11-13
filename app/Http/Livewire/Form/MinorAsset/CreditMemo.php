@@ -2,18 +2,20 @@
 
 namespace App\Http\Livewire\Form\MinorAsset;
 
+use App\Events\PDF\MACreditMemo;
 use App\Services\DocumentService;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Throwable;
+use Event;
 
 class CreditMemo extends Component
 {
     public $document_series_no, $withdrawal_document_series_no;
-    public $code, $description, $qty, $serial_no, $remarks;
-    public $department, $memorandum_receipt_no;
+    public $code, $description, $qty, $uom, $serial_no, $remarks;
+    public $memorandum_no;
     public $noted_by, $prepared_by, $approved_by, $checked_by, $requested_by, $released_by, $received_by;
     public $noted_by_position, $prepared_by_position, $approved_by_position, $checked_by_position, $requested_by_position, $released_by_position, $received_by_position;
     public $updateMode = false;
@@ -52,11 +54,11 @@ class CreditMemo extends Component
     public function rules() 
     {
         return [
-            'department'            => 'required',
-            'memorandum_receipt_no' => 'required',
+            'memorandum_no'         => 'required',
             'code.*'                => 'required',
             'description.*'         => 'required',
             'qty.*'                 => 'required|numeric',
+            'uom'                   => 'required',
             'serial_no.*'           => 'required',
             'remarks.*'             => 'nullable',
             
@@ -85,6 +87,7 @@ class CreditMemo extends Component
             'qty.*.required'             => "Please input qty",
             'qty.*.numeric'              => "The value must be numbers",
             'serial_no.*.required'       => "Serial no cannot be blank",
+            'uom.*.required'             => "Uom cannot be blank",
         ];
     }
 
@@ -97,15 +100,14 @@ class CreditMemo extends Component
     {
         $this->validate();
 
-        try {
+        // try {
 
             DB::beginTransaction();
 
             $data = $this->model::create([
                 'document_series_no'    => $this->withdrawal_document_series_no,
                 'cm_document_series_no' => $this->document_series_no,
-                'department'            => $this->department,
-                'mr_no'                 => $this->memorandum_receipt_no,
+                'mr_no'                 => $this->memorandum_no,
                 
                 'prepared_by'           => $this->prepared_by,
                 'prepared_by_position'  => $this->prepared_by_position,
@@ -129,6 +131,7 @@ class CreditMemo extends Component
                     'item_code'             => $this->code[$key],
                     'item_description'      => $this->description[$key],
                     'qty'                   => $this->qty[$key],
+                    'uom'                   => $this->uom[$key],
                     'serial_no'             => $this->serial_no[$key],
                     'remarks'               => $this->remarks[$key] ?? ''
                 ]);
@@ -136,20 +139,22 @@ class CreditMemo extends Component
 
             DB::commit();
 
+            Event::dispatch(new MACreditMemo($data));
+
             $this->reset(); // Reset all properties
 
             return redirect()->route('ma.show', $data);
 
-        } catch (Exception $exception) {
+        // } catch (Exception $exception) {
 
-            DB::rollback();
+        //     DB::rollback();
 
-            Log::error($exception);
+        //     Log::error($exception);
 
-        } catch (Throwable $throwable) {
-            DB::rollback();
+        // } catch (Throwable $throwable) {
+        //     DB::rollback();
 
-            Log::error($throwable);
-        }
+        //     Log::error($throwable);
+        // }
     }
 }

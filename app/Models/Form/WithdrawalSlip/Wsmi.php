@@ -27,9 +27,9 @@ class Wsmi extends Model implements HasMedia
 
     protected $observables = ['updateStatistic'];
 
-    protected $dispatchesEvents = [
-        'created'   => MI::class
-    ];
+    // protected $dispatchesEvents = [
+    //     'created'   => MI::class
+    // ];
 
     protected static function boot()
     {

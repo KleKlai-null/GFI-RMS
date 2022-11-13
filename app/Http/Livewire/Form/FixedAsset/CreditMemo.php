@@ -2,17 +2,19 @@
 
 namespace App\Http\Livewire\Form\FixedAsset;
 
+use App\Events\PDF\FACreditMemo;
 use App\Services\DocumentService;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Throwable;
+use Event;
 
 class CreditMemo extends Component
 {
     public $document_series_no, $withdrawal_document_series_no;
-    public $code, $description, $qty, $serial_no, $remarks;
+    public $code, $description, $qty, $uom, $serial_no, $remarks;
     public $memorandum_no;
     public $noted_by, $prepared_by, $approved_by, $checked_by, $requested_by, $released_by, $received_by;
     public $noted_by_position, $prepared_by_position, $approved_by_position, $checked_by_position, $requested_by_position, $released_by_position, $received_by_position;
@@ -56,6 +58,7 @@ class CreditMemo extends Component
             'code.*'                => 'required',
             'description.*'         => 'required',
             'qty.*'                 => 'required|numeric',
+            'uom'                   => 'required',
             'serial_no.*'           => 'required',
             'remarks.*'             => 'nullable',
             
@@ -84,6 +87,7 @@ class CreditMemo extends Component
             'qty.*.required'             => "Please input qty",
             'qty.*.numeric'              => "The value must be numbers",
             'serial_no.*.required'       => "Serial no cannot be blank",
+            'uom.*.required'             => "Uom cannot be blank",
         ];
     }
 
@@ -127,12 +131,15 @@ class CreditMemo extends Component
                     'item_code'             => $this->code[$key],
                     'item_description'      => $this->description[$key],
                     'qty'                   => $this->qty[$key],
+                    'uom'                   => $this->uom[$key],
                     'serial_no'             => $this->serial_no[$key],
                     'remarks'               => $this->remarks[$key] ?? ''
                 ]);
             }
 
             DB::commit();
+
+            Event::dispatch(new FACreditMemo($data));
 
             $this->reset(); // Reset all properties
 

@@ -27,9 +27,9 @@ class Wsmro extends Model implements HasMedia
 
     protected $observables = ['updateStatistic'];
 
-    protected $dispatchesEvents = [
-        'created'   => MRO::class
-    ];
+    // protected $dispatchesEvents = [
+    //     'created'   => MRO::class
+    // ];
 
     protected static function boot()
     {

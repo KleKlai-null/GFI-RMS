@@ -27,9 +27,9 @@ class Wsma extends Model implements HasMedia
 
     protected $observables = ['updateStatistic'];
 
-    protected $dispatchesEvents = [
-        'created'   => MA::class
-    ];
+    // protected $dispatchesEvents = [
+    //     'created'   => MA::class
+    // ];
 
     protected static function boot()
     {

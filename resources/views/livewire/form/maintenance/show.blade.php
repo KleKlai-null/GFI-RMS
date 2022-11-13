@@ -5,7 +5,11 @@
             <div class="row g-2 align-items-center">
                 <div class="col">
                     <h2 class="page-title">
-                        {{ $data->document_series_no }}
+                        @if(!empty($data->cm_document_series_no))
+                            {{ $data->cm_document_series_no }}
+                        @else 
+                            {{ $data->document_series_no }}
+                        @endif
                     </h2>
                 </div>
                 <div class="col-12 col-md-auto ms-auto d-print-none">

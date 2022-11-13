@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Form\FixedAsset;
 
+use App\Events\PDF\FA;
 use App\Services\DocumentService;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Throwable;
+use Event;
 
 class Create extends Component
 {
@@ -135,6 +137,8 @@ class Create extends Component
             }
 
             DB::commit();
+
+            Event::dispatch(new FA($data));
 
             $this->reset(); // Reset all properties
 

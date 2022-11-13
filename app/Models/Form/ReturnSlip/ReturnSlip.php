@@ -23,9 +23,9 @@ class ReturnSlip extends Model  implements HasMedia
         'id', 'created_at', 'updated_at'
     ];
 
-    protected $dispatchesEvents = [
-        'created'   => RS::class
-    ];
+    // protected $dispatchesEvents = [
+    //     'created'   => RS::class
+    // ];
 
     protected static function boot()
     {
