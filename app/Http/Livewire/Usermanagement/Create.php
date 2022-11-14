@@ -32,7 +32,7 @@ class Create extends Component
         return [
             'first_name'                => 'required',
             'last_name'                => 'required',
-            'username'                  => ['required', 'max:12', 'unique:users,username', 'without_spaces'],
+            'username'                  => ['required', 'max:62', 'unique:users,username', 'without_spaces'],
             'email'                     => ['required', 'string', 'email', 'max:50', 'unique:users'],
             'roles'                     => 'required',
             'require_setup'             => 'nullable'

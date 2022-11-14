@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             DepartmentSeeder::class,
-            FormStatisticSeeder::class
+            FormStatisticSeeder::class,
+            CustomUserSeeder::class
         ]);
     }
 }
