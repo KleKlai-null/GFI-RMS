@@ -14,16 +14,16 @@ class UserObserver
      */
     public function created(User $user)
     {
-        activity()
-        ->performedOn($user)
-        ->causedBy(auth()->user())
-        ->event('Created')
-        ->withProperties([
-            'http_method'            => 'POST',
-            'Check_url'              => url()->current(),
-            'User Agent'             => $_SERVER['HTTP_USER_AGENT']
-            ])
-        ->log('User ' . $user->name .' has been created successfully');
+        // activity()
+        // ->performedOn($user)
+        // ->causedBy(auth()->user())
+        // ->event('Created')
+        // ->withProperties([
+        //     'http_method'            => 'POST',
+        //     'Check_url'              => url()->current(),
+        //     'User Agent'             => $_SERVER['HTTP_USER_AGENT']
+        //     ])
+        // ->log('User ' . $user->name .' has been created successfully');
     }
 
     /**
