@@ -81,4 +81,17 @@ Route::middleware(['auth'])->group(function () {
         Route::get('returnitem/show/{data}', App\Http\Livewire\Form\Return\Show::class)->name('rs.show');
     });
 
+    // Route::group(function () {
+        
+        Route::get('item/create', App\Http\Livewire\Form\InformationSheet\Item\Create::class)->name('informationsheet.item.index');
+
+        // Route::get('fixedasset', function() {
+        //     return abort(503);
+        // })->name('informationsheet.item.index');
+        
+        // Route::get('businesspartnert', function() {
+        //     return abort(503);
+        // })->name('informationsheet.item.index');
+    // });
+
 });

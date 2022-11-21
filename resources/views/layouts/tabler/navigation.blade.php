@@ -247,27 +247,42 @@
                             </a>
                         </li>
                     @endcan
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
+                            data-bs-auto-close="outside" role="button" aria-expanded="false">
+                            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                <!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-database"
+                                    width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <ellipse cx="12" cy="6" rx="8" ry="3"></ellipse>
+                                    <path d="M4 6v6a8 3 0 0 0 16 0v-6"></path>
+                                    <path d="M4 12v6a8 3 0 0 0 16 0v-6"></path>
+                                </svg>
+                            </span>
+                            <span class="nav-link-title">
+                                Information Sheet
+                            </span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-menu-columns">
+                                <div class="dropdown-menu-column">
+                                    <a href="{{ route('informationsheet.item.index') }}" class="dropdown-item">
+                                        Item
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Fixed Asset
+                                    </a>
+                                    <a href="#" class="dropdown-item">
+                                        Business Partner
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
-                <!--
-
-                    * Search UI
-                -->
-                {{-- <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
-                    <div class="input-icon">
-                        <span class="input-icon-addon">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/search -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <circle cx="10" cy="10" r="7" />
-                                <line x1="21" y1="21" x2="15" y2="15" />
-                            </svg>
-                        </span>
-                        <input type="text" value="" class="form-control" placeholder="Search…"
-                            aria-label="Search in website">
-                    </div>
-                </div> --}}
                 @env('local', 'staging')
                 <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
                     <div class="text-warning">

@@ -57,32 +57,32 @@ class DocumentService
         switch ($unique) {
             case "mi":
 
-                $data = Wsmi::withTrashed()->count();
+                $data = Wsmi::whereNull('cm_document_series_no')->withTrashed()->count();
 
                 return $data;
                 break;
             case "mro":
-                $data = Wsmro::withTrashed()->count();
+                $data = Wsmro::whereNull('cm_document_series_no')->withTrashed()->count();
 
                 return $data;
                 break;
             case "dm":
-                $data = Wsdm::withTrashed()->count();
+                $data = Wsdm::whereNull('cm_document_series_no')->withTrashed()->count();
 
                 return $data;
                 break;
             case "fg":
-                $data = Wsfg::withTrashed()->count();
+                $data = Wsfg::whereNull('cm_document_series_no')->withTrashed()->count();
 
                 return $data;
                 break;
             case "fa":
-                $data = Wsfa::withTrashed()->count();
+                $data = Wsfa::whereNull('cm_document_series_no')->withTrashed()->count();
 
                 return $data;
                 break;
             case "ma":
-                $data = Wsma::withTrashed()->count();
+                $data = Wsma::whereNull('cm_document_series_no')->withTrashed()->count();
 
                 return $data;
                 break;
@@ -93,11 +93,6 @@ class DocumentService
                 break;
             case "mr":
                 $data = Memorandum::withTrashed()->count();
-
-                return $data;
-                break;
-            case "rs":
-                $data = ReturnSlip::withTrashed()->count();
 
                 return $data;
                 break;
@@ -150,11 +145,6 @@ class DocumentService
                 break;
             case "mr":
                 $data = Memorandum::withTrashed()->count();
-
-                return $data;
-                break;
-            case "rs":
-                $data = ReturnSlip::withTrashed()->count();
 
                 return $data;
                 break;

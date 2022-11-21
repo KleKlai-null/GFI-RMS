@@ -40,6 +40,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('user/permission/{user}', [RoleController::class, 'edit_permissions'])->name('user.permission');
     Route::put('user/permission/{user}', [RoleController::class, 'update_permissions'])->name('user.permission.update');
     Route::get('user/activity/{data}', App\Http\Livewire\Usermanagement\Activity::class)->name('users.activty');
+
+    Route::get('role', App\Http\Livewire\Rolemanagement\Index::class)->name('role.index');
     
     Route::get('profile/setup', App\Http\Livewire\Profile\Setup::class)->name('profile.setup');
     Route::view('profile/account', 'profile.account')->name('profile.account');
