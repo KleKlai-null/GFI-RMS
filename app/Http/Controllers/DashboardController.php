@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Http;
 class DashboardController extends Controller
 {
 
-    public function index() 
+    public function index()
     {
-        $response = Http::get('https://zenquotes.io/api/random');
-        $quote= $response->json();
-    
-        $quote = [];
+        // $response = Http::get('https://zenquotes.io/api/random');
+        // $quote= $response->json();
+
+        // $quote = [];
 
         $user = auth()->user();
 
@@ -36,7 +36,8 @@ class DashboardController extends Controller
 
         //Check first the role of user
         if($user->hasPermissionTo('view dashboard')){
-            return view('dashboard', compact('quote', 'total', 'open', 'closed', 'archived'));
+            // return view('dashboard', compact('quote', 'total', 'open', 'closed', 'archived'));
+            return view('dashboard', compact('total', 'open', 'closed', 'archived'));
         }
 
         // Check if the user has permission to

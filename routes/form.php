@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 /**
- * Be careful on changing show route on every form it might break the Notification 
- * 
+ * Be careful on changing show route on every form it might break the Notification
+ *
  * If any case you need to change the show route please check the observer first
  */
 
@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('directmaterial/credit-memo', App\Http\Livewire\Form\DirectMaterial\CreditMemoIndex::class)->name('dm.index-credit-memo');
         Route::get('directmaterial/show/{data}', App\Http\Livewire\Form\DirectMaterial\Show::class)->name('dm.show');
     });
-    
+
     Route::middleware(['permission:create fg|view fg'])->group(function () {
         // -------------------------------------- FG ----------------------------------------------------//
         Route::get('finishedgoods', App\Http\Livewire\Form\FinishedGoods\Index::class)->name('fg');
@@ -53,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('fixedasset/create-credit-memo', App\Http\Livewire\Form\FixedAsset\CreditMemo::class)->name('fa.create-credit-memo');
         Route::get('fixedasset/credit-memo', App\Http\Livewire\Form\FixedAsset\CreditMemoIndex::class)->name('fa.index-credit-memo');
         Route::get('fixedasset/show/{data}', App\Http\Livewire\Form\FixedAsset\Show::class)->name('fa.show');
+        Route::get('fixedasset/details', App\Http\Livewire\Form\FixedAsset\Details::class)->name('fa.details');
     });
     Route::middleware(['permission:create ma|view ma'])->group(function () {
         // -------------------------------------- MA ----------------------------------------------------//
@@ -82,13 +83,13 @@ Route::middleware(['auth'])->group(function () {
     });
 
     // Route::group(function () {
-        
+
         Route::get('item/create', App\Http\Livewire\Form\InformationSheet\Item\Create::class)->name('informationsheet.item.index');
 
         // Route::get('fixedasset', function() {
         //     return abort(503);
         // })->name('informationsheet.item.index');
-        
+
         // Route::get('businesspartnert', function() {
         //     return abort(503);
         // })->name('informationsheet.item.index');
