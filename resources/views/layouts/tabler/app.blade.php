@@ -25,6 +25,7 @@
     @livewireStyles
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -118,6 +119,113 @@
         </div>
     </div>
     @livewireScripts
+    <script>
+        $("#TB_input_others").hide();
+        $(document).ready(function () {
+            $("input[name=type_of_business]").change(function(){
+                if($("#TB_others").is(':checked')){
+                    $("#TB_input_others").show();
+                    $('#TB_input_others').val('');
+                }else{
+                    $("#TB_input_others").hide();
+                    $('#TB_input_others').val('');
+                }
+            });
+        });
+        $("#Currency_input_others").hide();
+        $(document).ready(function () {
+            $("input[name=currency]").change(function(){
+                if($("#Currency_others").is(':checked')){
+                    $("#Currency_input_others").show();
+                    $("#Currency_input_others").val('');
+                }else{
+                    $("#Currency_input_others").hide();
+                    $("#Currency_input_others").val('');
+                }
+            });
+        });
+        $("#BP_input_others").hide();
+        $(document).ready(function () {
+            $("input[name=business_partner_group]").change(function(){
+                if($("#BP_others").is(':checked')){
+                    $("#BP_input_others").show();
+                    $("#BP_input_others").val('');
+                }else{
+                    $("#BP_input_others").hide();
+                    $("#BP_input_others").val('');
+                }
+            });
+        });
+        $("#PT_input_DME").hide();$("#PT_label_DME").hide();
+        $(document).ready(function () {
+            $("input[name=payment_terms]").change(function(){
+                if($("#PT_DME").is(':checked')){
+                    $("#PT_input_DME").show();
+                    $("#PT_label_DME").show();
+                    $("#PT_input_DME").val('');
+                }else{
+                    $("#PT_label_DME").hide();
+                    $("#PT_input_DME").hide();
+                    $("#PT_input_DME").val('');
+                }
+            });
+        });
+
+        $("#PT_input_DAD").hide();$("#PT_label_DAD").hide();
+        $(document).ready(function () {
+            $("input[name=payment_terms]").change(function(){
+                if($("#PT_DAD").is(':checked')){
+                    $("#PT_input_DAD").show();
+                    $("#PT_label_DAD").show();
+                    $("#PT_input_DAD").val('');
+                }else{
+                    $("#PT_label_DAD").hide();
+                    $("#PT_input_DAD").hide();
+                    $("#PT_input_DAD").val('');
+                }
+            });
+        });
+
+        $("#PT_input_Others").hide();$("#PT_label_Others").hide();
+        $(document).ready(function () {
+            $("input[name=payment_terms]").change(function(){
+                if($("#PT_Others").is(':checked')){
+                    $("#PT_input_Others").show();
+                    $("#PT_label_Others").show();
+                    $("#PT_input_Others").val('');
+                }else{
+                    $("#PT_label_Others").hide();
+                    $("#PT_input_Others").hide();
+                    $("#PT_input_Others").val('');
+                }
+            });
+        });
+
+        $("#PM_input_Others").hide();
+        $(document).ready(function () {
+            $("input[name=payment_methods]").change(function(){
+                if($("#PM_Others").is(':checked')){
+                    $("#PM_input_Others").show();
+                    $("#PM_input_Others").val('');
+                }else{
+                    $("#PM_input_Others").hide();
+                    $("#PM_input_Others").val('');
+                }
+            });
+        });
+        $("#TG_input_Others").hide();
+        $(document).ready(function () {
+            $("input[name=tax_group]").change(function(){
+                if($("#TG_Others").is(':checked')){
+                    $("#TG_input_Others").show();
+                    $("#TG_input_Others").val('');
+                }else{
+                    $("#TG_input_Others").hide();
+                    $("#TG_input_Others").val('');
+                }
+            });
+        });
+    </script>
     <script src="{{ asset('asset/images/lord-icon/lord-icon-dependency.js') }}"></script>
     <script>
         Livewire.onPageExpired((response, message) => {})

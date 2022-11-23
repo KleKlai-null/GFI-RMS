@@ -9,7 +9,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -29,5 +29,17 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <script>
+            $(document).ready(function () {
+                $("input[name=type_of_business]").change(function(){
+                    if($("#TB_others").is(':checked')){
+                        $("#TB_input_others").show();
+                    }else{
+                        $("#TB_input_others").hide();
+                    }
+                });
+            });
+        </script>
     </body>
 </html>

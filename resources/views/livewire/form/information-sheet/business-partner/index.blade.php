@@ -1,0 +1,229 @@
+<div>
+    <div class="container-xl">
+        <!-- Page title -->
+        <div class="text-center" wire:offline>
+            You are now offline.
+        </div>
+        <div class="page-header d-print-none">
+            <x-account-risk-reminder/>   
+            <div class="row g-2 align-items-center">
+                <div class="col">
+                    <!-- Page pre-title -->
+                    <div class="page-pretitle">
+                        Overview
+                    </div>
+                    <h2 class="page-title">
+                        {{ $title }}
+                    </h2>
+                </div>
+                <!-- Page title actions -->
+                <div class="col-12 col-md-auto ms-auto d-print-none">
+                    <div class="btn-list">
+                        {{-- <span class="d-none d-sm-inline">
+                            <input type="search"
+                                class="form-control d-inline-block w-9 me-3 {{ empty($datas) ? 'd-none' : '' }}"
+                                wire:model="search" placeholder="Search document series..." />
+                        </span> --}}
+                        <span class="d-none d-sm-inline">
+                            <a href="{{ route('informationsheet.business-partner.index') }}" class="btn btn-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler-playlist-add" width="24" height="24"
+                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M19 8h-14"></path>
+                                    <path d="M5 12h9"></path>
+                                    <path d="M11 16h-6"></path>
+                                    <path d="M15 16h6"></path>
+                                    <path d="M18 13v6"></path>
+                                </svg>
+                                New
+                            </a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-body">
+        <div class="container-xl">
+
+            <div class="col-12">
+                <div class="row row-cards">
+
+                    <div class="card">
+                        <div class="card-body mb-4">
+                            @if (!empty($datas))
+                                <div id="table-default" class="table-responsive" style="min-height: 350px">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th><button class="table-sort" data-sort="sort-series">ID</button></th>
+                                                <th><button class="table-sort" data-sort="sort-city">Created By</button></th>
+                                                <th><button class="table-sort" data-sort="sort-score">Status</button></th>
+                                                <th class="w-1"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-tbody">
+                                            @forelse($datas as $data)
+                                                <tr>
+                                                    <a href="google.com">
+                                                        <td class="sort-series">{{ $data->id }}</td>
+                                                        <td class="sort-city">{{ ucwords($data->user_name) }}</td>
+                                                        <td class="sort-score">{{ $data->status }}</td>
+                                                        <td>
+                                                            <div class="btn-list btn-ghost-primary flex-nowrap">
+                                                                <div class="dropdown">
+                                                                    <button class="btn dropdown-toggle align-text-top"
+                                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                                        Actions
+                                                                    </button>
+                                                                    <div class="dropdown-menu dropdown-menu-end"
+                                                                        style="">
+                                                             
+                                                                            <a class="dropdown-item"
+                                                                                href="{{ route('business-partner.show') }}">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                    class="icon me-2 icon-tabler icon-tabler-file-description"
+                                                                                    width="24" height="24"
+                                                                                    viewBox="0 0 24 24" stroke-width="2"
+                                                                                    stroke="currentColor" fill="none"
+                                                                                    stroke-linecap="round"
+                                                                                    stroke-linejoin="round">
+                                                                                    <path stroke="none" d="M0 0h24v24H0z"
+                                                                                        fill="none"></path>
+                                                                                    <path d="M14 3v4a1 1 0 0 0 1 1h4">
+                                                                                    </path>
+                                                                                    <path
+                                                                                        d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z">
+                                                                                    </path>
+                                                                                    <path d="M9 17h6"></path>
+                                                                                    <path d="M9 13h6"></path>
+                                                                                </svg>
+                                                                                Details
+                                                                            </a>
+                                                                    
+
+                                                                        
+                                                                            <button class="dropdown-item" type="button"
+                                                                                wire:click="archive({{ $data->id }})">
+                                                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                                                    <path d="M4 20h4l10.5 -10.5a1.5 1.5 0 0 0 -4 -4l-10.5 10.5v4"></path>
+                                                                                    <line x1="13.5" y1="6.5" x2="17.5" y2="10.5"></line>
+                                                                                 </svg>
+                                                                                Edit
+                                                                            </button>
+                                                                    
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </a>
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td colspan="7">
+                                                        @if ($datas->isEmpty())
+                                                        <tr class="common" align="center" style="height: 100px;">
+                                                            <td colspan="8">  
+                                                                <div class="empty-img"><img
+                                                                src="{{ asset('asset/custom/static/illustrations/undraw_posting_photo_v65l.svg') }}"
+                                                                height="128" alt=""></div>
+                                                                <p class="empty-title">No results found</p>
+                                                                    <p class="empty-subtitle text-muted">
+                                                                        Try adjusting your search or filter to find what you're looking for.
+                                                                    </p>
+                                                                    <div class="empty-action">
+                                                                        <a href="{{ route('informationsheet.business-partner.index') }}" class="btn btn-primary">
+                                                                            <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                                                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                                                                                stroke-linejoin="round">
+                                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                                                <line x1="12" y1="5" x2="12" y2="19" />
+                                                                                <line x1="5" y1="12" x2="19" y2="12" />
+                                                                            </svg>
+                                                                            Add Business Partner Record
+                                                                        </a>
+                                                                    </div>
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                    </td>
+                                                </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @endif
+
+                            {{-- @if (empty($datas))
+                                <div class="container-xl d-flex flex-column justify-content-center">
+                                    <div class="empty">
+                                        <div class="empty-img"><img
+                                                src="{{ asset('asset/custom/static/illustrations/undraw_posting_photo_v65l.svg') }}"
+                                                height="128" alt="">
+                                        </div>
+                                        <p class="empty-title">Insufficient Data</p>
+                                        <p class="empty-subtitle text-muted">
+                                            It looks like you don't have any record yet. Let's create your first
+                                            Business Partner record
+                                        </p>
+                                        <div class="empty-action">
+                                            <a href="{{ route('informationsheet.business-partner.index') }}" class="btn btn-primary">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                                    height="24" viewBox="0 0 24 24" stroke-width="2"
+                                                    stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <line x1="12" y1="5" x2="12"
+                                                        y2="19" />
+                                                    <line x1="5" y1="12" x2="19"
+                                                        y2="12" />
+                                                </svg>
+                                                Add Business Partner record
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif --}}
+                        </div>
+                    </div>
+                </div>
+                {{-- @if (!empty($datas))
+                    <div class="d-flex mt-4">
+                        <ul class="pagination ms-auto">
+                            <li class="page-item {{ $datas->onFirstPage() ? 'disabled' : '' }}">
+                                <a class="page-link" href="{{ $datas->previousPageUrl() }}">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/chevron-left -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <polyline points="15 6 9 12 15 18" />
+                                    </svg>
+                                    prev
+                                </a>
+                            </li>
+
+                            <li class="page-item {{ $datas->hasMorePages() ? '' : 'disabled' }}">
+                                <a class="page-link" href="{{ $datas->nextPageUrl() }}">
+                                    next
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/chevron-right -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
+                                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <polyline points="9 6 15 12 9 18" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                @endif --}}
+            </div>
+        </div>
+    </div>
+</div>

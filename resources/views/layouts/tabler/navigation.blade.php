@@ -275,7 +275,9 @@
                                     <a href="#" class="dropdown-item">
                                         Fixed Asset
                                     </a>
-                                    <a href="#" class="dropdown-item">
+                                    <a 
+                                    href="{{ route('business-partner') }}" 
+                                    class="dropdown-item">
                                         Business Partner
                                     </a>
                                 </div>
