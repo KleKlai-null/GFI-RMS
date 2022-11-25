@@ -83,14 +83,17 @@ Route::middleware(['auth'])->group(function () {
 
     // Route::group(function () {
         
-        Route::get('item/create', App\Http\Livewire\Form\InformationSheet\Item\Create::class)->name('informationsheet.item.index');
-
+        Route::get('item/create', App\Http\Livewire\Form\InformationSheet\Item\Create::class)->name('item.create');
+        Route::get('item/show', App\Http\Livewire\Form\InformationSheet\Item\Show::class)->name('item.show');
+        Route::get('item', App\Http\Livewire\Form\InformationSheet\Item\Index::class)->name('item');
 
         Route::get('business-partner/create', App\Http\Livewire\Form\InformationSheet\BusinessPartner\Create::class)->name('business-partner.create');
         Route::get('business-partner', App\Http\Livewire\Form\InformationSheet\BusinessPartner\Index::class)->name('business-partner');
         Route::get('business-partner/show/{data}', App\Http\Livewire\Form\InformationSheet\BusinessPartner\Show::class)->name('business-partner.show');
 
         Route::get('fix-asset/create', App\Http\Livewire\Form\InformationSheet\FixedAsset\Create::class)->name('fix-asset.create');
+        Route::get('fix-asset', App\Http\Livewire\Form\InformationSheet\FixedAsset\Index::class)->name('fix-asset');
+        Route::get('fix-asset/show', App\Http\Livewire\Form\InformationSheet\FixedAsset\Show::class)->name('fix-asset.show');
         // Route::get('fixedasset', function() {
         //     return abort(503);
         // })->name('informationsheet.item.index');
