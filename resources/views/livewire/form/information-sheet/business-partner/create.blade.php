@@ -1389,7 +1389,7 @@
                                 wire:click="create" class="btn btn-primary"
                                 wire:loading.class="d-none">Create</button>
                         </div>
-                        <div wire:loading wire:target="store">
+                        <div wire:loading wire:target="create">
                             Processing Data...
                         </div>
                     </div>

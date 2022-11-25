@@ -15,7 +15,7 @@
         <div class="container-xl">
             <div class="row row-cards">
                 <div class="col-12">
-                        {{-- <div class="card mt-2">
+                        <div class="card mt-2">
                             <div class="card-body">
                                 <div class="row g-6">
                                     <div class="col-2">
@@ -525,201 +525,73 @@
                                     </div>
                                 </div> 
                             </div>
-                        </div>   --}}
+                        </div>  
 
-                        {{$data->certification}}
-                        {{-- <div class="card mt-2">
+                        <div class="card mt-2">
                             <div class="card-body">
                                 <h4>Certification/Standard Accreditation</h4>
-                                <div class="mb-3">
-                                    <div class="row g-2 text-center">
-                                        <div class="col-4">
-                                            <label class="form-label">Certification Name</label>
-                                        </div>
-                                        <div class="col-3">
-                                            <label class="form-label">Organization/Certifying Body</label>
-                                        </div>
-                                        <div class="col-2">
-                                            <label class="form-label">Certification Date</label>
-                                        </div>
-                                        <div class="col-2">
-                                            <label class="form-label">Expiry Date</label>
-                                        </div>
-                                    </div>
-                                    @foreach ($inputs as $key => $value)
-                                        <div class="row g-2 mb-2">
-                                            <div class="col-4">
-                                                <input type="text"
-                                                    class="form-control  @error('certification_name.' . $value) is-invalid @enderror"
-                                                    placeholder="Certification" wire:model="certification_name.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
-                                                @error('certification_name.' . $value)
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-3">
-                                                <input type="text"
-                                                    class="form-control @error('organization_certifying_body.' . $value) is-invalid @enderror"
-                                                    placeholder="Organization/Certifying"
-                                                    wire:model="organization_certifying_body.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
-                                                @error('organization_certifying_body.' . $value)
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-2">
-                                                <input type="date"
-                                                    class="form-control @error('certificate_date.' . $value) is-invalid @enderror"
-                                                    placeholder="Certification Date" wire:model="certificate_date.{{ $value }}">
-                                                @error('certificate_date.' . $value)
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-2">
-                                                <input type="date"
-                                                    class="form-control @error('expiry_date.' . $value) is-invalid @enderror"
-                                                    placeholder="Expiry Date" wire:model="expiry_date.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
-                                                @error('expiry_date.' . $value)
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-1">
-                                                <button class="btn btn-icon"
-                                                    wire:click.prevent="removeCertification({{ $key }})">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="icon icon-tabler-circle-minus" width="24"
-                                                        height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                                        stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                        <circle cx="12" cy="12" r="9">
-                                                        </circle>
-                                                        <line x1="9" y1="12" x2="15"
-                                                            y2="12"></line>
-                                                    </svg></button>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-        
-                                <div class="mb-3">
-                                    <div class="row g-2">
-                                        <div class="col-2">
-                                            <button class="btn btn-primary"
-                                                wire:click.prevent="addCertification({{ $i }})"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler-plus"
-                                                    width="24" height="24" viewBox="0 0 24 24"
-                                                    stroke-width="2" stroke="currentColor" fill="none"
-                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                    <line x1="12" y1="5" x2="12"
-                                                        y2="19">
-                                                    </line>
-                                                    <line x1="5" y1="12" x2="19"
-                                                        y2="12">
-                                                    </line>
-                                                </svg>
-                                                Add another line
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <h4>Contact Persons</h4>
-                                <div class="mb-3">
-                                    <div class="row g-2 text-center">
-                                        <div class="col-4">
-                                            <label class="form-label">Name</label>
-                                        </div>
-                                        <div class="col-3">
-                                            <label class="form-label">Position</label>
-                                        </div>
-                                        <div class="col-2">
-                                            <label class="form-label">Email Address</label>
-                                        </div>
-                                        <div class="col-2">
-                                            <label class="form-label">Phone No.</label>
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="table-responsive">
+                                            <table class="table table-vcenter card-table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Certification Name</th>
+                                                        <th>Organization/Certifying Body</th>
+                                                        <th>Certification Date</th>
+                                                        <th>Expiry Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @forelse ($data->certifications as $item)
+                                                        <tr>
+                                                            <td class="text-muted">{!! $item->certification_name  !!}</td>
+                                                            <td class="text-muted">{!! $item->organization_certifying_body !!}</td>
+                                                            <td class="text-muted">{!! $item->certificate_date !!}</td>
+                                                            <td class="text-muted">{!! $item->expiry_date !!}</td>
+                                                        </tr>
+                                                    @empty
+                                                    @endforelse
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-                                    @foreach ($inputsContact as $key => $value)
-                                        <div class="row g-2 mb-2">
-                                            <div class="col-4">
-                                                <input type="text"
-                                                    class="form-control  @error('name.' . $value) is-invalid @enderror"
-                                                    placeholder="Name" wire:model="name.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
-                                                @error('name.' . $value)
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-3">
-                                                <input type="text"
-                                                    class="form-control @error('positionC.' . $value) is-invalid @enderror"
-                                                    placeholder="Position"
-                                                    wire:model="positionC.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
-                                                @error('positionC.' . $value)
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-2">
-                                                <input type="text"
-                                                    class="form-control @error('email_address_contacts.' . $value) is-invalid @enderror"
-                                                    placeholder="Email Address" wire:model="email_address_contacts.{{ $value }}">
-                                                @error('email_address_contacts.' . $value)
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-2">
-                                                <input type="text"
-                                                    class="form-control @error('phone_no.' . $value) is-invalid @enderror"
-                                                    placeholder="Phone No." wire:model="phone_no.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
-                                                @error('phone_no.' . $value)
-                                                    <div class="invalid-feedback">{{ $message }}</div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-1">
-                                                <button class="btn btn-icon"
-                                                    wire:click.prevent="removeContact({{ $key }})">
-                                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                                        class="icon icon-tabler-circle-minus" width="24"
-                                                        height="24" viewBox="0 0 24 24" stroke-width="2"
-                                                        stroke="currentColor" fill="none" stroke-linecap="round"
-                                                        stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                        <circle cx="12" cy="12" r="9">
-                                                        </circle>
-                                                        <line x1="9" y1="12" x2="15"
-                                                            y2="12"></line>
-                                                    </svg></button>
-                                            </div>
-                                        </div>
-                                    @endforeach
                                 </div>
         
-                                <div class="mb-3">
-                                    <div class="row g-2">
-                                        <div class="col-2">
-                                            <button class="btn btn-primary"
-                                                wire:click.prevent="addContact({{ $contact }})"><svg
-                                                    xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler-plus"
-                                                    width="24" height="24" viewBox="0 0 24 24"
-                                                    stroke-width="2" stroke="currentColor" fill="none"
-                                                    stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                    <line x1="12" y1="5" x2="12"
-                                                        y2="19">
-                                                    </line>
-                                                    <line x1="5" y1="12" x2="19"
-                                                        y2="12">
-                                                    </line>
-                                                </svg>
-                                                Add another line
-                                            </button>
+                                <h4>Contact Persons</h4>
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="table-responsive">
+                                            <table class="table table-vcenter card-table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Position</th>
+                                                        <th>Email Address</th>
+                                                        <th>Phone No.</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @forelse ($data->contactpersons as $item)
+                                                        <tr>
+                                                            <td class="text-muted">{!! $item->name  !!}</td>
+                                                            <td class="text-muted">{!! $item->position !!}</td>
+                                                            <td class="text-muted">{!! $item->email_address_contacts !!}</td>
+                                                            <td class="text-muted">{!! $item->phone_no !!}</td>
+                                                        </tr>
+                                                    @empty
+                                                    @endforelse
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
+                                <br/>
 
                                 <div class="col-12">
                                         <div class="datagrid-content">
-                                            <input type="text" class="form-control border-0 border-bottom"
-                                            wire:model.lazy="remarks_signatory">
+                                            <input type="text" class="form-control border-0 border-bottom" readonly value="{{$data->remarks_signatory}}">
                                         </div>
                                         <div class="datagrid-title text-left">Remarks Signatory</div>
                                 </div>
@@ -728,35 +600,36 @@
                                     <div class="col-3">
                                         <div class="datagrid-content">
                                             <input type="text" class="form-control border-0 border-bottom"
-                                            wire:model.defer="full_name">
+                                            readonly value="{{$data->full_name}}">
                                         </div>
                                         <div class="datagrid-title text-left">Full Name</div>
                                     </div>
                                     <div class="col-3">
                                         <div class="datagrid-content">
                                             <input type="text" class="form-control border-0 border-bottom"
-                                            wire:model.defer="position">
+                                            readonly value="{{$data->position}}">
                                         </div>
                                         <div class="datagrid-title text-left">Position</div>
                                     </div>
                                     <div class="col-3">
                                         <div class="datagrid-content">
-                                            <input type="date" class="form-control border-0 border-bottom"
-                                            wire:model.defer="date">
+                                            <input type="text" class="form-control border-0 border-bottom"
+                                            readonly value="{{$data->date}}">
                                         </div>
                                         <div class="datagrid-title text-left">Date</div>
                                     </div>
                                     <div class="col-3">
                                         <div class="datagrid-content">
                                             <input type="text" class="form-control border-0 border-bottom"
-                                            wire:model.defer="signature">
+                                            readonly value="{{$data->signature}}">
                                         </div>
                                         <div class="datagrid-title text-left">Signature</div>
                                     </div>
                                 </div>                                             
                             </div>
-                        </div> --}}
-                        
+                        </div>
+
+
                         {{-- <div class="card mt-2">
                             <div class="card-body">
                                 <h3 class="card-title text-center form-fieldset">***** APPROVAL ROUTING *****</h3>
@@ -977,7 +850,7 @@
                                 </div>
                             </div>
                         </div> --}}
-
+                        {{-- {{$data->approvalroutings}} --}}
                         {{-- <div class="card mt-2">
                             <div class="card-body">
                                 <div class="row justify-content-end">
@@ -1384,6 +1257,7 @@
                             </table>
                             </div>
                         </div> --}}
+                        {{-- {{$data->documenttables}} --}}
                     </div>
                 </div>
             </div>

@@ -13,6 +13,7 @@
 
     </div>
     <div class="page-body">
+        {{-- {{$data->approvalroutings}} --}}
         <div class="container-xl">
             <div class="card mb-3">
                 <div class="card-body">
@@ -113,7 +114,7 @@
                             <div class="datagrid-title">Item Type</div>
                             <div class="datagrid-content">
                                 <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" checked>
+                                    <input class="form-check-input" type="checkbox" >
                                     <span class="form-check-label">Fixed Asset</span>
                                 </label>
                             </div>
@@ -123,7 +124,7 @@
                             <div class="datagrid-title">Item Class</div>
                             <div class="datagrid-content">
                                 <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" checked>
+                                    <input class="form-check-input" type="checkbox" >
                                     <span class="form-check-label">Sales Item</span>
                                 </label>
                             </div>
@@ -133,7 +134,7 @@
                             <div class="datagrid-title">Item Group</div>
                             <div class="datagrid-content">
                                 <label class="form-check">
-                                    <input class="form-check-input" type="checkbox" checked>
+                                    <input class="form-check-input" type="checkbox" >
                                     <span class="form-check-label">Fixed Asset</span>
                                 </label>
                             </div>

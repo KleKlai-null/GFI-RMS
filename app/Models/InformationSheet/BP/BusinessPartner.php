@@ -27,19 +27,19 @@ class BusinessPartner extends Model
         });
     }
 
-    public function certification(){
+    public function certifications(){
         return $this->hasMany(Certification::class);
     }
 
-    public function contactperson(){
+    public function contactpersons(){
         return $this->hasMany(ContactPerson::class);
     }
 
-    public function approvalrouting(){
+    public function approvalroutings(){
         return $this->hasMany(ApprovalRouting::class);
     }
 
-    public function documenttable(){
+    public function documenttables(){
         return $this->hasMany(DocumentTable::class);
     }
 }

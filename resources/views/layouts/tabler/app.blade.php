@@ -120,6 +120,7 @@
     </div>
     @livewireScripts
     <script>
+        //busines partner script for others
         $("#TB_input_others").hide();
         $(document).ready(function () {
             $("input[name=type_of_business]").change(function(){
@@ -215,6 +216,7 @@
                 }
             });
         });
+
         $("#TG_input_Others").hide();
         $(document).ready(function () {
             $("input[name=tax_group]").change(function(){
@@ -224,6 +226,33 @@
                 }else{
                     $("#TG_input_Others").hide();
                     $("#TG_input_Others").val('');
+                }
+            });
+        });
+
+        //fixed asset script for others
+        $("#PVG_input_others").hide();
+        $(document).ready(function () {
+            $("input[name=PVG_group_exempt]").change(function(){
+                if($("#PVG_others").is(':checked')){
+                    $("#PVG_input_others").show();
+                    $("#PVG_input_others").val('');
+                }else{
+                    $("#PVG_input_others").hide();
+                    $("#PVG_input_others").val('');
+                }
+            });
+        });
+
+        $("#SVG_input_others").hide();
+        $(document).ready(function () {
+            $("input[name=SVG_group]").change(function(){
+                if($("#SVG_others").is(':checked')){
+                    $("#SVG_input_others").show();
+                    $("#SVG_input_others").val('');
+                }else{
+                    $("#SVG_input_others").hide();
+                    $("#SVG_input_others").val('');
                 }
             });
         });

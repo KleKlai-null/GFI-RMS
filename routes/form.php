@@ -93,7 +93,7 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('fix-asset/create', App\Http\Livewire\Form\InformationSheet\FixedAsset\Create::class)->name('fix-asset.create');
         Route::get('fix-asset', App\Http\Livewire\Form\InformationSheet\FixedAsset\Index::class)->name('fix-asset');
-        Route::get('fix-asset/show', App\Http\Livewire\Form\InformationSheet\FixedAsset\Show::class)->name('fix-asset.show');
+        Route::get('fix-asset/show/{data}', App\Http\Livewire\Form\InformationSheet\FixedAsset\Show::class)->name('fix-asset.show');
         // Route::get('fixedasset', function() {
         //     return abort(503);
         // })->name('informationsheet.item.index');

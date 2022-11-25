@@ -301,7 +301,7 @@ class Create extends Component
 
             foreach ($this->certification_name as $key => $item) {
                 $this->Certification::create([
-                    'business_partners_id'  => $data->id,
+                    'business_partner_id'               => $data->id,
                     'certification_name'             => $this->certification_name[$key],
                     'organization_certifying_body'      => $this->organization_certifying_body[$key],
                     'certificate_date'                   => $this->certificate_date[$key],
@@ -311,7 +311,7 @@ class Create extends Component
 
             foreach ($this->name as $key => $item) {
                 $this->CP::create([
-                    'business_partners_id'  => $data->id,
+                    'business_partner_id'  => $data->id,
                     'name'             => $this->name[$key],
                     'position'      => $this->positionC[$key],
                     'email_address_contacts'                   => $this->email_address_contacts[$key],
@@ -320,7 +320,7 @@ class Create extends Component
             }
 
             $this->AR_model::create([
-                'business_partners_id'                  => $data->id,
+                'business_partner_id'                  => $data->id,
                 'operations_SOPN'                       => $this->operations_SOPN,
                 'operations_date'  => $this->operations_date,
                 'operations_status'  => $this->operations_status,
@@ -342,7 +342,7 @@ class Create extends Component
             ]);
 
             $this->DT_model::create([
-                'business_partners_id'  => $data->id,
+                'business_partner_id'  => $data->id,
                 'document_no_page_2'  => $this->document_no_page_2,
                 'DN_1_individual'  => $this->DN_1_individual,
                 'DN_1_corporation'  => $this->DN_1_corporation,
