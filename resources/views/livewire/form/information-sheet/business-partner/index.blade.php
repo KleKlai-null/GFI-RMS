@@ -82,7 +82,7 @@
                                                                         style="">
                                                              
                                                                             <a class="dropdown-item"
-                                                                                href="{{ route('business-partner.show') }}">
+                                                                                href="">
                                                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                                                     class="icon me-2 icon-tabler icon-tabler-file-description"
                                                                                     width="24" height="24"

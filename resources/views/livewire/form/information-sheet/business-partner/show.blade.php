@@ -15,18 +15,20 @@
         <div class="container-xl">
             <div class="row row-cards">
                 <div class="col-12">
-                        <div class="card mt-2">
+                        {{-- <div class="card mt-2">
                             <div class="card-body">
                                 <div class="row g-6">
                                     <div class="col-2">
                                         <div class="form-label">BP Type</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Customer" readonly {{ ($data->bp) ? 'checked' : '' }}>
+                                                <input class="form-check-input" type="checkbox" value="Customer" readonly
+                                                {{ ($data->bp_type_customer) ? 'checked' : '' }} 
+                                                >
                                                 <span class="form-check-label">Customer</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio"  value="Supplier" >
+                                                <input class="form-check-input" type="checkbox" {{ ($data->bp_type_supplier) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Supplier</span>
                                             </label>
                                         </div>
@@ -35,11 +37,11 @@
                                         <div class="form-label">Document Purpose</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="New Registration" >
+                                                <input class="form-check-input" type="checkbox" {{ ($data->document_purpose_new_registration) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">New Registration</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Information Update">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->document_purpose_information_update) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Information Update</span>
                                             </label>
                                         </div>
@@ -48,11 +50,11 @@
                                         <div class="form-label">Status Update</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Active">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->status_update_active) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Active</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Inactive">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->status_update_inactive) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Inactive</span>
                                             </label>
                                         </div>
@@ -62,13 +64,13 @@
                                             <div class="col-6">
                                                 <label class="form-label">Date from</label>
                                                 <div class="datagrid-content">
-                                                    <input type="date" class="form-control border-0 border-bottom">
+                                                    <input type="text" class="form-control border-0 border-bottom" value="{{$data->date_from}}" readonly>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <label class="form-label">Date to</label>
                                                 <div class="datagrid-content">
-                                                    <input type="date" class="form-control border-0 border-bottom">
+                                                    <input type="text" class="form-control border-0 border-bottom" value="{{$data->date_to}}" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -77,14 +79,14 @@
                                         <label class="form-label">Document Number</label>
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0 border-bottom"
-                                                    placeholder="Document no.">
+                                                    placeholder="Document no." value="{{$data->document_no}}" readonly>
                                             </div>
                                     </div>
                                     <div class="col-2">
                                         <label class="form-label">Date Processed</label>
                                         <div class="datagrid-content">
-                                            <input type="date" class="form-control border-0 border-bottom"
-                                                placeholder="Date Processed">
+                                            <input type="text" class="form-control border-0 border-bottom"
+                                                placeholder="Date Processed" value="{{$data->date_processed}}" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -95,25 +97,25 @@
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Registered Name">
+                                                        placeholder="Registered Name" value="{{$data->registered_name}}" readonly>
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Trade Name">
+                                                        placeholder="Trade Name" value="{{$data->trade_name}}" readonly>
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Billing Address">
+                                                        placeholder="Billing Address" value="{{$data->billing_address}}" readonly>
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Shipping Address">
+                                                        placeholder="Shipping Address" value="{{$data->shipping_address}}" readonly>
                                                 </div>
                                             </label>
                                         </div>
@@ -123,25 +125,25 @@
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Telephone No.">
+                                                        placeholder="Telephone No." value="{{$data->telephone_no}}" readonly>
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Fax No.">
+                                                        placeholder="Fax No." value="{{$data->fax_no}}" readonly>
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Mobile No.">
+                                                        placeholder="Mobile No." value="{{$data->mobile_no}}" readonly>
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Email Address">
+                                                        placeholder="Email Address" value="{{$data->email_address}}" readonly>
                                                 </div>
                                             </label>
                                         </div>
@@ -152,7 +154,7 @@
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Tax ID No.">
+                                                        placeholder="Tax ID No." value="{{$data->tax_id_no}}" readonly>
                                                 </div>
                                             </label>
                                         </div>
@@ -162,7 +164,7 @@
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Registration Date">
+                                                        placeholder="Registration Date" value="{{$data->registration_date}}" readonly>
                                                 </div>
                                             </label>                              
                                         </div>
@@ -172,7 +174,7 @@
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Website">
+                                                        placeholder="Website" value="{{$data->website}}" readonly>
                                                 </div>
                                             </label>
                                         
@@ -185,15 +187,15 @@
                                         <div class="form-label">Type of Business</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Corporation">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->type_of_business_corporation) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Corporation</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Partnership">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->type_of_business_partnership) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Partnership</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Government">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->type_of_business_government) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Government</span>
                                             </label>
                                         </div>
@@ -203,21 +205,21 @@
                                         <br/>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Single Proprietorship">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->type_of_business_single_proprietorship) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Single Proprietorship</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Individual/Private">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->type_of_business_individual_private) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Individual/Private</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" name="type_of_business">
+                                                <input class="form-check-input" type="checkbox" name="type_of_business" {{ ($data->type_of_business_others) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Others</span>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Others" id="TB_input_others">
+                                                        placeholder="Others" value="{{$data->type_of_business_others}}" readonly>
                                                 </div>
                                             </label>
                                         </div>
@@ -226,15 +228,15 @@
                                         <div class="form-label">Currency</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="PHP">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->currency_php) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">PHP</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="USD">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->currency_usd) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">USD</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="EURO">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->currency_euro) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">EURO</span>
                                             </label>
                                         </div>
@@ -244,21 +246,21 @@
                                         <br/>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="EURO" >
+                                                <input class="form-check-input" type="checkbox" {{ ($data->currency_yen) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">YEN</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="EURO">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->currency_gbp) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">GBP</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" name="currency" id="Currency_others">
+                                                <input class="form-check-input" type="checkbox" name="currency" {{ ($data->currency_others) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Others</span>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Others" wire:model.defer="type_of_business" id="Currency_input_others">
+                                                        placeholder="Others" value="{{$data->currency_others}}" readonly>
                                                 </div>
                                             </label>
                                         </div>
@@ -267,15 +269,15 @@
                                         <div class="form-label">Business Partner Group</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Trade">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->business_partner_group_trade) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Trade</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Non-Trade">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->business_partner_group_non_trade) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Non-Trade</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Related Party">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->business_partner_group_related_party) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Related Party</span>
                                             </label>
                                         </div>
@@ -285,17 +287,17 @@
                                         <br/>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Employee">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->business_partner_group_employee) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Employee</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" name="business_partner_group" >
+                                                <input class="form-check-input" type="checkbox" name="business_partner_group" {{ ($data->business_partner_group_others) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Others</span>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Others" id="BP_input_others">
+                                                        placeholder="Others" value="{{$data->business_partner_group_others}}" readonly>
                                                 </div>
                                             </label>
                                         </div>
@@ -307,44 +309,44 @@
                                         <div class="form-label">Payment Terms</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Cash on Delivery">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->payment_terms_cash_on_deliveryc) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Cash on Delivery</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" value="Cash with Order" >
+                                                <input class="form-check-input" type="checkbox" {{ ($data->payment_terms_cash_with_orders) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Cash with Order</span>
                                             </label>
 
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" name="payment_terms" id="PT_DME">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->payment_terms_days_month_end) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Days Month End</span>
                                             </label>
-                                            <label class="form-check" id="PT_label_DME">
+                                            <label class="form-check">
                                                 <div class="datagrid-content col-5">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Days Month End" wire:model.defer="payment_terms" id="PT_input_DME">
+                                                        placeholder="Days Month End" value="{{$data->payment_terms_days_month_end}}" readonly>
                                                 </div>
                                             </label> 
 
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_terms" name="payment_terms" id="PT_DAD">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->payment_terms_days_after_delivery) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Days After Delivery</span>
                                             </label>
-                                            <label class="form-check" id="PT_label_DAD">
+                                            <label class="form-check" >
                                                 <div class="datagrid-content col-5">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Days After Delivery" wire:model.defer="payment_terms" id="PT_input_DAD">
+                                                        placeholder="Days After Delivery" value="{{$data->payment_terms_days_after_delivery}}" readonly>
                                                 </div>
                                             </label>
 
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_terms" name="payment_terms" id="PT_Others">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->payment_terms_others) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Others</span>
                                             </label>
-                                            <label class="form-check" id="PT_label_Others">
+                                            <label class="form-check">
                                                 <div class="datagrid-content col-5">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Others" wire:model.defer="payment_terms" id="PT_input_Others">
+                                                        placeholder="Others" value="{{$data->payment_terms_others}}" readonly>
                                                 </div>
                                             </label>
                                         </div>
@@ -353,25 +355,25 @@
                                         <div class="form-label">Payment Method</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_methods" value="Cash" name="payment_methods">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->payment_methods_cash) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Cash</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_methods" value="Check" name="payment_methods">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->payment_methods_check) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Check</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_methods" value="Electronic Bank Transfer" name="payment_methods">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->payment_methods_electronic_bank_transfer) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Electronic Bank Transfer</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_methods" name="payment_methods" id="PM_Others">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->payment_methods_others) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Others</span>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Others" wire:model.defer="payment_methods" id="PM_input_Others">
+                                                        placeholder="Others" value="{{$data->payment_methods_others}}" readonly>
                                                 </div>
                                             </label>
                                         </div>
@@ -380,33 +382,33 @@
                                         <div class="form-label">Bank Details</div>
                                         <div>
                                             <label class="form-check">
-                                                {{-- <div class="datagrid-content"> --}}
+                                            
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Bank Name" wire:model.lazy="bank_name">
-                                                {{-- </div> --}}
+                                                        placeholder="Bank Name" value="{{$data->bank_name}}" readonly>
+                       
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Bank Address" wire:model.lazy="bank_address">
+                                                        placeholder="Bank Address" value="{{$data->bank_address}}" readonly>
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Account Name" wire:model.lazy="account_name">
+                                                        placeholder="Account Name" value="{{$data->account_name}}" readonly>
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Account No." wire:model.lazy="account_no">
+                                                        placeholder="Account No." value="{{$data->account_no}}" readonly>
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Swift Code" wire:model.lazy="swift_code">
+                                                        placeholder="Swift Code" value="{{$data->swift_code}}" readonly>
                                                 </div>
                                             </label>
                                         </div>
@@ -420,19 +422,19 @@
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Account Receivable/Payable" wire:model.defer="accouts_receivable_payable">
+                                                        placeholder="Account Receivable/Payable" value="{{$data->accouts_receivable_payable}}" readonly>
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Down Payment Clearing Account" wire:model.defer="down_payment_clearing_account"> 
+                                                        placeholder="Down Payment Clearing Account" value="{{$data->down_payment_clearing_account}}" readonly> 
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Down Payment Interim Account" wire:model.defer="donw_payment_interim_account">
+                                                        placeholder="Down Payment Interim Account" value="{{$data->donw_payment_interim_account}}" readonly>
                                                 </div>
                                             </label>
                                         </div>
@@ -441,7 +443,7 @@
                                         <div class="form-label">Withholding Tax</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="withholding_tax" value="Subject to WTax" name="withholding_tax">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->withholding_tax) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Subject to WTax</span>
                                             </label>
                                         </div>
@@ -452,7 +454,7 @@
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="WTax Codes" wire:model.defer="wtax_codes_allowed">
+                                                        placeholder="WTax Codes" value="{{$data->wtax_codes_allowed}}" readonly>
                                                 </div>
                                             </label>
                                         </div>
@@ -464,11 +466,11 @@
                                         <div class="form-label">Tax Group</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Capital Goods 12%" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->tax_group_capital_goods) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Capital Goods 12%</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Non-Capital Goods 12%" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->tax_group_non_capital_goods) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Non-Capital Goods 12%</span>
                                             </label>
                                         </div>
@@ -478,11 +480,11 @@
                                         <br/>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Services 12%" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->tax_group_services) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Services 12%</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Importations" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->tax_group_importations) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Importations</span>
                                             </label>
                                         </div>
@@ -492,11 +494,11 @@
                                         <div class="form-label"></div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Non-Taxable" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->tax_group_non_taxable) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Non-Taxable</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Zero Rated 0%" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->tax_group_zero_rated) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Zero Rated 0%</span>
                                             </label>
                                         </div>
@@ -506,26 +508,27 @@
                                         <div class="form-label"></div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Exepmt" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->tax_group_exempt) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Exepmt</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" name="tax_group" id="TG_Others">
+                                                <input class="form-check-input" type="checkbox" {{ ($data->tax_group_others) ? 'checked' : '' }} readonly>
                                                 <span class="form-check-label">Others</span>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Others" wire:model.defer="tax_group" id="TG_input_Others">
+                                                        placeholder="Others" value="{{$data->tax_group_others}}" readonly>
                                                 </div>
                                             </label>
                                         </div>
                                     </div>
                                 </div> 
                             </div>
-                        </div>  
+                        </div>   --}}
 
-                        <div class="card mt-2">
+                        {{$data->certification}}
+                        {{-- <div class="card mt-2">
                             <div class="card-body">
                                 <h4>Certification/Standard Accreditation</h4>
                                 <div class="mb-3">
@@ -752,9 +755,9 @@
                                     </div>
                                 </div>                                             
                             </div>
-                        </div>
-
-                        <div class="card mt-2">
+                        </div> --}}
+                        
+                        {{-- <div class="card mt-2">
                             <div class="card-body">
                                 <h3 class="card-title text-center form-fieldset">***** APPROVAL ROUTING *****</h3>
                                 <div class="datagrid mb-3">
@@ -780,11 +783,11 @@
                                                     <div class="datagrid-title">Status</div>
                                                     <div class="datagrid-content">
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="radio" wire:model.defer="operations_status" value="Passed" name="operations_status">
+                                                            <input class="form-check-input" type="checkbox" wire:model.defer="operations_status" value="Passed" name="operations_status">
                                                             <span class="form-check-label">Passed</span>
                                                         </label>
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="radio" wire:model.defer="operations_status" value="Rejected" name="operations_status">
+                                                            <input class="form-check-input" type="checkbox" wire:model.defer="operations_status" value="Rejected" name="operations_status">
                                                             <span class="form-check-label">Rejected</span>
                                                         </label>
                                                     </div>
@@ -815,11 +818,11 @@
                                                     <div class="datagrid-title">Status</div>
                                                     <div class="datagrid-content">
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="radio" wire:model.defer="corporate_finance_status" value="Passed" name="corporate_finance_status">
+                                                            <input class="form-check-input" type="checkbox" wire:model.defer="corporate_finance_status" value="Passed" name="corporate_finance_status">
                                                             <span class="form-check-label">Passed</span>
                                                         </label>
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="radio" wire:model.defer="corporate_finance_status" value="Rejected" name="corporate_finance_status">
+                                                            <input class="form-check-input" type="checkbox" wire:model.defer="corporate_finance_status" value="Rejected" name="corporate_finance_status">
                                                             <span class="form-check-label">Rejected</span>
                                                         </label>
                                                     </div>
@@ -852,11 +855,11 @@
                                                     <div class="datagrid-title">Status</div>
                                                     <div class="datagrid-content">
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="radio" wire:model.defer="supply_chain_human_resource_status" value="Passed" name="supply_chain_human_resource_status">
+                                                            <input class="form-check-input" type="checkbox" wire:model.defer="supply_chain_human_resource_status" value="Passed" name="supply_chain_human_resource_status">
                                                             <span class="form-check-label">Passed</span>
                                                         </label>
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="radio" wire:model.defer="supply_chain_human_resource_status" value="Rejected" name="supply_chain_human_resource_status">
+                                                            <input class="form-check-input" type="checkbox" wire:model.defer="supply_chain_human_resource_status" value="Rejected" name="supply_chain_human_resource_status">
                                                             <span class="form-check-label">Rejected</span>
                                                         </label>
                                                     </div>
@@ -887,11 +890,11 @@
                                                     <div class="datagrid-title">Status</div>
                                                     <div class="datagrid-content">
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="radio" wire:model.defer="audit_status" value="Passed" name="audit_status">
+                                                            <input class="form-check-input" type="checkbox" wire:model.defer="audit_status" value="Passed" name="audit_status">
                                                             <span class="form-check-label">Passed</span>
                                                         </label>
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="radio" wire:model.defer="audit_status" value="Rejected" name="audit_status">
+                                                            <input class="form-check-input" type="checkbox" wire:model.defer="audit_status" value="Rejected" name="audit_status">
                                                             <span class="form-check-label">Rejected</span>
                                                         </label>
                                                     </div>
@@ -924,11 +927,11 @@
                                                     <div class="datagrid-title">Status</div>
                                                     <div class="datagrid-content">
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="radio" wire:model.defer="finance_status" value="Passed" name="finance_status">
+                                                            <input class="form-check-input" type="checkbox" wire:model.defer="finance_status" value="Passed" name="finance_status">
                                                             <span class="form-check-label">Passed</span>
                                                         </label>
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="radio" wire:model.defer="finance_status" value="Rejected" name="finance_status">
+                                                            <input class="form-check-input" type="checkbox" wire:model.defer="finance_status" value="Rejected" name="finance_status">
                                                             <span class="form-check-label">Rejected</span>
                                                         </label>
                                                     </div>
@@ -959,11 +962,11 @@
                                                     <div class="datagrid-title">Status</div>
                                                     <div class="datagrid-content">
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="radio" wire:model.defer="system_administrator_status" value="Passed" name="system_administrator_status">
+                                                            <input class="form-check-input" type="checkbox" wire:model.defer="system_administrator_status" value="Passed" name="system_administrator_status">
                                                             <span class="form-check-label">Passed</span>
                                                         </label>
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="radio" wire:model.defer="system_administrator_status" value="Rejected" name="system_administrator_status">
+                                                            <input class="form-check-input" type="checkbox" wire:model.defer="system_administrator_status" value="Rejected" name="system_administrator_status">
                                                             <span class="form-check-label">Rejected</span>
                                                         </label>
                                                     </div>
@@ -973,18 +976,18 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="card mt-2">
+                        {{-- <div class="card mt-2">
                             <div class="card-body">
                                 <div class="row justify-content-end">
                                     <div class="col-2">
-                                        {{-- <label class="form-check"> --}}
+          
                                             <div class="datagrid-content ">
                                                 <input type="text" class="form-control border-0 border-bottom"
-                                                    placeholder="Document No." wire:model.defer="document_no_page_2">
+                                                    placeholder="Document No.">
                                             </div>
-                                        {{-- </label> --}}
+                               
                                     </div>
                                 </div>
                             <h3>Checklist of Requirements</h3>
@@ -1016,31 +1019,31 @@
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_1_individual">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_1_corporation">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_1_cooperative">
+                                                >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_1_submitted">
+                                                >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_1_RNS">
+                                                >
                                             </div>
                                         </td>
                                     </tr>
@@ -1049,31 +1052,31 @@
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_2_individual">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_2_corporation">
+                                               >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_2_cooperative">
+                                                >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_2_submitted">
+                                                >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_2_RNS">
+                                               >
                                             </div>
                                         </td>
                                     </tr>
@@ -1082,31 +1085,31 @@
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_3_individual">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_3_corporation">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_3_cooperative">
+                                               >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_3_submitted">
+                                                >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_3_RNS">
+                                             >
                                             </div>
                                         </td>
                                     </tr>
@@ -1115,31 +1118,31 @@
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_4_individual">
+                                              >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_4_corporation">
+                                               >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_4_cooperative">
+                                               >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_4_submitted">
+                                              >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_4_RNS">
+                                              >
                                             </div>
                                         </td>
                                     </tr>
@@ -1148,31 +1151,31 @@
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_5_individual">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_5_corporation">
+                                             >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_5_cooperative">
+                                                >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_5_submitted">
+                                               >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_5_RNS">
+                                             >
                                             </div>
                                         </td>
                                     </tr>
@@ -1181,31 +1184,31 @@
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_6_individual">
+                                               >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_6_corporation">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_6_cooperative">
+                                              >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_6_submitted">
+                                                >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_6_RNS">
+                                                >
                                             </div>
                                         </td>
                                     </tr>
@@ -1214,31 +1217,31 @@
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_7_individual">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_7_corporation">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_7_cooperative">
+                                               >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_7_submitted">
+                                             >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_7_RNS">
+                                                >
                                             </div>
                                         </td>
                                     </tr>
@@ -1247,31 +1250,31 @@
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_8_individual">
+                                               >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_8_corporation">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_8_cooperative">
+                                               >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_8_submitted">
+                                               >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_8_RNS">
+                                               >
                                             </div>
                                         </td>
                                     </tr>
@@ -1280,31 +1283,31 @@
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_9_individual">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_9_corporation">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_9_cooperative">
+                                               >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_9_submitted">
+                                                >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_9_RNS">
+                                                >
                                             </div>
                                         </td>
                                     </tr>
@@ -1313,31 +1316,31 @@
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_10_individual">
+                                              >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_10_corporation">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_10_cooperative">
+                                                >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_10_submitted">
+                                               >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_10_RNS">
+                                               >
                                             </div>
                                         </td>
                                     </tr>      
@@ -1349,47 +1352,38 @@
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_11_individual">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_11_corporation">
+                                                >
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                wire:model.defer="DN_11_cooperative">
+                                                >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_11_submitted">
+                                                >
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0"
-                                                wire:model.defer="DN_11_RNS">
+                                                >
                                             </div>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             </div>
-                        </div>
-
-                        <div class="form-footer">
-                            <button type="button" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
-                                wire:click="create" class="btn btn-primary"
-                                wire:loading.class="d-none">Create</button>
-                        </div>
-                        <div wire:loading wire:target="store">
-                            Processing Data...
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

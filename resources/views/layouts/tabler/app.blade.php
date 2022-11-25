@@ -132,6 +132,7 @@
                 }
             });
         });
+     
         $("#Currency_input_others").hide();
         $(document).ready(function () {
             $("input[name=currency]").change(function(){
@@ -144,6 +145,7 @@
                 }
             });
         });
+
         $("#BP_input_others").hide();
         $(document).ready(function () {
             $("input[name=business_partner_group]").change(function(){

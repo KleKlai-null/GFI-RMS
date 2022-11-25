@@ -15,10 +15,10 @@ class Create extends Component
     public $i = 1;
     public $contact = 1;
 
-    public $bp_type, $document_purpose, $status_update, $date_from, $date_to, $document_no, $date_processed, $registered_name, $trade_name,
-    $billing_address, $shipping_address, $tax_id_no, $telephone_no, $fax_no, $mobile_no, $email_address, $website, $registration_date, $type_of_business,
-    $currency, $business_partner_group, $payment_terms, $payment_methods, $bank_name, $bank_address, $account_name, $account_no, $swift_code, $accouts_receivable_payable,
-    $down_payment_clearing_account, $donw_payment_interim_account, $withholding_tax, $wtax_codes_allowed, $tax_group, $remarks_signatory, $full_name,
+    public $bp_type_customer, $bp_type_supplier , $document_purpose_new_registration, $document_purpose_information_update, $status_update_active, $status_update_inactive, $date_from, $date_to, $document_no, $date_processed, $registered_name, $trade_name,
+    $billing_address, $shipping_address, $tax_id_no, $telephone_no, $fax_no, $mobile_no, $email_address, $website, $registration_date, $type_of_business_corporation, $type_of_business_partnership, $type_of_business_government,$type_of_business_single_proprietorship,$type_of_business_individual_private,$type_of_business_others ,
+    $currency_php, $currency_usd, $currency_euro, $currency_yen, $currency_gbp, $currency_others, $business_partner_group_trade, $business_partner_group_non_trade, $business_partner_group_related_party, $business_partner_group_employee, $business_partner_group_others, $payment_terms_cash_on_delivery, $payment_terms_cash_with_orders, $payment_terms_days_month_end, $payment_terms_days_after_delivery, $payment_terms_others, $payment_methods_cash, $payment_methods_check, $payment_methods_electronic_bank_transfer, $payment_methods_others, $bank_name, $bank_address, $account_name, $account_no, $swift_code, $accouts_receivable_payable,
+    $down_payment_clearing_account, $donw_payment_interim_account, $withholding_tax, $wtax_codes_allowed, $tax_group_capital_goods, $tax_group_non_capital_goods, $tax_group_services, $tax_group_importations, $tax_group_non_taxable, $tax_group_zero_rated, $tax_group_exempt, $tax_group_others, $remarks_signatory, $full_name,
     $position, $date, $signature;
 
     // dynamic certification
@@ -222,15 +222,17 @@ class Create extends Component
     }
 
     public function create(){
-        $this->validate();
-        
+        // $this->validate();
         try{
             DB::beginTransaction();
 
             $data = $this->BP_model::create([
-                'bp_type'               => $this->bp_type,
-                'document_purpose'      => $this->document_purpose,
-                'status_update'         => $this->status_update,
+                'bp_type_customer'               => $this->bp_type_customer,
+                'bp_type_supplier'               => $this->bp_type_supplier,
+                'document_purpose_new_registration'      => $this->document_purpose_new_registration,
+                'document_purpose_information_update'      => $this->document_purpose_information_update,
+                'status_update_active'         => $this->status_update_active,
+                'status_update_inactive'         => $this->status_update_inactive,
                 'date_from'             => $this->date_from,
                 'date_to'               => $this->date_to,
                 'document_no'           => $this->document_no,
@@ -246,11 +248,32 @@ class Create extends Component
                 'email_address'             => $this->email_address,
                 'website'                   => $this->website,
                 'registration_date'         => $this->registration_date,
-                'type_of_business'          => $this->type_of_business,
-                'currency'                  => $this->currency,
-                'business_partner_group'    => $this->business_partner_group,
-                'payment_terms'  => $this->payment_terms,
-                'payment_methods'  => $this->payment_methods,
+                'type_of_business_corporation'          => $this->type_of_business_corporation,
+                'type_of_business_partnership'          => $this->type_of_business_partnership,
+                'type_of_business_government'          => $this->type_of_business_government,
+                'type_of_business_single_proprietorship'          => $this->type_of_business_single_proprietorship,
+                'type_of_business_individual_private'          => $this->type_of_business_individual_private,
+                'type_of_business_others'          => $this->type_of_business_others,
+                'currency_php'                  => $this->currency_php,
+                'currency_usd'                  => $this->currency_usd,
+                'currency_euro'                  => $this->currency_euro,
+                'currency_yen'                  => $this->currency_yen,
+                'currency_gbp'                  => $this->currency_gbp,
+                'currency_others'                  => $this->currency_others,
+                'business_partner_group_trade'    => $this->business_partner_group_trade,
+                'business_partner_group_non_trade'    => $this->business_partner_group_non_trade,
+                'business_partner_group_related_party'    => $this->business_partner_group_related_party,
+                'business_partner_group_employee'    => $this->business_partner_group_employee,
+                'business_partner_group_others'    => $this->business_partner_group_others,
+                'payment_terms_cash_on_delivery'  => $this->payment_terms_cash_on_delivery,
+                'payment_terms_cash_with_orders'  => $this->payment_terms_cash_with_orders,
+                'payment_terms_days_month_end'  => $this->payment_terms_days_month_end,
+                'payment_terms_days_after_delivery'  => $this->payment_terms_days_after_delivery,
+                'payment_terms_others'  => $this->payment_terms_others,
+                'payment_methods_cash'  => $this->payment_methods_cash,
+                'payment_methods_check'  => $this->payment_methods_check,
+                'payment_methods_electronic_bank_transfer'  => $this->payment_methods_electronic_bank_transfer,
+                'payment_methods_others'  => $this->payment_methods_others,
                 'bank_name'  => $this->bank_name,
                 'bank_address'  => $this->bank_address,
                 'account_name'  => $this->account_name,
@@ -261,7 +284,14 @@ class Create extends Component
                 'donw_payment_interim_account'  => $this->donw_payment_interim_account,
                 'withholding_tax'  => $this->withholding_tax,
                 'wtax_codes_allowed'  => $this->wtax_codes_allowed,
-                'tax_group'  => $this->tax_group,
+                'tax_group_capital_goods'  => $this->tax_group_capital_goods,
+                'tax_group_non_capital_goods'  => $this->tax_group_non_capital_goods,
+                'tax_group_services'  => $this->tax_group_services,
+                'tax_group_importations'  => $this->tax_group_importations,
+                'tax_group_non_taxable'  => $this->tax_group_non_taxable,
+                'tax_group_zero_rated'  => $this->tax_group_zero_rated,
+                'tax_group_exempt'  => $this->tax_group_exempt,
+                'tax_group_others'  => $this->tax_group_others,
                 'remarks_signatory'  => $this->remarks_signatory,
                 'full_name'  => $this->full_name,
                 'position'  => $this->position,
@@ -373,7 +403,7 @@ class Create extends Component
 
             DB::commit();
             $this->reset();
-            return redirect()->route('business-partner');
+            return redirect()->route('business-partner.show',$data);
         }catch(Exception $exception){
             DB::rollback();
             Log::error($exception);

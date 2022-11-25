@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('document_tables', function (Blueprint $table) {
             $table->id();
             $table->foreignId('business_partners_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->string('document_no_page_2');
+            $table->string('document_no_page_2')->nullable();
             $table->string('DN_1_individual')->nullable();
             $table->string('DN_1_corporation')->nullable();
             $table->string('DN_1_cooperative')->nullable();

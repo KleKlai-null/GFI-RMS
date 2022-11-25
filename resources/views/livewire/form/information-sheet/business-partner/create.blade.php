@@ -22,11 +22,11 @@
                                         <div class="form-label">BP Type</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" wire:model.defer="bp_type" value="Customer" name="bp_type">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="bp_type_customer" value="Customer">
                                                 <span class="form-check-label">Customer</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" wire:model.defer="bp_type" value="Supplier" name="bp_type">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="bp_type_supplier" value="Supplier">
                                                 <span class="form-check-label">Supplier</span>
                                             </label>
                                         </div>
@@ -35,11 +35,11 @@
                                         <div class="form-label">Document Purpose</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="document_purpose" value="New Registration" name="document_purpose">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="document_purpose_new_registration" value="New Registration">
                                                 <span class="form-check-label">New Registration</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="document_purpose" value="Information Update" name="document_purpose">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="document_purpose_information_update" value="Information Update">
                                                 <span class="form-check-label">Information Update</span>
                                             </label>
                                         </div>
@@ -48,11 +48,11 @@
                                         <div class="form-label">Status Update</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="status_update" value="Active" name="status_update">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="status_update_active" value="Active">
                                                 <span class="form-check-label">Active</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="status_update" value="Inactive" name="status_update">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="status_update_inactive" value="Inactive">
                                                 <span class="form-check-label">Inactive</span>
                                             </label>
                                         </div>
@@ -187,15 +187,15 @@
                                         <div class="form-label">Type of Business</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="type_of_business" value="Corporation" name="type_of_business">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="type_of_business_corporation" value="Corporation">
                                                 <span class="form-check-label">Corporation</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="type_of_business" value="Partnership" name="type_of_business">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="type_of_business_partnership" value="Partnership">
                                                 <span class="form-check-label">Partnership</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="type_of_business" value="Government" name="type_of_business">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="type_of_business_government" value="Government">
                                                 <span class="form-check-label">Government</span>
                                             </label>
                                         </div>
@@ -205,21 +205,21 @@
                                         <br/>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="type_of_business" value="Single Proprietorship" name="type_of_business">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="type_of_business_single_proprietorship" value="Single Proprietorship">
                                                 <span class="form-check-label">Single Proprietorship</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="type_of_business" value="Individual/Private" name="type_of_business">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="type_of_business_individual_private" value="Individual/Private">
                                                 <span class="form-check-label">Individual/Private</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="type_of_business" name="type_of_business" id="TB_others">
+                                                <input class="form-check-input" type="checkbox" name="type_of_business" id="TB_others">
                                                 <span class="form-check-label">Others</span>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Others" wire:model.defer="type_of_business" id="TB_input_others">
+                                                        placeholder="Others" wire:model.defer="type_of_business_others" id="TB_input_others">
                                                 </div>
                                             </label>
                                         </div>
@@ -228,15 +228,15 @@
                                         <div class="form-label">Currency</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="currency" value="PHP" name="currency">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="currency_php" value="PHP">
                                                 <span class="form-check-label">PHP</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="currency" value="USD" name="currency">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="currency_usd" value="USD">
                                                 <span class="form-check-label">USD</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="currency" value="EURO" name="currency">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="currency_euro" value="EURO" >
                                                 <span class="form-check-label">EURO</span>
                                             </label>
                                         </div>
@@ -246,21 +246,21 @@
                                         <br/>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="currency" value="EURO" name="currency">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="currency_yen" value="YEN">
                                                 <span class="form-check-label">YEN</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="currency" value="EURO" name="currency">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="currency_gbp" value="GBP">
                                                 <span class="form-check-label">GBP</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="currency" name="currency" id="Currency_others">
+                                                <input class="form-check-input" type="checkbox" name="currency" id="Currency_others">
                                                 <span class="form-check-label">Others</span>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Others" wire:model.defer="type_of_business" id="Currency_input_others">
+                                                        placeholder="Others" wire:model.defer="currency_others" id="Currency_input_others">
                                                 </div>
                                             </label>
                                         </div>
@@ -269,15 +269,15 @@
                                         <div class="form-label">Business Partner Group</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="business_partner_group" value="Trade" name="business_partner_group">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="business_partner_group_trade" value="Trade" name="business_partner_group">
                                                 <span class="form-check-label">Trade</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="business_partner_group" value="Non-Trade" name="business_partner_group">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="business_partner_group_non_trade" value="Non-Trade" name="business_partner_group">
                                                 <span class="form-check-label">Non-Trade</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="business_partner_group" value="Related Party" name="business_partner_group">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="business_partner_group_related_party" value="Related Party" name="business_partner_group">
                                                 <span class="form-check-label">Related Party</span>
                                             </label>
                                         </div>
@@ -287,17 +287,17 @@
                                         <br/>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="business_partner_group" value="Employee" name="business_partner_group">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="business_partner_group_employee" value="Employee" name="business_partner_group">
                                                 <span class="form-check-label">Employee</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="business_partner_group" name="business_partner_group" id="BP_others">
+                                                <input class="form-check-input" type="checkbox" name="business_partner_group" id="BP_others">
                                                 <span class="form-check-label">Others</span>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Others" wire:model.defer="business_partner_group" id="BP_input_others">
+                                                        placeholder="Others" wire:model.defer="business_partner_group_others" id="BP_input_others">
                                                 </div>
                                             </label>
                                         </div>
@@ -309,44 +309,44 @@
                                         <div class="form-label">Payment Terms</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_terms" value="Cash on Delivery" name="payment_terms">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="payment_terms_cash_on_delivery" value="Cash on Delivery">
                                                 <span class="form-check-label">Cash on Delivery</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_terms" value="Cash with Order" name="payment_terms">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="payment_terms_cash_with_orders" value="Cash with Order">
                                                 <span class="form-check-label">Cash with Order</span>
                                             </label>
 
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_terms" name="payment_terms" id="PT_DME">
+                                                <input class="form-check-input" type="checkbox" name="payment_terms" id="PT_DME">
                                                 <span class="form-check-label">Days Month End</span>
                                             </label>
                                             <label class="form-check" id="PT_label_DME">
                                                 <div class="datagrid-content col-5">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Days Month End" wire:model.defer="payment_terms" id="PT_input_DME">
+                                                        placeholder="Days Month End" wire:model.defer="payment_terms_days_month_end" id="PT_input_DME">
                                                 </div>
                                             </label> 
 
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_terms" name="payment_terms" id="PT_DAD">
+                                                <input class="form-check-input" type="checkbox" name="payment_terms" id="PT_DAD">
                                                 <span class="form-check-label">Days After Delivery</span>
                                             </label>
                                             <label class="form-check" id="PT_label_DAD">
                                                 <div class="datagrid-content col-5">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Days After Delivery" wire:model.defer="payment_terms" id="PT_input_DAD">
+                                                        placeholder="Days After Delivery" wire:model.defer="payment_terms_days_after_delivery" id="PT_input_DAD">
                                                 </div>
                                             </label>
 
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_terms" name="payment_terms" id="PT_Others">
+                                                <input class="form-check-input" type="checkbox" name="payment_terms" id="PT_Others">
                                                 <span class="form-check-label">Others</span>
                                             </label>
                                             <label class="form-check" id="PT_label_Others">
                                                 <div class="datagrid-content col-5">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Others" wire:model.defer="payment_terms" id="PT_input_Others">
+                                                        placeholder="Others" wire:model.defer="payment_terms_others" id="PT_input_Others">
                                                 </div>
                                             </label>
                                         </div>
@@ -355,25 +355,25 @@
                                         <div class="form-label">Payment Method</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_methods" value="Cash" name="payment_methods">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="payment_methods_cash" value="Cash">
                                                 <span class="form-check-label">Cash</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_methods" value="Check" name="payment_methods">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="payment_methods_check" value="Check">
                                                 <span class="form-check-label">Check</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_methods" value="Electronic Bank Transfer" name="payment_methods">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="payment_methods_electronic_bank_transfer" value="Electronic Bank Transfer">
                                                 <span class="form-check-label">Electronic Bank Transfer</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="payment_methods" name="payment_methods" id="PM_Others">
+                                                <input class="form-check-input" type="checkbox" name="payment_methods" id="PM_Others">
                                                 <span class="form-check-label">Others</span>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Others" wire:model.defer="payment_methods" id="PM_input_Others">
+                                                        placeholder="Others" wire:model.defer="payment_methods_others" id="PM_input_Others">
                                                 </div>
                                             </label>
                                         </div>
@@ -443,7 +443,7 @@
                                         <div class="form-label">Withholding Tax</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="withholding_tax" value="Subject to WTax" name="withholding_tax">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="withholding_tax" value="Subject to WTax" name="withholding_tax">
                                                 <span class="form-check-label">Subject to WTax</span>
                                             </label>
                                         </div>
@@ -466,11 +466,11 @@
                                         <div class="form-label">Tax Group</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Capital Goods 12%" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="tax_group_capital_goods" value="Capital Goods 12%">
                                                 <span class="form-check-label">Capital Goods 12%</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Non-Capital Goods 12%" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="tax_group_non_capital_goods" value="Non-Capital Goods 12%">
                                                 <span class="form-check-label">Non-Capital Goods 12%</span>
                                             </label>
                                         </div>
@@ -480,11 +480,11 @@
                                         <br/>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Services 12%" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="tax_group_services" value="Services 12%">
                                                 <span class="form-check-label">Services 12%</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Importations" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="tax_group_importations" value="Importations">
                                                 <span class="form-check-label">Importations</span>
                                             </label>
                                         </div>
@@ -494,11 +494,11 @@
                                         <div class="form-label"></div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Non-Taxable" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="tax_group_non_taxable" value="Non-Taxable">
                                                 <span class="form-check-label">Non-Taxable</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Zero Rated 0%" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="tax_group_zero_rated" value="Zero Rated 0%">
                                                 <span class="form-check-label">Zero Rated 0%</span>
                                             </label>
                                         </div>
@@ -508,17 +508,17 @@
                                         <div class="form-label"></div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" value="Exepmt" name="tax_group">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="tax_group_exempt" value="Exepmt">
                                                 <span class="form-check-label">Exepmt</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="radio" wire:model.defer="tax_group" name="tax_group" id="TG_Others">
+                                                <input class="form-check-input" type="checkbox" name="tax_group" id="TG_Others">
                                                 <span class="form-check-label">Others</span>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Others" wire:model.defer="tax_group" id="TG_input_Others">
+                                                        placeholder="Others" wire:model.defer="tax_group_others" id="TG_input_Others">
                                                 </div>
                                             </label>
                                         </div>
@@ -873,14 +873,14 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="datagrid-content">
-                                                        <input type="date" class="form-control border-0 border-bottom"
+                                                        <input type="text" class="form-control border-0 border-bottom"
                                                         wire:model.defer="audit_SOPN">
                                                     </div>
                                                     <div class="datagrid-title text-center">Signature Over Printed Name</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="datagrid-content">
-                                                        <input type="text" class="form-control border-0 border-bottom"
+                                                        <input type="date" class="form-control border-0 border-bottom"
                                                         wire:model.defer="audit_date">
                                                     </div>
                                                     <div class="datagrid-title text-center">Date</div>
@@ -1017,25 +1017,25 @@
                                         <td >Latest Business Permit<span style="color:red">*</span></td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_1_individual">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_1_corporation">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_1_cooperative">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_1_submitted">
                                             </div>
                                         </td>
@@ -1050,25 +1050,25 @@
                                         <td >DTI Certificate<span style="color:red">*</span></td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_2_individual">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_2_corporation">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_2_cooperative">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_2_submitted">
                                             </div>
                                         </td>
@@ -1083,25 +1083,25 @@
                                         <td >Articles of Incorporation/Cooperation & by laws</td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_3_individual">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_3_corporation">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_3_cooperative">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_3_submitted">
                                             </div>
                                         </td>
@@ -1116,25 +1116,25 @@
                                         <td >BIR Registration Form 2303<span style="color:red">*</span></td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_4_individual">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_4_corporation">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_4_cooperative">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_4_submitted">
                                             </div>
                                         </td>
@@ -1149,25 +1149,25 @@
                                         <td >Sample Photocopy of BIR Primary Doc. (OR/SI)</td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_5_individual">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_5_corporation">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_5_cooperative">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_5_submitted">
                                             </div>
                                         </td>
@@ -1182,25 +1182,25 @@
                                         <td >Certificate of Tax Exemption<span style="color:red">*</span></td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_6_individual">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_6_corporation">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_6_cooperative">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_6_submitted">
                                             </div>
                                         </td>
@@ -1215,25 +1215,25 @@
                                         <td >Certification (Person Authorized to Transact Business)</td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_7_individual">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_7_corporation">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_7_cooperative">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_7_submitted">
                                             </div>
                                         </td>
@@ -1248,25 +1248,25 @@
                                         <td >Photocopy of Valid ID of Authorized Representative(s)</td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_8_individual">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_8_corporation">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_8_cooperative">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_8_submitted">
                                             </div>
                                         </td>
@@ -1281,25 +1281,25 @@
                                         <td >Latest BIR-stamped Audited Financial Statement</td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_9_individual">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_9_corporation">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_9_cooperative">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_9_submitted">
                                             </div>
                                         </td>
@@ -1314,25 +1314,25 @@
                                         <td >Latest General Information Sheet (GIS)</td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_10_individual">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_10_corporation">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_10_cooperative">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_10_submitted">
                                             </div>
                                         </td>
@@ -1350,25 +1350,25 @@
                                         <td >Credit Application Form<span style="color:red">*</span></td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_11_individual">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_11_corporation">
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
+                                                <input type="checkbox"
                                                 wire:model.defer="DN_11_cooperative">
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
+                                                <input type="checkbox" 
                                                 wire:model.defer="DN_11_submitted">
                                             </div>
                                         </td>
