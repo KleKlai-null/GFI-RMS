@@ -272,7 +272,7 @@
                                     <a href="{{ route('informationsheet.item.index') }}" class="dropdown-item">
                                         Item
                                     </a>
-                                    <a href="#" class="dropdown-item">
+                                    <a href="{{route('fix-asset.create')}}" class="dropdown-item">
                                         Fixed Asset
                                     </a>
                                     <a 
