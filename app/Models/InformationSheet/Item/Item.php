@@ -17,7 +17,7 @@ class Item extends Model
     protected static function boot()
     {
         parent::boot();
-        FixedAsset::creating(function($model) {
+        Item::creating(function($model) {
             $model->user_id = auth()->user()->id;
             $model->user_name = auth()->user()->username;
         });

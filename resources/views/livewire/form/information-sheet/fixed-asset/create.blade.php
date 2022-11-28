@@ -28,7 +28,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Date Processed</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="date" class="form-control form-control-flush"
                                     placeholder="Date Processed" wire:model.defer="date_processed">
                             </div>
                         </div>
@@ -714,7 +714,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="datagrid-content">
-                                            <input type="text" class="form-control border-0 border-bottom"
+                                            <input type="date" class="form-control border-0 border-bottom"
                                             wire:model.defer="property_custodian_date">
                                         </div>
                                         <div class="datagrid-title text-center">Date</div>
@@ -749,7 +749,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="datagrid-content">
-                                            <input type="text" class="form-control border-0 border-bottom"
+                                            <input type="date" class="form-control border-0 border-bottom"
                                                 placeholder=""  wire:model.defer="corporate_finance_date">
                                         </div>
                                         <div class="datagrid-title text-center">Date</div>
@@ -786,7 +786,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="datagrid-content">
-                                            <input type="text" class="form-control border-0 border-bottom"
+                                            <input type="date" class="form-control border-0 border-bottom"
                                                 placeholder="" wire:model.defer="general_manager_date">
                                         </div>
                                         <div class="datagrid-title text-center">Date</div>
@@ -821,7 +821,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="datagrid-content">
-                                            <input type="text" class="form-control border-0 border-bottom"
+                                            <input type="date" class="form-control border-0 border-bottom"
                                                 placeholder="" wire:model.defer="audit_date">
                                         </div>
                                         <div class="datagrid-title text-center">Date</div>
@@ -858,7 +858,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="datagrid-content">
-                                            <input type="text" class="form-control border-0 border-bottom"
+                                            <input type="date" class="form-control border-0 border-bottom"
                                                 placeholder="" wire:model.defer="finance_date">
                                         </div>
                                         <div class="datagrid-title text-center">Date</div>
@@ -893,7 +893,7 @@
                                     </div>
                                     <div class="col">
                                         <div class="datagrid-content">
-                                            <input type="text" class="form-control border-0 border-bottom"
+                                            <input type="date" class="form-control border-0 border-bottom"
                                                 placeholder="" wire:model.defer="system_administrator_date">
                                         </div>
                                         <div class="datagrid-title text-center">Date</div>

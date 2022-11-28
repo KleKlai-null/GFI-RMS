@@ -23,15 +23,15 @@
                                 <div class="row g-2">
                                     <div class="col-4">
                                         <label class="form-label">Document No.</label>
-                                        <input type="text" class="form-control form-control-flush mt-1"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             name="Form control flush" placeholder="Document series no."
                                             wire:model="document_series_no">
                                     </div>
                                     <div class="col-4">
                                         <label class="form-label">Date Processed</label>
-                                        <input type="text" class="form-control form-control-flush mt-1"
+                                        <input type="date" class="form-control border-0 border-bottom"
                                             name="Form control flush" placeholder="Document series no."
-                                            wire:model="document_series_no">
+                                            wire:model="date_processed">
                                     </div>
                                 </div>
                             </div>
@@ -54,12 +54,12 @@
                                         <div class="form-label">Status Update</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" wire:model.lazy="status_update_new_registration">
-                                                <span class="form-check-label">New Registration</span>
+                                                <input class="form-check-input" type="checkbox" wire:model.lazy="status_update_active">
+                                                <span class="form-check-label">Active</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" wire:model.lazy="status_update_information_update">
-                                                <span class="form-check-label">Information Update</span>
+                                                <input class="form-check-input" type="checkbox" wire:model.lazy="status_update_inactive">
+                                                <span class="form-check-label">Inactive</span>
                                             </label>
                                         </div>
                                     </div>

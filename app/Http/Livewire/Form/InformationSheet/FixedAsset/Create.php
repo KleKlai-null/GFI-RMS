@@ -274,9 +274,11 @@ class Create extends Component
         }catch(Exception $exception){
             DB::rollback();
             Log::error($exception);
+            dd($exception);
         }catch (Throwable $throwable) {
             DB::rollback();
             Log::error($throwable);
+            dd($throwable);
         }
     }
 }

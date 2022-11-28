@@ -53,31 +53,7 @@
 
                     <div class="card">
                         <div class="card-body mb-4">
-                            <tr class="common" align="center" style="height: 100px;">
-                                <td colspan="8">  
-                                    <div class="empty-img"><img
-                                    src="{{ asset('asset/custom/static/illustrations/undraw_posting_photo_v65l.svg') }}"
-                                    height="128" alt=""></div>
-                                    <p class="empty-title">No results found</p>
-                                        <p class="empty-subtitle text-muted">
-                                            Try adjusting your search or filter to find what you're looking for.
-                                        </p>
-                                        <div class="empty-action">
-                                            <a href="{{ route('item.create') }}" class="btn btn-primary">
-                  
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                                    viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
-                                                    stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                                    <line x1="12" y1="5" x2="12" y2="19" />
-                                                    <line x1="5" y1="12" x2="19" y2="12" />
-                                                </svg>
-                                                Add Item Record
-                                            </a>
-                                        </div>
-                                </td>
-                            </tr>
-                            {{-- @if (!empty($datas))
+                            @if (!empty($datas))
                                 <div id="table-default" class="table-responsive" style="min-height: 350px">
                                     <table class="table">
                                         <thead>
@@ -159,7 +135,7 @@
                                                                         Try adjusting your search or filter to find what you're looking for.
                                                                     </p>
                                                                     <div class="empty-action">
-                                                                        <a href="{{ route('business-partner.create') }}" class="btn btn-primary">
+                                                                        <a href="{{ route('item.create') }}" class="btn btn-primary">
                                               
                                                                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
                                                                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -168,7 +144,7 @@
                                                                                 <line x1="12" y1="5" x2="12" y2="19" />
                                                                                 <line x1="5" y1="12" x2="19" y2="12" />
                                                                             </svg>
-                                                                            Add Business Partner Record
+                                                                            Add Items Record
                                                                         </a>
                                                                     </div>
                                                             </td>
@@ -180,7 +156,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            @endif --}}
+                            @endif
                         </div>
                     </div>
                 </div>
