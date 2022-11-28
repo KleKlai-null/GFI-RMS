@@ -256,6 +256,45 @@
                 }
             });
         });
+
+        $("#IG_input_others").hide();
+        $(document).ready(function () {
+            $("input[name=item_group]").change(function(){
+                if($("#IG_others").is(':checked')){
+                    $("#IG_input_others").show();
+                    $("#IG_input_others").val('');
+                }else{
+                    $("#IG_input_others").hide();
+                    $("#IG_input_others").val('');
+                }
+            });
+        });
+
+        $("#PVG_item_input_others").hide();
+        $(document).ready(function () {
+            $("input[name=PVG_item_group]").change(function(){
+                if($("#PVG_item_others").is(':checked')){
+                    $("#PVG_item_input_others").show();
+                    $("#PVG_item_input_others").val('');
+                }else{
+                    $("#PVG_item_input_others").hide();
+                    $("#PVG_item_input_others").val('');
+                }
+            });
+        });
+
+        $("#SVG_item_input_others").hide();
+        $(document).ready(function () {
+            $("input[name=SVG_item_group]").change(function(){
+                if($("#SVG_item_others").is(':checked')){
+                    $("#SVG_item_input_others").show();
+                    $("#SVG_item_input_others").val('');
+                }else{
+                    $("#SVG_item_input_others").hide();
+                    $("#SVG_item_input_others").val('');
+                }
+            });
+        });
     </script>
     <script src="{{ asset('asset/images/lord-icon/lord-icon-dependency.js') }}"></script>
     <script>

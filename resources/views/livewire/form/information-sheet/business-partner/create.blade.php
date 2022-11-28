@@ -163,7 +163,7 @@
                                         <div>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
-                                                    <input type="text" class="form-control border-0 border-bottom"
+                                                    <input type="date" class="form-control border-0 border-bottom"
                                                         placeholder="Registration Date" wire:model.lazy="registration_date">
                                                 </div>
                                             </label>                              
