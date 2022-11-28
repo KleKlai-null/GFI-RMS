@@ -28,7 +28,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Date Processed</div>
                             <div class="datagrid-content">
-                                <input type="date" class="form-control form-control-flush"
+                                <input type="date" class="form-control border-0 border-bottom"
                                     placeholder="Date Processed" wire:model.defer="date_processed">
                             </div>
                         </div>
@@ -65,44 +65,15 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Date From</div>
                             <div class="datagrid-content input-icon">
-                                <span class="input-icon-addon">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/calendar -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <rect x="4" y="5" width="16" height="16"
-                                            rx="2"></rect>
-                                        <line x1="16" y1="3" x2="16" y2="7"></line>
-                                        <line x1="8" y1="3" x2="8" y2="7"></line>
-                                        <line x1="4" y1="11" x2="20" y2="11"></line>
-                                        <line x1="11" y1="15" x2="12" y2="15"></line>
-                                        <line x1="12" y1="15" x2="12" y2="18"></line>
-                                    </svg>
                                 </span>
-                                <input class="form-control" placeholder="Select a date" id="datepicker-icon-prepend"
+                                <input class="form-control border-0 border-bottom" placeholder="Select a date" id="datepicker-icon-prepend"
                                     type="date" wire:model.defer="date_from">
                             </div>
                         </div>
                         <div class="datagrid-item">
                             <div class="datagrid-title">Date To</div>
                             <div class="datagrid-content input-icon">
-                                <span class="input-icon-addon">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/calendar -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24"
-                                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <rect x="4" y="5" width="16" height="16"
-                                            rx="2"></rect>
-                                        <line x1="16" y1="3" x2="16" y2="7"></line>
-                                        <line x1="8" y1="3" x2="8" y2="7"></line>
-                                        <line x1="4" y1="11" x2="20" y2="11"></line>
-                                        <line x1="11" y1="15" x2="12" y2="15"></line>
-                                        <line x1="12" y1="15" x2="12" y2="18"></line>
-                                    </svg>
-                                </span>
-                                <input class="form-control " placeholder="Select a date" id="datepicker-icon"
+                                <input class="form-control border-0 border-bottom" placeholder="Select a date" id="datepicker-icon"
                                 type="date" wire:model.defer="date_to">
                             </div>
                         </div>
@@ -145,14 +116,14 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Brand</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush" placeholder="Brand" wire:model.defer="item_details_brand">
+                                <input type="text" class="form-control border-0 border-bottom" placeholder="Brand" wire:model.defer="item_details_brand">
                             </div>
                         </div>
 
                         <div class="datagrid-item">
                             <div class="datagrid-title">Model/Specification</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Model/Specification" wire:model.defer="item_details_model">
                             </div>
                         </div>
@@ -160,7 +131,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Generic Description</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Generic Description" wire:model.defer="item_details_generic_description">
                             </div>
                         </div>
@@ -168,7 +139,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Manufacturer</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Manufacturer" wire:model.defer="item_details_manufacturer">
                             </div>
                         </div>
@@ -176,7 +147,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">UoM Group</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="UoM Group" wire:model.defer="item_details_uom_group">
                             </div>
                         </div>
@@ -184,14 +155,14 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Barcode</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush" placeholder="Barcode" wire:model.defer="item_details_barcode">
+                                <input type="text" class="form-control border-0 border-bottom" placeholder="Barcode" wire:model.defer="item_details_barcode">
                             </div>
                         </div>
 
                         <div class="datagrid-item">
                             <div class="datagrid-title">Country of Origin</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Country of Origin" wire:model.defer="item_details_country">
                             </div>
                         </div>
@@ -218,7 +189,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Preferred Vendor</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Preferred Vendor" wire:model.defer="purchasing_data_preferred_vendor">
                             </div>
                         </div>
@@ -226,7 +197,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Purchasing UoM</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Purchasing UoM" wire:model.defer="purchasing_data_purchasing_uom">
                             </div>
                         </div>
@@ -234,7 +205,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Packaging UoM</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Packaging UoM" wire:model.defer="purchasing_data_packaging_uom">
                             </div>
                         </div>
@@ -242,7 +213,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Items Per Purchase Unit</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Items Per Purchase Unit" wire:model.defer="purchasing_data_items_per_purchase_unit">
                             </div>
                         </div>
@@ -250,7 +221,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Qty Per Package</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Qty Per Package" wire:model.defer="purchasing_data_qty_per_package">
                             </div>
                         </div>
@@ -258,14 +229,14 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Barcode</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush" placeholder="Barcode" wire:model.defer="purchasing_data_barcode">
+                                <input type="text" class="form-control border-0 border-bottom" placeholder="Barcode" wire:model.defer="purchasing_data_barcode">
                             </div>
                         </div>
 
                         <div class="datagrid-item">
                             <div class="datagrid-title">Country of Origin</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Country of Origin" wire:model.defer="purchasing_data_country">
                             </div>
                         </div>
@@ -327,7 +298,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Sales UoM</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Sales UoM" wire:model.defer="sales_data_sales_uom">
                             </div>
                         </div>
@@ -335,7 +306,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Packaging UoM</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Packaging UoM" wire:model.defer="sales_data_packaging_uom">
                             </div>
                         </div>
@@ -343,7 +314,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Items Per Sales Unit</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Items Per Sales Unit" wire:model.defer="sales_data_items_per_sales_unit">
                             </div>
                         </div>
@@ -351,7 +322,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Qty Per Package</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Qty Per Package" wire:model.defer="sales_data_qty_per_packages">
                             </div>
                         </div>
@@ -359,14 +330,14 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Barcode</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush" placeholder="Barcode" wire:model.defer="sales_data_barcode">
+                                <input type="text" class="form-control border-0 border-bottom" placeholder="Barcode" wire:model.defer="sales_data_barcode">
                             </div>
                         </div>
 
                         <div class="datagrid-item">
                             <div class="datagrid-title">Country of Origin</div>
                             <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
+                                <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Country of Origin" wire:model.defer="sales_data_country">
                             </div>
                         </div>
@@ -486,7 +457,7 @@
                                 </label>
                                 <div class="datagrid-title">Inventory UoM</div>
                                 <div class="datagrid-content">
-                                    <input type="text" class="form-control form-control-flush"
+                                    <input type="text" class="form-control border-0 border-bottom"
                                         placeholder="Inventory UoM" wire:model.defer="inventory_uom">
                                 </div>
                             </div>
@@ -505,21 +476,21 @@
                                 <div class="col-md">
                                     <div class="datagrid-title">UoM</div>
                                     <div class="datagrid-content">
-                                        <input type="text" class="form-control form-control-flush"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             placeholder="UoM" wire:model.defer="inventory_level_uom">
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="datagrid-title">Minimum</div>
                                     <div class="datagrid-content">
-                                        <input type="text" class="form-control form-control-flush"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             placeholder="Minimum" wire:model.defer="inventory_level_minimum">
                                     </div>
                                 </div>
                                 <div class="col-md">
                                     <div class="datagrid-title">Maximum</div>
                                     <div class="datagrid-content">
-                                        <input type="text" class="form-control form-control-flush"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             placeholder="Maximum" wire:model.defer="inventory_level_maximum">
                                     </div>
                                 </div>
@@ -534,21 +505,21 @@
                                 <div class="col mb-2">
                                     <div class="datagrid-title">Asset Class</div>
                                     <div class="datagrid-content">
-                                        <input type="text" class="form-control form-control-flush"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             placeholder="Asset Class" wire:model.defer="fixed_data_asset_class">
                                     </div>
                                 </div>
                                 <div class="col mb-2">
                                     <div class="datagrid-title">Asset Group</div>
                                     <div class="datagrid-content">
-                                        <input type="text" class="form-control form-control-flush"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             placeholder="Asset Group" wire:model.defer="fixed_data_asset_group">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="datagrid-title">Depreciation Group</div>
                                     <div class="datagrid-content">
-                                        <input type="text" class="form-control form-control-flush"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             placeholder="Depreciation Group" wire:model.defer="fixed_data_depreciation_group">
                                     </div>
                                 </div>
@@ -560,21 +531,21 @@
                                 <div class="col mb-2">
                                     <div class="datagrid-title">Inventory No.</div>
                                     <div class="datagrid-content">
-                                        <input type="text" class="form-control form-control-flush"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             placeholder="Inventory No." wire:model.defer="fixed_data_inventory_no">
                                     </div>
                                 </div>
                                 <div class="col mb-2">
                                     <div class="datagrid-title">Serial No.</div>
                                     <div class="datagrid-content">
-                                        <input type="text" class="form-control form-control-flush"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             placeholder="Serial No." wire:model.defer="fixed_data_serial_no">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="datagrid-title">Location</div>
                                     <div class="datagrid-content">
-                                        <input type="text" class="form-control form-control-flush"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             placeholder="Location" wire:model.defer="fixed_data_location">
                                     </div>
                                 </div>
@@ -586,21 +557,21 @@
                                 <div class="col mb-2">
                                     <div class="datagrid-title">Technician</div>
                                     <div class="datagrid-content">
-                                        <input type="text" class="form-control form-control-flush"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             placeholder="Technician" wire:model.defer="fixed_data_technician">
                                     </div>
                                 </div>
                                 <div class="col mb-2">
                                     <div class="datagrid-title">Employee</div>
                                     <div class="datagrid-content">
-                                        <input type="text" class="form-control form-control-flush"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             placeholder="Employee" wire:model.defer="fixed_data_employee">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="datagrid-title">Capitalization Date</div>
                                     <div class="datagrid-content">
-                                        <input type="text" class="form-control form-control-flush"
+                                        <input type="text" class="form-control border-0 border-bottom"
                                             placeholder="Capitalization Date" wire:model.defer="fixed_data_capitalization_date">
                                     </div>
                                 </div>
@@ -645,21 +616,21 @@
                                     <div class="col">
                                         <div class="datagrid-title">Min. Order Qty</div>
                                         <div class="datagrid-content">
-                                            <input type="text" class="form-control form-control-flush"
+                                            <input type="text" class="form-control border-0 border-bottom"
                                                 placeholder="Min. Order Qty" wire:model.defer="order_method_min_order_qty">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="datagrid-title">Lead Time (Days)</div>
                                         <div class="datagrid-content">
-                                            <input type="text" class="form-control form-control-flush"
+                                            <input type="text" class="form-control border-0 border-bottom"
                                                 placeholder="Lead Time (Days)" wire:model.defer="order_method_lead_time">
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="datagrid-title">Tolerance (Day)</div>
                                         <div class="datagrid-content">
-                                            <input type="text" class="form-control form-control-flush"
+                                            <input type="text" class="form-control border-0 border-bottom"
                                                 placeholder="Tolerance (Day)" wire:model.defer="order_method_tolerance">
                                         </div>
                                     </div>

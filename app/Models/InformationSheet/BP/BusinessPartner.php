@@ -27,6 +27,11 @@ class BusinessPartner extends Model
         });
     }
 
+    protected $with =[
+        'certifications',
+        'contactpersons',
+    ];
+
     public function certifications(){
         return $this->hasMany(Certification::class);
     }
@@ -35,11 +40,11 @@ class BusinessPartner extends Model
         return $this->hasMany(ContactPerson::class);
     }
 
-    public function approvalroutings(){
-        return $this->hasMany(ApprovalRouting::class);
+    public function approvalrouting(){
+        return $this->hasOne(ApprovalRouting::class);
     }
 
-    public function documenttables(){
-        return $this->hasMany(DocumentTable::class);
+    public function documenttable(){
+        return $this->hasOne(DocumentTable::class);
     }
 }

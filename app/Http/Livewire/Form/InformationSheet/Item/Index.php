@@ -11,7 +11,7 @@ class Index extends Component
     public $model = 'App\Models\InformationSheet\Item\Item';
     public function render()
     {
-        $data = $this->model::select('*')->paginate(6);
+        $data = $this->model::paginate(6);
         return view('livewire.form.information-sheet.item.index', [
             'title' => 'Item Information Sheet',
             'datas' => $data,

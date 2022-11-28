@@ -84,7 +84,7 @@ Route::middleware(['auth'])->group(function () {
     // Route::group(function () {
         
         Route::get('item/create', App\Http\Livewire\Form\InformationSheet\Item\Create::class)->name('item.create');
-        Route::get('item/show', App\Http\Livewire\Form\InformationSheet\Item\Show::class)->name('item.show');
+        Route::get('item/show/{data}', App\Http\Livewire\Form\InformationSheet\Item\Show::class)->name('item.show');
         Route::get('item', App\Http\Livewire\Form\InformationSheet\Item\Index::class)->name('item');
 
         Route::get('business-partner/create', App\Http\Livewire\Form\InformationSheet\BusinessPartner\Create::class)->name('business-partner.create');

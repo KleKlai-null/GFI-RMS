@@ -63,14 +63,14 @@
                                                 <label class="form-label">Date from</label>
                                                 <div class="datagrid-content">
                                                     <input type="date" class="form-control border-0 border-bottom"
-                                                    wire:model.lazy="date_from">
+                                                    wire:model.defer="date_from">
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <label class="form-label">Date to</label>
                                                 <div class="datagrid-content">
                                                     <input type="date" class="form-control border-0 border-bottom"
-                                                    wire:model.lazy="date_to">
+                                                    wire:model.defer="date_to">
                                                 </div>
                                             </div>
                                         </div>
@@ -79,14 +79,14 @@
                                         <label class="form-label">Document Number</label>
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0 border-bottom"
-                                                    placeholder="Document no." wire:model.lazy="document_no">
+                                                    placeholder="Document no." wire:model.defer="document_no">
                                             </div>
                                     </div>
                                     <div class="col-2">
                                         <label class="form-label">Date Processed</label>
                                         <div class="datagrid-content">
                                             <input type="date" class="form-control border-0 border-bottom"
-                                                placeholder="Date Processed" wire:model.lazy="date_processed">
+                                                placeholder="Date Processed" wire:model.defer="date_processed">
                                         </div>
                                     </div>
                                 </div>
@@ -97,25 +97,25 @@
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Registered Name" wire:model.lazy="registered_name">
+                                                        placeholder="Registered Name" wire:model.defer="registered_name">
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Trade Name" wire:model.lazy="trade_name">
+                                                        placeholder="Trade Name" wire:model.defer="trade_name">
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Billing Address" wire:model.lazy="billing_address">
+                                                        placeholder="Billing Address" wire:model.defer="billing_address">
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Shipping Address" wire:model.lazy="shipping_address">
+                                                        placeholder="Shipping Address" wire:model.defer="shipping_address">
                                                 </div>
                                             </label>
                                         </div>
@@ -125,25 +125,25 @@
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Telephone No." wire:model.lazy="telephone_no">
+                                                        placeholder="Telephone No." wire:model.defer="telephone_no">
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Fax No." wire:model.lazy="fax_no">
+                                                        placeholder="Fax No." wire:model.defer="fax_no">
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Mobile No." wire:model.lazy="mobile_no">
+                                                        placeholder="Mobile No." wire:model.defer="mobile_no">
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Email Address" wire:model.lazy="email_address">
+                                                        placeholder="Email Address" wire:model.defer="email_address">
                                                 </div>
                                             </label>
                                         </div>
@@ -154,7 +154,7 @@
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Tax ID No." wire:model.lazy="tax_id_no">
+                                                        placeholder="Tax ID No." wire:model.defer="tax_id_no">
                                                 </div>
                                             </label>
                                         </div>
@@ -164,7 +164,7 @@
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="date" class="form-control border-0 border-bottom"
-                                                        placeholder="Registration Date" wire:model.lazy="registration_date">
+                                                        placeholder="Registration Date" wire:model.defer="registration_date">
                                                 </div>
                                             </label>                              
                                         </div>
@@ -174,7 +174,7 @@
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Website" wire:model.lazy="website">
+                                                        placeholder="Website" wire:model.defer="website">
                                                 </div>
                                             </label>
                                         
@@ -384,31 +384,31 @@
                                             <label class="form-check">
                                                 {{-- <div class="datagrid-content"> --}}
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Bank Name" wire:model.lazy="bank_name">
+                                                        placeholder="Bank Name" wire:model.defer="bank_name">
                                                 {{-- </div> --}}
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Bank Address" wire:model.lazy="bank_address">
+                                                        placeholder="Bank Address" wire:model.defer="bank_address">
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Account Name" wire:model.lazy="account_name">
+                                                        placeholder="Account Name" wire:model.defer="account_name">
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Account No." wire:model.lazy="account_no">
+                                                        placeholder="Account No." wire:model.defer="account_no">
                                                 </div>
                                             </label>
                                             <label class="form-check">
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="Swift Code" wire:model.lazy="swift_code">
+                                                        placeholder="Swift Code" wire:model.defer="swift_code">
                                                 </div>
                                             </label>
                                         </div>
@@ -718,7 +718,7 @@
                                 <div class="col-12">
                                         <div class="datagrid-content">
                                             <input type="text" class="form-control border-0 border-bottom"
-                                            wire:model.lazy="remarks_signatory">
+                                            wire:model.defer="remarks_signatory">
                                         </div>
                                         <div class="datagrid-title text-left">Remarks Signatory</div>
                                 </div>

@@ -270,7 +270,7 @@ class Create extends Component
 
             DB::commit();
             $this->reset();
-            // return redirect()->route('business-partner.show',$data);
+            return redirect()->route('fix-asset.show',$data);
         }catch(Exception $exception){
             DB::rollback();
             Log::error($exception);

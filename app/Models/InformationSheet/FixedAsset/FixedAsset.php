@@ -23,7 +23,7 @@ class FixedAsset extends Model
         });
     }
 
-    public function approvalroutings(){
-        return $this->hasMany(ApprovalRoutingFixedAsset::class);
+    public function approvalrouting(){
+        return $this->hasOne(ApprovalRoutingFixedAsset::class);
     }
 }

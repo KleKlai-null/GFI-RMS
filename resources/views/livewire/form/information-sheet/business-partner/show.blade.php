@@ -630,7 +630,7 @@
                         </div>
 
 
-                        {{-- <div class="card mt-2">
+                        <div class="card mt-2">
                             <div class="card-body">
                                 <h3 class="card-title text-center form-fieldset">***** APPROVAL ROUTING *****</h3>
                                 <div class="datagrid mb-3">
@@ -641,14 +641,14 @@
                                                 <div class="col">
                                                     <div class="datagrid-content">
                                                         <input type="text" class="form-control border-0 border-bottom"
-                                                        wire:model.defer="operations_SOPN">
+                                                        value="{{$data->approvalrouting->operations_SOPN}}">
                                                     </div>
                                                     <div class="datagrid-title text-center">Signature Over Printed Name</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="datagrid-content">
                                                         <input type="date" class="form-control border-0 border-bottom"
-                                                        wire:model.defer="operations_date">
+                                                        value="{{$data->approvalrouting->operations_date}}">
                                                     </div>
                                                     <div class="datagrid-title text-center">Date</div>
                                                 </div>
@@ -656,11 +656,11 @@
                                                     <div class="datagrid-title">Status</div>
                                                     <div class="datagrid-content">
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="checkbox" wire:model.defer="operations_status" value="Passed" name="operations_status">
+                                                            <input class="form-check-input" type="radio" {{ ($data->approvalrouting->operations_status === 'Passed') ? 'checked' : '' }}>
                                                             <span class="form-check-label">Passed</span>
                                                         </label>
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="checkbox" wire:model.defer="operations_status" value="Rejected" name="operations_status">
+                                                            <input class="form-check-input" type="radio" {{ ($data->approvalrouting->operations_status === 'Rejected') ? 'checked' : '' }}>
                                                             <span class="form-check-label">Rejected</span>
                                                         </label>
                                                     </div>
@@ -676,14 +676,14 @@
                                                 <div class="col">
                                                     <div class="datagrid-content">
                                                         <input type="text" class="form-control border-0 border-bottom"
-                                                        wire:model.defer="corporate_finance_SOPN">
+                                                        value="{{$data->approvalrouting->corporate_finance_SOPN}}">
                                                     </div>
                                                     <div class="datagrid-title text-center">Signature Over Printed Name</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="datagrid-content">
                                                         <input type="date" class="form-control border-0 border-bottom"
-                                                        wire:model.defer="corporate_finance_date">
+                                                        value="{{$data->approvalrouting->corporate_finance_date}}">
                                                     </div>
                                                     <div class="datagrid-title text-center">Date</div>
                                                 </div>
@@ -691,11 +691,11 @@
                                                     <div class="datagrid-title">Status</div>
                                                     <div class="datagrid-content">
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="checkbox" wire:model.defer="corporate_finance_status" value="Passed" name="corporate_finance_status">
+                                                            <input class="form-check-input" type="radio" {{ ($data->approvalrouting->corporate_finance_status === 'Passed') ? 'checked' : '' }}>
                                                             <span class="form-check-label">Passed</span>
                                                         </label>
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="checkbox" wire:model.defer="corporate_finance_status" value="Rejected" name="corporate_finance_status">
+                                                            <input class="form-check-input" type="radio" {{ ($data->approvalrouting->corporate_finance_status === 'Rejected') ? 'checked' : '' }}>
                                                             <span class="form-check-label">Rejected</span>
                                                         </label>
                                                     </div>
@@ -713,14 +713,14 @@
                                                 <div class="col">
                                                     <div class="datagrid-content">
                                                         <input type="text" class="form-control border-0 border-bottom"
-                                                        wire:model.defer="supply_chain_human_resource_SOPN">
+                                                        value="{{$data->approvalrouting->supply_chain_human_resource_SOPN}}">
                                                     </div>
                                                     <div class="datagrid-title text-center">Signature Over Printed Name</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="datagrid-content">
-                                                        <input type="date" class="form-control border-0 border-bottom"
-                                                        wire:model.defer="supply_chain_human_resource_date">
+                                                        <input type="text" class="form-control border-0 border-bottom"
+                                                        value="{{$data->approvalrouting->supply_chain_human_resource_date}}">
                                                     </div>
                                                     <div class="datagrid-title text-center">Date</div>
                                                 </div>
@@ -728,11 +728,11 @@
                                                     <div class="datagrid-title">Status</div>
                                                     <div class="datagrid-content">
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="checkbox" wire:model.defer="supply_chain_human_resource_status" value="Passed" name="supply_chain_human_resource_status">
+                                                            <input class="form-check-input" type="radio" {{ ($data->approvalrouting->supply_chain_human_resource_status === 'Passed') ? 'checked' : '' }}>
                                                             <span class="form-check-label">Passed</span>
                                                         </label>
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="checkbox" wire:model.defer="supply_chain_human_resource_status" value="Rejected" name="supply_chain_human_resource_status">
+                                                            <input class="form-check-input" type="radio" {{ ($data->approvalrouting->supply_chain_human_resource_status === 'Rejected') ? 'checked' : '' }}>
                                                             <span class="form-check-label">Rejected</span>
                                                         </label>
                                                     </div>
@@ -748,14 +748,14 @@
                                                 <div class="col">
                                                     <div class="datagrid-content">
                                                         <input type="date" class="form-control border-0 border-bottom"
-                                                        wire:model.defer="audit_SOPN">
+                                                        value="{{$data->approvalrouting->audit_SOPN}}">
                                                     </div>
                                                     <div class="datagrid-title text-center">Signature Over Printed Name</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="datagrid-content">
                                                         <input type="text" class="form-control border-0 border-bottom"
-                                                        wire:model.defer="audit_date">
+                                                        value="{{$data->approvalrouting->audit_date}}">
                                                     </div>
                                                     <div class="datagrid-title text-center">Date</div>
                                                 </div>
@@ -763,11 +763,11 @@
                                                     <div class="datagrid-title">Status</div>
                                                     <div class="datagrid-content">
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="checkbox" wire:model.defer="audit_status" value="Passed" name="audit_status">
+                                                            <input class="form-check-input" type="radio" {{ ($data->approvalrouting->audit_status === 'Passed') ? 'checked' : '' }}>
                                                             <span class="form-check-label">Passed</span>
                                                         </label>
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="checkbox" wire:model.defer="audit_status" value="Rejected" name="audit_status">
+                                                            <input class="form-check-input" type="radio" {{ ($data->approvalrouting->audit_status === 'Rejected') ? 'checked' : '' }}>
                                                             <span class="form-check-label">Rejected</span>
                                                         </label>
                                                     </div>
@@ -785,14 +785,14 @@
                                                 <div class="col">
                                                     <div class="datagrid-content">
                                                         <input type="text" class="form-control border-0 border-bottom"
-                                                        wire:model.defer="finance_SOPN">
+                                                        value="{{$data->approvalrouting->finance_SOPN}}">
                                                     </div>
                                                     <div class="datagrid-title text-center">Signature Over Printed Name</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="datagrid-content">
                                                         <input type="date" class="form-control border-0 border-bottom"
-                                                        wire:model.defer="finance_date">
+                                                        value="{{$data->approvalrouting->finance_date}}">
                                                     </div>
                                                     <div class="datagrid-title text-center">Date</div>
                                                 </div>
@@ -800,11 +800,11 @@
                                                     <div class="datagrid-title">Status</div>
                                                     <div class="datagrid-content">
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="checkbox" wire:model.defer="finance_status" value="Passed" name="finance_status">
+                                                            <input class="form-check-input" type="radio" {{ ($data->approvalrouting->finance_status === 'Passed') ? 'checked' : '' }}>
                                                             <span class="form-check-label">Passed</span>
                                                         </label>
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="checkbox" wire:model.defer="finance_status" value="Rejected" name="finance_status">
+                                                            <input class="form-check-input" type="radio" {{ ($data->approvalrouting->finance_status === 'Rejected') ? 'checked' : '' }}>
                                                             <span class="form-check-label">Rejected</span>
                                                         </label>
                                                     </div>
@@ -820,14 +820,14 @@
                                                 <div class="col">
                                                     <div class="datagrid-content">
                                                         <input type="text" class="form-control border-0 border-bottom"
-                                                        wire:model.defer="system_administrator_SOPN">
+                                                        value="{{$data->approvalrouting->system_administrator_SOPN}}">
                                                     </div>
                                                     <div class="datagrid-title text-center">Signature Over Printed Name</div>
                                                 </div>
                                                 <div class="col">
                                                     <div class="datagrid-content">
                                                         <input type="date" class="form-control border-0 border-bottom"
-                                                        wire:model.defer="system_administrator_date">
+                                                        value="{{$data->approvalrouting->system_administrator_date}}">
                                                     </div>
                                                     <div class="datagrid-title text-center">Date</div>
                                                 </div>
@@ -835,11 +835,11 @@
                                                     <div class="datagrid-title">Status</div>
                                                     <div class="datagrid-content">
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="checkbox" wire:model.defer="system_administrator_status" value="Passed" name="system_administrator_status">
+                                                            <input class="form-check-input" type="radio" {{ ($data->approvalrouting->system_administrator_status === 'Passed') ? 'checked' : '' }}>
                                                             <span class="form-check-label">Passed</span>
                                                         </label>
                                                         <label class="form-check">
-                                                            <input class="form-check-input" type="checkbox" wire:model.defer="system_administrator_status" value="Rejected" name="system_administrator_status">
+                                                            <input class="form-check-input" type="radio" {{ ($data->approvalrouting->system_administrator_status === 'Rejected') ? 'checked' : '' }}>
                                                             <span class="form-check-label">Rejected</span>
                                                         </label>
                                                     </div>
@@ -848,19 +848,20 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-                        </div> --}}
-                        {{-- {{$data->approvalroutings}} --}}
-                        {{-- <div class="card mt-2">
+                        </div>
+
+                        <div class="card mt-2">
                             <div class="card-body">
                                 <div class="row justify-content-end">
                                     <div class="col-2">
-          
+                                        {{-- <label class="form-check"> --}}
                                             <div class="datagrid-content ">
                                                 <input type="text" class="form-control border-0 border-bottom"
-                                                    placeholder="Document No.">
+                                                    placeholder="Document No." value="{{$data->documenttable->document_no_page_2}}">
                                             </div>
-                               
+                                        {{-- </label> --}}
                                     </div>
                                 </div>
                             <h3>Checklist of Requirements</h3>
@@ -891,32 +892,31 @@
                                         <td >Latest Business Permit<span style="color:red">*</span></td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_1_individual) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_1_corporation) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_1_cooperative) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_1_submitted) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                                >
+                                                <input type="text" class="form-control border-0" value="{{$data->documenttable->DN_1_RNS}}">
                                             </div>
                                         </td>
                                     </tr>
@@ -924,32 +924,31 @@
                                         <td >DTI Certificate<span style="color:red">*</span></td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_2_individual) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                               >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_2_corporation) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_2_cooperative) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_2_submitted) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                               >
+                                                <input type="text" class="form-control border-0" value="{{$data->documenttable->DN_2_RNS}}">
                                             </div>
                                         </td>
                                     </tr>
@@ -957,32 +956,31 @@
                                         <td >Articles of Incorporation/Cooperation & by laws</td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_3_individual) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_3_corporation) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                               >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_3_cooperative) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_3_submitted) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                             >
+                                                <input type="text" class="form-control border-0" value="{{$data->documenttable->DN_3_RNS}}">
                                             </div>
                                         </td>
                                     </tr>
@@ -990,32 +988,31 @@
                                         <td >BIR Registration Form 2303<span style="color:red">*</span></td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                              >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_4_individual) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                               >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_4_corporation) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                               >
+                                                <input type="checkbox"
+                                               {{ ($data->documenttable->DN_4_cooperative) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                              >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_4_submitted) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                              >
+                                                <input type="text" class="form-control border-0" value="{{$data->documenttable->DN_4_RNS}}">
                                             </div>
                                         </td>
                                     </tr>
@@ -1023,32 +1020,31 @@
                                         <td >Sample Photocopy of BIR Primary Doc. (OR/SI)</td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox"
+                                              {{ ($data->documenttable->DN_5_individual) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                             >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_5_corporation) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_5_cooperative) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                               >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_5_submitted) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                             >
+                                                <input type="text" class="form-control border-0" value="{{$data->documenttable->DN_5_RNS}}">
                                             </div>
                                         </td>
                                     </tr>
@@ -1056,32 +1052,31 @@
                                         <td >Certificate of Tax Exemption<span style="color:red">*</span></td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                               >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_6_individual) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_6_corporation) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                              >
+                                                <input type="checkbox"
+                                               {{ ($data->documenttable->DN_6_cooperative) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_6_submitted) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                                >
+                                                <input type="text" class="form-control border-0" value="{{$data->documenttable->DN_6_RNS}}">
                                             </div>
                                         </td>
                                     </tr>
@@ -1089,32 +1084,31 @@
                                         <td >Certification (Person Authorized to Transact Business)</td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_7_individual) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_7_corporation) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                               >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_7_cooperative) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                             >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_7_submitted) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                                >
+                                                <input type="text" class="form-control border-0" value="{{$data->documenttable->DN_7_RNS}}">
                                             </div>
                                         </td>
                                     </tr>
@@ -1122,32 +1116,31 @@
                                         <td >Photocopy of Valid ID of Authorized Representative(s)</td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                               >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_8_individual) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_8_corporation) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                               >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_8_cooperative) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                               >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_8_submitted) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                               >
+                                                <input type="text" class="form-control border-0" value="{{$data->documenttable->DN_8_RNS}}">
                                             </div>
                                         </td>
                                     </tr>
@@ -1155,32 +1148,31 @@
                                         <td >Latest BIR-stamped Audited Financial Statement</td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_9_individual) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_9_corporation) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                               >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_9_cooperative) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_9_submitted) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                                >
+                                                <input type="text" class="form-control border-0" value="{{$data->documenttable->DN_9_RNS}}">
                                             </div>
                                         </td>
                                     </tr>
@@ -1188,32 +1180,31 @@
                                         <td >Latest General Information Sheet (GIS)</td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                              >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_10_individual) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_10_corporation) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_10_cooperative) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                               >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_10_submitted) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                               >
+                                                <input type="text" class="form-control border-0" value="{{$data->documenttable->DN_10_RNS}}">
                                             </div>
                                         </td>
                                     </tr>      
@@ -1224,40 +1215,39 @@
                                         <td >Credit Application Form<span style="color:red">*</span></td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_11_individual) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox" 
+                                               {{ ($data->documenttable->DN_11_corporation) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td style="background-color: rgb(236, 236, 236)">
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0" style="background-color: rgb(236, 236, 236)"
-                                                >
+                                                <input type="checkbox"
+                                                {{ ($data->documenttable->DN_11_cooperative) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                                >
+                                                <input type="checkbox" 
+                                                {{ ($data->documenttable->DN_11_submitted) ? 'checked' : '' }}>
                                             </div>
                                         </td>
                                         <td >
                                             <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0"
-                                                >
+                                                <input type="text" class="form-control border-0" value="{{$data->documenttable->DN_11_RNS}}">
                                             </div>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                             </div>
-                        </div> --}}
-                        {{-- {{$data->documenttables}} --}}
+                        </div>
+                        {{-- {{$data->documenttable->document_no_page_2}} --}}
                     </div>
                 </div>
             </div>

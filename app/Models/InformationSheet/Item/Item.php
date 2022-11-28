@@ -23,7 +23,7 @@ class Item extends Model
         });
     }
 
-    public function approvalroutings(){
-        return $this->hasMany(ApprovalRoutingItems::class);
+    public function approvalrouting(){
+        return $this->hasOne(ApprovalRoutingItems::class);
     }
 }

@@ -158,6 +158,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="d-flex align-items-center ms-auto">
+                    <ul class="pagination mt-3 de-flex ms-auto">
+                        {{ $datas->withQueryString()->links()}}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

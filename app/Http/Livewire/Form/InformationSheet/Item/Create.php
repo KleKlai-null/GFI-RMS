@@ -277,6 +277,7 @@ class Create extends Component
 
             DB::commit();
             $this->reset();
+            return redirect()->route('item.show',$data);
         }catch(Exception $exception){
             DB::rollback();
             Log::error($exception);
