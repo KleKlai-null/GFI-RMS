@@ -5,6 +5,7 @@ namespace App\Models\InformationSheet\FixedAsset;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\InformationSheet\FixedAsset\ApprovalRoutingFixedAsset;
+use Illuminate\Support\Facades\DB;
 
 class FixedAsset extends Model
 {
@@ -25,5 +26,14 @@ class FixedAsset extends Model
 
     public function approvalrouting(){
         return $this->hasOne(ApprovalRoutingFixedAsset::class);
+    }
+
+    public function scopeSearch($query, $column, $search)
+    {
+        if(DB::connection()->getDriverName() == 'pgsql'){
+            return $query->where($column, 'ilike', '%'.$search.'%');
+        } else {
+            return $query->where($column, 'like', '%'.$search.'%');
+        }
     }
 }

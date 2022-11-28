@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('status_update_inactive')->nullable();
             $table->string('date_from')->nullable();
             $table->string('date_to')->nullable();
-            $table->string('document_no')->nullable();
+            $table->string('document_series_no')->nullable();
             $table->string('date_processed')->nullable();
             $table->string('registered_name')->nullable();
             $table->string('trade_name')->nullable();

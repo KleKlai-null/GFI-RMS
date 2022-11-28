@@ -5,6 +5,7 @@ namespace App\Models\InformationSheet\Item;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\InformationSheet\Item\ApprovalRoutingItems;
+use Illuminate\Support\Facades\DB;
 
 class Item extends Model
 {
@@ -25,5 +26,14 @@ class Item extends Model
 
     public function approvalrouting(){
         return $this->hasOne(ApprovalRoutingItems::class);
+    }
+
+    public function scopeSearch($query, $column, $search)
+    {
+        if(DB::connection()->getDriverName() == 'pgsql'){
+            return $query->where($column, 'ilike', '%'.$search.'%');
+        } else {
+            return $query->where($column, 'like', '%'.$search.'%');
+        }
     }
 }

@@ -79,7 +79,7 @@
                                         <label class="form-label">Document Number</label>
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0 border-bottom"
-                                                    placeholder="Document no." wire:model.defer="document_no">
+                                                    placeholder="Document no." wire:model.defer="document_series_no">
                                             </div>
                                     </div>
                                     <div class="col-2">

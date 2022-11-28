@@ -8,6 +8,7 @@ use App\Models\InformationSheet\BP\Certification;
 use App\Models\InformationSheet\BP\ContactPerson;
 use App\Models\InformationSheet\BP\ApprovalRouting;
 use App\Models\InformationSheet\BP\DocumentTable;
+use Illuminate\Support\Facades\DB;
 
 class BusinessPartner extends Model
 {
@@ -46,5 +47,14 @@ class BusinessPartner extends Model
 
     public function documenttable(){
         return $this->hasOne(DocumentTable::class);
+    }
+
+    public function scopeSearch($query, $column, $search)
+    {
+        if(DB::connection()->getDriverName() == 'pgsql'){
+            return $query->where($column, 'ilike', '%'.$search.'%');
+        } else {
+            return $query->where($column, 'like', '%'.$search.'%');
+        }
     }
 }

@@ -15,7 +15,7 @@ class Create extends Component
     public $i = 1;
     public $contact = 1;
 
-    public $bp_type_customer, $bp_type_supplier , $document_purpose_new_registration, $document_purpose_information_update, $status_update_active, $status_update_inactive, $date_from, $date_to, $document_no, $date_processed, $registered_name, $trade_name,
+    public $bp_type_customer, $bp_type_supplier , $document_purpose_new_registration, $document_purpose_information_update, $status_update_active, $status_update_inactive, $date_from, $date_to, $document_series_no, $date_processed, $registered_name, $trade_name,
     $billing_address, $shipping_address, $tax_id_no, $telephone_no, $fax_no, $mobile_no, $email_address, $website, $registration_date, $type_of_business_corporation, $type_of_business_partnership, $type_of_business_government,$type_of_business_single_proprietorship,$type_of_business_individual_private,$type_of_business_others ,
     $currency_php, $currency_usd, $currency_euro, $currency_yen, $currency_gbp, $currency_others, $business_partner_group_trade, $business_partner_group_non_trade, $business_partner_group_related_party, $business_partner_group_employee, $business_partner_group_others, $payment_terms_cash_on_delivery, $payment_terms_cash_with_orders, $payment_terms_days_month_end, $payment_terms_days_after_delivery, $payment_terms_others, $payment_methods_cash, $payment_methods_check, $payment_methods_electronic_bank_transfer, $payment_methods_others, $bank_name, $bank_address, $account_name, $account_no, $swift_code, $accouts_receivable_payable,
     $down_payment_clearing_account, $donw_payment_interim_account, $withholding_tax, $wtax_codes_allowed, $tax_group_capital_goods, $tax_group_non_capital_goods, $tax_group_services, $tax_group_importations, $tax_group_non_taxable, $tax_group_zero_rated, $tax_group_exempt, $tax_group_others, $remarks_signatory, $full_name,
@@ -32,7 +32,7 @@ class Create extends Component
     public $corporate_finance_SOPN, $corporate_finance_date, $corporate_finance_status;
     public $audit_SOPN, $audit_date, $audit_status;
     public $system_administrator_SOPN, $system_administrator_date, $system_administrator_status;
-    //document_no_page_2
+    //document_series_no_page_2
     public $document_no_page_2;
     public $DN_1_individual, $DN_1_corporation, $DN_1_cooperative, $DN_1_submitted, $DN_1_RNS;
     public $DN_2_individual, $DN_2_corporation, $DN_2_cooperative, $DN_2_submitted, $DN_2_RNS;
@@ -101,7 +101,7 @@ class Create extends Component
             'status_update_inactive'         => 'nullable',
             'date_from'             => 'nullable|date',
             'date_to'               => 'nullable|date',
-            'document_no'           => 'nullable',
+            'document_series_no'           => 'nullable',
             'date_processed'        => 'nullable|date',
             'registered_name'       => 'nullable',
             'trade_name'            => 'nullable',
@@ -266,7 +266,7 @@ class Create extends Component
                 'status_update_inactive'         => $this->status_update_inactive,
                 'date_from'             => $this->date_from,
                 'date_to'               => $this->date_to,
-                'document_no'           => $this->document_no,
+                'document_series_no'           => $this->document_series_no,
                 'date_processed'        => $this->date_processed,
                 'registered_name'       => $this->registered_name,
                 'trade_name'            => $this->trade_name,

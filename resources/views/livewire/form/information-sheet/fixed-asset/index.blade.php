@@ -19,11 +19,11 @@
                 <!-- Page title actions -->
                 <div class="col-12 col-md-auto ms-auto d-print-none">
                     <div class="btn-list">
-                        {{-- <span class="d-none d-sm-inline">
+                        <span class="d-none d-sm-inline">
                             <input type="search"
                                 class="form-control d-inline-block w-9 me-3 {{ empty($datas) ? 'd-none' : '' }}"
                                 wire:model="search" placeholder="Search document series..." />
-                        </span> --}}
+                        </span>
                         <span class="d-none d-sm-inline">
                             <a href="{{ route('fix-asset.create') }}" class="btn btn-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler-playlist-add" width="24" height="24"
@@ -51,6 +51,10 @@
             <div class="col-12">
                 <div class="row row-cards">
 
+                    @if (!empty($datas))
+                        <x-form-inline-statistic :statistic="$statistic" />
+                    @endif
+
                     <div class="card">
                         <div class="card-body mb-4">
                             @if (!empty($datas))
@@ -59,7 +63,8 @@
                                         <thead>
                                             <tr>
                                                 <th><button class="table-sort" data-sort="sort-series">ID</button></th>
-                                                <th><button class="table-sort" data-sort="sort-city">Created By</button></th>
+                                                <th><button class="table-sort" data-sort="sort-city">Document Series Number</button></th>
+                                                <th><button class="table-sort" data-sort="sort-score">Date Processed</button></th>
                                                 <th><button class="table-sort" data-sort="sort-score">Status</button></th>
                                                 <th class="w-1"></th>
                                             </tr>
@@ -69,7 +74,8 @@
                                                 <tr>
                                                     <a href="google.com">
                                                         <td class="sort-series">{{ $data->id }}</td>
-                                                        <td class="sort-city">{{ ucwords($data->user_name) }}</td>
+                                                        <td class="sort-city">{{ ucwords($data->document_series_no) }}</td>
+                                                        <td class="sort-score">{{ $data->date_processed }}</td>
                                                         <td class="sort-score">{{ $data->status }}</td>
                                                         <td>
                                                             <div class="btn-list btn-ghost-primary flex-nowrap">
