@@ -295,6 +295,46 @@
                 }
             });
         });
+
+
+        //edit items
+        $(document).ready(function () {
+            $("input[name=item_group_others]").change(function(){
+                if($("#item_group_others").is(':checked')){
+                    $("#item_group_others_input").show();
+
+                }else{
+                    $("#item_group_others_input").hide();
+                    $("#item_group_others_input").val('');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("input[name=PVG_group_others]").change(function(){
+                if($("#PVG_group_others").is(':checked')){
+                    $("#PVG_group_others_input").show();
+
+                }else{
+                    $("#PVG_group_others_input").hide();
+                    $("#PVG_group_others_input").val('');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("input[name=SVG_group_others]").change(function(){
+                if($("#SVG_group_others").is(':checked')){
+                    $("#SVG_group_others_input").show();
+
+                }else{
+                    $("#SVG_group_others_input").hide();
+                    $("#SVG_group_others_input").val('');
+                }
+            });
+        });
+
+
     </script>
     <script src="{{ asset('asset/images/lord-icon/lord-icon-dependency.js') }}"></script>
     <script>

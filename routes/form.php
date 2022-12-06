@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InformationSheet\ItemController;
 
 /**
  * Be careful on changing show route on every form it might break the Notification 
@@ -85,6 +86,8 @@ Route::middleware(['auth'])->group(function () {
         
         Route::get('item/create', App\Http\Livewire\Form\InformationSheet\Item\Create::class)->name('item.create');
         Route::get('item/show/{data}', App\Http\Livewire\Form\InformationSheet\Item\Show::class)->name('item.show');
+        Route::get('item/edit/{data}', App\Http\Livewire\Form\InformationSheet\Item\Edit::class)->name('item.edit');
+        Route::put('item/update/{data}', [ItemController::class, 'update'])->name('item.update');
         Route::get('item', App\Http\Livewire\Form\InformationSheet\Item\Index::class)->name('item');
 
         Route::get('business-partner/create', App\Http\Livewire\Form\InformationSheet\BusinessPartner\Create::class)->name('business-partner.create');

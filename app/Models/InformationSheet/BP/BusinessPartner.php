@@ -9,10 +9,12 @@ use App\Models\InformationSheet\BP\ContactPerson;
 use App\Models\InformationSheet\BP\ApprovalRouting;
 use App\Models\InformationSheet\BP\DocumentTable;
 use Illuminate\Support\Facades\DB;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class BusinessPartner extends Model
+class BusinessPartner extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory, InteractsWithMedia;
 
     //change guarded
     protected $guarded = [

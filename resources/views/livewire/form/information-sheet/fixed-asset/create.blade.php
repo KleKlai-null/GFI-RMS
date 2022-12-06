@@ -226,7 +226,7 @@
                             </div>
                         </div>
 
-                        <div class="datagrid-item">
+                        {{-- <div class="datagrid-item">
                             <div class="datagrid-title">Barcode</div>
                             <div class="datagrid-content">
                                 <input type="text" class="form-control border-0 border-bottom" placeholder="Barcode" wire:model.defer="purchasing_data_barcode">
@@ -239,7 +239,7 @@
                                 <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Country of Origin" wire:model.defer="purchasing_data_country">
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <h3 class="card-title">Purchasing VAT Group</h3>
@@ -327,7 +327,7 @@
                             </div>
                         </div>
 
-                        <div class="datagrid-item">
+                        {{-- <div class="datagrid-item">
                             <div class="datagrid-title">Barcode</div>
                             <div class="datagrid-content">
                                 <input type="text" class="form-control border-0 border-bottom" placeholder="Barcode" wire:model.defer="sales_data_barcode">
@@ -340,7 +340,7 @@
                                 <input type="text" class="form-control border-0 border-bottom"
                                     placeholder="Country of Origin" wire:model.defer="sales_data_country">
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
                     <h3 class="card-title">Sales VAT Group</h3>
@@ -397,7 +397,7 @@
                     <h3 class="card-title">Inventory Data</h3>
                     <div class="datagrid mb-4">
                         <div class="datagrid-item">
-                            <div class="datagrid-title">Sales UoM</div>
+                            <div class="datagrid-title">Set G/L Accounts by</div>
                             <div class="datagrid-content">
                                 <div class="datagrid-content">
                                     <label class="form-check">
@@ -498,7 +498,7 @@
                         </div>
                     </div>
 
-                    <h3 class="card-title">Fixed Data</h3>
+                    <h3 class="card-title">Fixed Asset</h3>
                     <div class="datagrid mb-4">
                         <div class="datagrid-item">
                             <div class="d-flex flex-column">

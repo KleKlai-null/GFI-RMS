@@ -15,8 +15,12 @@ use App\Events\PDF\MICreditMemo;
 use App\Events\PDF\MRO;
 use App\Events\PDF\SC;
 use App\Events\PDF\MR;
+use App\Events\PDF\bpinformationsheet;
+use App\Events\PDF\fixedassetinformationsheet;
+use App\Events\PDF\iteminformormationsheet;
 use App\Listeners\FormCreditMemoListener;
 use App\Listeners\FormPDFListener;
+use App\Listeners\InformationSheet;
 use App\Models\Department;
 use App\Models\Form\Memorandum;
 use App\Models\Form\ReturnSlip\ReturnSlip;
@@ -110,6 +114,16 @@ class EventServiceProvider extends ServiceProvider
         MACreditMemo::class => [
             FormCreditMemoListener::class.'@ma',
         ],
+        bpinformationsheet::class => [
+            InformationSheet::class.'@bp',
+        ],
+        fixedassetinformationsheet::class => [
+            InformationSheet::class.'@fixedAsset',
+        ],
+        iteminformormationsheet::class => [
+            InformationSheet::class.'@item',
+        ],
+
     ];
 
     /**

@@ -27,12 +27,18 @@ return new class extends Migration
             $table->string('status_update_inactive')->nullable();
             $table->string('date_from')->nullable();
             $table->string('date_to')->nullable();
-            $table->string('item_type_new_registration')->nullable();
-            $table->string('item_type_information_update')->nullable();
-            $table->string('item_class_new_registration')->nullable();
-            $table->string('item_class_information_update')->nullable();
-            $table->string('project_type_new_registration')->nullable();
-            $table->string('project_type_information_update')->nullable();
+            $table->string('item_type_items')->nullable();
+            $table->string('item_type_labor')->nullable();
+
+            $table->string('item_class_inventory_item')->nullable();
+            $table->string('item_class_sales_item')->nullable();
+            $table->string('item_class_purchasing_item')->nullable();
+
+            $table->string('project_type_materials')->nullable();
+            $table->string('project_type_equipment')->nullable();
+            $table->string('project_type_labor_and_equipment')->nullable();
+            $table->string('project_type_labor')->nullable();
+
             $table->string('item_group_DM')->nullable();
             $table->string('item_group_FG')->nullable();
             $table->string('item_group_MI')->nullable();
@@ -59,8 +65,6 @@ return new class extends Migration
             $table->string('purchasing_data_packaging_uom')->nullable();
             $table->string('purchasing_data_items_per_purchase_unit')->nullable();
             $table->string('purchasing_data_qty_per_package')->nullable();
-            $table->string('purchasing_data_barcode')->nullable();
-            $table->string('purchasing_data_country')->nullable();
             $table->string('PVG_group_capital_goods')->nullable();
             $table->string('PVG_group_non_capital_goods')->nullable();
             $table->string('PVG_group_services')->nullable();
@@ -73,8 +77,6 @@ return new class extends Migration
             $table->string('sales_data_packaging_uom')->nullable();
             $table->string('sales_data_items_per_sales_unit')->nullable();
             $table->string('sales_data_qty_per_packages')->nullable();
-            $table->string('sales_data_barcode')->nullable();
-            $table->string('sales_data_country')->nullable();
             $table->string('SVG_group_capital_goods')->nullable();
             $table->string('SVG_group_non_capital_goods')->nullable();
             $table->string('SVG_group_services')->nullable();

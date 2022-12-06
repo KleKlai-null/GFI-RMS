@@ -44,8 +44,8 @@ return new class extends Migration
             $table->string('purchasing_data_packaging_uom')->nullable();
             $table->string('purchasing_data_items_per_purchase_unit')->nullable();
             $table->string('purchasing_data_qty_per_package')->nullable();
-            $table->string('purchasing_data_barcode')->nullable();
-            $table->string('purchasing_data_country')->nullable();
+            // $table->string('purchasing_data_barcode')->nullable();
+            // $table->string('purchasing_data_country')->nullable();
             $table->string('PVG_group_capital_goods')->nullable();
             $table->string('PVG_group_non_capital_goods')->nullable();
             $table->string('PVG_group_services')->nullable();
@@ -58,8 +58,8 @@ return new class extends Migration
             $table->string('sales_data_packaging_uom')->nullable();
             $table->string('sales_data_items_per_sales_unit')->nullable();
             $table->string('sales_data_qty_per_packages')->nullable();
-            $table->string('sales_data_barcode')->nullable();
-            $table->string('sales_data_country')->nullable();
+            // $table->string('sales_data_barcode')->nullable();
+            // $table->string('sales_data_country')->nullable();
             $table->string('SVG_group_capital_goods')->nullable();
             $table->string('SVG_group_non_capital_goods')->nullable();
             $table->string('SVG_group_services')->nullable();

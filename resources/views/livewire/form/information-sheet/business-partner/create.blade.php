@@ -550,7 +550,7 @@
                                             <div class="col-4">
                                                 <input type="text"
                                                     class="form-control  @error('certification_name.' . $value) is-invalid @enderror"
-                                                    placeholder="Certification" wire:model="certification_name.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
+                                                    placeholder="Certification Name" wire:model="certification_name.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
                                                 @error('certification_name.' . $value)
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror

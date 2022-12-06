@@ -30,7 +30,7 @@
                                     <div class="col-4">
                                         <label class="form-label">Date Processed</label>
                                         <input type="date" class="form-control border-0 border-bottom"
-                                            name="Form control flush" placeholder="Document series no."
+                                            name="Form control flush"
                                             wire:model="date_processed">
                                     </div>
                                 </div>
@@ -87,12 +87,12 @@
                                         <div class="form-label">Item Type</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" wire:model.defer="item_type_new_registration">
-                                                <span class="form-check-label">New Registration</span>
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="item_type_items">
+                                                <span class="form-check-label">Items</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" wire:model.defer="item_type_information_update">
-                                                <span class="form-check-label">Information Update</span>
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="item_type_labor">
+                                                <span class="form-check-label">Labor</span>
                                             </label>
                                         </div>
                                     </div>
@@ -100,12 +100,16 @@
                                         <div class="form-label">Item Class</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" wire:model.defer="item_class_new_registration">
-                                                <span class="form-check-label">New Registration</span>
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="item_class_inventory_item">
+                                                <span class="form-check-label">Inventory Item</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" wire:model.defer="item_class_information_update">
-                                                <span class="form-check-label">Information Update</span>
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="item_class_sales_item">
+                                                <span class="form-check-label">Sales Item</span>
+                                            </label>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="item_class_purchasing_item">
+                                                <span class="form-check-label">Purchasing Item</span>
                                             </label>
                                         </div>
                                     </div>
@@ -113,12 +117,20 @@
                                         <div class="form-label">Project Item Type</div>
                                         <div>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" wire:model.defer="project_type_new_registration">
-                                                <span class="form-check-label">New Registration</span>
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="project_type_materials">
+                                                <span class="form-check-label">Materials</span>
                                             </label>
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" wire:model.defer="project_type_information_update">
-                                                <span class="form-check-label">Information Update</span>
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="project_type_equipment">
+                                                <span class="form-check-label">Equipment</span>
+                                            </label>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="project_type_labor_and_equipment">
+                                                <span class="form-check-label">Labor and Equipment</span>
+                                            </label>
+                                            <label class="form-check">
+                                                <input class="form-check-input" type="checkbox" wire:model.defer="project_type_labor">
+                                                <span class="form-check-label">Labor</span>
                                             </label>
                                         </div>
                                     </div>
@@ -297,7 +309,7 @@
                                 </div>
 
                                 <h3 class="card-title">Purchasing Data</h3>
-                                <div class="datagrid mb-4">
+                                <div class="datagrid mb-5">
                                     <div class="datagrid-item">
                                         <div class="datagrid-title">Preferred Vendor</div>
                                         <div class="datagrid-content">
@@ -335,22 +347,6 @@
                                         <div class="datagrid-content">
                                             <input type="text" class="form-control border-0 border-bottom"
                                                 placeholder="Qty Per Package" wire:model.defer="purchasing_data_qty_per_package">
-                                        </div>
-                                    </div>
-            
-                                    <div class="datagrid-item">
-                                        <div class="datagrid-title">Barcode</div>
-                                        <div class="datagrid-content">
-                                            <input type="text" class="form-control border-0 border-bottom" 
-                                            placeholder="Barcode" wire:model.defer="purchasing_data_barcode">
-                                        </div>
-                                    </div>
-            
-                                    <div class="datagrid-item">
-                                        <div class="datagrid-title">Country of Origin</div>
-                                        <div class="datagrid-content">
-                                            <input type="text" class="form-control border-0 border-bottom"
-                                                placeholder="Country of Origin" wire:model.defer="purchasing_data_country">
                                         </div>
                                     </div>
                                 </div>
@@ -437,21 +433,6 @@
                                         <div class="datagrid-content">
                                             <input type="text" class="form-control border-0 border-bottom"
                                                 placeholder="Qty Per Package" wire:model.defer="sales_data_qty_per_packages">
-                                        </div>
-                                    </div>
-            
-                                    <div class="datagrid-item">
-                                        <div class="datagrid-title">Barcode</div>
-                                        <div class="datagrid-content">
-                                            <input type="text" class="form-control border-0 border-bottom" placeholder="Barcode" wire:model.defer="sales_data_barcode">
-                                        </div>
-                                    </div>
-            
-                                    <div class="datagrid-item">
-                                        <div class="datagrid-title">Country of Origin</div>
-                                        <div class="datagrid-content">
-                                            <input type="text" class="form-control border-0 border-bottom"
-                                                placeholder="Country of Origin" wire:model.defer="sales_data_country">
                                         </div>
                                     </div>
                                 </div>
@@ -584,13 +565,13 @@
                                     </div>
             
                                     <div class="datagrid-item">
-                                        <div class="datagrid-title card-title">Inventory Level</div>
+                                        <div class="datagrid-title card-title">Inventory Level (QTY)</div>
                                         <div class="row">
                                             <div class="col-md">
-                                                <div class="datagrid-title">UoM</div>
+                                                <div class="datagrid-title">Required</div>
                                                 <div class="datagrid-content">
                                                     <input type="text" class="form-control border-0 border-bottom"
-                                                        placeholder="UoM" wire:model.defer="inventory_level_uom">
+                                                        placeholder="Required" wire:model.defer="inventory_level_uom">
                                                 </div>
                                             </div>
                                             <div class="col-md">
@@ -789,7 +770,7 @@
         
                             <div class="datagrid mb-3">
                                 <div class="datagrid-item">
-                                    <div class="datagrid-title">2. Supply Chain/Human Resource</div>
+                                    <div class="datagrid-title">2. Supply Chain:</div>
                                     <div class="datagrid-content">
                                         <div class="row">
                                             <div class="col">
