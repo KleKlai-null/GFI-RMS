@@ -12,24 +12,21 @@ use Exception;
 use Throwable;
 use Event;
 use App\Events\PDF\iteminformormationsheet;
+use Carbon\Carbon;
 
 class ItemController extends Controller
 {
 
 
     public function update(Request $request){
-        // dd($request);
-        // $data = Item::findOrFail($request->id);
-        // $data->fill($request->all());
-        // $data->approvalrouting->fill($request->all());
-        // $data->push();
-        try{
+
+        $now = Carbon::now();
+        $modified_now = $now->format('Y-m-d H:i:s');
+
+        try{    
             DB::beginTransaction();
 
-            // Invoices::where('id', $id)->update($request->all());
-            // Item::where('id', $request->id)->update($request->all());
-
-            $data = Item::where('id', $request->id)->update([
+            $data = Item::create([
                 'document_series_no'                        => $request->document_series_no,
                 'date_processed'                            => $request->date_processed,
                 'document_purpose_new_registration'         => $request->document_purpose_new_registration,
@@ -119,10 +116,13 @@ class ItemController extends Controller
                 'issue_method_backflush'                    => $request->issue_method_backflush,
                 'issue_method_manual'                       => $request->issue_method_manual,
                 'properties'                                => $request->properties,
+                'revision'                                  => $request->revision_number,
+                'modified'                                  => $modified_now,
+                'updated_by'                                => auth()->user()->username,
             ]);
 
-            ApprovalRoutingItems::where('item_id', $request->id)->update([
-                'item_id'                                   => $request->id,
+            ApprovalRoutingItems::create([
+                'item_id'                                   => $data->id,
                 'operations_SOPN'                           => $request->operations_SOPN,
                 'operations_date'                           => $request->operations_date,
                 'operations_status'                         => $request->operations_status,
@@ -145,13 +145,9 @@ class ItemController extends Controller
 
             DB::commit();
 
-            dd($data);
-            
             Event::dispatch(new iteminformormationsheet($data));
 
-            // $request->reset();
-
-            return redirect()->route('item.show',$request->id);
+            return redirect()->route('item.show',$data);
 
         }catch(Exception $exception){
             DB::rollback();

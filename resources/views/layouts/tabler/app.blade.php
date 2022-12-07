@@ -334,6 +334,129 @@
             });
         });
 
+        //edit fa
+
+        $(document).ready(function () {
+            $("input[name=PVG_group_others]").change(function(){
+                if($("#PVG_group_others_FA").is(':checked')){
+                    $("#PVG_group_others_input_FA").show();
+
+                }else{
+                    $("#PVG_group_others_input_FA").hide();
+                    $("#PVG_group_others_input_FA").val('');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("input[name=SVG_group_others]").change(function(){
+                if($("#SVG_group_others_FA").is(':checked')){
+                    $("#SVG_group_others_input_FA").show();
+
+                }else{
+                    $("#SVG_group_others_input_FA").hide();
+                    $("#SVG_group_others_input_FA").val('');
+                }
+            });
+        });
+
+        //edit bp
+        $(document).ready(function () {
+            $("input[name=type_of_business_others]").change(function(){
+                if($("#TB_others_edit").is(':checked')){
+                    $("#type_of_business_others_input").show();
+
+                }else{
+                    $("#type_of_business_others_input").hide();
+                    $("#type_of_business_others_input").val('');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("input[name=currency_others]").change(function(){
+                if($("#currency_others_edit").is(':checked')){
+                    $("#currency_others_edit_input").show();
+
+                }else{
+                    $("#currency_others_edit_input").hide();
+                    $("#currency_others_edit_input").val('');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("input[name=business_partner_group_others]").change(function(){
+                if($("#business_partner_group_others_edit").is(':checked')){
+                    $("#business_partner_group_others_edit_input").show();
+
+                }else{
+                    $("#business_partner_group_others_edit_input").hide();
+                    $("#business_partner_group_others_edit_input").val('');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("input[name=payment_terms_days_month_end]").change(function(){
+                if($("#payment_terms_days_month_end_edit").is(':checked')){
+                    $("#payment_terms_days_month_end_edit_input").show();
+
+                }else{
+                    $("#payment_terms_days_month_end_edit_input").hide();
+                    $("#payment_terms_days_month_end_edit_input").val('');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("input[name=payment_terms_days_after_delivery]").change(function(){
+                if($("#payment_terms_days_after_delivery_edit").is(':checked')){
+                    $("#payment_terms_days_after_delivery_edit_input").show();
+
+                }else{
+                    $("#payment_terms_days_after_delivery_edit_input").hide();
+                    $("#payment_terms_days_after_delivery_edit_input").val('');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("input[name=payment_terms_others]").change(function(){
+                if($("#payment_terms_others_edit").is(':checked')){
+                    $("#payment_terms_others_edit_input").show();
+
+                }else{
+                    $("#payment_terms_others_edit_input").hide();
+                    $("#payment_terms_others_edit_input").val('');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("input[name=payment_methods_others]").change(function(){
+                if($("#payment_methods_others_edit").is(':checked')){
+                    $("#payment_methods_others_edit_input").show();
+
+                }else{
+                    $("#payment_methods_others_edit_input").hide();
+                    $("#payment_methods_others_edit_input").val('');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("input[name=tax_group_others]").change(function(){
+                if($("#tax_group_others_edit").is(':checked')){
+                    $("#tax_group_others_edit_input").show();
+
+                }else{
+                    $("#tax_group_others_edit_input").hide();
+                    $("#tax_group_others_edit_input").val('');
+                }
+            });
+        });
+
 
     </script>
     <script src="{{ asset('asset/images/lord-icon/lord-icon-dependency.js') }}"></script>

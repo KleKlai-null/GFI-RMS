@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Log;
 use Exception;
 use Throwable;
 use Event;
+use App\Models\InformationSheet\BP\BusinessPartner;
+use App\Services\DocumentService;
+use Carbon\Carbon;
+
 class Create extends Component
 {
     public $inputs = [];
@@ -64,6 +68,11 @@ class Create extends Component
     {
         array_push($this->inputs, 1);
         array_push($this->inputsContact, 1);
+        $date = Carbon::now();
+        $formatedDate = $date->format('Y-m-d');
+        $this->document_series_no = DocumentService::GenerateSeriesNoForIS('GFI', 'BP');
+        $this->date_processed = $formatedDate;
+
     }
 
     public function addCertification($i)

@@ -18,7 +18,7 @@ trait Generic
             'recordArchive' => 'get_statistic'
         ];
     }
-
+ 
     public function search($model)
     {
         if(auth()->user()->hasRole('administrator'))

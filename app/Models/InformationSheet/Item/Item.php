@@ -19,6 +19,7 @@ class Item extends Model implements HasMedia
 
     protected static function boot()
     {
+        
         parent::boot();
         Item::creating(function($model) {
             $model->user_id = auth()->user()->id;

@@ -89,6 +89,9 @@ return new class extends Migration
             $table->string('position')->nullable();
             $table->string('date')->nullable();
             $table->string('signature')->nullable();
+            $table->integer('revision')->nullable();
+            $table->string('modified')->nullable();
+            $table->string('updated_by')->nullable();
             $table->timestamps();
         });
     }

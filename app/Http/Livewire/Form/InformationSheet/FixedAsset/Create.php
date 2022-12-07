@@ -9,6 +9,8 @@ use Exception;
 use Throwable;
 use Event;
 use App\Events\PDF\fixedassetinformationsheet;
+use App\Services\DocumentService;
+use Carbon\Carbon;
 
 class Create extends Component
 {
@@ -49,6 +51,16 @@ class Create extends Component
         return view('livewire.form.information-sheet.fixed-asset.create', [
             'title' => 'Fixed Asset Sheet'
         ])->layout('layouts.tabler.app');
+    }
+
+    public function mount(){
+
+        $date = Carbon::now();
+        $formatedDate = $date->format('Y-m-d');
+
+        $this->document_series_no = DocumentService::GenerateSeriesNoForIS('GFI', 'FA');
+        $this->date_processed = $formatedDate;
+
     }
 
     public function rules(){

@@ -4,11 +4,13 @@ namespace App\Http\Livewire\Form\InformationSheet\Item;
 
 use Livewire\Component;
 use App\Models\InformationSheet\Item\Item;
+use App\Services\DocumentService;
 
 class Edit extends Component
 {
 
     public $data;
+    public $revision_number;
 
     public function render()
     {
@@ -18,6 +20,9 @@ class Edit extends Component
     }
 
     public function mount(Item $data){
+
         $this->data = $data;
+        $this->revision_number = DocumentService::generateRevisionNumber($this->data->document_series_no,'IT');
+
     }
 }

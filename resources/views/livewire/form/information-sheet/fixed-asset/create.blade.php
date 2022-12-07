@@ -21,14 +21,14 @@
                             <div class="datagrid-title">Document No.</div>
                             <div class="datagrid-content">
                                 <input type="text" class="form-control form-control-flush"
-                                    placeholder="Document series no." wire:model.defer="document_series_no">
+                                    placeholder="Document series no." wire:model.defer="document_series_no" readonly>
                             </div>
                         </div>
 
                         <div class="datagrid-item">
                             <div class="datagrid-title">Date Processed</div>
                             <div class="datagrid-content">
-                                <input type="date" class="form-control border-0 border-bottom"
+                                <input type="date" class="form-control border-0 border-bottom" readonly
                                     placeholder="Date Processed" wire:model.defer="date_processed">
                             </div>
                         </div>

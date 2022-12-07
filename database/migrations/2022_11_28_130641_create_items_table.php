@@ -29,16 +29,13 @@ return new class extends Migration
             $table->string('date_to')->nullable();
             $table->string('item_type_items')->nullable();
             $table->string('item_type_labor')->nullable();
-
             $table->string('item_class_inventory_item')->nullable();
             $table->string('item_class_sales_item')->nullable();
             $table->string('item_class_purchasing_item')->nullable();
-
             $table->string('project_type_materials')->nullable();
             $table->string('project_type_equipment')->nullable();
             $table->string('project_type_labor_and_equipment')->nullable();
             $table->string('project_type_labor')->nullable();
-
             $table->string('item_group_DM')->nullable();
             $table->string('item_group_FG')->nullable();
             $table->string('item_group_MI')->nullable();
@@ -111,6 +108,9 @@ return new class extends Migration
             $table->string('issue_method_backflush')->nullable();
             $table->string('issue_method_manual')->nullable();
             $table->string('properties')->nullable();
+            $table->integer('revision')->nullable();
+            $table->string('modified')->nullable();
+            $table->string('updated_by')->nullable();
             $table->timestamps();
         });
     }

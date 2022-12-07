@@ -43,17 +43,18 @@
                                 <div class="mb-3">
                                     <div class="row g-2">
                                         <div class="col-4">
-                                            <input type="hidden" value="{{$data->id}}" name="id">
+                                            <input type="hidden" value="{{$data->id}}" name="id" readonly>
+                                            <input type="hidden" value="{{$revision_number}}" name="revision_number" readonly>
                                             <label class="form-label">Document No.</label>
                                             <input type="text" class="form-control form-control-flush mt-1"
                                                 name="document_series_no" placeholder="Document series no."
-                                                 value="{{$data->document_series_no}}" >
+                                                 value="{{$data->document_series_no}}" readonly>
                                         </div>
                                         <div class="col-4">
                                             <label class="form-label">Date Processed</label>
                                             <input type="date" class="form-control form-control-flush mt-1"
                                                 name="date_processed" placeholder="Document series no."
-                                                 value="{{$data->date_processed}}" >
+                                                 value="{{$data->date_processed}}" readonly>
                                         </div>
                                     </div>
                                 </div>

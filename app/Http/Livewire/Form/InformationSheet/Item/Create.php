@@ -9,6 +9,8 @@ use Exception;
 use Throwable;
 use Event;
 use App\Events\PDF\iteminformormationsheet;
+use App\Services\DocumentService;
+use Carbon\Carbon;
 
 class Create extends Component
 {
@@ -48,6 +50,15 @@ class Create extends Component
         return view('livewire.form.information-sheet.item.create', [
             'title' => 'Item Information Sheet'
         ])->layout('layouts.tabler.app');
+    }
+
+    public function mount(){
+
+        $date = Carbon::now();
+        $formatedDate = $date->format('Y-m-d');
+
+        $this->document_series_no = DocumentService::GenerateSeriesNoForIS('GFI', 'IT');
+        $this->date_processed = $formatedDate;
     }
 
     public function rules(){
