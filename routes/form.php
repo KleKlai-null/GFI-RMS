@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InformationSheet\ItemController;
 use App\Http\Controllers\InformationSheet\FixedAssetController;
+use App\Http\Controllers\InformationSheet\BusinessPartnerController;
 
 /**
  * Be careful on changing show route on every form it might break the Notification 
@@ -94,6 +95,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('business-partner/create', App\Http\Livewire\Form\InformationSheet\BusinessPartner\Create::class)->name('business-partner.create');
         Route::get('business-partner', App\Http\Livewire\Form\InformationSheet\BusinessPartner\Index::class)->name('business-partner');
         Route::get('business-partner/edit/{data}', App\Http\Livewire\Form\InformationSheet\BusinessPartner\Edit::class)->name('business-partner.edit');
+        Route::put('business-partner/update/{data}', [BusinessPartnerController::class, 'update'])->name('business-partner.update');
         Route::get('business-partner/show/{data}', App\Http\Livewire\Form\InformationSheet\BusinessPartner\Show::class)->name('business-partner.show');
 
         Route::get('fix-asset/create', App\Http\Livewire\Form\InformationSheet\FixedAsset\Create::class)->name('fix-asset.create');

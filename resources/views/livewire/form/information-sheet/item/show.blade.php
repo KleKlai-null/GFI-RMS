@@ -49,6 +49,15 @@
                                             name="Form control flush" placeholder="Document series no."
                                             readonly value="{{$data->date_processed}}" readonly>
                                     </div>
+
+                                    <div class="col-4">
+                                        @if ($data->revision)
+                                            <h6 class="text-end">Revision Number : <span style="color:red">{{$data->revision}}</span> </h6>
+                                            <h6 class="text-end">Updated by : <span style="color:red">{{$data->updated_by}}</span> </h6>
+                                        @else
+                                            <h6 class="text-end"><span style="color:red">Original Document</span> </h6>
+                                        @endif                                        
+                                    </div>
                                 </div>
                             </div>
                             <div class="mb-3">

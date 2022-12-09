@@ -65,8 +65,6 @@
                                                 <th><button class="table-sort" data-sort="sort-city">Document Series Number</button></th>
                                                 <th><button class="table-sort" data-sort="sort-score">Revision Number</button></th>
                                                 <th><button class="table-sort" data-sort="sort-score">Date Processed</button></th>
-                                                <th><button class="table-sort" data-sort="sort-score">Updated By</button></th>
-                                                <th><button class="table-sort" data-sort="sort-score">Modified Date</button></th>  
                                                 <th><button class="table-sort" data-sort="sort-score">Status</button></th>
                                                 <th class="w-1"></th>
                                             </tr>
@@ -78,8 +76,6 @@
                                                         <td class="sort-city">{{ ucwords($data->document_series_no) }}</td>
                                                         <td class="sort-score">{{ $data->revision }}</td>
                                                         <td class="sort-score">{{ $data->date_processed }}</td>
-                                                        <td class="sort-score">{{ $data->updated_by }}</td>
-                                                        <td class="sort-score">{{ $data->modified }}</td>
                                                         <td class="sort-score">{{ $data->status }}</td>
                                                         <td>
                                                             <div class="btn-list btn-ghost-primary flex-nowrap">

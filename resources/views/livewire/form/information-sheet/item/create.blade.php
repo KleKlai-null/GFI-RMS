@@ -23,13 +23,13 @@
                                 <div class="row g-2">
                                     <div class="col-4">
                                         <label class="form-label">Document No.</label>
-                                        <input type="text" class="form-control border-0 border-bottom"
+                                        <input type="text" class="form-control border-0"
                                             name="Form control flush" placeholder="Document series no."
                                             wire:model="document_series_no" readonly>
                                     </div>
                                     <div class="col-4">
                                         <label class="form-label">Date Processed</label>
-                                        <input type="text" class="form-control border-0 border-bottom"
+                                        <input type="text" class="form-control border-0"
                                             name="Form control flush"
                                             wire:model="date_processed" readonly>
                                     </div>

@@ -20,6 +20,8 @@ class ItemController extends Controller
 
     public function update(Request $request){
 
+
+        // dd($request);
         $now = Carbon::now();
         $modified_now = $now->format('Y-m-d H:i:s');
 

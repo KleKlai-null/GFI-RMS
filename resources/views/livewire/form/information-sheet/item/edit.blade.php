@@ -419,7 +419,7 @@
                                                 <label class="form-check">
                                                     <input class="form-check-input" name="PVG_group_others" id="PVG_group_others" type="checkbox" {{ ($data->PVG_group_others) ? 'checked' : '' }} >
                                                     <span class="form-check-label">Others</span>
-                                                    <input type="text" class="form-control border-0 border-bottom" id="PVG_group_others_input" value="{{$data->PVG_group_others}}" >
+                                                    <input type="text" class="form-control border-0 border-bottom" name="PVG_group_others" id="PVG_group_others_input" value="{{$data->PVG_group_others}}" >
                                                 </label>
                                             </div>
                                         </div>
@@ -505,7 +505,7 @@
                                                 <label class="form-check">
                                                     <input class="form-check-input" name="SVG_group_others" id="SVG_group_others" type="checkbox" {{ ($data->SVG_group_others) ? 'checked' : '' }} >
                                                     <span class="form-check-label">Others</span>
-                                                    <input type="text" class="form-control border-0 border-bottom" id="SVG_group_others_input" value="{{$data->SVG_group_others}}" >
+                                                    <input type="text" class="form-control border-0 border-bottom" name="SVG_group_others" id="SVG_group_others_input" value="{{$data->SVG_group_others}}" >
                                                 </label>
                                             </div>
                                         </div>

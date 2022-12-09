@@ -159,9 +159,10 @@
                 }
             });
         });
+
         $("#PT_input_DME").hide();$("#PT_label_DME").hide();
         $(document).ready(function () {
-            $("input[name=payment_terms]").change(function(){
+            $("input[name=payment_terms_days_month_end]").change(function(){
                 if($("#PT_DME").is(':checked')){
                     $("#PT_input_DME").show();
                     $("#PT_label_DME").show();
@@ -176,7 +177,7 @@
 
         $("#PT_input_DAD").hide();$("#PT_label_DAD").hide();
         $(document).ready(function () {
-            $("input[name=payment_terms]").change(function(){
+            $("input[name=payment_terms_days_after_delivery]").change(function(){
                 if($("#PT_DAD").is(':checked')){
                     $("#PT_input_DAD").show();
                     $("#PT_label_DAD").show();
@@ -191,7 +192,7 @@
 
         $("#PT_input_Others").hide();$("#PT_label_Others").hide();
         $(document).ready(function () {
-            $("input[name=payment_terms]").change(function(){
+            $("input[name=payment_terms_others]").change(function(){
                 if($("#PT_Others").is(':checked')){
                     $("#PT_input_Others").show();
                     $("#PT_label_Others").show();

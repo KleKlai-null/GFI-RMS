@@ -460,8 +460,8 @@
                 <div class="checkboxes">
                     <label><input type="checkbox" {{ ($data->payment_terms_cash_on_deliveryc) ? 'checked' : '' }}> <span style="font-size:10px">Cash on Delivery</span></label><br/>
                     <label><input type="checkbox" {{ ($data->payment_terms_cash_with_orders) ? 'checked' : '' }}> <span style="font-size:10px">Cash with Order</span></label><br/>
-                    <label><input type="checkbox" {{ ($data->payment_terms_days_month_end) ? 'checked' : '' }}> <span style="font-size:10px">Days Month End</span><span style="font-size:8px"></span><input type="text" class="inp" value="{{$data->payment_terms_days_month_end}}"></label><br/>
-                    <label><input type="checkbox" {{ ($data->payment_terms_days_after_delivery) ? 'checked' : '' }}> <span style="font-size:10px">Days After Delivery</span><span style="font-size:8px"></span><input type="text" class="inp" value="{{$data->payment_terms_days_after_delivery}}"></label><br/>
+                    <label><input type="checkbox" {{ ($data->payment_terms_days_month_end) ? 'checked' : '' }}> <span style="font-size:10px">Days Month End</span><span style="font-size:8px"><input type="text" class="inp" value="{{$data->payment_terms_days_month_end}}"></span></label><br/>
+                    <label><input type="checkbox" {{ ($data->payment_terms_days_after_delivery) ? 'checked' : '' }}> <span style="font-size:10px">Days After Delivery</span><span style="font-size:8px"><input type="text" class="inp" value="{{$data->payment_terms_days_after_delivery}}"></span></label><br/>
                     <label><input type="checkbox" {{ ($data->payment_terms_others) ? 'checked' : '' }}> <span style="font-size:10px">Others</span><span style="font-size:8px"><input type="text" class="inp" value="{{$data->payment_terms_others}}"></span></label>
                 </div>
             </div>
@@ -785,12 +785,12 @@
                 
                 <thead>
                     <tr>
-                        <th scope="col">Document Name</th>
-                        <th scope="col">Individual</th>
-                        <th scope="col">Corporation</th>
-                        <th scope="col">Cooperative</th>
-                        <th scope="col">Submitted</th>
-                        <th scope="col">Reason, if not submitted</th>
+                        <th scope="col"><h5>Document Name</h5></th>
+                        <th scope="col"><h5>Individual</h5></th>
+                        <th scope="col"><h5>Corporation</h5></th>
+                        <th scope="col"><h5>Cooperative</h5></th>
+                        <th scope="col"><h5>Submitted</h5></th>
+                        <th scope="col"><h5>Reason, if not submitted</h5></th>
                     </tr>
                 </thead>
                 <tbody>

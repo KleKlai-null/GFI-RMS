@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('contact_people', function (Blueprint $table) {
             $table->id();
             $table->foreignId('business_partner_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->string('name');
-            $table->string('position');
-            $table->string('email_address_contacts');
-            $table->string('phone_no');
+            $table->string('name')->nullable();
+            $table->string('position')->nullable();
+            $table->string('email_address_contacts')->nullable();
+            $table->string('phone_no')->nullable();
             $table->timestamps();
         });
     }

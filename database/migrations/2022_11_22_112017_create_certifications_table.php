@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('certifications', function (Blueprint $table) {
             $table->id();
             $table->foreignId('business_partner_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
-            $table->string('certification_name');
-            $table->string('organization_certifying_body');
-            $table->string('certificate_date');
-            $table->string('expiry_date');
+            $table->string('certification_name')->nullable();
+            $table->string('organization_certifying_body')->nullable();
+            $table->string('certificate_date')->nullable();
+            $table->string('expiry_date')->nullable();
             $table->timestamps();
         });
     }

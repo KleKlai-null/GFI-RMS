@@ -17,8 +17,24 @@
                 <div class="col-12">
                         <div class="card mt-2">
                             <div class="card-body">
+                                <div class="row mb-6">
+                                    <div class="row g-2">
+                                        <div class="col-4">
+                                            <label class="form-label">Document No.</label>
+                                            <input type="text" class="form-control border-0 "
+                                                name="Form control flush" placeholder="Document series no."
+                                                wire:model="document_series_no" readonly>
+                                        </div>
+                                        <div class="col-4">
+                                            <label class="form-label">Date Processed</label>
+                                            <input type="text" class="form-control border-0 "
+                                                name="Form control flush"
+                                                wire:model="date_processed" readonly>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row g-6">
-                                    <div class="col-2">
+                                    <div class="col-3">
                                         <div class="form-label">BP Type</div>
                                         <div>
                                             <label class="form-check">
@@ -31,7 +47,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-3">
                                         <div class="form-label">Document Purpose</div>
                                         <div>
                                             <label class="form-check">
@@ -44,7 +60,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-3">
                                         <div class="form-label">Status Update</div>
                                         <div>
                                             <label class="form-check">
@@ -57,7 +73,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-3">
                                         <div class="row g-2">
                                             <div class="col-6">
                                                 <label class="form-label">Date from</label>
@@ -73,20 +89,6 @@
                                                     wire:model.defer="date_to">
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <label class="form-label">Document Number</label>
-                                            <div class="datagrid-content">
-                                                <input type="text" class="form-control border-0 border-bottom"
-                                                    placeholder="Document no." wire:model.defer="document_series_no" readonly>
-                                            </div>
-                                    </div>
-                                    <div class="col-2">
-                                        <label class="form-label">Date Processed</label>
-                                        <div class="datagrid-content">
-                                            <input type="date" class="form-control border-0 border-bottom"
-                                                placeholder="Date Processed" wire:model.defer="date_processed" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -318,7 +320,7 @@
                                             </label>
 
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="payment_terms" id="PT_DME">
+                                                <input class="form-check-input" type="checkbox" name="payment_terms_days_month_end" id="PT_DME">
                                                 <span class="form-check-label">Days Month End</span>
                                             </label>
                                             <label class="form-check" id="PT_label_DME">
@@ -329,7 +331,7 @@
                                             </label> 
 
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="payment_terms" id="PT_DAD">
+                                                <input class="form-check-input" type="checkbox" name="payment_terms_days_after_delivery" id="PT_DAD">
                                                 <span class="form-check-label">Days After Delivery</span>
                                             </label>
                                             <label class="form-check" id="PT_label_DAD">
@@ -340,7 +342,7 @@
                                             </label>
 
                                             <label class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="payment_terms" id="PT_Others">
+                                                <input class="form-check-input" type="checkbox" name="payment_terms_others" id="PT_Others">
                                                 <span class="form-check-label">Others</span>
                                             </label>
                                             <label class="form-check" id="PT_label_Others">
@@ -550,7 +552,7 @@
                                             <div class="col-4">
                                                 <input type="text"
                                                     class="form-control  @error('certification_name.' . $value) is-invalid @enderror"
-                                                    placeholder="Certification Name" wire:model="certification_name.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
+                                                    placeholder="Certification Name" wire:model="certification_name.{{ $value }}">
                                                 @error('certification_name.' . $value)
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -559,7 +561,7 @@
                                                 <input type="text"
                                                     class="form-control @error('organization_certifying_body.' . $value) is-invalid @enderror"
                                                     placeholder="Organization/Certifying"
-                                                    wire:model="organization_certifying_body.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
+                                                    wire:model="organization_certifying_body.{{ $value }}">
                                                 @error('organization_certifying_body.' . $value)
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -575,7 +577,7 @@
                                             <div class="col-2">
                                                 <input type="date"
                                                     class="form-control @error('expiry_date.' . $value) is-invalid @enderror"
-                                                    placeholder="Expiry Date" wire:model="expiry_date.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
+                                                    placeholder="Expiry Date" wire:model="expiry_date.{{ $value }}">
                                                 @error('expiry_date.' . $value)
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -643,7 +645,7 @@
                                             <div class="col-4">
                                                 <input type="text"
                                                     class="form-control  @error('name.' . $value) is-invalid @enderror"
-                                                    placeholder="Name" wire:model="name.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
+                                                    placeholder="Name" wire:model="name.{{ $value }}">
                                                 @error('name.' . $value)
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -652,7 +654,7 @@
                                                 <input type="text"
                                                     class="form-control @error('positionC.' . $value) is-invalid @enderror"
                                                     placeholder="Position"
-                                                    wire:model="positionC.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
+                                                    wire:model="positionC.{{ $value }}">
                                                 @error('positionC.' . $value)
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror
@@ -668,7 +670,7 @@
                                             <div class="col-2">
                                                 <input type="text"
                                                     class="form-control @error('phone_no.' . $value) is-invalid @enderror"
-                                                    placeholder="Phone No." wire:model="phone_no.{{ $value }}" onkeyup="this.value = this.value.toUpperCase();">
+                                                    placeholder="Phone No." wire:model="phone_no.{{ $value }}">
                                                 @error('phone_no.' . $value)
                                                     <div class="invalid-feedback">{{ $message }}</div>
                                                 @enderror

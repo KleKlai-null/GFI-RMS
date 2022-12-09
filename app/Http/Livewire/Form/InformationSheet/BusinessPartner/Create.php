@@ -180,9 +180,10 @@ class Create extends Component
             'expiry_date.*'                                     => 'required|date',
     
             'name.*'                                            => 'required',
-            'position.*'                                        => 'required',
+            'positionC.*'                                       => 'required',
             'email_address_contacts.*'                          => 'required',
             'phone_no.*'                                        => 'required',
+
             'operations_SOPN'                                   => 'nullable',
             'operations_date'                                   => 'nullable|date',
             'operations_status'                                 => 'nullable',

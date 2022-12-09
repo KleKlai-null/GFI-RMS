@@ -28,7 +28,7 @@
                         <div class="datagrid-item">
                             <div class="datagrid-title">Date Processed</div>
                             <div class="datagrid-content">
-                                <input type="date" class="form-control border-0 border-bottom" readonly
+                                <input type="date" class="form-control border-0" readonly
                                     placeholder="Date Processed" wire:model.defer="date_processed">
                             </div>
                         </div>
@@ -669,7 +669,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
+            <div class="card mt-2">
+                <div class="card-body">
                     <h3 class="card-title text-center form-fieldset">***** APPROVAL ROUTING *****</h3>
                     <div class="datagrid mb-3">
                         <div class="datagrid-item">

@@ -33,8 +33,36 @@
                 <div class="col-12">
                         <div class="card mt-2">
                             <div class="card-body">
+                                <div class="mb-3">
+                                    <div class="row g-2">
+                                        <div class="col-4">
+                                            <div class="datagrid-title">Document No.</div>
+                                            <div class="datagrid-content">
+                                                <input type="text" class="form-control form-control-flush"
+                                                    value="{{$data->document_series_no}}" readonly>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-4">
+                                            <div class="datagrid-title">Date Processed</div>
+                                            <div class="datagrid-content">
+                                                <input type="text" class="form-control form-control-flush"
+                                                value="{{$data->date_processed}}" readonly>
+                                            </div>
+                                        </div>
+                
+                                        <div class="col-4">
+                                            @if ($data->revision)
+                                                <h6 class="text-end">Revision Number : <span style="color:red">{{$data->revision}}</span> </h6>
+                                                <h6 class="text-end">Updated by : <span style="color:red">{{$data->updated_by}}</span> </h6>
+                                            @else
+                                                <h6 class="text-end"><span style="color:red">Original Document</span> </h6>
+                                            @endif                                        
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row g-6">
-                                    <div class="col-2">
+                                    <div class="col-3">
                                         <div class="form-label">BP Type</div>
                                         <div>
                                             <label class="form-check">
@@ -49,7 +77,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-3">
                                         <div class="form-label">Document Purpose</div>
                                         <div>
                                             <label class="form-check">
@@ -62,7 +90,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-3">
                                         <div class="form-label">Status Update</div>
                                         <div>
                                             <label class="form-check">
@@ -75,7 +103,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-3">
                                         <div class="row g-2">
                                             <div class="col-6">
                                                 <label class="form-label">Date from</label>
@@ -91,7 +119,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-2">
+                                    {{-- <div class="col-2">
                                         <label class="form-label">Document Number</label>
                                             <div class="datagrid-content">
                                                 <input type="text" class="form-control border-0 border-bottom"
@@ -104,7 +132,7 @@
                                             <input type="text" class="form-control border-0 border-bottom"
                                                 placeholder="Date Processed" value="{{$data->date_processed}}" readonly>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 <h4>Primary Information</h4>
                                 <div class="row g-6">
@@ -574,7 +602,7 @@
                                         </div>
                                     </div>
                                 </div>
-        
+                                <br/>
                                 <h4>Contact Persons</h4>
                                 <div class="col-12">
                                     <div class="card">
@@ -1263,6 +1291,17 @@
                             </table>
                             </div>
                         </div>
+
+                        @if ($data->remarks)
+                        <div class="card mt-2">
+                            <div class="card-body">
+                                <h4>Remarks</h4>
+                                <div class="datagrid-content">
+                                    <h6>{{$data->remarks}}</h6>
+                                </div>
+                            </div>
+                        </div>                           
+                        @endif
                     </div>
                 </div>
             </div>

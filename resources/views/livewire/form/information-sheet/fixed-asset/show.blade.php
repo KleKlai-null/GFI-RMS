@@ -32,20 +32,31 @@
         <div class="container-xl">
             <div class="card mb-3">
                 <div class="card-body">
-                    <div class="datagrid mb-4">
-                        <div class="datagrid-item">
-                            <div class="datagrid-title">Document No.</div>
-                            <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
-                                    value="{{$data->document_series_no}}" readonly>
+                    <div class="mb-3">
+                        <div class="row g-2">
+                            <div class="col-4">
+                                <div class="datagrid-title">Document No.</div>
+                                <div class="datagrid-content">
+                                    <input type="text" class="form-control form-control-flush"
+                                        value="{{$data->document_series_no}}" readonly>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="datagrid-item">
-                            <div class="datagrid-title">Date Processed</div>
-                            <div class="datagrid-content">
-                                <input type="text" class="form-control form-control-flush"
-                                value="{{$data->date_processed}}" readonly>
+    
+                            <div class="col-4">
+                                <div class="datagrid-title">Date Processed</div>
+                                <div class="datagrid-content">
+                                    <input type="text" class="form-control form-control-flush"
+                                    value="{{$data->date_processed}}" readonly>
+                                </div>
+                            </div>
+    
+                            <div class="col-4">
+                                @if ($data->revision)
+                                    <h6 class="text-end">Revision Number : <span style="color:red">{{$data->revision}}</span> </h6>
+                                    <h6 class="text-end">Updated by : <span style="color:red">{{$data->updated_by}}</span> </h6>
+                                @else
+                                    <h6 class="text-end"><span style="color:red">Original Document</span> </h6>
+                                @endif                                        
                             </div>
                         </div>
                     </div>
@@ -682,8 +693,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    
+            <div class="card mt-2">
+                <div class="card-body">
                     <h3 class="card-title text-center form-fieldset">***** APPROVAL ROUTING *****</h3>
                     <div class="datagrid mb-3">
                         <div class="datagrid-item">
@@ -902,6 +916,17 @@
                     </div>
                 </div>
             </div>
+
+            @if ($data->remarks)
+            <div class="card mt-2">
+                <div class="card-body">
+                    <h4>Remarks</h4>
+                    <div class="datagrid-content">
+                        <h6>{{$data->remarks}}</h6>
+                    </div>
+                </div>
+            </div>                           
+            @endif
 
         </div>
     </div>

@@ -106,6 +106,7 @@ class FixedAssetController extends Controller
                 'issue_method_manual'                               => $request->issue_method_manual,
                 'revision'                                          => $request->revision_number,
                 'modified'                                          => $modified_now,
+                'remarks'                                           => $request->remarks,
                 'updated_by'                                        => auth()->user()->username,
             ]);
 
