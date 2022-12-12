@@ -71,6 +71,7 @@ class Create extends Component
         $date = Carbon::now();
         $formatedDate = $date->format('Y-m-d');
         $this->document_series_no = DocumentService::GenerateSeriesNoForIS('GFI', 'BP');
+        $this->document_no_page_2 = DocumentService::GenerateSeriesNoForIS('GFI', 'BP');
         $this->date_processed = $formatedDate;
 
     }

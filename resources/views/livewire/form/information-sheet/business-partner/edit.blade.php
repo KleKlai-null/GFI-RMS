@@ -1084,7 +1084,7 @@
                                         {{-- <label class="form-check"> --}}<div class="datagrid-title">Document No.</div>
                                             <div class="datagrid-content ">
                                                 <input type="text" class="form-control border-0 border-bottom"
-                                                    placeholder="Document No." value="{{$data->documenttable->document_no_page_2}}" name="document_no_page_2">
+                                                    placeholder="Document No." value="{{$data->documenttable->document_no_page_2}}" name="document_no_page_2" readonly>
                                             </div>
                                         {{-- </label> --}}
                                     </div>

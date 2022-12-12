@@ -986,7 +986,7 @@
                                         {{-- <label class="form-check"> --}}
                                             <div class="datagrid-content ">
                                                 <input type="text" class="form-control border-0 border-bottom"
-                                                    placeholder="Document No." wire:model.defer="document_no_page_2">
+                                                    placeholder="Document No." wire:model.defer="document_no_page_2" readonly>
                                             </div>
                                         {{-- </label> --}}
                                     </div>
