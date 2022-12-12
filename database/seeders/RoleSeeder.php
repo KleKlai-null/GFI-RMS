@@ -263,6 +263,9 @@ class RoleSeeder extends Seeder
             ],
             [
                 'name'  => 'edit IS'
+            ],
+            [
+                'name'  => 'create IS'
             ]
         ]; 
 
@@ -319,7 +322,7 @@ class RoleSeeder extends Seeder
         $corporate_accountant = Role::create(['name' => 'Corporate Accountant']);
         $corporate_accountant->givePermissionTo(Permission::all());
         $corporate_accountant->revokePermissionTo([
-            'delete cm', 'delete mi', 'delete mro', 'delete dm', 'delete fg', 'delete fa', 'delete ma', 'delete mr', 'delete sc', 'delete user', 'change permission', 'view activity log', 'view system log', 'edit IS'
+            'delete cm', 'delete mi', 'delete mro', 'delete dm', 'delete fg', 'delete fa', 'delete ma', 'delete mr', 'delete sc', 'delete user', 'change permission', 'view activity log', 'view system log', 'edit IS', 'create IS'
         ]);
     }
 }

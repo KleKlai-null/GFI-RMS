@@ -86,6 +86,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Route::group(function () {
         
+    Route::middleware(['permission:create IS'])->group(function () {
         Route::get('item/create', App\Http\Livewire\Form\InformationSheet\Item\Create::class)->name('item.create');
         Route::get('item/show/{data}', App\Http\Livewire\Form\InformationSheet\Item\Show::class)->name('item.show');
         Route::get('item/edit/{data}', App\Http\Livewire\Form\InformationSheet\Item\Edit::class)->name('item.edit');
@@ -103,6 +104,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('fix-asset/edit/{data}', App\Http\Livewire\Form\InformationSheet\FixedAsset\Edit::class)->name('fix-asset.edit');
         Route::put('fix-asset/update/{data}', [FixedAssetController::class, 'update'])->name('fix-asset.update');
         Route::get('fix-asset/show/{data}', App\Http\Livewire\Form\InformationSheet\FixedAsset\Show::class)->name('fix-asset.show');
+    });
         // Route::get('fixedasset', function() {
         //     return abort(503);
         // })->name('informationsheet.item.index');

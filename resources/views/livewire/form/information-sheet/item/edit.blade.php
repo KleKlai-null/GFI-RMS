@@ -1,6 +1,5 @@
 <div>
     <div class="container-xl">
-        <!-- Page title -->
         <div class="page-header d-print-none">
             <div class="row g-2 align-items-center">
                 <div class="col">
@@ -8,22 +7,7 @@
                         {{ $title }}
                     </h2>
                 </div>
-                {{-- <div class="col-12 col-md-auto ms-auto d-print-none">
-                    <div class="btn-list">
-                        <span class="d-none d-sm-inline">
-                            <button class="btn btn-white" type="button" wire:click="download_pdf()">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-file-download" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                    <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-                                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
-                                    <path d="M12 17v-6"></path>
-                                    <path d="M9.5 14.5l2.5 2.5l2.5 -2.5"></path>
-                                 </svg>
-                                Download PDF
-                            </button>
-                        </span>
-                    </div>
-                </div> --}}
+
             </div>
         </div>
     </div>

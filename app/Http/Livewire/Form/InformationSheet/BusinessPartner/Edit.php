@@ -83,7 +83,7 @@ class Edit extends Component
         unset($this->inputsContact[$i],$this->name[$i],$this->positionC[$i],$this->email_address_contacts[$i],$this->phone_no[$i]);
     }
 
-    public function submit($request){
-        dd($request['remarks']);
-    }
+    // public function submit($request){
+    //     dd($request['remarks']);
+    // }
 }
