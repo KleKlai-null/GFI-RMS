@@ -939,6 +939,17 @@
                             </div>
                         </div>
                     </div>
+
+                    @if ($data->remarks)
+                    <div class="card mt-2">
+                        <div class="card-body">
+                            <h4>Remarks</h4>
+                            <div class="datagrid-content">
+                                <h6>{{$data->remarks}}</h6>
+                            </div>
+                        </div>
+                    </div>                           
+                    @endif
                 </div>
             </div>
         </div>

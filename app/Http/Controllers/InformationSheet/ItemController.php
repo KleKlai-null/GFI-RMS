@@ -120,6 +120,7 @@ class ItemController extends Controller
                 'properties'                                => $request->properties,
                 'revision'                                  => $request->revision_number,
                 'modified'                                  => $modified_now,
+                'remarks'                                   => $request->remarks,
                 'updated_by'                                => auth()->user()->username,
             ]);
 

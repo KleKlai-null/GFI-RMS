@@ -920,10 +920,31 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="modal modal-blur fade" id="remarks" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title">Add Remarks</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                <div class="datagrid-title">Remarks</div>
+                                <textarea class="form-control" name="remarks"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          
                         <div class="form-footer" x-data="{ open: false }">
     
                             <div x-show="!open">
-                                <a href="javascript:void();" class="btn btn-outline-success w-100" @click="open = ! open">
+                                <a href="javascript:void();" class="btn btn-outline-success w-100" @click="open = ! open" data-bs-toggle="modal" data-bs-target="#remarks">
                                     Apply
                                 </a>
                             </div>
