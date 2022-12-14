@@ -13,6 +13,9 @@ use App\Models\Form\WithdrawalSlip\Wsmi;
 use App\Models\Form\WithdrawalSlip\Wsmro;
 use App\Models\Form\Memorandum;
 use App\Models\Form\ServiceCall;
+use App\Models\InformationSheet\BP\BusinessPartner;
+use App\Models\InformationSheet\FixedAsset\FixedAsset;
+use App\Models\InformationSheet\Item\Item;
 use Exception;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -45,6 +48,18 @@ class DocumentService
         $first_series_no = strtoupper($company . '-' . $documentCode);
 
         $second_series_no = $first_series_no . '-' . 'CM'. '-' . $series;
+
+        return $second_series_no;
+    }
+
+    public static function GenerateSeriesNoForIS($company, $documentCode, $credit_memo = false)
+    {
+        $count =  DocumentService::getCountIS($documentCode);
+        $series = sprintf("%010d", $count + 1);
+
+        $first_series_no = strtoupper($company . '-' . $documentCode);
+
+        $second_series_no = $first_series_no . '-' . 'IS'. '-' . $series;
 
         return $second_series_no;
     }
@@ -153,6 +168,33 @@ class DocumentService
         }
     }
 
+        // Get document count
+    public static function getCountIS($documentCode)
+    {
+        $unique = Str::lower($documentCode);
+    
+        switch ($unique) {
+            case "it":
+    
+                $data = Item::whereNotNull('document_series_no')->distinct()->count('document_series_no');
+    
+                return $data;
+                break;
+            case "bp":
+                $data = BusinessPartner::whereNotNull('document_series_no')->distinct()->count('document_series_no');
+    
+                return $data;
+                break;
+            case "fa":
+                $data = FixedAsset::whereNotNull('document_series_no')->distinct()->count('document_series_no');
+    
+                return $data;
+                break;
+            default:
+                return 'test';
+            }
+    }
+
     // Get document full details
     public static function getDocument($data)
     {
@@ -210,6 +252,40 @@ class DocumentService
             default:
                 return 'No Result Found';
         }
+    }
+
+    //count revision number
+    public static function generateRevisionNumber($document_series_no, $documentCode){
+
+        $count =  DocumentService::getRevisionIS($document_series_no, $documentCode);
+        return $count;
+
+    }
+
+            // Get document count
+    public static function getRevisionIS($document_series_no, $documentCode)
+    {
+        $unique = Str::lower($documentCode);
+    
+        switch ($unique) {
+            case "it":
+                $data = Item::where('document_series_no',$document_series_no)->count();
+    
+                return $data;
+                break;
+            case "bp":
+                $data = BusinessPartner::where('document_series_no',$document_series_no)->count();
+    
+                return $data;
+                break;
+            case "fa":
+                $data = FixedAsset::where('document_series_no',$document_series_no)->count();
+    
+                return $data;
+                break;
+            default:
+                return 'test';
+            }
     }
 
     public static function getModelPath($data)

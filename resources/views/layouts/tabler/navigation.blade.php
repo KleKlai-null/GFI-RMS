@@ -269,13 +269,15 @@
                         <div class="dropdown-menu">
                             <div class="dropdown-menu-columns">
                                 <div class="dropdown-menu-column">
-                                    <a href="{{ route('informationsheet.item.index') }}" class="dropdown-item">
+                                    <a href="{{ route('item') }}" class="dropdown-item">
                                         Item
                                     </a>
-                                    <a href="#" class="dropdown-item">
+                                    <a href="{{route('fix-asset')}}" class="dropdown-item">
                                         Fixed Asset
                                     </a>
-                                    <a href="#" class="dropdown-item">
+                                    <a 
+                                    href="{{ route('business-partner') }}" 
+                                    class="dropdown-item">
                                         Business Partner
                                     </a>
                                 </div>
