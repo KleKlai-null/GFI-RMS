@@ -325,10 +325,10 @@ class RoleSeeder extends Seeder
         //     'delete cm', 'delete mi', 'delete mro', 'delete dm', 'delete fg', 'delete fa', 'delete ma', 'delete mr', 'delete sc', 'delete user', 'change permission', 'view activity log', 'view system log']);
 
         //new permission
-        $admin = Permission::where('name', 'administrator')->first();
+        $admin = Role::where('name', 'administrator')->first();
         $admin->givePermissionTo(['edit IS', 'create IS']);
 
-        $corporate_accountant = Permission::where('name', 'Corporate Accountant')->first();
+        $corporate_accountant = Role::where('name', 'Corporate Accountant')->first();
         $corporate_accountant->revokePermissionTo(['edit IS', 'create IS']);
     }
 }
