@@ -328,7 +328,7 @@ class RoleSeeder extends Seeder
         $admin = Role::where('name', 'administrator')->first();
         $admin->givePermissionTo(['edit IS', 'create IS']);
 
-        $corporate_accountant = Role::where('name', 'Corporate Accountant')->first();
-        $corporate_accountant->revokePermissionTo(['edit IS', 'create IS']);
+        // $corporate_accountant = Role::where('name', 'Corporate Accountant')->first();
+        // $corporate_accountant->revokePermissionTo(['edit IS', 'create IS']);
     }
 }
