@@ -214,60 +214,60 @@ class RoleSeeder extends Seeder
         //     $sc_role->givePermissionTo($permission);
         // }
 
-        $c_level = Role::create(['name' => 'administrator']);
-        $user_management_permission = [
-            [
-                'name'  => 'create user'
-            ],
-            [
-                'name'  => 'view user'
-            ],
-            [
-                'name'  => 'delete user'
-            ],
-            [
-                'name'  => 'suspend user'
-            ],
-            [
-                'name'  => 'create department'
-            ],
-            [
-                'name'  => 'delete department'
-            ],
-            [
-                'name'  => 'create employee'
-            ],
-            [
-                'name'  => 'delete employee'
-            ],
-            [
-                'name'  => "view activity log"
-            ],
-            [
-                'name'  => "view system log"
-            ],
-            [
-                'name'  => 'disable user',
-            ],
-            [
-                'name'  => 'change role',
-            ],
-            [
-                'name'  => 'change permission',
-            ],
-            [
-                'name'  => 'view telescope'
-            ],
-            [
-                'name'  => 'view dashboard'
-            ],
-            [
-                'name'  => 'edit IS'
-            ],
-            [
-                'name'  => 'create IS'
-            ]
-        ]; 
+        // $c_level = Role::create(['name' => 'administrator']);
+        // $user_management_permission = [
+        //     [
+        //         'name'  => 'create user'
+        //     ],
+        //     [
+        //         'name'  => 'view user'
+        //     ],
+        //     [
+        //         'name'  => 'delete user'
+        //     ],
+        //     [
+        //         'name'  => 'suspend user'
+        //     ],
+        //     [
+        //         'name'  => 'create department'
+        //     ],
+        //     [
+        //         'name'  => 'delete department'
+        //     ],
+        //     [
+        //         'name'  => 'create employee'
+        //     ],
+        //     [
+        //         'name'  => 'delete employee'
+        //     ],
+        //     [
+        //         'name'  => "view activity log"
+        //     ],
+        //     [
+        //         'name'  => "view system log"
+        //     ],
+        //     [
+        //         'name'  => 'disable user',
+        //     ],
+        //     [
+        //         'name'  => 'change role',
+        //     ],
+        //     [
+        //         'name'  => 'change permission',
+        //     ],
+        //     [
+        //         'name'  => 'view telescope'
+        //     ],
+        //     [
+        //         'name'  => 'view dashboard'
+        //     ],
+        //     [
+        //         'name'  => 'edit IS'
+        //     ],
+        //     [
+        //         'name'  => 'create IS'
+        //     ]
+        // ]; 
 
         // foreach ($user_management_permission as $permission)
         // {
