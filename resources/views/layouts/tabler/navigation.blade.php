@@ -247,7 +247,7 @@
                             </a>
                         </li>
                     @endcan
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown {{ Request::is('item','fix-asset', 'business-partner') ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                             data-bs-auto-close="outside" role="button" aria-expanded="false">
                             <span class="nav-link-icon d-md-none d-lg-inline-block">
