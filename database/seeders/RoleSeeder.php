@@ -326,9 +326,17 @@ class RoleSeeder extends Seeder
 
         //new permission
         $admin = Role::where('name', 'administrator')->first();
-        $admin->syncPermissions(['edit IS', 'create IS']);
+        $admin_new_permission =[
+            ['name' => 'edit IS'],
+            ['name' => 'create IS']
+        ];
+        foreach ($admin_new_permission as $permission)
+        {
+            $permission = Permission::create($permission);
+        }
+        $admin->givePermissionTo(Permission::all());
 
-        // $corporate_accountant = Role::where('name', 'Corporate Accountant')->first();
-        // $corporate_accountant->revokePermissionTo(['edit IS', 'create IS']);
+        $corporate_accountant = Role::where('name', 'Corporate Accountant')->first();
+        $corporate_accountant->revokePermissionTo(['edit IS', 'create IS']);
     }
 }
