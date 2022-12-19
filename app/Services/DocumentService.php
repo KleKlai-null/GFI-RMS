@@ -72,32 +72,32 @@ class DocumentService
         switch ($unique) {
             case "mi":
 
-                $data = Wsmi::whereNull('cm_document_series_no')->withTrashed()->count();
+                $data = Wsmi::withTrashed()->count();
 
                 return $data;
                 break;
             case "mro":
-                $data = Wsmro::whereNull('cm_document_series_no')->withTrashed()->count();
+                $data = Wsmro::withTrashed()->count();
 
                 return $data;
                 break;
             case "dm":
-                $data = Wsdm::whereNull('cm_document_series_no')->withTrashed()->count();
+                $data = Wsdm::withTrashed()->count();
 
                 return $data;
                 break;
             case "fg":
-                $data = Wsfg::whereNull('cm_document_series_no')->withTrashed()->count();
+                $data = Wsfg::withTrashed()->count();
 
                 return $data;
                 break;
             case "fa":
-                $data = Wsfa::whereNull('cm_document_series_no')->withTrashed()->count();
+                $data = Wsfa::withTrashed()->count();
 
                 return $data;
                 break;
             case "ma":
-                $data = Wsma::whereNull('cm_document_series_no')->withTrashed()->count();
+                $data = Wsma::withTrashed()->count();
 
                 return $data;
                 break;
