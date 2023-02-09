@@ -1,15 +1,15 @@
 <x-tabler-guest-layout>
     <div class="container-tight py-4">
         <div class="text-center mb-4">
-            <a href="." class="navbar-brand navbar-brand-autodark"><img src="{{ asset('asset/images/logo_transparent.png') }}" height="46"
-                    alt=""></a>
+            <a href="." class="navbar-brand navbar-brand-autodark"><img
+                    src="{{ asset('asset/images/rrfc-logo.png') }}" height="46" alt=""></a>
         </div>
         <form class="card card-md" action="{{ route('login') }}" method="post" autocomplete="off">
             @csrf
 
             <div class="card-body">
                 <h2 class="card-title text-center mb-4">Login to your account</h2>
-                
+
                 <!-- Validation Errors -->
                 <x-auth-validation-errors class="text-center text-danger" :errors="$errors" />
 
@@ -17,7 +17,8 @@
 
                 <div class="mb-3">
                     <label class="form-label">Email/Username</label>
-                    <input type="text" name="login" class="form-control @error('login') is-invalid @enderror" placeholder="Enter email or username" value="{{ old('login') }}" autocomplete="off">
+                    <input type="text" name="login" class="form-control @error('login') is-invalid @enderror"
+                        placeholder="Enter email or username" value="{{ old('login') }}" autocomplete="off">
                 </div>
                 <div class="mb-2">
                     <label class="form-label">
@@ -29,7 +30,8 @@
                         </span> --}}
                     </label>
                     <div class="input-group input-group-flat">
-                        <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="off">
+                        <input type="password" name="password" class="form-control" placeholder="Password"
+                            autocomplete="off">
                         <span class="input-group-text">
                             <a href="#" class="link-secondary" title="Show password" data-bs-toggle="tooltip">
                                 <!-- Download SVG icon from http://tabler-icons.io/i/eye -->
@@ -48,7 +50,7 @@
                 <!-- Remember Me -->
                 <div class="mb-2">
                     <label class="form-check">
-                        <input type="checkbox" id="remember_me" class="form-check-input" name="remember"/>
+                        <input type="checkbox" id="remember_me" class="form-check-input" name="remember" />
                         <span class="form-check-label">Remember me on this device</span>
                     </label>
                 </div>

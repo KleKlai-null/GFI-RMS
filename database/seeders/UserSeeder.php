@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        
+
         $roles = Role::select('id', 'name')->orderBy('id', 'ASC')->get()->toArray();
         // $users = [
         //     [
@@ -111,17 +111,17 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        $epoy = User::create([
-            'first_name' => 'John Paler',
-            'last_name' => 'Rodolph',
-            'username' => 'jrodolph',
-            'email' => 'rqpaler@gensanfeedmill.com',
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
-        ]);
+        // $epoy = User::create([
+        //     'first_name' => 'John Paler',
+        //     'last_name' => 'Rodolph',
+        //     'username' => 'jrodolph',
+        //     'email' => 'rqpaler@gensanfeedmill.com',
+        //     'email_verified_at' => now(),
+        //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        //     'remember_token' => Str::random(10),
+        // ]);
+        // $epoy->syncRoles('Corporate Accountant');
 
         $admin->syncRoles('administrator');
-        $epoy->syncRoles('Corporate Accountant');
     }
 }

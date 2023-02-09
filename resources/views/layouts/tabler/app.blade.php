@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{ env('APP_NAME') }}</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('asset/images/icon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('asset/images/rrfc-icon.jpg') }}">
     <style>
         @import url('https://rsms.me/inter/inter.css');
 
@@ -37,8 +37,8 @@
                 </button>
                 <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
                     <a href=".">
-                        <img src="{{ asset('asset/images/gfi_logo.svg') }}" width="110" height="32" alt="Tabler"
-                            class="navbar-brand-image">
+                        <img src="{{ asset('asset/images/rrfc-icon.jpg') }}" width="110" height="32"
+                            alt="Tabler" class="navbar-brand-image">
                     </a>
                 </h1>
                 <div class="navbar-nav flex-row order-md-last">
@@ -111,7 +111,7 @@
         </header>
         @include('layouts.tabler.navigation')
 
-        
+
 
         <div class="page-wrapper">
             {{ $slot }}
@@ -122,25 +122,25 @@
     <script>
         //busines partner script for others
         $("#TB_input_others").hide();
-        $(document).ready(function () {
-            $("input[name=type_of_business]").change(function(){
-                if($("#TB_others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=type_of_business]").change(function() {
+                if ($("#TB_others").is(':checked')) {
                     $("#TB_input_others").show();
                     $('#TB_input_others').val('');
-                }else{
+                } else {
                     $("#TB_input_others").hide();
                     $('#TB_input_others').val('');
                 }
             });
         });
-     
+
         $("#Currency_input_others").hide();
-        $(document).ready(function () {
-            $("input[name=currency]").change(function(){
-                if($("#Currency_others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=currency]").change(function() {
+                if ($("#Currency_others").is(':checked')) {
                     $("#Currency_input_others").show();
                     $("#Currency_input_others").val('');
-                }else{
+                } else {
                     $("#Currency_input_others").hide();
                     $("#Currency_input_others").val('');
                 }
@@ -148,26 +148,27 @@
         });
 
         $("#BP_input_others").hide();
-        $(document).ready(function () {
-            $("input[name=business_partner_group]").change(function(){
-                if($("#BP_others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=business_partner_group]").change(function() {
+                if ($("#BP_others").is(':checked')) {
                     $("#BP_input_others").show();
                     $("#BP_input_others").val('');
-                }else{
+                } else {
                     $("#BP_input_others").hide();
                     $("#BP_input_others").val('');
                 }
             });
         });
 
-        $("#PT_input_DME").hide();$("#PT_label_DME").hide();
-        $(document).ready(function () {
-            $("input[name=payment_terms_days_month_end]").change(function(){
-                if($("#PT_DME").is(':checked')){
+        $("#PT_input_DME").hide();
+        $("#PT_label_DME").hide();
+        $(document).ready(function() {
+            $("input[name=payment_terms_days_month_end]").change(function() {
+                if ($("#PT_DME").is(':checked')) {
                     $("#PT_input_DME").show();
                     $("#PT_label_DME").show();
                     $("#PT_input_DME").val('');
-                }else{
+                } else {
                     $("#PT_label_DME").hide();
                     $("#PT_input_DME").hide();
                     $("#PT_input_DME").val('');
@@ -175,14 +176,15 @@
             });
         });
 
-        $("#PT_input_DAD").hide();$("#PT_label_DAD").hide();
-        $(document).ready(function () {
-            $("input[name=payment_terms_days_after_delivery]").change(function(){
-                if($("#PT_DAD").is(':checked')){
+        $("#PT_input_DAD").hide();
+        $("#PT_label_DAD").hide();
+        $(document).ready(function() {
+            $("input[name=payment_terms_days_after_delivery]").change(function() {
+                if ($("#PT_DAD").is(':checked')) {
                     $("#PT_input_DAD").show();
                     $("#PT_label_DAD").show();
                     $("#PT_input_DAD").val('');
-                }else{
+                } else {
                     $("#PT_label_DAD").hide();
                     $("#PT_input_DAD").hide();
                     $("#PT_input_DAD").val('');
@@ -190,14 +192,15 @@
             });
         });
 
-        $("#PT_input_Others").hide();$("#PT_label_Others").hide();
-        $(document).ready(function () {
-            $("input[name=payment_terms_others]").change(function(){
-                if($("#PT_Others").is(':checked')){
+        $("#PT_input_Others").hide();
+        $("#PT_label_Others").hide();
+        $(document).ready(function() {
+            $("input[name=payment_terms_others]").change(function() {
+                if ($("#PT_Others").is(':checked')) {
                     $("#PT_input_Others").show();
                     $("#PT_label_Others").show();
                     $("#PT_input_Others").val('');
-                }else{
+                } else {
                     $("#PT_label_Others").hide();
                     $("#PT_input_Others").hide();
                     $("#PT_input_Others").val('');
@@ -206,12 +209,12 @@
         });
 
         $("#PM_input_Others").hide();
-        $(document).ready(function () {
-            $("input[name=payment_methods]").change(function(){
-                if($("#PM_Others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=payment_methods]").change(function() {
+                if ($("#PM_Others").is(':checked')) {
                     $("#PM_input_Others").show();
                     $("#PM_input_Others").val('');
-                }else{
+                } else {
                     $("#PM_input_Others").hide();
                     $("#PM_input_Others").val('');
                 }
@@ -219,12 +222,12 @@
         });
 
         $("#TG_input_Others").hide();
-        $(document).ready(function () {
-            $("input[name=tax_group]").change(function(){
-                if($("#TG_Others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=tax_group]").change(function() {
+                if ($("#TG_Others").is(':checked')) {
                     $("#TG_input_Others").show();
                     $("#TG_input_Others").val('');
-                }else{
+                } else {
                     $("#TG_input_Others").hide();
                     $("#TG_input_Others").val('');
                 }
@@ -233,12 +236,12 @@
 
         //fixed asset script for others
         $("#PVG_input_others").hide();
-        $(document).ready(function () {
-            $("input[name=PVG_group_exempt]").change(function(){
-                if($("#PVG_others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=PVG_group_exempt]").change(function() {
+                if ($("#PVG_others").is(':checked')) {
                     $("#PVG_input_others").show();
                     $("#PVG_input_others").val('');
-                }else{
+                } else {
                     $("#PVG_input_others").hide();
                     $("#PVG_input_others").val('');
                 }
@@ -246,12 +249,12 @@
         });
 
         $("#SVG_input_others").hide();
-        $(document).ready(function () {
-            $("input[name=SVG_group]").change(function(){
-                if($("#SVG_others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=SVG_group]").change(function() {
+                if ($("#SVG_others").is(':checked')) {
                     $("#SVG_input_others").show();
                     $("#SVG_input_others").val('');
-                }else{
+                } else {
                     $("#SVG_input_others").hide();
                     $("#SVG_input_others").val('');
                 }
@@ -259,12 +262,12 @@
         });
 
         $("#IG_input_others").hide();
-        $(document).ready(function () {
-            $("input[name=item_group]").change(function(){
-                if($("#IG_others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=item_group]").change(function() {
+                if ($("#IG_others").is(':checked')) {
                     $("#IG_input_others").show();
                     $("#IG_input_others").val('');
-                }else{
+                } else {
                     $("#IG_input_others").hide();
                     $("#IG_input_others").val('');
                 }
@@ -272,12 +275,12 @@
         });
 
         $("#PVG_item_input_others").hide();
-        $(document).ready(function () {
-            $("input[name=PVG_item_group]").change(function(){
-                if($("#PVG_item_others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=PVG_item_group]").change(function() {
+                if ($("#PVG_item_others").is(':checked')) {
                     $("#PVG_item_input_others").show();
                     $("#PVG_item_input_others").val('');
-                }else{
+                } else {
                     $("#PVG_item_input_others").hide();
                     $("#PVG_item_input_others").val('');
                 }
@@ -285,12 +288,12 @@
         });
 
         $("#SVG_item_input_others").hide();
-        $(document).ready(function () {
-            $("input[name=SVG_item_group]").change(function(){
-                if($("#SVG_item_others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=SVG_item_group]").change(function() {
+                if ($("#SVG_item_others").is(':checked')) {
                     $("#SVG_item_input_others").show();
                     $("#SVG_item_input_others").val('');
-                }else{
+                } else {
                     $("#SVG_item_input_others").hide();
                     $("#SVG_item_input_others").val('');
                 }
@@ -299,36 +302,36 @@
 
 
         //edit items
-        $(document).ready(function () {
-            $("input[name=item_group_others]").change(function(){
-                if($("#item_group_others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=item_group_others]").change(function() {
+                if ($("#item_group_others").is(':checked')) {
                     $("#item_group_others_input").show();
 
-                }else{
+                } else {
                     $("#item_group_others_input").hide();
                     $("#item_group_others_input").val('');
                 }
             });
         });
 
-        $(document).ready(function () {
-            $("input[name=PVG_group_others]").change(function(){
-                if($("#PVG_group_others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=PVG_group_others]").change(function() {
+                if ($("#PVG_group_others").is(':checked')) {
                     $("#PVG_group_others_input").show();
 
-                }else{
+                } else {
                     $("#PVG_group_others_input").hide();
                     $("#PVG_group_others_input").val('');
                 }
             });
         });
 
-        $(document).ready(function () {
-            $("input[name=SVG_group_others]").change(function(){
-                if($("#SVG_group_others").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=SVG_group_others]").change(function() {
+                if ($("#SVG_group_others").is(':checked')) {
                     $("#SVG_group_others_input").show();
 
-                }else{
+                } else {
                     $("#SVG_group_others_input").hide();
                     $("#SVG_group_others_input").val('');
                 }
@@ -337,24 +340,24 @@
 
         //edit fa
 
-        $(document).ready(function () {
-            $("input[name=PVG_group_others]").change(function(){
-                if($("#PVG_group_others_FA").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=PVG_group_others]").change(function() {
+                if ($("#PVG_group_others_FA").is(':checked')) {
                     $("#PVG_group_others_input_FA").show();
 
-                }else{
+                } else {
                     $("#PVG_group_others_input_FA").hide();
                     $("#PVG_group_others_input_FA").val('');
                 }
             });
         });
 
-        $(document).ready(function () {
-            $("input[name=SVG_group_others]").change(function(){
-                if($("#SVG_group_others_FA").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=SVG_group_others]").change(function() {
+                if ($("#SVG_group_others_FA").is(':checked')) {
                     $("#SVG_group_others_input_FA").show();
 
-                }else{
+                } else {
                     $("#SVG_group_others_input_FA").hide();
                     $("#SVG_group_others_input_FA").val('');
                 }
@@ -362,103 +365,101 @@
         });
 
         //edit bp
-        $(document).ready(function () {
-            $("input[name=type_of_business_others]").change(function(){
-                if($("#TB_others_edit").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=type_of_business_others]").change(function() {
+                if ($("#TB_others_edit").is(':checked')) {
                     $("#type_of_business_others_input").show();
 
-                }else{
+                } else {
                     $("#type_of_business_others_input").hide();
                     $("#type_of_business_others_input").val('');
                 }
             });
         });
 
-        $(document).ready(function () {
-            $("input[name=currency_others]").change(function(){
-                if($("#currency_others_edit").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=currency_others]").change(function() {
+                if ($("#currency_others_edit").is(':checked')) {
                     $("#currency_others_edit_input").show();
 
-                }else{
+                } else {
                     $("#currency_others_edit_input").hide();
                     $("#currency_others_edit_input").val('');
                 }
             });
         });
 
-        $(document).ready(function () {
-            $("input[name=business_partner_group_others]").change(function(){
-                if($("#business_partner_group_others_edit").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=business_partner_group_others]").change(function() {
+                if ($("#business_partner_group_others_edit").is(':checked')) {
                     $("#business_partner_group_others_edit_input").show();
 
-                }else{
+                } else {
                     $("#business_partner_group_others_edit_input").hide();
                     $("#business_partner_group_others_edit_input").val('');
                 }
             });
         });
 
-        $(document).ready(function () {
-            $("input[name=payment_terms_days_month_end]").change(function(){
-                if($("#payment_terms_days_month_end_edit").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=payment_terms_days_month_end]").change(function() {
+                if ($("#payment_terms_days_month_end_edit").is(':checked')) {
                     $("#payment_terms_days_month_end_edit_input").show();
 
-                }else{
+                } else {
                     $("#payment_terms_days_month_end_edit_input").hide();
                     $("#payment_terms_days_month_end_edit_input").val('');
                 }
             });
         });
 
-        $(document).ready(function () {
-            $("input[name=payment_terms_days_after_delivery]").change(function(){
-                if($("#payment_terms_days_after_delivery_edit").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=payment_terms_days_after_delivery]").change(function() {
+                if ($("#payment_terms_days_after_delivery_edit").is(':checked')) {
                     $("#payment_terms_days_after_delivery_edit_input").show();
 
-                }else{
+                } else {
                     $("#payment_terms_days_after_delivery_edit_input").hide();
                     $("#payment_terms_days_after_delivery_edit_input").val('');
                 }
             });
         });
 
-        $(document).ready(function () {
-            $("input[name=payment_terms_others]").change(function(){
-                if($("#payment_terms_others_edit").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=payment_terms_others]").change(function() {
+                if ($("#payment_terms_others_edit").is(':checked')) {
                     $("#payment_terms_others_edit_input").show();
 
-                }else{
+                } else {
                     $("#payment_terms_others_edit_input").hide();
                     $("#payment_terms_others_edit_input").val('');
                 }
             });
         });
 
-        $(document).ready(function () {
-            $("input[name=payment_methods_others]").change(function(){
-                if($("#payment_methods_others_edit").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=payment_methods_others]").change(function() {
+                if ($("#payment_methods_others_edit").is(':checked')) {
                     $("#payment_methods_others_edit_input").show();
 
-                }else{
+                } else {
                     $("#payment_methods_others_edit_input").hide();
                     $("#payment_methods_others_edit_input").val('');
                 }
             });
         });
 
-        $(document).ready(function () {
-            $("input[name=tax_group_others]").change(function(){
-                if($("#tax_group_others_edit").is(':checked')){
+        $(document).ready(function() {
+            $("input[name=tax_group_others]").change(function() {
+                if ($("#tax_group_others_edit").is(':checked')) {
                     $("#tax_group_others_edit_input").show();
 
-                }else{
+                } else {
                     $("#tax_group_others_edit_input").hide();
                     $("#tax_group_others_edit_input").val('');
                 }
             });
         });
-
-
     </script>
     <script src="{{ asset('asset/images/lord-icon/lord-icon-dependency.js') }}"></script>
     <script>
