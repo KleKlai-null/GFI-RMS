@@ -9,7 +9,7 @@ use App\Services\DocumentService;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-trait WithShowGeneric 
+trait WithShowGeneric
 {
     public $listDepartments, $approvalDepartments;
     public $registerdepartments = [];
@@ -24,7 +24,7 @@ trait WithShowGeneric
         $this->listDepartments = Department::select('name', 'description')->get();
     }
 
-    public function save_department($redirect) 
+    public function save_department($redirect)
     {
         $splice = Str::of($redirect)->explode('.');
         $path = DocumentService::getModelPath($splice[0]);
@@ -32,7 +32,7 @@ trait WithShowGeneric
         sleep(2);
 
         foreach ($this->registerdepartments as $key => $department) {
-            Approval::create([ 
+            Approval::create([
                 'approvable_id'                 => $this->data->id,
                 'approvable_type'               => $path,
                 'document_series_no'            => $this->data->document_series_no,
@@ -45,6 +45,7 @@ trait WithShowGeneric
 
     public function download_pdf()
     {
+        dd($this->data->getFirstMedia('pdf'));
         return response()->download($this->data->getFirstMedia('pdf')->getPath());
     }
 }

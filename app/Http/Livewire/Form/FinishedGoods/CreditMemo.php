@@ -14,7 +14,7 @@ use Event;
 class CreditMemo extends Component
 {
     public $document_series_no, $withdrawal_document_series_no;
-    public $code, $description, $qty, $uom, $remarks;
+    public $code, $description, $qty, $uom, $gl_accounts, $remarks;
     public $customer_name, $batch_no, $pallet_no, $location, $sales_order_no;
     public $noted_by, $prepared_by, $approved_by, $checked_by, $requested_by, $released_by, $received_by;
     public $noted_by_position, $prepared_by_position, $approved_by_position, $checked_by_position, $requested_by_position, $released_by_position, $received_by_position;
@@ -48,10 +48,10 @@ class CreditMemo extends Component
 
     public function remove($i)
     {
-        unset($this->inputs[$i],$this->code[$i+1],$this->description[$i+1],$this->qty[$i+1],$this->uom[$i+1],$this->remarks[$i+1]);
+        unset($this->inputs[$i],$this->code[$i+1],$this->description[$i+1],$this->qty[$i+1],$this->uom[$i+1],$this->gl_accounts[$i+1],$this->remarks[$i+1]);
     }
 
-    public function rules() 
+    public function rules()
     {
         return [
             'customer_name'         => 'required',
@@ -63,8 +63,9 @@ class CreditMemo extends Component
             'description.*'         => 'required',
             'qty.*'                 => 'required|numeric',
             'uom.*'                 => 'required',
+            'gl_accounts.*'         => 'required',
             'remarks.*'             => 'nullable',
-            
+
             'prepared_by'           => 'nullable',
             'prepared_by_position'  => 'nullable',
             'checked_by'            => 'nullable',
@@ -90,6 +91,7 @@ class CreditMemo extends Component
             'qty.*.required'             => "Please input qty",
             'qty.*.numeric'              => "The value must be numbers",
             'uom.*.required'             => "Uom cannot be blank",
+            'gl_accounts.*.required'     => "Gl accounts cannot be blank",
         ];
     }
 
@@ -138,6 +140,7 @@ class CreditMemo extends Component
                     'item_description'      => $this->description[$key],
                     'qty'                   => $this->qty[$key],
                     'uom'                   => $this->uom[$key],
+                    'gl_accounts'           => $this->gl_accounts[$key],
                     'remarks'               => $this->remarks[$key] ?? ''
                 ]);
             }
@@ -145,7 +148,7 @@ class CreditMemo extends Component
             DB::commit();
 
             Event::dispatch(new FGCreditMemo($data));
-            
+
             $this->reset(); // Reset all properties
 
             return redirect()->route('fg.show', $data);

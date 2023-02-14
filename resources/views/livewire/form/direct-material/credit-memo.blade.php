@@ -24,14 +24,18 @@
                                 <div class="row g-2">
                                     <div class="col-4">
                                         <label class="form-label">Document Series Number</label>
-                                        <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="document_series_no" readonly>
+                                        <input type="text" class="form-control form-control-flush mt-1"
+                                            name="Form control flush" placeholder="Document series no."
+                                            wire:model="document_series_no" readonly>
                                         @error('document_series_no')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
                                     </div>
                                     <div class="col-4">
                                         <label class="form-label">Withdrawal Document Series Number</label>
-                                        <input type="text" class="form-control form-control-flush mt-1" name="Form control flush" placeholder="Document series no." wire:model="withdrawal_document_series_no">
+                                        <input type="text" class="form-control form-control-flush mt-1"
+                                            name="Form control flush" placeholder="Document series no."
+                                            wire:model="withdrawal_document_series_no">
                                         @error('withdrawal_document_series_no')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror
@@ -96,7 +100,7 @@
                                     <div class="col-1">
                                         <label class="form-label">Code</label>
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-3">
                                         <label class="form-label">Description</label>
                                     </div>
                                     <div class="col-1">
@@ -104,6 +108,9 @@
                                     </div>
                                     <div class="col-1">
                                         <label class="form-label">UOM</label>
+                                    </div>
+                                    <div class="col-2">
+                                        <label class="form-label">GL Accounts</label>
                                     </div>
                                     <div class="col-3">
                                         <label class="form-label">Remarks</label>
@@ -120,7 +127,7 @@
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="col-5">
+                                        <div class="col-3">
                                             <input type="text"
                                                 class="form-control @error('description.' . $value) is-invalid @enderror"
                                                 placeholder="Description of the product/item"
@@ -145,6 +152,15 @@
                                                 placeholder="Uom" wire:model="uom.{{ $value }}"
                                                 onkeyup="this.value = this.value.toUpperCase();">
                                             @error('uom.' . $value)
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="text"
+                                                class="form-control @error('gl_accounts.' . $value) is-invalid @enderror"
+                                                placeholder="Gl account" wire:model="gl_accounts.{{ $value }}"
+                                                onkeyup="this.value = this.value.toUpperCase();">
+                                            @error('gl_accounts.' . $value)
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
