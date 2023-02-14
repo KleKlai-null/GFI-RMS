@@ -1,11 +1,11 @@
 <!doctype html>
 <!--
-* GFI System - A record keeping for Gensan Feedmill, Inc. and record processing system.
+* RRFC System - A record keeping for Rell and Renn Fishing Corp. and record processing system.
 * @version 1.0.0
-* @link https://api.gensanfeedmill.com
+* @link https://api.rrfishing.com.ph
 * Copyright 2022 Tabler
 * Developer Maynard Magallen
-* Copyright 2022 Gensan Feedmill, Inc.
+* Copyright 2022 Rell and Renn Fishing Corp.
 -->
 @props([
     'code' => 'RR Fishing Corp.',

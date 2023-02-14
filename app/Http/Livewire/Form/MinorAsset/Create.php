@@ -36,7 +36,7 @@ class Create extends Component
     public function mount()
     {
         array_push($this->inputs, 1);
-        $this->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'MA');
+        $this->document_series_no = DocumentService::GenerateSeriesNo('RRFC', 'MA');
     }
 
     public function add($i)

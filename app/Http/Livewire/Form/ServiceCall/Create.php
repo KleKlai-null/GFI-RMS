@@ -23,7 +23,7 @@ class Create extends Component
 
     public function mount()
     {
-        $this->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'SC');
+        $this->document_series_no = DocumentService::GenerateSeriesNo('RRFC', 'SC');
     }
 
     public function render()

@@ -15,7 +15,7 @@
                             <p>is authentic document</p>
                             <div class="col-md-12 markdown mb-5">
                                 <h4>Origin</h4>
-                                <p>Gensan Feedmill, Inc.</p>
+                                <p>Rell and Renn Fishing Corporation</p>
                                 <h4>Date of Issue</h4>
                                 <p>{{ $data->created_at->format('F d, Y') }}</p>
                             </div>

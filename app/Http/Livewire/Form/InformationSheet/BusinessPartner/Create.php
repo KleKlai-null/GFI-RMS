@@ -70,8 +70,8 @@ class Create extends Component
         array_push($this->inputsContact, 1);
         $date = Carbon::now();
         $formatedDate = $date->format('Y-m-d');
-        $this->document_series_no = DocumentService::GenerateSeriesNoForIS('GFI', 'BP');
-        $this->document_no_page_2 = DocumentService::GenerateSeriesNoForIS('GFI', 'BP');
+        $this->document_series_no = DocumentService::GenerateSeriesNoForIS('RRFC', 'BP');
+        $this->document_no_page_2 = DocumentService::GenerateSeriesNoForIS('RRFC', 'BP');
         $this->date_processed = $formatedDate;
 
     }

@@ -32,7 +32,7 @@ class Memorandum extends Model implements HasMedia
         parent::boot();
 
         Memorandum::creating(function($model) {
-            $model->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'MR');
+            $model->document_series_no = DocumentService::GenerateSeriesNo('RRFC', 'MR');
             $model->user_id = auth()->user()->id;
             $model->user_name = auth()->user()->username;
         });

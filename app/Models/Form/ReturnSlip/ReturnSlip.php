@@ -32,7 +32,7 @@ class ReturnSlip extends Model  implements HasMedia
         parent::boot();
 
         ReturnSlip::creating(function($model) {
-            $model->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'RS');
+            $model->document_series_no = DocumentService::GenerateSeriesNo('RRFC', 'RS');
             $model->user_id = auth()->user()->id;
         });
     }

@@ -32,7 +32,7 @@ class ServiceCall extends Model implements HasMedia
         parent::boot();
 
         ServiceCall::creating(function($model) {
-            $model->document_series_no = DocumentService::GenerateSeriesNo('GFI', 'SC');
+            $model->document_series_no = DocumentService::GenerateSeriesNo('RRFC', 'SC');
             $model->user_id = auth()->user()->id;
             $model->user_name = auth()->user()->username;
         });

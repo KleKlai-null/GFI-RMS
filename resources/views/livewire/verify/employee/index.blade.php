@@ -32,7 +32,7 @@
             <div class="card card-md">
             <div class="card-body text-center">
                 <div class="mb-4">
-                <p class="text-muted">To help keep gensan feedmill inc prevent malicious document alternation, we need you to provide your employee id.</p>
+                <p class="text-muted">To help keep rell and rell fishing inc prevent malicious document alternation, we need you to provide your employee id.</p>
                 <p>Verification only takes a few minutes</p>
                 </div>
                 <div>
