@@ -264,8 +264,7 @@
                     <x-form-create-authorized-signatories />
 
                     <div class="form-footer">
-                        <button type="button"
-                            onclick="confirm('Are you suressss?') || event.stopImmediatePropagation()"
+                        <button type="button" onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                             wire:click.prevent="store" class="btn btn-primary"
                             wire:loading.class="d-none">Create</button>
                     </div>

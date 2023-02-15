@@ -45,7 +45,6 @@ trait WithShowGeneric
 
     public function download_pdf()
     {
-        dd($this->data->getFirstMedia('pdf'));
         return response()->download($this->data->getFirstMedia('pdf')->getPath());
     }
 }

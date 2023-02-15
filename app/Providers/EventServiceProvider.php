@@ -13,6 +13,7 @@ use App\Events\PDF\MACreditMemo;
 use App\Events\PDF\MI;
 use App\Events\PDF\MICreditMemo;
 use App\Events\PDF\MRO;
+use App\Events\PDF\MROCreditMemo;
 use App\Events\PDF\SC;
 use App\Events\PDF\MR;
 use App\Events\PDF\bpinformationsheet;

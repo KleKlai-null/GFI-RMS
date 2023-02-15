@@ -1,7 +1,5 @@
 <div>
-    <div x-data="{show: true}"
-    x-show="show"
-    x-init="@this.on('saved', () => { show = false;})">
+    <div x-data="{ show: true }" x-show="show" x-init="@this.on('saved', () => { show = false; })">
 
         <div class="container-xl">
             <!-- Page title -->
@@ -17,17 +15,22 @@
                         <div class="btn-list">
                             <span class="d-none d-sm-inline">
                                 <div>
-                                    <a class="btn btn-primary" href="{{ route('role.create') }}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-2 icon-tabler-shield-lock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <a class="btn btn-primary" href="{{ route('role.index') }}">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="icon me-2 icon-tabler-shield-lock" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"></path>
+                                            <path
+                                                d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3">
+                                            </path>
                                             <circle cx="12" cy="11" r="1"></circle>
                                             <line x1="12" y1="12" x2="12" y2="14.5"></line>
-                                         </svg>
+                                        </svg>
                                         Create Role
                                     </a>
                                 </div>
-                              </span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -41,15 +44,15 @@
                             <div class="card-body">
                                 <div class="form-group mb-3 row">
                                     <label class="col-3 col-form-label required">Name (First, Last)</label>
-                                    
+
                                     <div class="col">
                                         <div class="row g-2">
                                             <div class="col-6">
                                                 <input type="text"
                                                     class="form-control @error('first_name') is-invalid @enderror"
                                                     wire:model="first_name" value="{{ old('first_name') }}"
-                                                    aria-describedby="nameHelp" placeholder="Juan"
-                                                    autocomplete="off" required>
+                                                    aria-describedby="nameHelp" placeholder="Juan" autocomplete="off"
+                                                    required>
                                                 @error('first_name')
                                                     <small class="text-danger">{{ $message }}</small>
                                                 @enderror
@@ -83,11 +86,9 @@
                                 <div class="form-group mb-3 row">
                                     <label class="col-3 col-form-label required">Email address</label>
                                     <div class="col">
-                                        <input type="email"
-                                            class="form-control @error('email') is-invalid @enderror"
-                                            wire:model="email" value="{{ old('email') }}"
-                                            aria-describedby="emailHelp" placeholder="Email" autocomplete="off"
-                                            required>
+                                        <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                            wire:model="email" value="{{ old('email') }}" aria-describedby="emailHelp"
+                                            placeholder="Email" autocomplete="off" required>
                                         @error('email')
                                             <small class="text-danger">{{ $message }}</small>
                                         @enderror

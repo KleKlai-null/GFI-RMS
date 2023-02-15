@@ -51,7 +51,7 @@ class FormCreditMemoListener implements ShouldQueue
         $filename = $event->data->cm_document_series_no . '.pdf';
         $this->exportPDF($event->data, 'ma', $filename);
     }
-    
+
 
     public function exportPDF($event, $type, $filename)
     {
@@ -70,9 +70,9 @@ class FormCreditMemoListener implements ShouldQueue
             // Visit form pdf to generate
             $pdf = Pdf::loadView('forms.pdf.cm.'.$type, compact('qrcode', 'data'))->setPaper('portrait');
             $content = $pdf->download()->getOriginalContent();
-            
+
             // Put to local disk
-            Storage::disk('local')->put('pdf/'.$filename, $content);  
+            Storage::disk('local')->put('pdf/'.$filename, $content);
 
             $event->addMediaFromDisk('pdf/'.$filename, 'local')->preservingOriginal()->toMediaCollection('pdf');
 
