@@ -323,6 +323,7 @@
                     <th>Item Description</th>
                     <th>Qty</th>
                     <th>UOM</th>
+                    <th>GL Accounts</th>
                     <th>Remarks</th>
                 </tr>
             </thead>
@@ -330,9 +331,11 @@
                 @foreach ($data->items as $item)
                     <tr>
                         <td>{{ $item->item_code }}</td>
-                        <td style="word-wrap: break-word; max-width: 150px;">{{ $item->item_description }}</td>
-                        <td>{{ $item->qty }}</td>
+                        <td class="text-muted" style="word-wrap: break-word; max-width: 150px;">
+                            {{ $item->item_description }}</td>
+                        <td class="text-muted">{{ $item->qty }}</td>
                         <td class="text-muted">{{ $item->uom }}</td>
+                        <td class="text-muted">{{ $item->gl_accounts }}</td>
                         <td>{{ $item->remarks }}</td>
                     </tr>
                 @endforeach
