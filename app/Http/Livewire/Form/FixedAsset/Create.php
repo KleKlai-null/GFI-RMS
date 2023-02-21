@@ -14,7 +14,7 @@ use Event;
 class Create extends Component
 {
     public $document_series_no;
-    public $code, $description, $qty, $uom, $serial_no, $remarks;
+    public $code, $description, $qty, $uom, $serial_no, $gl_accounts, $remarks;
     public $memorandum_no;
     public $noted_by, $prepared_by, $approved_by, $checked_by, $requested_by, $released_by, $received_by;
     public $noted_by_position, $prepared_by_position, $approved_by_position, $checked_by_position, $requested_by_position, $released_by_position, $received_by_position;
@@ -48,10 +48,10 @@ class Create extends Component
 
     public function remove($i)
     {
-        unset($this->inputs[$i],$this->code[$i+1],$this->description[$i+1],$this->qty[$i+1],$this->uom[$i+1],$this->remarks[$i+1]);
+        unset($this->inputs[$i],$this->code[$i+1],$this->description[$i+1],$this->qty[$i+1],$this->uom[$i+1],$this->gl_accounts[$i+1],$this->remarks[$i+1]);
     }
 
-    public function rules() 
+    public function rules()
     {
         return [
             'memorandum_no'         => 'required',
@@ -60,8 +60,9 @@ class Create extends Component
             'qty.*'                 => 'required|numeric',
             'uom'                   => 'required',
             'serial_no.*'           => 'required',
+            'gl_accounts.*'         => 'required',
             'remarks.*'             => 'nullable',
-            
+
             'prepared_by'           => 'nullable',
             'prepared_by_position'  => 'nullable',
             'checked_by'            => 'nullable',
@@ -88,6 +89,7 @@ class Create extends Component
             'qty.*.numeric'              => "The value must be numbers",
             'serial_no.*.required'       => "Serial no cannot be blank",
             'uom.*.required'             => "Uom cannot be blank",
+            'gl_accounts.*.required'     => "GL accounts cannot be blank",
         ];
     }
 
@@ -107,7 +109,7 @@ class Create extends Component
             $data = $this->model::create([
                 'document_series_no'    => $this->document_series_no,
                 'mr_no'                 => $this->memorandum_no,
-                
+
                 'prepared_by'           => $this->prepared_by,
                 'prepared_by_position'  => $this->prepared_by_position,
                 'checked_by'            => $this->checked_by,
@@ -132,6 +134,7 @@ class Create extends Component
                     'qty'                   => $this->qty[$key],
                     'uom'                   => $this->uom[$key],
                     'serial_no'             => $this->serial_no[$key],
+                    'gl_accounts'           => $this->gl_accounts[$key],
                     'remarks'               => $this->remarks[$key] ?? ''
                 ]);
             }

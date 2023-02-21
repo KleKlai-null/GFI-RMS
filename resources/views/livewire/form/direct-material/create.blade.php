@@ -84,7 +84,7 @@
                                     <div class="col-1">
                                         <label class="form-label">Code</label>
                                     </div>
-                                    <div class="col-5">
+                                    <div class="col-3">
                                         <label class="form-label">Description</label>
                                     </div>
                                     <div class="col-1">
@@ -92,6 +92,9 @@
                                     </div>
                                     <div class="col-1">
                                         <label class="form-label">UOM</label>
+                                    </div>
+                                    <div class="col-2">
+                                        <label class="form-label">GL Accounts</label>
                                     </div>
                                     <div class="col-3">
                                         <label class="form-label">Remarks</label>
@@ -108,7 +111,7 @@
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <div class="col-5">
+                                        <div class="col-3">
                                             <input type="text"
                                                 class="form-control @error('description.' . $value) is-invalid @enderror"
                                                 placeholder="Description of the product/item"
@@ -133,6 +136,15 @@
                                                 placeholder="Uom" wire:model="uom.{{ $value }}"
                                                 onkeyup="this.value = this.value.toUpperCase();">
                                             @error('uom.' . $value)
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                        <div class="col-2">
+                                            <input type="text"
+                                                class="form-control @error('gl_accounts.' . $value) is-invalid @enderror"
+                                                placeholder="Gl account" wire:model="gl_accounts.{{ $value }}"
+                                                onkeyup="this.value = this.value.toUpperCase();">
+                                            @error('gl_accounts.' . $value)
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                         </div>
